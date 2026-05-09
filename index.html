@@ -17,7 +17,7 @@
   <meta name="twitter:image" content="https://petcostbill.com/assets/og-image.png" />
   <meta name="twitter:title" content="Pet Cost Calculator — How Much Does a Pet Really Cost?" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230F766E'/%3E%3Ctext x='50' y='66' font-family='system-ui,sans-serif' font-weight='700' font-size='58' fill='white' text-anchor='middle'%3E%24%3C/text%3E%3C/svg%3E" />
-  <link rel="stylesheet" href="/assets/css/site.css?v=20260509b" />
+  <link rel="stylesheet" href="/assets/css/site.css?v=20260510k" />
 
   <style id="home-page-styles">
   /* ============================================================
@@ -26,8 +26,8 @@
      ============================================================ */
   .hp-page { background: #F7F1E1; min-height: 100vh; padding: 24px 0; }
   .hp-container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
-  .hp-h1 { font-size: clamp(2rem, 4.5vw, 3rem); font-weight: 700;
-    letter-spacing: -0.02em; line-height: 1.1; margin: 0 0 12px; color: #1F2937; }
+  .hp-h1 { font-size: clamp(1.85rem, 4vw, 2.4rem); font-weight: 700;
+    letter-spacing: -0.02em; line-height: 1.15; margin: 0 0 12px; color: #1F2937; }
   .hp-lede { color: #6B7280; font-size: 1.05rem; margin: 0 0 28px; max-width: 60ch; }
 
   .hp-grid { display: grid; grid-template-columns: 1fr; gap: 24px; align-items: start; }
@@ -74,10 +74,13 @@
   .hp-est-label { display: flex; align-items: center; gap: 8px; font-size: 14px;
     font-weight: 500; color: #6B7280; margin: 0 0 12px; }
   .hp-est-label svg { width: 18px; height: 18px; color: #0F766E; }
-  .hp-est-amount { font-size: clamp(2rem, 5vw, 2.8rem); font-weight: 700;
-    color: #1F2937; line-height: 1; letter-spacing: -0.02em; display: inline; }
+  .hp-est-amount { font-size: clamp(2.6rem, 6vw, 3.4rem); font-weight: 800;
+    color: #115E59; line-height: 1; letter-spacing: -0.02em; display: inline;
+    font-variant-numeric: tabular-nums; }
   .hp-est-per { font-size: 1rem; font-weight: 500; color: #6B7280; margin-left: 4px; }
-  .hp-est-range { display: flex; gap: 18px; margin-top: 14px; font-size: 13px; color: #6B7280; }
+  .hp-est-range { display: flex; gap: 18px; margin-top: 14px; font-size: 13px; color: #6B7280; font-variant-numeric: tabular-nums; }
+  .hp-est-range span:first-child strong { color: #15803D; font-weight: 600; }
+  .hp-est-range span:last-child strong { color: #B45309; font-weight: 600; }
   .hp-est-ins { display: flex; gap: 8px; align-items: flex-start; margin-top: 12px;
     padding: 10px 12px; background: #FBF6E8; border-radius: 8px;
     font-size: 13px; color: #374151; line-height: 1.45; }
@@ -91,7 +94,7 @@
     padding: 16px 18px; }
   .hp-cards .hp-card .k { font-size: 11px; font-weight: 600; text-transform: uppercase;
     letter-spacing: 0.06em; color: #6B7280; margin: 0 0 4px; }
-  .hp-cards .hp-card .v { font-size: 1.4rem; font-weight: 700; color: #1F2937; }
+  .hp-cards .hp-card .v { font-size: 1.2rem; font-weight: 700; color: #1F2937; font-variant-numeric: tabular-nums; }
 
   .hp-drivers { background: #fff; border: 1px solid #E8DFC7; border-radius: 16px;
     padding: 18px 22px; box-shadow: 0 1px 2px rgba(15,23,42,0.05); }
@@ -103,7 +106,7 @@
     padding: 9px 0; border-bottom: 1px dashed #E8DFC7; font-size: 0.95rem; }
   .hp-drivers li:last-child { border-bottom: 0; }
   .hp-drivers li .name { color: #374151; font-weight: 500; }
-  .hp-drivers li .val { color: #1F2937; font-weight: 700; }
+  .hp-drivers li .val { color: #1F2937; font-weight: 700; font-variant-numeric: tabular-nums; }
 
   .hp-discl { display: flex; gap: 10px; align-items: flex-start; background: #FBF6E8;
     border: 1px solid #E8DFC7; border-radius: 12px; padding: 12px 14px;
@@ -184,16 +187,16 @@
     ] }
   </script>
 
-  <script src="/assets/data/csv-loader-20260509.js" defer></script>
-  <script src="/assets/data/base-costs.js?v=20260509b" defer></script>
-  <script src="/assets/data/multipliers.js?v=20260509b" defer></script>
-  <script src="/assets/data/breeds.js?v=20260509b" defer></script>
-  <script src="/assets/data/procedures.js?v=20260509b" defer></script>
-  <script src="/assets/data/insurance.js?v=20260509b" defer></script>
-  <script src="/assets/data/cities.js?v=20260509b" defer></script>
-  <script src="/assets/data/breed-images.js?v=20260509b" defer></script>
-  <script src="/assets/js/layout-20260509.js" defer></script>
-  <script src="/assets/js/calculator-20260509.js" defer></script>
+  <script src="/assets/data/csv-loader-20260510.js" defer></script>
+  <script src="/assets/data/base-costs.js?v=20260510b" defer></script>
+  <script src="/assets/data/multipliers.js?v=20260510b" defer></script>
+  <script src="/assets/data/breeds.js?v=20260510b" defer></script>
+  <script src="/assets/data/procedures.js?v=20260510b" defer></script>
+  <script src="/assets/data/insurance.js?v=20260510b" defer></script>
+  <script src="/assets/data/cities.js?v=20260510b" defer></script>
+  <script src="/assets/data/breed-images.js?v=20260510b" defer></script>
+  <script src="/assets/js/layout-20260510h.js" defer></script>
+  <script src="/assets/js/calculator-20260510.js" defer></script>
 </head>
 
 <body class="hp-page">
@@ -214,24 +217,31 @@
             <label class="hp-label">Pet Type</label>
             <div class="hp-pet-row">
               <button type="button" class="hp-pet-btn is-active" data-species="dog" aria-pressed="true">
-                <img class="hp-pet-ico" src="/logo/dog-svgrepo-com.svg?v=20260509b" alt="Dog illustration" width="56" height="56" />
+                <img class="hp-pet-ico" src="/logo/dog-svgrepo-com.svg?v=20260510b" alt="Dog illustration" width="56" height="56" />
                 <span class="lbl">Dog</span>
               </button>
               <button type="button" class="hp-pet-btn" data-species="cat" aria-pressed="false">
-                <img class="hp-pet-ico" src="/logo/cat-svgrepo-com.svg?v=20260509b" alt="Cat illustration" width="56" height="56" />
+                <img class="hp-pet-ico" src="/logo/cat-svgrepo-com.svg?v=20260510b" alt="Cat illustration" width="56" height="56" />
                 <span class="lbl">Cat</span>
               </button>
             </div>
           </div>
 
-          <div class="hp-field">
-            <label class="hp-label" for="hp-size">Size</label>
+          <div class="hp-field" id="hp-field-size">
+            <label class="hp-label" for="hp-size">Dog size</label>
             <select id="hp-size">
               <option value="toy">Toy (under 10 lbs)</option>
               <option value="small">Small (10–25 lbs)</option>
               <option value="medium" selected>Medium (25–60 lbs)</option>
               <option value="large">Large (60–90 lbs)</option>
               <option value="giant">Giant (90+ lbs)</option>
+            </select>
+          </div>
+          <div class="hp-field" id="hp-field-indoor" hidden>
+            <label class="hp-label" for="hp-indoor">Living style</label>
+            <select id="hp-indoor">
+              <option value="indoor" selected>Indoor only</option>
+              <option value="outdoor">Indoor + outdoor</option>
             </select>
           </div>
 
@@ -259,8 +269,8 @@
             </div>
             <span class="hp-est-amount" id="hp-monthly">$—</span><span class="hp-est-per">/month</span>
             <div class="hp-est-range">
-              <span>Low: <span id="hp-low">—</span></span>
-              <span>High: <span id="hp-high">—</span></span>
+              <span>Low: <strong id="hp-low">—</strong></span>
+              <span>High: <strong id="hp-high">—</strong></span>
             </div>
             <div class="hp-est-ins" id="hp-ins-line" hidden>
               <span class="hp-ins-icon" aria-hidden="true">+</span>
@@ -373,7 +383,7 @@
   <section>
     <div class="hp-container">
       <div class="hp-why">
-        <span class="hp-why-img" style="background-image: url('/assets/images/hero-pets.svg?v=20260509b');" role="img" aria-label="A friendly dog and a contented cat resting together"></span>
+        <span class="hp-why-img" style="background-image: url('/assets/images/hero-pets.svg?v=20260510b');" role="img" aria-label="A friendly dog and a contented cat resting together"></span>
         <div class="hp-why-body">
           <h2>Why Plan for Pet Costs?</h2>
           <p>Understanding the true cost of pet ownership helps you budget properly and ensure your furry friend gets the best care. From routine vet visits to unexpected emergencies, being prepared makes all the difference.</p>
@@ -390,19 +400,19 @@
       <div class="hp-faq">
         <details>
           <summary>How accurate are these calculators?</summary>
-          <p>They reflect current national survey averages and peer-reviewed price data, then add state, breed, age, and lifestyle adjustments. Each result shows a low / typical / high range so you see the spread rather than a falsely precise single number.</p>
+          <p>They reflect current national survey averages and peer-reviewed price data, then add state, breed, age, and lifestyle adjustments. Each result shows a low / typical / high range so you see the spread rather than a falsely precise single number. For important decisions, get a written quote from your vet.</p>
+        </details>
+        <details>
+          <summary>Do you collect any personal data?</summary>
+          <p>No. The calculators run entirely in your browser. We don't ask for an email, we don't track you across the web, and your inputs never leave your device.</p>
         </details>
         <details>
           <summary>How often are the numbers updated?</summary>
           <p>We review every cost table at least quarterly against AVMA, NAPHIA, BLS CPI, and Banfield's State of Pet Health. Last full review: May 2026.</p>
         </details>
         <details>
-          <summary>Why CSV-backed cost tables?</summary>
-          <p>Every number on the site lives in a CSV file under <code>/assets/data/csv/</code>. Anyone can edit a row in a spreadsheet and the calculators pick up the change. No build step.</p>
-        </details>
-        <details>
-          <summary>Do you collect any personal data?</summary>
-          <p>No. The calculators run entirely in your browser. We don't ask for an email, we don't track you across the web, and your inputs never leave your device.</p>
+          <summary>Should I get pet insurance?</summary>
+          <p>Insurance is most useful as protection against large unexpected accident or illness bills. If your pet has even one major event over its lifetime, insurance often pays back many times over. Healthy pets may come out ahead with self-savings — use the <a href="/pet-insurance-vs-savings/">Insurance vs Savings calculator</a> to model both for your specific case.</p>
         </details>
       </div>
     </div>
@@ -476,9 +486,26 @@
         state.species = btn.getAttribute("data-species");
         if (state.species === "cat" && state.stage === "puppy") state.stage = "kitten";
         if (state.species === "dog" && state.stage === "kitten") state.stage = "puppy";
+        // Toggle size (dogs) vs indoor/outdoor (cats)
+        var sizeField   = document.getElementById("hp-field-size");
+        var indoorField = document.getElementById("hp-field-indoor");
+        if (state.species === "cat") {
+          if (sizeField)   sizeField.setAttribute("hidden", "");
+          if (indoorField) indoorField.removeAttribute("hidden");
+        } else {
+          if (sizeField)   sizeField.removeAttribute("hidden");
+          if (indoorField) indoorField.setAttribute("hidden", "");
+        }
+        // Update Age dropdown's option labels for species
+        var ageSel = document.getElementById("hp-age");
+        if (ageSel && ageSel.options.length) {
+          ageSel.options[0].textContent = state.species === "cat" ? "Kitten (under 1 year)" : "Puppy (under 1 year)";
+        }
         recalc();
       });
     });
+    var indoorEl = document.getElementById("hp-indoor");
+    if (indoorEl) indoorEl.addEventListener("change", function (e) { state.indoor = e.target.value; recalc(); });
     $("hp-size").addEventListener("change", function (e) { state.size = e.target.value; recalc(); });
     $("hp-age").addEventListener("change", function (e) {
       var v = e.target.value;

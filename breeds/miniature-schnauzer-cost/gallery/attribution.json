@@ -1,0 +1,36 @@
+{
+  "slug": "miniature-schnauzer",
+  "breed": "miniature schnauzer",
+  "files": [
+    {
+      "file": "01.jpg",
+      "sourceFile": "ms_1.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "miniature-schnauzer"
+    },
+    {
+      "file": "02.jpg",
+      "sourceFile": "ms_2.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "miniature-schnauzer"
+    },
+    {
+      "file": "03.jpg",
+      "sourceFile": "ms_3.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "miniature-schnauzer"
+    },
+    {
+      "file": "04.jpg",
+      "sourceFile": "ms_4.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "miniature-schnauzer"
+    },
+    {
+      "file": "05.jpg",
+      "sourceFile": "ms_5.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "miniature-schnauzer"
+    }
+  ]
+}

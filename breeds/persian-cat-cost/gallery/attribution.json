@@ -1,0 +1,36 @@
+{
+  "slug": "persian",
+  "breed": "persian",
+  "files": [
+    {
+      "file": "01.jpg",
+      "sourceFile": "persian_1.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "persian"
+    },
+    {
+      "file": "02.jpg",
+      "sourceFile": "persian_2.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "persian"
+    },
+    {
+      "file": "03.jpg",
+      "sourceFile": "persian_3.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "persian"
+    },
+    {
+      "file": "04.jpg",
+      "sourceFile": "persian_4.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "persian"
+    },
+    {
+      "file": "05.jpg",
+      "sourceFile": "persian_5.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "persian"
+    }
+  ]
+}

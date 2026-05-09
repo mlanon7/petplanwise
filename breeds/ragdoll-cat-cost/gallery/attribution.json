@@ -1,0 +1,36 @@
+{
+  "slug": "ragdoll",
+  "breed": "ragdoll",
+  "files": [
+    {
+      "file": "01.jpg",
+      "sourceFile": "ragdoll_1.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "ragdoll"
+    },
+    {
+      "file": "02.jpg",
+      "sourceFile": "ragdoll_2.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "ragdoll"
+    },
+    {
+      "file": "03.jpg",
+      "sourceFile": "ragdoll_3.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "ragdoll"
+    },
+    {
+      "file": "04.jpg",
+      "sourceFile": "ragdoll_4.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "ragdoll"
+    },
+    {
+      "file": "05.jpg",
+      "sourceFile": "ragdoll_5.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "ragdoll"
+    }
+  ]
+}

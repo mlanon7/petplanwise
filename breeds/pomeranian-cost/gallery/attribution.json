@@ -1,0 +1,36 @@
+{
+  "slug": "pomeranian",
+  "breed": "pomeranian",
+  "files": [
+    {
+      "file": "01.jpg",
+      "sourceFile": "pomeranian_1.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "pomeranian"
+    },
+    {
+      "file": "02.jpg",
+      "sourceFile": "pomeranian_2.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "pomeranian"
+    },
+    {
+      "file": "03.jpg",
+      "sourceFile": "pomeranian_3.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "pomeranian"
+    },
+    {
+      "file": "04.jpg",
+      "sourceFile": "pomeranian_4.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "pomeranian"
+    },
+    {
+      "file": "05.jpg",
+      "sourceFile": "pomeranian_5.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "pomeranian"
+    }
+  ]
+}

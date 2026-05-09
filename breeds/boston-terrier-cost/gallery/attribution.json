@@ -1,0 +1,36 @@
+{
+  "slug": "boston-terrier",
+  "breed": "boston terrier",
+  "files": [
+    {
+      "file": "01.jpg",
+      "sourceFile": "bt_1.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "boston-terrier"
+    },
+    {
+      "file": "02.jpg",
+      "sourceFile": "bt_2.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "boston-terrier"
+    },
+    {
+      "file": "03.jpg",
+      "sourceFile": "bt_3.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "boston-terrier"
+    },
+    {
+      "file": "04.jpg",
+      "sourceFile": "bt_4.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "boston-terrier"
+    },
+    {
+      "file": "05.jpg",
+      "sourceFile": "bt_5.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "boston-terrier"
+    }
+  ]
+}

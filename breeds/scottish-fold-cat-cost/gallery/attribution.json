@@ -1,0 +1,36 @@
+{
+  "slug": "scottish-fold",
+  "breed": "scottish fold",
+  "files": [
+    {
+      "file": "01.jpg",
+      "sourceFile": "sf_1.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "scottish-fold"
+    },
+    {
+      "file": "02.jpg",
+      "sourceFile": "sf_2.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "scottish-fold"
+    },
+    {
+      "file": "03.jpg",
+      "sourceFile": "sf_3.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "scottish-fold"
+    },
+    {
+      "file": "04.jpg",
+      "sourceFile": "sf_4.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "scottish-fold"
+    },
+    {
+      "file": "05.jpg",
+      "sourceFile": "sf_5.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "scottish-fold"
+    }
+  ]
+}

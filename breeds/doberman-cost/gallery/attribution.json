@@ -1,0 +1,36 @@
+{
+  "slug": "doberman",
+  "breed": "doberman",
+  "files": [
+    {
+      "file": "01.jpg",
+      "sourceFile": "doberman_1.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "doberman"
+    },
+    {
+      "file": "02.jpg",
+      "sourceFile": "doberman_2.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "doberman"
+    },
+    {
+      "file": "03.jpg",
+      "sourceFile": "doberman_3.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "doberman"
+    },
+    {
+      "file": "04.jpg",
+      "sourceFile": "doberman_4.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "doberman"
+    },
+    {
+      "file": "05.jpg",
+      "sourceFile": "doberman_5.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "doberman"
+    }
+  ]
+}

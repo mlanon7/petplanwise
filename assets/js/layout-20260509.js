@@ -7,7 +7,7 @@
   var HEADER = '\n  <header class="site-header">\n' +
     '    <div class="container">\n' +
     '      <a href="/" class="brand" aria-label="YourPetBill.com home">\n' +
-    '        <img src="/logo/logo.svg" alt="YourPetBill.com" class="brand-logo" width="180" height="60" />\n' +
+    '        <img src="/logo/logo.svg?v=20260510c" alt="YourPetBill.com" class="brand-logo" width="180" height="60" />\n' +
     '      </a>\n' +
     '      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">\n' +
     '        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>\n' +
@@ -192,6 +192,8 @@
         var img = (DD.breedImages || {})[slug];
         if (!img || !img.src) return;
         if (node.previousElementSibling && node.previousElementSibling.classList.contains("breed-hero-image")) return;
+        // Skip if a static hero is already on the page (added directly in the HTML)
+        if (document.querySelector(".breed-hero-static")) return;
         var w = document.createElement("figure");
         w.className = "breed-hero-image";
         var i = document.createElement("img");
@@ -231,6 +233,70 @@
     } else {
       renderBreedHero();
     }
+
+
+
+    /* Render an inline gallery of additional breed photos.
+       Styles applied INLINE on each element so external CSS can't override. */
+    function renderBreedGallery() {
+      var node = document.querySelector("[data-calculator][data-breed]");
+      if (!node) return;
+      var breedCostPath = window.location.pathname.replace(/\/$/, "");
+      if (!/\/breeds\/[^/]+-cost$/.test(breedCostPath)) return;
+      var attribUrl = breedCostPath + "/gallery/attribution.json";
+      fetch(attribUrl).then(function (r) {
+        if (!r.ok) return null;
+        return r.json();
+      }).then(function (data) {
+        if (!data || !data.files || !data.files.length) return;
+        if (document.querySelector(".breed-gallery")) return;
+
+        var section = document.createElement("section");
+        section.className = "breed-gallery";
+        section.style.cssText = "padding:24px 0 32px;background:#FBF6E8;border-top:1px solid #E8DFC7;margin-top:32px;";
+
+        var container = document.createElement("div");
+        container.className = "container";
+        section.appendChild(container);
+
+        var h2 = document.createElement("h2");
+        h2.textContent = "More photos of the " + (data.breed || "breed").replace(/-/g, " ");
+        h2.style.cssText = "font-size:1.5rem;font-weight:700;margin:0 0 16px;color:#1F2937;";
+        container.appendChild(h2);
+
+        var grid = document.createElement("div");
+        grid.className = "breed-gallery-grid";
+        grid.style.cssText = "display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;";
+        container.appendChild(grid);
+
+        data.files.forEach(function (f) {
+          var fig = document.createElement("figure");
+          fig.className = "breed-gallery-item";
+          fig.style.cssText = "margin:0;background:#fff;border:1px solid #E8DFC7;border-radius:12px;overflow:hidden;aspect-ratio:1/1;position:relative;";
+
+          var img = document.createElement("img");
+          img.src = breedCostPath + "/gallery/" + f.file;
+          img.alt = f.description || ((data.breed || "breed").replace(/-/g, " ") + " gallery photo");
+          img.loading = "lazy";
+          img.decoding = "async";
+          img.style.cssText = "position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;border-radius:0;";
+          fig.appendChild(img);
+
+          if (f.source || f.artist || f.license) {
+            var cap = document.createElement("figcaption");
+            cap.style.cssText = "position:absolute;bottom:0;left:0;right:0;padding:6px 10px;background:linear-gradient(transparent,rgba(0,0,0,0.55));color:#fff;font-size:11px;line-height:1.4;";
+            cap.textContent = f.source || (f.artist || "Source");
+            fig.appendChild(cap);
+          }
+
+          grid.appendChild(fig);
+        });
+
+        var main = document.querySelector("main");
+        if (main) main.appendChild(section);
+      }).catch(function () { /* gallery is optional */ });
+    }
+    renderBreedGallery();
 
     /* Affiliate microcopy near every CTA in an affiliate block (FTC) — only if no static disclosure exists */
     document.querySelectorAll(".affiliate").forEach(function (block) {

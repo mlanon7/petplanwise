@@ -1,0 +1,36 @@
+{
+  "slug": "great-dane",
+  "breed": "great dane",
+  "files": [
+    {
+      "file": "01.jpg",
+      "sourceFile": "gd_1.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "great-dane"
+    },
+    {
+      "file": "02.jpg",
+      "sourceFile": "gd_2.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "great-dane"
+    },
+    {
+      "file": "03.jpg",
+      "sourceFile": "gd_3.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "great-dane"
+    },
+    {
+      "file": "04.jpg",
+      "sourceFile": "gd_4.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "great-dane"
+    },
+    {
+      "file": "05.jpg",
+      "sourceFile": "gd_5.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "great-dane"
+    }
+  ]
+}

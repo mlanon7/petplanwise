@@ -1,0 +1,36 @@
+{
+  "slug": "australian-shepherd",
+  "breed": "australian shepherd",
+  "files": [
+    {
+      "file": "01.jpg",
+      "sourceFile": "as_1.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "australian-shepherd"
+    },
+    {
+      "file": "02.jpg",
+      "sourceFile": "as_2.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "australian-shepherd"
+    },
+    {
+      "file": "03.jpg",
+      "sourceFile": "as_3.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "australian-shepherd"
+    },
+    {
+      "file": "04.jpg",
+      "sourceFile": "as_4.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "australian-shepherd"
+    },
+    {
+      "file": "05.jpg",
+      "sourceFile": "as_5.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "australian-shepherd"
+    }
+  ]
+}

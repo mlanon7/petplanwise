@@ -1,0 +1,36 @@
+{
+  "slug": "siberian-husky",
+  "breed": "siberian husky",
+  "files": [
+    {
+      "file": "01.jpg",
+      "sourceFile": "sh_1.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "siberian-husky"
+    },
+    {
+      "file": "02.jpg",
+      "sourceFile": "sh_2.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "siberian-husky"
+    },
+    {
+      "file": "03.jpg",
+      "sourceFile": "sh_3.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "siberian-husky"
+    },
+    {
+      "file": "04.jpg",
+      "sourceFile": "sh_4.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "siberian-husky"
+    },
+    {
+      "file": "05.jpg",
+      "sourceFile": "sh_5.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "siberian-husky"
+    }
+  ]
+}

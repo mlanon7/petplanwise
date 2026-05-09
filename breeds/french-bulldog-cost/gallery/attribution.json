@@ -1,0 +1,36 @@
+{
+  "slug": "french-bulldog",
+  "breed": "french bulldog",
+  "files": [
+    {
+      "file": "01.jpg",
+      "sourceFile": "fb_1.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "french-bulldog"
+    },
+    {
+      "file": "02.jpg",
+      "sourceFile": "fb_2.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "french-bulldog"
+    },
+    {
+      "file": "03.jpg",
+      "sourceFile": "fb_3.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "french-bulldog"
+    },
+    {
+      "file": "04.jpg",
+      "sourceFile": "fb_4.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "french-bulldog"
+    },
+    {
+      "file": "05.jpg",
+      "sourceFile": "fb_5.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "french-bulldog"
+    }
+  ]
+}

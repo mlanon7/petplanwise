@@ -1,0 +1,36 @@
+{
+  "slug": "chihuahua",
+  "breed": "chihuahua",
+  "files": [
+    {
+      "file": "01.jpg",
+      "sourceFile": "chihuahua_1.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "chihuahua"
+    },
+    {
+      "file": "02.jpg",
+      "sourceFile": "chihuahua_2.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "chihuahua"
+    },
+    {
+      "file": "03.jpg",
+      "sourceFile": "chihuahua_3.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "chihuahua"
+    },
+    {
+      "file": "04.jpg",
+      "sourceFile": "chihuahua_4.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "chihuahua"
+    },
+    {
+      "file": "05.jpg",
+      "sourceFile": "chihuahua_5.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "chihuahua"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "border-collie",
+  "breed": "border collie",
+  "files": [
+    {
+      "file": "01.jpg",
+      "sourceFile": "bc_1.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "border-collie"
+    },
+    {
+      "file": "02.jpg",
+      "sourceFile": "bc_2.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "border-collie"
+    },
+    {
+      "file": "03.jpg",
+      "sourceFile": "bc_3.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "border-collie"
+    },
+    {
+      "file": "04.jpg",
+      "sourceFile": "bc_4.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "border-collie"
+    },
+    {
+      "file": "05.jpg",
+      "sourceFile": "bc_5.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "border-collie"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "beagle",
+  "breed": "beagle",
+  "files": [
+    {
+      "file": "01.jpg",
+      "sourceFile": "beagle_1.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "beagle"
+    },
+    {
+      "file": "02.jpg",
+      "sourceFile": "beagle_2.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "beagle"
+    },
+    {
+      "file": "03.jpg",
+      "sourceFile": "beagle_3.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "beagle"
+    },
+    {
+      "file": "04.jpg",
+      "sourceFile": "beagle_4.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "beagle"
+    },
+    {
+      "file": "05.jpg",
+      "sourceFile": "beagle_5.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "beagle"
+    }
+  ]
+}

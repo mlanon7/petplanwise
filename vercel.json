@@ -40,6 +40,15 @@
       ]
     },
     {
+      "source": "/breeds/(.*)\\.(jpg|jpeg|png|webp|avif)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
       "source": "/(.*)",
       "headers": [
         {

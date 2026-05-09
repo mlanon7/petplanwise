@@ -1,0 +1,36 @@
+{
+  "slug": "cane-corso",
+  "breed": "cane corso",
+  "files": [
+    {
+      "file": "01.jpg",
+      "sourceFile": "cc_1.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "cane-corso"
+    },
+    {
+      "file": "02.jpg",
+      "sourceFile": "cc_2.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "cane-corso"
+    },
+    {
+      "file": "03.jpg",
+      "sourceFile": "cc_3.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "cane-corso"
+    },
+    {
+      "file": "04.jpg",
+      "sourceFile": "cc_4.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "cane-corso"
+    },
+    {
+      "file": "05.jpg",
+      "sourceFile": "cc_5.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "cane-corso"
+    }
+  ]
+}

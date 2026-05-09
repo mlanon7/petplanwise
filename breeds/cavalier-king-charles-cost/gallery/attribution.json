@@ -1,0 +1,36 @@
+{
+  "slug": "cavalier-king-charles",
+  "breed": "cavalier king charles",
+  "files": [
+    {
+      "file": "01.jpg",
+      "sourceFile": "ckc_1.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "cavalier-king-charles"
+    },
+    {
+      "file": "02.jpg",
+      "sourceFile": "ckc_2.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "cavalier-king-charles"
+    },
+    {
+      "file": "03.jpg",
+      "sourceFile": "ckc_3.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "cavalier-king-charles"
+    },
+    {
+      "file": "04.jpg",
+      "sourceFile": "ckc_4.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "cavalier-king-charles"
+    },
+    {
+      "file": "05.jpg",
+      "sourceFile": "ckc_5.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "cavalier-king-charles"
+    }
+  ]
+}

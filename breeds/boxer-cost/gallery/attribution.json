@@ -1,0 +1,36 @@
+{
+  "slug": "boxer",
+  "breed": "boxer",
+  "files": [
+    {
+      "file": "01.jpg",
+      "sourceFile": "boxer_1.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "boxer"
+    },
+    {
+      "file": "02.jpg",
+      "sourceFile": "boxer_2.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "boxer"
+    },
+    {
+      "file": "03.jpg",
+      "sourceFile": "boxer_3.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "boxer"
+    },
+    {
+      "file": "04.jpg",
+      "sourceFile": "boxer_4.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "boxer"
+    },
+    {
+      "file": "05.jpg",
+      "sourceFile": "boxer_5.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "boxer"
+    }
+  ]
+}

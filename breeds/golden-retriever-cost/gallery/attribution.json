@@ -1,0 +1,36 @@
+{
+  "slug": "golden-retriever",
+  "breed": "golden retriever",
+  "files": [
+    {
+      "file": "01.jpg",
+      "sourceFile": "gr_1.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "golden-retriever"
+    },
+    {
+      "file": "02.jpg",
+      "sourceFile": "gr_2.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "golden-retriever"
+    },
+    {
+      "file": "03.jpg",
+      "sourceFile": "gr_3.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "golden-retriever"
+    },
+    {
+      "file": "04.jpg",
+      "sourceFile": "gr_4.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "golden-retriever"
+    },
+    {
+      "file": "05.jpg",
+      "sourceFile": "gr_5.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "golden-retriever"
+    }
+  ]
+}

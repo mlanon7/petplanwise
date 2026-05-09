@@ -1,0 +1,36 @@
+{
+  "slug": "yorkshire-terrier",
+  "breed": "yorkshire terrier",
+  "files": [
+    {
+      "file": "01.jpg",
+      "sourceFile": "yt_1.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "yorkshire-terrier"
+    },
+    {
+      "file": "02.jpg",
+      "sourceFile": "yt_2.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "yorkshire-terrier"
+    },
+    {
+      "file": "03.jpg",
+      "sourceFile": "yt_3.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "yorkshire-terrier"
+    },
+    {
+      "file": "04.jpg",
+      "sourceFile": "yt_4.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "yorkshire-terrier"
+    },
+    {
+      "file": "05.jpg",
+      "sourceFile": "yt_5.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "yorkshire-terrier"
+    }
+  ]
+}

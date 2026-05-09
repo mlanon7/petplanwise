@@ -1,0 +1,36 @@
+{
+  "slug": "siamese",
+  "breed": "siamese",
+  "files": [
+    {
+      "file": "01.jpg",
+      "sourceFile": "siamese_1.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "siamese"
+    },
+    {
+      "file": "02.jpg",
+      "sourceFile": "siamese_2.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "siamese"
+    },
+    {
+      "file": "03.jpg",
+      "sourceFile": "siamese_3.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "siamese"
+    },
+    {
+      "file": "04.jpg",
+      "sourceFile": "siamese_4.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "siamese"
+    },
+    {
+      "file": "05.jpg",
+      "sourceFile": "siamese_5.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "siamese"
+    }
+  ]
+}

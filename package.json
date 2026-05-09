@@ -14,7 +14,9 @@
     "fetch-images": "node scripts/fetch-images-wikipedia.js",
     "fetch-images-pexels": "node scripts/fetch-breed-images.js",
     "sync": "node scripts/sync-from-sheets.js",
-    "push": "node scripts/push-to-sheets.js"
+    "push": "node scripts/push-to-sheets.js",
+    "fetch-galleries": "node scripts/fetch-breed-galleries.js",
+    "audit-photos": "node scripts/audit-and-refetch-breed-heroes.js"
   },
   "engines": {
     "node": "20.x"

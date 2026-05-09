@@ -1,0 +1,36 @@
+{
+  "slug": "bengal",
+  "breed": "bengal",
+  "files": [
+    {
+      "file": "01.jpg",
+      "sourceFile": "bengal_1.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "bengal"
+    },
+    {
+      "file": "02.jpg",
+      "sourceFile": "bengal_2.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "bengal"
+    },
+    {
+      "file": "03.jpg",
+      "sourceFile": "bengal_3.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "bengal"
+    },
+    {
+      "file": "04.jpg",
+      "sourceFile": "bengal_4.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "bengal"
+    },
+    {
+      "file": "05.jpg",
+      "sourceFile": "bengal_5.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "bengal"
+    }
+  ]
+}

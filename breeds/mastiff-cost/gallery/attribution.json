@@ -1,0 +1,36 @@
+{
+  "slug": "mastiff",
+  "breed": "mastiff",
+  "files": [
+    {
+      "file": "01.jpg",
+      "sourceFile": "mastiff_1.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "mastiff"
+    },
+    {
+      "file": "02.jpg",
+      "sourceFile": "mastiff_2.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "mastiff"
+    },
+    {
+      "file": "03.jpg",
+      "sourceFile": "mastiff_3.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "mastiff"
+    },
+    {
+      "file": "04.jpg",
+      "sourceFile": "mastiff_4.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "mastiff"
+    },
+    {
+      "file": "05.jpg",
+      "sourceFile": "mastiff_5.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "mastiff"
+    }
+  ]
+}

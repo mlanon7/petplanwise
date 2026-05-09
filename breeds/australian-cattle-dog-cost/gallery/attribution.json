@@ -1,0 +1,48 @@
+{
+  "slug": "australian-cattle-dog",
+  "breed": "australian cattle dog",
+  "files": [
+    {
+      "file": "01.jpg",
+      "sourceFile": "acd_1.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "australian-cattle-dog"
+    },
+    {
+      "file": "02.jpg",
+      "sourceFile": "acd_2.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "australian-cattle-dog"
+    },
+    {
+      "file": "03.jpg",
+      "sourceFile": "acd_3.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "australian-cattle-dog"
+    },
+    {
+      "file": "04.jpg",
+      "sourceFile": "acd_4.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "australian-cattle-dog"
+    },
+    {
+      "file": "05.jpg",
+      "sourceFile": "acd_5.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "australian-cattle-dog"
+    },
+    {
+      "file": "06.jpg",
+      "sourceFile": "acd_6.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "australian-cattle-dog"
+    },
+    {
+      "file": "07.jpg",
+      "sourceFile": "acd_7.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "australian-cattle-dog"
+    }
+  ]
+}

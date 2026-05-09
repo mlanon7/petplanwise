@@ -1516,9 +1516,10 @@ section { padding: 48px 0; }
    Brand logo (new YourPetBill.com SVG)
    ============================================================ */
 .brand-logo {
-  height: 36px;
+  height: 50px;
   width: auto;
   display: block;
+  max-width: 280px;
 }
 .site-header .brand {
   display: inline-flex;
@@ -1526,7 +1527,7 @@ section { padding: 48px 0; }
   text-decoration: none;
 }
 @media (max-width: 720px) {
-  .brand-logo { height: 30px; }
+  .brand-logo { height: 40px; max-width: 220px; }
 }
 
 
@@ -1554,3 +1555,177 @@ section { padding: 48px 0; }
 .reviewer-meta { display: flex; flex-direction: column; }
 .reviewer-name { font-weight: 700; color: var(--ink, #1F2937); font-size: 13px; line-height: 1.3; }
 .reviewer-title { font-size: 12px; color: var(--muted, #6B7280); line-height: 1.3; }
+
+/* ============================================================
+   Breed gallery (loaded async from /breeds/<slug>/gallery/attribution.json)
+   ============================================================ */
+.breed-gallery { padding: 24px 0 32px; background: var(--surface-2, #FBF6E8); border-top: 1px solid var(--border, #E8DFC7); margin-top: 32px; }
+.breed-gallery h2 { font-size: 1.5rem; font-weight: 700; margin: 0 0 16px; color: var(--ink, #1F2937); }
+/* Old gallery rules removed — see consolidated block at line ~1728 */
+
+
+/* ============================================================
+   2026-05-10 design pass — system-level tightenings
+   (priority items from the design review)
+   ============================================================ */
+
+/* Lower the global H1 ceiling so result amounts can be the loudest */
+h1 { font-size: clamp(1.85rem, 4vw, 2.4rem); }
+
+/* Tabular nums on every $ figure across the site */
+.cost-table .num,
+.calc-results .amount,
+.calc-results .range,
+.result-summary .stat .value,
+.top3-amount,
+.bar-fill,
+.breakdown td.num,
+.hp-est-amount,
+.hp-cards .hp-card .v,
+.hp-drivers li .val {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Range row Low (good) / High (warm) so the spread reads in 100ms */
+.calc-results .range strong {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Affiliate visual treatment: white card + amber left rail (Sponsored) */
+.affiliate {
+  position: relative;
+  background: #fff !important;
+  color: var(--ink) !important;
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--warm, #F59E0B);
+}
+.affiliate .affiliate-tag {
+  background: #FEF3C7;
+  color: #7c2d12;
+  border-radius: 4px;
+  padding: 2px 8px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.affiliate h3 { color: var(--ink); }
+.affiliate p { color: var(--ink-2); }
+.affiliate .btn,
+.affiliate a.btn {
+  background: var(--accent, #0F766E);
+  color: #fff !important;
+}
+
+/* Pet Type tile keyboard focus — outset shadow, since the tile already has a 2px border */
+.hp-pet-btn:focus-visible,
+.pet-type-chips button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.35);
+}
+
+/* Drop backdrop-filter from sticky header on mobile (perf) */
+@media (max-width: 720px) {
+  .site-header {
+    backdrop-filter: none !important;
+    background: rgba(247, 241, 225, 0.96) !important;
+  }
+}
+
+/* Tighten guide article H2 scale (1.5rem flat instead of clamp 1.5–2rem) */
+main .container.prose h2,
+.prose h2 {
+  font-size: 1.5rem;
+}
+
+/* Pull-stat boxes for guide articles (use class .pull-stat) */
+.pull-stat {
+  background: var(--primary-50, #E6F4F2);
+  border-left: 4px solid var(--primary, #0F766E);
+  padding: 14px 18px;
+  border-radius: 0 8px 8px 0;
+  font-size: 1.05rem;
+  margin: 18px 0;
+  color: var(--ink, #1F2937);
+}
+.pull-stat strong { color: var(--primary-700, #115E59); }
+
+
+
+/* ============================================================
+   2026-05-10c — square breed photos (parent aspect-ratio approach)
+   The PARENT figure is the square. The IMG is absolutely positioned
+   to fill it, so HTML width/height attrs and inline styles cant
+   override the layout. Works in every modern browser.
+   ============================================================ */
+
+.breed-hero-static {
+  max-width: 480px !important;
+  margin: 0 auto 16px !important;
+  aspect-ratio: 1 / 1 !important;
+  position: relative !important;
+  overflow: hidden !important;
+  border-radius: 14px;
+  background: var(--surface-2, #FBF6E8);
+}
+.breed-hero-static img {
+  position: absolute !important;
+  top: 0 !important; left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  border-radius: 0 !important;
+  display: block !important;
+}
+@media (max-width: 540px) {
+  .breed-hero-static { max-width: 92vw !important; }
+}
+
+.breed-hero-credit {
+  font-size: 12px;
+  color: var(--muted, #6B7280);
+  text-align: right;
+  padding: 6px 4px 0;
+  position: absolute;
+  bottom: 6px;
+  right: 8px;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  border-radius: 6px;
+  padding: 4px 8px;
+}
+.breed-hero-credit a { color: #fff; text-decoration: underline; }
+
+.breed-gallery-item {
+  aspect-ratio: 1 / 1 !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+.breed-gallery-item img {
+  position: absolute !important;
+  top: 0 !important; left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  display: block !important;
+}
+.breed-gallery-item figcaption {
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  padding: 6px 10px;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.6));
+  color: #fff;
+  font-size: 11px;
+  border-top: 0;
+}
+.breed-gallery-item figcaption a { color: #fff; }
+
+.breed-gallery-grid {
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)) !important;
+}

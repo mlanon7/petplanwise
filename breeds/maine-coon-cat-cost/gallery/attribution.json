@@ -1,0 +1,36 @@
+{
+  "slug": "maine-coon",
+  "breed": "maine coon",
+  "files": [
+    {
+      "file": "01.jpg",
+      "sourceFile": "mc_1.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "maine-coon"
+    },
+    {
+      "file": "02.jpg",
+      "sourceFile": "mc_2.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "maine-coon"
+    },
+    {
+      "file": "03.jpg",
+      "sourceFile": "mc_3.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "maine-coon"
+    },
+    {
+      "file": "04.jpg",
+      "sourceFile": "mc_4.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "maine-coon"
+    },
+    {
+      "file": "05.jpg",
+      "sourceFile": "mc_5.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "maine-coon"
+    }
+  ]
+}

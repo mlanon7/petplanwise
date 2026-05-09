@@ -1,0 +1,36 @@
+{
+  "slug": "bernese-mountain-dog",
+  "breed": "bernese mountain dog",
+  "files": [
+    {
+      "file": "01.jpg",
+      "sourceFile": "bmd_1.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "bernese-mountain-dog"
+    },
+    {
+      "file": "02.jpg",
+      "sourceFile": "bmd_2.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "bernese-mountain-dog"
+    },
+    {
+      "file": "03.jpg",
+      "sourceFile": "bmd_3.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "bernese-mountain-dog"
+    },
+    {
+      "file": "04.jpg",
+      "sourceFile": "bmd_4.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "bernese-mountain-dog"
+    },
+    {
+      "file": "05.jpg",
+      "sourceFile": "bmd_5.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "bernese-mountain-dog"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "cocker-spaniel",
+  "breed": "cocker spaniel",
+  "files": [
+    {
+      "file": "01.jpg",
+      "sourceFile": "cs_1.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "cocker-spaniel"
+    },
+    {
+      "file": "02.jpg",
+      "sourceFile": "cs_2.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "cocker-spaniel"
+    },
+    {
+      "file": "03.jpg",
+      "sourceFile": "cs_3.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "cocker-spaniel"
+    },
+    {
+      "file": "04.jpg",
+      "sourceFile": "cs_4.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "cocker-spaniel"
+    },
+    {
+      "file": "05.jpg",
+      "sourceFile": "cs_5.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "cocker-spaniel"
+    }
+  ]
+}

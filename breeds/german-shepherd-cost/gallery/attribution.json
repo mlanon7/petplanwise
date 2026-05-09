@@ -1,0 +1,36 @@
+{
+  "slug": "german-shepherd",
+  "breed": "german shepherd",
+  "files": [
+    {
+      "file": "01.jpg",
+      "sourceFile": "gs_1.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "german-shepherd"
+    },
+    {
+      "file": "02.jpg",
+      "sourceFile": "gs_2.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "german-shepherd"
+    },
+    {
+      "file": "03.jpg",
+      "sourceFile": "gs_3.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "german-shepherd"
+    },
+    {
+      "file": "04.jpg",
+      "sourceFile": "gs_4.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "german-shepherd"
+    },
+    {
+      "file": "05.jpg",
+      "sourceFile": "gs_5.jpg",
+      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
+      "breed": "german-shepherd"
+    }
+  ]
+}
