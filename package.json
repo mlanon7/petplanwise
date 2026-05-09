@@ -1,9 +1,9 @@
 {
-  "name": "pet-cost-vet-bill-calculator",
+  "name": "yourpetbill",
   "version": "1.0.0",
   "private": true,
   "type": "commonjs",
-  "description": "Calculator-first SEO site for U.S. dog and cat owners. Pure static HTML/CSS/JS, deploys to Vercel with zero build.",
+  "description": "YourPetBill.com — calculator-first SEO site for U.S. dog and cat owners. Pure static HTML/CSS/JS, deploys to Vercel with zero build.",
   "scripts": {
     "dev": "node local-server.js",
     "start": "node local-server.js",

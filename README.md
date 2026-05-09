@@ -1,4 +1,4 @@
-# Pet Cost & Vet Bill Calculator
+# YourPetBill.com
 
 A static, calculator-first SEO site for U.S. dog and cat owners. Pure HTML / CSS / vanilla JS — no build step, no framework. Deploys to Vercel, Netlify, Cloudflare Pages, or GitHub Pages with zero configuration.
 
@@ -54,7 +54,7 @@ git init
 git add .
 git commit -m "Initial site"
 git branch -M main
-git remote add origin git@github.com:your-handle/petcost-bill.git
+git remote add origin git@github.com:YOUR-USERNAME/yourpetbill.git
 git push -u origin main
 ```
 
@@ -222,46 +222,3 @@ To swap in a real affiliate URL: change the `<a class="btn" href="...">` and rem
 │   ├── puppy-first-year-cost/index.html
 │   ├── kitten-first-year-cost/index.html
 │   ├── emergency-vet-visit-cost/index.html
-│   ├── dog-dental-cleaning-cost/index.html
-│   ├── cat-dental-cleaning-cost/index.html
-│   ├── dog-spay-cost/index.html
-│   ├── cat-neuter-cost/index.html
-│   └── pet-insurance-vs-savings/index.html
-├── breeds/
-│   ├── labrador-retriever-cost/index.html
-│   ├── french-bulldog-cost/index.html
-│   ├── golden-retriever-cost/index.html
-│   ├── german-shepherd-cost/index.html
-│   ├── chihuahua-cost/index.html
-│   └── maine-coon-cat-cost/index.html
-└── states/
-    ├── california-pet-cost/index.html
-    ├── texas-pet-cost/index.html
-    ├── florida-pet-cost/index.html
-    └── new-york-pet-cost/index.html
-```
-
-## Performance
-
-- Zero JS frameworks, zero web fonts, zero blocking external scripts on first paint
-- All page CSS in a single 18 KB stylesheet
-- Calculator scripts use `defer` so they don't block render
-- Lighthouse should hit 95–100 on every page
-
-## Updating
-
-1. Cost data: edit `/assets/data/csv/*.csv` in a spreadsheet (no build step)
-2. Add a guide / breed / state page: copy a template, edit the title/meta/content/calculator attributes
-3. Add the new URL to `sitemap.xml`
-4. Push → deploys automatically on Vercel
-
-## Deployment checklist
-
-Run through these before public launch.
-
-### 1. Domain & infrastructure
-- [ ] Run `node scripts/replace-domain.js https://yourdomain.com` to replace every `petcostbill.com` reference (canonicals, sitemap, robots, JSON-LD, og:image absolute URLs).
-- [ ] Update `robots.txt` Sitemap line to your domain (the script does this).
-- [ ] Configure your domain in Vercel (Project Settings → Domains).
-- [ ] Add an SSL certificate — Vercel auto-provisions on attach.
-- [ ] Submit `https
