@@ -1,0 +1,21 @@
+slug,name,state,multiplier
+new-york-ny,New York City,NY,1.36
+manhattan-ny,Manhattan,NY,1.45
+brooklyn-ny,Brooklyn,NY,1.30
+los-angeles-ca,Los Angeles,CA,1.30
+san-francisco-ca,San Francisco,CA,1.45
+san-diego-ca,San Diego,CA,1.20
+miami-fl,Miami,FL,1.18
+tampa-fl,Tampa,FL,1.04
+orlando-fl,Orlando,FL,1.05
+austin-tx,Austin,TX,1.06
+dallas-tx,Dallas-Fort Worth,TX,1.00
+houston-tx,Houston,TX,0.98
+san-antonio-tx,San Antonio,TX,0.92
+chicago-il,Chicago,IL,1.10
+boston-ma,Boston,MA,1.28
+seattle-wa,Seattle,WA,1.22
+denver-co,Denver,CO,1.14
+phoenix-az,Phoenix,AZ,1.04
+atlanta-ga,Atlanta,GA,1.02
+washington-dc,Washington DC,DC,1.34

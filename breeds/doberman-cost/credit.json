@@ -1,0 +1,23 @@
+{
+  "slug": "doberman-cost",
+  "breed": "Doberman Pinscher",
+  "species": "dog",
+  "localPath": "assets/images/breeds/doberman-cost/hero.jpg",
+  "sourceWebsite": "Pexels",
+  "sourcePage": "https://www.pexels.com/photo/alert-doberman-pinscher-dog-outdoors-37197896/",
+  "sourceFileTitle": "Alert Doberman Pinscher Dog Outdoors",
+  "downloadUrl": "https://images.pexels.com/photos/37197896/pexels-photo-37197896.jpeg?auto=compress&cs=tinysrgb&w=1280",
+  "mime": "image/jpeg",
+  "width": 1280,
+  "height": 1707,
+  "bytes": 189469,
+  "license": "Pexels Content License",
+  "licenseUrl": "https://www.pexels.com/license/",
+  "attributionRequired": false,
+  "artist": "Joaquin Reyes Ramos",
+  "credit": "Pexels",
+  "imageDescription": "Doberman Pinscher outdoors in natural light",
+  "selectedScore": null,
+  "altSuggestion": "Doberman Pinscher dog",
+  "reviewNote": "Free-use Pexels image. Verify visual breed accuracy before publishing."
+}

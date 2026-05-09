@@ -1,0 +1,12 @@
+species,category,low,typical,high
+dog,adoption,50,300,3500
+dog,spay_neuter,100,300,600
+dog,starter_kit,150,280,500
+dog,crate_bed,60,120,280
+dog,initial_vet,150,280,500
+dog,microchip,25,50,80
+cat,adoption,25,150,600
+cat,spay_neuter,75,200,400
+cat,starter_kit,80,160,320
+cat,initial_vet,120,220,420
+cat,microchip,25,50,80

@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pet Insurance vs. Savings Calculator (Free Tool)</title>
+  <meta name="description" content="Free calculator — compare pet insurance premiums against self-savings. Plug in deductible, reimbursement %, expected vet bill, and years to model." />
+  <meta property="og:title" content="Pet Insurance vs. Savings Calculator (Free Tool)" />
+  <link rel="canonical" href="https://petcostbill.com/pet-insurance-vs-savings/" />
+  <meta property="og:image" content="https://petcostbill.com/assets/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://petcostbill.com/assets/og-image.png" />
+  <meta name="twitter:title" content="Pet Insurance vs. Savings Calculator (Free Tool)" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230F766E'/%3E%3Ctext x='50' y='66' font-family='system-ui,sans-serif' font-weight='700' font-size='58' fill='white' text-anchor='middle'%3E%24%3C/text%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="/assets/css/site.css" />
+  <script src="/assets/data/csv-loader.js" defer></script>
+  <script src="/assets/data/base-costs.js" defer></script>
+  <script src="/assets/data/multipliers.js" defer></script>
+  <script src="/assets/data/insurance.js" defer></script>
+  <script src="/assets/data/cities.js" defer></script>
+  <script src="/assets/data/breed-images.js" defer></script>
+  <script src="/assets/js/layout.js" defer></script>
+  <script src="/assets/js/calculator.js" defer></script>
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://petcostbill.com/"},
+    {"@type":"ListItem","position":2,"name":"Insurance vs savings","item":"https://petcostbill.com/pet-insurance-vs-savings/"}
+  ]}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Pet Insurance vs Savings Calculator","applicationCategory":"FinanceApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"Is pet insurance worth it?","acceptedAnswer":{"@type":"Answer","text":"Insurance is most useful as protection against large unexpected accident or illness bills. If your pet has a single major event over its lifetime, insurance can pay back many times over after one major event. If your pet stays healthy, self-savings may come out ahead."}},
+    {"@type":"Question","name":"What does pet insurance not cover?","acceptedAnswer":{"@type":"Answer","text":"Most policies exclude pre-existing conditions, routine wellness (without an add-on), behavioral training, breeding, and grooming. Waiting periods of 14–30 days are standard on new policies."}},
+    {"@type":"Question","name":"How much does pet insurance cost?","acceptedAnswer":{"@type":"Answer","text":"NAPHIA reports an average of $56/month for dogs and $32/month for cats in 2024, with substantial variation by age, breed, and plan."}}
+  ]}
+  </script>
+</head>
+<body>
+<div id="site-header"></div>
+
+<main>
+  <div class="container"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>›</span>Insurance vs. savings</nav></div>
+
+  <section style="padding: 24px 0 12px;">
+    <div class="container">
+      <span class="eyebrow">📊 Insurance vs. savings</span>
+      <h1>Pet insurance vs. savings calculator</h1>
+      <p class="last-updated-stamp last-updated-static">Last updated: <strong>May 2026</strong> · <a href="/about/">Methodology</a> · <a href="/sources/">Sources</a></p>
+      <div class="reviewer-block">
+        <span class="avatar" aria-hidden="true">PC</span>
+        <div>
+          <div class="who">Reviewed by Pet Cost Editorial Team</div>
+          <div class="meta">Cost data reviewed May 2026 · methodology audited quarterly</div>
+        </div>
+      </div>
+      <p class="lede prose">A free, neutral tool. Plug in premium, deductible, reimbursement %, expected vet bill, and the years to model. We'll show out-of-pocket cost both ways and the break-even bill size.</p>
+      <p class="prose"><strong>Looking for the explainer instead?</strong> Read our <a href="/guides/pet-insurance-vs-savings/">pet insurance buyer's guide</a> for coverage exclusions, waiting periods, and how to compare carriers fairly.</p>
+    </div>
+  </section>
+
+  <section style="padding-top: 8px;">
+    <div class="container">
+      <div data-calculator="insurance"></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="grid grid-2">
+        <div>
+          <h2>How to think about it</h2>
+          <p class="prose">Insurance is protection against the <em>large, unexpected</em> bill. The math rarely favors using insurance to cover routine care.</p>
+          <p class="prose">If your pet stays healthy, you'll spend more on premiums than you'd ever recover. If your pet has one major incident — bloat, foreign object, fracture, urinary blockage — insurance usually pays for itself many times over.</p>
+          <p class="prose">A reasonable framework: <em>"Could I write a $5,000 check tomorrow without changing my life?"</em> If no, consider insurance, a dedicated savings account, or both.</p>
+        </div>
+        <div>
+          <h2>What insurance usually doesn't cover</h2>
+          <ul class="prose">
+            <li>Pre-existing conditions diagnosed before policy start</li>
+            <li>Routine wellness (vaccines, exams, dental cleaning) — usually a paid add-on</li>
+            <li>Behavioral training, grooming, breeding</li>
+            <li>Conditions diagnosed during waiting periods (typically 14–30 days)</li>
+            <li>Some hereditary conditions in older pets</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2>Typical monthly premiums (NAPHIA 2024)</h2>
+      <table class="cost-table">
+        <thead><tr><th>Pet</th><th>Stage</th><th class="num">Low</th><th class="num">Typical</th><th class="num">High</th></tr></thead>
+        <tbody>
+          <tr><td>Dog</td><td>Puppy</td><td class="num">$25</td><td class="num">$45</td><td class="num">$75</td></tr>
+          <tr><td>Dog</td><td>Adult</td><td class="num">$30</td><td class="num">$55</td><td class="num">$90</td></tr>
+          <tr><td>Dog</td><td>Senior</td><td class="num">$60</td><td class="num">$95</td><td class="num">$160</td></tr>
+          <tr><td>Cat</td><td>Kitten</td><td class="num">$12</td><td class="num">$22</td><td class="num">$40</td></tr>
+          <tr><td>Cat</td><td>Adult</td><td class="num">$15</td><td class="num">$30</td><td class="num">$55</td></tr>
+          <tr><td>Cat</td><td>Senior</td><td class="num">$30</td><td class="num">$55</td><td class="num">$90</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="affiliate">
+        <div>
+          <span class="affiliate-tag">Sponsored</span>
+          <h3>Compare leading pet insurance carriers</h3>
+          <p>Side-by-side premiums, deductibles, and reimbursement %. We don't favor any one carrier.</p>
+        </div>
+        <a class="btn" href="/about/">How we estimate</a>
+  <span class="affiliate-disclosure-inline">Affiliate partner — we may earn a commission at no extra cost to you. <a href="/affiliate-disclosure/">Learn more.</a></span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2>FAQ</h2>
+      <div class="faq" style="max-width: var(--readw)">
+        <details><summary>Is pet insurance worth it?</summary><p>It depends on your savings buffer and your pet's risk profile. The calculator above models both for you specifically.</p></details>
+        <details><summary>When is the best time to enroll?</summary><p>Before any health condition appears — once a condition is diagnosed it becomes pre-existing and excluded. Many owners enroll between 8 weeks and 6 months of age.</p></details>
+        <details><summary>What happens to premiums as my pet ages?</summary><p>Most policies raise premiums each year as your pet ages. Senior premiums can be 2–3× adult premiums on the same policy.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container sources">
+      <h2>Sources</h2>
+      <ul>
+        <li>NAPHIA — 2024 State of the Industry report (premium averages)</li>
+        <li>NAIC — pet insurance model law and consumer guidance</li>
+        <li>BLS CPI — veterinary services index</li>
+      </ul>
+      <div class="disclaimer">Educational estimates only. Not veterinary or financial advice.</div>
+    </div>
+  </section>
+</main>
+<div id="site-footer"></div>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" preserveAspectRatio="xMidYMid slice" role="img" aria-labelledby="hero-pets-title">
+  <title id="hero-pets-title">A dog and cat cuddling — the calm of a planned pet budget</title>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%"  stop-color="#FBF6E8"/>
+      <stop offset="55%" stop-color="#F1EAD3"/>
+      <stop offset="100%" stop-color="#E8DFC7"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="50%" cy="55%" r="50%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.65"/>
+      <stop offset="80%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Soft warm background -->
+  <rect width="1200" height="360" fill="url(#bg)"/>
+  <ellipse cx="600" cy="220" rx="520" ry="160" fill="url(#halo)"/>
+
+  <!-- Confetti paws -->
+  <g fill="#0F766E" opacity="0.18">
+    <g transform="translate(140 90) rotate(-15)">
+      <ellipse cx="0" cy="0" rx="14" ry="18"/>
+      <ellipse cx="-22" cy="-18" rx="6" ry="9"/>
+      <ellipse cx="-8"  cy="-26" rx="6" ry="9"/>
+      <ellipse cx="9"   cy="-26" rx="6" ry="9"/>
+      <ellipse cx="22"  cy="-18" rx="6" ry="9"/>
+    </g>
+    <g transform="translate(1050 70) rotate(20) scale(0.8)">
+      <ellipse cx="0" cy="0" rx="14" ry="18"/>
+      <ellipse cx="-22" cy="-18" rx="6" ry="9"/>
+      <ellipse cx="-8"  cy="-26" rx="6" ry="9"/>
+      <ellipse cx="9"   cy="-26" rx="6" ry="9"/>
+      <ellipse cx="22"  cy="-18" rx="6" ry="9"/>
+    </g>
+    <g transform="translate(1010 290) rotate(8) scale(0.7)" opacity="0.7">
+      <ellipse cx="0" cy="0" rx="14" ry="18"/>
+      <ellipse cx="-22" cy="-18" rx="6" ry="9"/>
+      <ellipse cx="-8"  cy="-26" rx="6" ry="9"/>
+      <ellipse cx="9"   cy="-26" rx="6" ry="9"/>
+      <ellipse cx="22"  cy="-18" rx="6" ry="9"/>
+    </g>
+    <g transform="translate(170 290) rotate(-25) scale(0.7)" opacity="0.7">
+      <ellipse cx="0" cy="0" rx="14" ry="18"/>
+      <ellipse cx="-22" cy="-18" rx="6" ry="9"/>
+      <ellipse cx="-8"  cy="-26" rx="6" ry="9"/>
+      <ellipse cx="9"   cy="-26" rx="6" ry="9"/>
+      <ellipse cx="22"  cy="-18" rx="6" ry="9"/>
+    </g>
+  </g>
+
+  <!-- Heart between the two pets -->
+  <g transform="translate(600 110)" fill="#0F766E" opacity="0.85">
+    <path d="M0,28 C-32,10 -42,-22 -22,-32 C-10,-38 0,-30 0,-20 C0,-30 10,-38 22,-32 C42,-22 32,10 0,28 Z"/>
+  </g>
+
+  <!-- DOG (left) — golden, friendly -->
+  <g transform="translate(420 270)">
+    <!-- body -->
+    <ellipse cx="0" cy="0" rx="120" ry="68" fill="#D4A35A"/>
+    <!-- chest fluff -->
+    <ellipse cx="60" cy="10" rx="52" ry="32" fill="#E8C28A"/>
+    <!-- head -->
+    <circle cx="80" cy="-58" r="58" fill="#D4A35A"/>
+    <!-- snout -->
+    <ellipse cx="120" cy="-44" rx="30" ry="22" fill="#E8C28A"/>
+    <!-- nose -->
+    <ellipse cx="142" cy="-50" rx="6" ry="5" fill="#1F2937"/>
+    <!-- eye -->
+    <circle cx="86" cy="-72" r="5" fill="#1F2937"/>
+    <!-- floppy ear -->
+    <path d="M40 -100 Q30 -130 70 -120 Q72 -90 50 -80 Z" fill="#A57A38"/>
+    <!-- tail -->
+    <path d="M-110 -10 Q-150 -50 -120 -70 Q-100 -50 -100 -10 Z" fill="#D4A35A"/>
+    <!-- legs hint -->
+    <ellipse cx="-60" cy="58" rx="14" ry="18" fill="#A57A38"/>
+    <ellipse cx="40"  cy="58" rx="14" ry="18" fill="#A57A38"/>
+  </g>
+
+  <!-- CAT (right) — gray tabby, leaning into dog -->
+  <g transform="translate(720 268)">
+    <!-- body curled -->
+    <ellipse cx="0" cy="10" rx="98" ry="56" fill="#7E8794"/>
+    <ellipse cx="-30" cy="0" rx="70" ry="38" fill="#9AA3B0"/>
+    <!-- head -->
+    <circle cx="-70" cy="-38" r="42" fill="#9AA3B0"/>
+    <!-- ears -->
+    <path d="M-100 -68 L-92 -90 L-78 -72 Z" fill="#7E8794"/>
+    <path d="M-58 -72 L-44 -90 L-50 -68 Z" fill="#7E8794"/>
+    <!-- inner ears -->
+    <path d="M-94 -72 L-90 -82 L-84 -73 Z" fill="#F1B8B8"/>
+    <path d="M-56 -75 L-50 -84 L-54 -71 Z" fill="#F1B8B8"/>
+    <!-- eye (closed contented) -->
+    <path d="M-78 -38 q5 -4 10 0" stroke="#1F2937" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <!-- nose + whiskers -->
+    <path d="M-65 -32 l4 4 -4 0 z" fill="#F1B8B8"/>
+    <path d="M-58 -30 l14 -2 M-58 -28 l14 0 M-58 -26 l14 2" stroke="#1F2937" stroke-width="1" opacity="0.5" stroke-linecap="round"/>
+    <!-- tail curling around -->
+    <path d="M80 30 Q140 0 130 -50 Q100 -40 90 0 Z" fill="#7E8794"/>
+    <!-- stripes -->
+    <path d="M-30 -20 q10 -8 30 0 M-10 0 q14 -6 36 0 M0 30 q14 -4 30 0" stroke="#5C6470" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.6"/>
+  </g>
+</svg>

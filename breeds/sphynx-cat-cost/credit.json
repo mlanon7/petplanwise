@@ -1,0 +1,23 @@
+{
+  "slug": "sphynx-cat-cost",
+  "breed": "Sphynx cat",
+  "species": "cat",
+  "localPath": "assets/images/breeds/sphynx-cat-cost/hero.jpg",
+  "sourceWebsite": "Wikimedia Commons",
+  "sourcePage": "https://commons.wikimedia.org/wiki/File:20170604_Sphynx_cat_7984.jpg",
+  "sourceFileTitle": "File:20170604 Sphynx cat 7984.jpg",
+  "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/20170604_Sphynx_cat_7984.jpg/1280px-20170604_Sphynx_cat_7984.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "mime": "image/jpeg",
+  "width": 1280,
+  "height": 1061,
+  "bytes": 143162,
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "attributionRequired": true,
+  "artist": "Jakub Hałun",
+  "credit": "Own work",
+  "imageDescription": "Portrait of a sphynx cat",
+  "selectedScore": 39,
+  "altSuggestion": "Sphynx cat cat",
+  "reviewNote": "Free-license image from Wikimedia Commons. Verify visual breed accuracy before publishing."
+}

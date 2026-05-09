@@ -1,0 +1,25 @@
+name: Sync from Google Sheets
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'   # every 6 hours
+  workflow_dispatch:         # also manual
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/setup-node@v4
+        with: { node-version: '20' }
+      - name: Pull CSVs from Google Sheet
+        run: npm run sync
+      - name: Commit changes if any
+        run: |
+          git config user.name  "petcost-sheets-sync"
+          git config user.email "actions@users.noreply.github.com"
+          git add assets/data/csv/*.csv
+          git diff --cached --quiet || git commit -m "chore: sync CSVs from Google Sheets [skip ci]"
+          git push

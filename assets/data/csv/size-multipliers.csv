@@ -1,0 +1,6 @@
+size,multiplier,note
+toy,0.70,< 10 lb
+small,0.85,10-25 lb
+medium,1.00,25-60 lb
+large,1.25,60-90 lb
+giant,1.55,90+ lb

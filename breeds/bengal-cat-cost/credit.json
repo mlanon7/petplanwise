@@ -1,0 +1,23 @@
+{
+  "slug": "bengal-cat-cost",
+  "breed": "Bengal cat",
+  "species": "cat",
+  "localPath": "assets/images/breeds/bengal-cat-cost/hero.jpg",
+  "sourceWebsite": "Wikimedia Commons",
+  "sourcePage": "https://commons.wikimedia.org/wiki/File:Bengal_(18684760738).jpg",
+  "sourceFileTitle": "File:Bengal (18684760738).jpg",
+  "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Bengal_%2818684760738%29.jpg/1280px-Bengal_%2818684760738%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "mime": "image/jpeg",
+  "width": 1280,
+  "height": 719,
+  "bytes": 282434,
+  "license": "CC BY 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+  "attributionRequired": true,
+  "artist": "Heikki Siltala from Finland",
+  "credit": "Bengal",
+  "imageDescription": "Bengal",
+  "selectedScore": 41,
+  "altSuggestion": "Bengal cat cat",
+  "reviewNote": "Free-license image from Wikimedia Commons. Verify visual breed accuracy before publishing."
+}

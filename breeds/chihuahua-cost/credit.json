@@ -1,0 +1,23 @@
+{
+  "slug": "chihuahua-cost",
+  "breed": "Chihuahua",
+  "species": "dog",
+  "localPath": "assets/images/breeds/chihuahua-cost/hero.jpg",
+  "sourceWebsite": "Wikimedia Commons",
+  "sourcePage": "https://commons.wikimedia.org/wiki/File:Chihuahuas-_Holly%2C_Nina%2C_Doralice.jpg",
+  "sourceFileTitle": "File:Chihuahuas- Holly, Nina, Doralice.jpg",
+  "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Chihuahuas-_Holly%2C_Nina%2C_Doralice.jpg/1280px-Chihuahuas-_Holly%2C_Nina%2C_Doralice.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "mime": "image/jpeg",
+  "width": 1280,
+  "height": 990,
+  "bytes": 180366,
+  "license": "Public domain",
+  "licenseUrl": "",
+  "attributionRequired": false,
+  "artist": "Caterinarufo",
+  "credit": "Own work",
+  "imageDescription": "triplet chihuahua",
+  "selectedScore": 45,
+  "altSuggestion": "Chihuahua dog",
+  "reviewNote": "Free-license image from Wikimedia Commons. Verify visual breed accuracy before publishing."
+}

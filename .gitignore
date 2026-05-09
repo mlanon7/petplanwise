@@ -1,0 +1,9 @@
+node_modules/
+.vercel/
+.DS_Store
+.env
+.env.local
+*.log
+
+# Local research PDFs — third-party material, not deployed
+_research/

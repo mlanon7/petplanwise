@@ -1,0 +1,23 @@
+{
+  "slug": "beagle-cost",
+  "breed": "Beagle",
+  "species": "dog",
+  "localPath": "assets/images/breeds/beagle-cost/hero.jpg",
+  "sourceWebsite": "Wikimedia Commons",
+  "sourcePage": "https://commons.wikimedia.org/wiki/File:Beagle_in_Viroinval_(DSC04556).jpg",
+  "sourceFileTitle": "File:Beagle in Viroinval (DSC04556).jpg",
+  "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Beagle_in_Viroinval_%28DSC04556%29.jpg/1280px-Beagle_in_Viroinval_%28DSC04556%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "mime": "image/jpeg",
+  "width": 1280,
+  "height": 825,
+  "bytes": 324130,
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+  "attributionRequired": true,
+  "artist": "Trougnouf (Benoit Brummer)",
+  "credit": "Own work",
+  "imageDescription": "Male Beagle lying down and panting in Viroinval, Belgium",
+  "selectedScore": 41,
+  "altSuggestion": "Beagle dog",
+  "reviewNote": "Free-license image from Wikimedia Commons. Verify visual breed accuracy before publishing."
+}

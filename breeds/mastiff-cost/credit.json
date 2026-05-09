@@ -1,0 +1,23 @@
+{
+  "slug": "mastiff-cost",
+  "breed": "English Mastiff",
+  "species": "dog",
+  "localPath": "assets/images/breeds/mastiff-cost/hero.jpg",
+  "sourceWebsite": "Pexels",
+  "sourcePage": "https://www.pexels.com/photo/english-mastiff-on-field-18540351/",
+  "sourceFileTitle": "English Mastiff on Field",
+  "downloadUrl": "https://images.pexels.com/photos/18540351/pexels-photo-18540351.jpeg?auto=compress&cs=tinysrgb&w=1280",
+  "mime": "image/jpeg",
+  "width": 1280,
+  "height": 1920,
+  "bytes": 170426,
+  "license": "Pexels Content License",
+  "licenseUrl": "https://www.pexels.com/license/",
+  "attributionRequired": false,
+  "artist": "Sefa",
+  "credit": "Pexels",
+  "imageDescription": "English Mastiff standing in a field",
+  "selectedScore": null,
+  "altSuggestion": "English Mastiff dog",
+  "reviewNote": "Free-use Pexels image. Verify visual breed accuracy before publishing."
+}

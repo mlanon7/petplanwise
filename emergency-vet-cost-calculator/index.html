@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Emergency Vet Cost Calculator — Real Ranges by Scenario</title>
+  <meta name="description" content="Estimate emergency vet costs for toxin ingestion, foreign objects, urinary blockages, GDV, fractures, and more — state-adjusted with insurance comparison." />
+  <meta property="og:title" content="Emergency Vet Cost Calculator — Real Ranges by Scenario" />
+  <link rel="canonical" href="https://petcostbill.com/emergency-vet-cost-calculator/" />
+  <meta property="og:image" content="https://petcostbill.com/assets/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://petcostbill.com/assets/og-image.png" />
+  <meta name="twitter:title" content="Emergency Vet Cost Calculator — Real Ranges by Scenario" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230F766E'/%3E%3Ctext x='50' y='66' font-family='system-ui,sans-serif' font-weight='700' font-size='58' fill='white' text-anchor='middle'%3E%24%3C/text%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="/assets/css/site.css" />
+  <script src="/assets/data/csv-loader.js" defer></script>
+  <script src="/assets/data/base-costs.js" defer></script>
+  <script src="/assets/data/multipliers.js" defer></script>
+  <script src="/assets/data/procedures.js" defer></script>
+  <script src="/assets/js/layout.js" defer></script>
+  <script src="/assets/js/calculator.js" defer></script>
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://petcostbill.com/"},
+    {"@type":"ListItem","position":2,"name":"Emergency vet calculator","item":"https://petcostbill.com/emergency-vet-cost-calculator/"}
+  ]}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Emergency Vet Cost Calculator","applicationCategory":"FinanceApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"How much does an emergency vet visit cost?","acceptedAnswer":{"@type":"Answer","text":"After-hours emergency exams alone run $100–$400 before any treatment. Common emergency cases (foreign object surgery, GDV, urinary blockage) commonly hit $2,000–$8,000."}},
+    {"@type":"Question","name":"What's the most expensive pet emergency?","acceptedAnswer":{"@type":"Answer","text":"Bloat (GDV) surgery, hit-by-car trauma, and complicated foreign-object removal often exceed $5,000 and can run $10,000–$15,000 with hospitalization."}}
+  ]}
+  </script>
+</head>
+<body>
+<div id="site-header"></div>
+
+<main>
+  <div class="container"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>›</span>Emergency vet calculator</nav></div>
+
+  <section style="padding: 24px 0 12px;">
+    <div class="container">
+      <span class="eyebrow">🚨 Emergency vet calculator</span>
+      <h1>What does an emergency vet visit really cost?</h1>
+      <p class="last-updated-stamp last-updated-static">Last updated: <strong>May 2026</strong> · <a href="/about/">Methodology</a> · <a href="/sources/">Sources</a></p>
+      <div class="reviewer-block">
+        <span class="avatar" aria-hidden="true">PC</span>
+        <div>
+          <div class="who">Reviewed by Pet Cost Editorial Team</div>
+          <div class="meta">Cost data reviewed May 2026 · methodology audited quarterly</div>
+        </div>
+      </div>
+      <p class="lede prose">Pick a scenario — toxin ingestion, foreign object, urinary blockage, fracture — and see realistic cost ranges. We also show what insurance would have covered.</p>
+    </div>
+  </section>
+
+  <section style="padding-top: 8px;">
+    <div class="container">
+      <div data-calculator="emergency"></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2>Emergency cost ranges</h2>
+      <table class="cost-table">
+        <thead><tr><th>Scenario</th><th class="num">Low</th><th class="num">Typical</th><th class="num">High</th></tr></thead>
+        <tbody>
+          <tr><td>ER exam (after hours)</td><td class="num">$100</td><td class="num">$200</td><td class="num">$400</td></tr>
+          <tr><td>Wound / laceration repair</td><td class="num">$400</td><td class="num">$1,100</td><td class="num">$2,800</td></tr>
+          <tr><td>Toxin ingestion treatment</td><td class="num">$250</td><td class="num">$1,100</td><td class="num">$4,500</td></tr>
+          <tr><td>Foreign object removal</td><td class="num">$800</td><td class="num">$3,500</td><td class="num">$8,000</td></tr>
+          <tr><td>Urinary blockage (cat)</td><td class="num">$1,200</td><td class="num">$2,800</td><td class="num">$5,500</td></tr>
+          <tr><td>Fracture repair</td><td class="num">$800</td><td class="num">$3,500</td><td class="num">$7,500</td></tr>
+          <tr><td>Bloat / GDV surgery</td><td class="num">$1,800</td><td class="num">$5,500</td><td class="num">$12,000</td></tr>
+          <tr><td>Parvo treatment (puppy)</td><td class="num">$600</td><td class="num">$2,200</td><td class="num">$6,500</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="grid grid-2">
+        <div>
+          <h2>Why emergency bills are so high</h2>
+          <ul class="prose">
+            <li>24/7 staffing — board-certified ER doctors, technicians, anesthesia, and imaging on demand.</li>
+            <li>Hospitalization runs $200–$2,000 per day depending on the level of care.</li>
+            <li>Surgery includes anesthesia, surgeon time, instruments, and recovery monitoring — costs stack quickly.</li>
+            <li>Specialty consults (internal medicine, surgery, criticalist) bill 2–4× general practice rates.</li>
+          </ul>
+        </div>
+        <div>
+          <h2>Build your safety net</h2>
+          <ul class="prose">
+            <li>Aim for a $2,000–$5,000 dedicated emergency fund.</li>
+            <li>Compare pet insurance — premiums are usually $30–$80/month and reimburse 70–90% after a deductible.</li>
+            <li>Open a CareCredit or Scratchpay account before you need one.</li>
+            <li>Know your nearest 24-hour emergency clinic before a Sunday at 2am.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="affiliate">
+        <div>
+          <span class="affiliate-tag">Sponsored</span>
+          <h3>Estimate whether insurance fits your budget</h3>
+          <p>Most accident-and-illness policies cap monthly cost at $30–$80 for a healthy adult dog or cat. Pre-existing conditions are excluded, so timing matters.</p>
+        </div>
+        <a class="btn" href="/pet-insurance-vs-savings/">Compare scenarios</a>
+  <span class="affiliate-disclosure-inline">Affiliate partner — we may earn a commission at no extra cost to you. <a href="/affiliate-disclosure/">Learn more.</a></span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2>FAQ</h2>
+      <div class="faq" style="max-width: var(--readw)">
+        <details><summary>How much should I save for a pet emergency?</summary><p>$2,000–$5,000 covers most common emergencies. $7,500+ if you want to cover worst-case (GDV, multi-organ trauma).</p></details>
+        <details><summary>Will my regular vet handle an emergency?</summary><p>Most general practices don't operate 24/7. After-hours and life-threatening cases usually go to a dedicated ER clinic.</p></details>
+        <details><summary>Does insurance cover emergencies?</summary><p>Accident-and-illness insurance covers most emergencies after deductible — but not pre-existing conditions, and there are usually waiting periods on new policies.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container sources">
+      <h2>Sources</h2>
+      <ul>
+        <li>BLS CPI — veterinary services</li>
+        <li>VECCS — Veterinary Emergency &amp; Critical Care Society practice data</li>
+        <li>Synchrony Lifetime of Care — emergency expense distribution</li>
+      </ul>
+      <div class="disclaimer">Estimates only. Get a written estimate from your emergency clinic before authorizing major treatment.</div>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+</body>
+</html>

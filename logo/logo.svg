@@ -1,0 +1,44 @@
+<svg viewBox="0 0 240 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Main text: YourPetBill -->
+  <text
+    x="120"
+    y="32"
+    font-family="system-ui, -apple-system, sans-serif"
+    font-size="28"
+    font-weight="600"
+    fill="#0F172A"
+    text-anchor="middle"
+  >
+    YourPetBill
+  </text>
+
+  <!-- Dot -->
+  <circle cx="203" cy="26" r="3" fill="#0F766E" />
+
+  <!-- .com -->
+  <text
+    x="210"
+    y="32"
+    font-family="system-ui, -apple-system, sans-serif"
+    font-size="22"
+    font-weight="400"
+    fill="#0F172A"
+  >
+    com
+  </text>
+
+  <!-- Paw print icon -->
+  <g transform="translate(120, 50)">
+    <!-- Main pad -->
+    <ellipse cx="0" cy="8" rx="8" ry="10" fill="#0F766E" />
+
+    <!-- Top left toe -->
+    <ellipse cx="-10" cy="-2" rx="5" ry="7" fill="#0F766E" transform="rotate(-20 -10 -2)" />
+
+    <!-- Top center toe -->
+    <ellipse cx="0" cy="-5" rx="5" ry="7" fill="#0F766E" />
+
+    <!-- Top right toe -->
+    <ellipse cx="10" cy="-2" rx="5" ry="7" fill="#0F766E" transform="rotate(20 10 -2)" />
+  </g>
+</svg>

@@ -1,0 +1,26 @@
+key,name,low,typical,high,species,emergency_note
+physical_exam,Wellness physical (annual),80,150,300,any,
+vaccines,Core vaccines (annual),80,200,400,any,
+dental_cleaning,Dental cleaning,200,600,1200,any,
+microchip,Microchip insertion,25,60,150,any,
+spay_neuter,Spay / neuter,200,600,1500,any,
+xray,X-ray (single view),80,200,500,any,
+ultrasound,Ultrasound,200,500,1000,any,
+blood_work,Blood work / panel,80,250,600,any,
+urinalysis,Urinalysis,50,150,300,any,
+antibiotics,Antibiotic course,30,100,300,any,
+pain_relief,Pain management (week),20,80,200,any,
+thyroid_meds,Thyroid medication (month),15,50,150,any,
+emergency_exam,ER exam (after hours),100,200,400,any,
+wound_repair,Wound / laceration repair,400,1100,2800,any,
+toxin_ingestion,Toxin ingestion treatment,250,1100,4500,any,"Call ASPCA Poison Control 888-426-4435 or your nearest ER immediately."
+foreign_object,Foreign object removal,800,3500,8000,any,
+urinary_blockage,Urinary blockage (cat),1200,2800,5500,cat,"A blocked male cat is a life-threatening emergency. Go to the ER now."
+broken_bone,Fracture repair,800,3500,7500,any,
+bloat_gdv,Bloat / GDV surgery,1800,5000,10000,dog,"Bloat is a surgical emergency. Do not delay."
+parvo,Parvo treatment (puppy),600,2200,6500,dog,"Suspected parvo in unvaccinated puppies — call your vet immediately."
+hbc,Hit-by-car trauma,1000,4000,12000,any,
+seizure_workup,Seizure diagnostics,500,1400,3500,any,
+heatstroke,Heatstroke treatment,400,1500,4500,any,"Move to shade, apply cool (not cold) water, drive to ER."
+acl_surgery,ACL/CCL surgery (dog),2000,4500,7500,dog,
+ivdd_surgery,IVDD spinal surgery,3500,7000,12000,dog,

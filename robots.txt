@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /_research/
+Disallow: /embed/cost-calculator/
+
+Sitemap: https://petcostbill.com/sitemap.xml

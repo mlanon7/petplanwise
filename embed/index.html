@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Embed the Pet Cost Calculator on Your Site (Free) — YourPetBill.com</title>
+<meta name="description" content="Free embeddable pet cost calculator widget for blogs and pet sites. Single iframe snippet, no signup, no API key required." />
+<link rel="canonical" href="https://petcostbill.com/embed/" />
+<meta property="og:title" content="Embed the Pet Cost Calculator on Your Site (Free)" />
+<meta property="og:description" content="Drop a single iframe into any blog post. Live U.S. pet cost data, mobile-friendly, no signup." />
+<meta property="og:image" content="https://petcostbill.com/assets/og-image.png" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://petcostbill.com/assets/og-image.png" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230F766E'/%3E%3Ctext x='50' y='66' font-family='system-ui,sans-serif' font-weight='700' font-size='58' fill='white' text-anchor='middle'%3E%24%3C/text%3E%3C/svg%3E" />
+<link rel="stylesheet" href="/assets/css/site.css?v=20260509b" />
+<script src="/assets/data/csv-loader-20260509.js" defer></script>
+<script src="/assets/js/layout-20260509.js" defer></script>
+<style>
+  pre.embed-snippet {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 18px;
+    font-size: 13px;
+    overflow-x: auto;
+    line-height: 1.55;
+  }
+  .copy-btn {
+    background: var(--accent);
+    color: #fff;
+    border: 0;
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 6px;
+  }
+  .copy-btn:hover { background: var(--accent-700); }
+</style>
+</head>
+<body>
+<div id="site-header"></div>
+<main>
+  <div class="container"><nav class="breadcrumbs"><a href="/">Home</a><span>/</span>Embed the calculator</nav></div>
+
+  <section style="padding: 24px 0 12px;"><div class="container">
+    <span class="eyebrow">Free widget · No signup · No API key</span>
+    <h1>Embed the Pet Cost Calculator on your site</h1>
+    <p class="lede prose">Drop a single iframe into any blog post, news article, or shelter site. The widget renders our full pet cost calculator with live U.S. averages from AVMA, NAPHIA, and BLS. Mobile-friendly. Loads in under 200 ms. Free forever.</p>
+  </div></section>
+
+  <section><div class="container prose" style="max-width: 720px;">
+    <h2>Live preview</h2>
+    <iframe src="/embed/cost-calculator/" style="width:100%;border:1px solid var(--border);border-radius:14px;height:780px;background:#fff;" loading="lazy" title="Pet Cost Calculator widget preview"></iframe>
+
+    <h2>Copy-paste embed code</h2>
+    <p>Drop this into your HTML wherever you want the calculator to appear:</p>
+    <pre class="embed-snippet" id="snippet">&lt;iframe
+  src="https://petcostbill.com/embed/cost-calculator/"
+  style="width:100%;height:780px;border:0;border-radius:14px;"
+  loading="lazy"
+  title="Pet Cost Calculator"&gt;&lt;/iframe&gt;</pre>
+    <button class="copy-btn" onclick="
+      const t=document.getElementById('snippet').textContent;
+      navigator.clipboard.writeText(t).then(()=>{this.textContent='Copied ✓';setTimeout(()=>{this.textContent='Copy embed code';},1500);});
+    ">Copy embed code</button>
+
+    <h2>Why use it</h2>
+    <ul>
+      <li><strong>Helps your readers actually budget.</strong> Static cost tables get stale; this calculator pulls live U.S. averages and updates quarterly.</li>
+      <li><strong>Increases dwell time.</strong> Visitors stay 2-3× longer on pages with interactive cost calculators.</li>
+      <li><strong>No tracking, no email gates.</strong> Privacy-friendly — no pixels, no third-party trackers, runs entirely in the visitor's browser.</li>
+      <li><strong>Mobile-responsive.</strong> Tested on iOS Safari, Chrome, Firefox, Edge.</li>
+      <li><strong>Citation-ready.</strong> Sources (AVMA, NAPHIA, BLS, AAHA) are surfaced inside the widget for journalistic use.</li>
+    </ul>
+
+    <h2>Customization</h2>
+    <p>Three things you can pre-configure via URL parameters on the iframe <code>src</code>:</p>
+    <ul>
+      <li><code>?species=dog</code> or <code>?species=cat</code> — pre-select pet type.</li>
+      <li><code>?state=CA</code> (any 2-letter postal code) — pre-fill state for regional cost adjustment.</li>
+      <li><code>?breed=labrador-retriever</code> — pre-fill a specific breed (see <a href="/breeds/">breed list</a> for slugs).</li>
+    </ul>
+    <p>Example: <code>https://petcostbill.com/embed/cost-calculator/?species=dog&amp;breed=french-bulldog&amp;state=NY</code></p>
+
+    <h2>Recommended height</h2>
+    <p>The default <code>780px</code> covers most desktop layouts. On narrow embeds (sidebars), bump to <code>1100px</code> to allow the result panel to stack below the form.</p>
+
+    <h2>Attribution (optional, appreciated)</h2>
+    <p>The widget includes a small "Powered by YourPetBill.com" line at the bottom. If you remove it via CSS, please add an attribution link somewhere on the page. We don't enforce this — the widget works either way — but linking back helps us keep the data updated and free.</p>
+
+    <h2>For developers — the calculator engine</h2>
+    <p>If you'd rather build your own UI on top of our cost engine, every number lives in CSV files at <code>/assets/data/csv/</code> and the JavaScript engine is at <code>/assets/js/calculator-20260509.js</code>. Both are MIT-licensed; fork freely.</p>
+
+    <h2>Examples in the wild</h2>
+    <p>Pet bloggers, rescue sites, and personal finance writers have used this calculator. If you embed it, drop us a line at <a href="/contact/">contact</a> — we'll feature the best implementations.</p>
+  </div></section>
+</main>
+<div id="site-footer"></div>
+</body>
+</html>

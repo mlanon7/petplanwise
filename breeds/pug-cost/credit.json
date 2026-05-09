@@ -1,0 +1,23 @@
+{
+  "slug": "pug-cost",
+  "breed": "Pug",
+  "species": "dog",
+  "localPath": "assets/images/breeds/pug-cost/hero.jpg",
+  "sourceWebsite": "Wikimedia Commons",
+  "sourcePage": "https://commons.wikimedia.org/wiki/File:Pug_close_up.jpg",
+  "sourceFileTitle": "File:Pug close up.jpg",
+  "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7d/Pug_close_up.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "mime": "image/jpeg",
+  "width": 1280,
+  "height": 960,
+  "bytes": 30828,
+  "license": "Public domain",
+  "licenseUrl": "",
+  "attributionRequired": false,
+  "artist": "Wikivato at English Wikipedia",
+  "credit": "Transferred from en.wikipedia to Commons by JohnnyMrNinja using CommonsHelper.",
+  "imageDescription": "Ralph Lomeli",
+  "selectedScore": 45,
+  "altSuggestion": "Pug dog",
+  "reviewNote": "Free-license image from Wikimedia Commons. Verify visual breed accuracy before publishing."
+}

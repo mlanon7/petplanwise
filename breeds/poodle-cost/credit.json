@@ -1,0 +1,23 @@
+{
+  "slug": "poodle-cost",
+  "breed": "Standard Poodle",
+  "species": "dog",
+  "localPath": "assets/images/breeds/poodle-cost/hero.jpg",
+  "sourceWebsite": "Wikimedia Commons",
+  "sourcePage": "https://commons.wikimedia.org/wiki/File%3APoodle%20(3143809874).jpg",
+  "sourceFileTitle": "File:Poodle (3143809874).jpg",
+  "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Poodle_%283143809874%29.jpg/1280px-Poodle_%283143809874%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "mime": "image/jpeg",
+  "width": 1280,
+  "height": 1173,
+  "bytes": 333774,
+  "license": "CC BY 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+  "attributionRequired": true,
+  "artist": "Rennett Stowe from USA",
+  "credit": "Poodle",
+  "imageDescription": "As this dog walked by she said, \"Yeah, you know I look good.\" The shoes were definitely upscale.",
+  "selectedScore": 69,
+  "altSuggestion": "Standard Poodle dog",
+  "reviewNote": "Free-license image from Wikimedia Commons. Verify visual breed accuracy and attribution placement before publishing."
+}

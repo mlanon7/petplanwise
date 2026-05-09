@@ -1,0 +1,9 @@
+Place breed images here as {slug}.jpg
+e.g., labrador-retriever.jpg, french-bulldog.jpg, persian-cat.jpg
+
+Either:
+  - Run scripts/fetch-breed-images.js with a free Pexels API key, or
+  - Drop your own licensed JPGs (1200x800 recommended)
+
+The site automatically renders any image that exists at /assets/images/breeds/{slug}.jpg
+provided the slug has an entry in /assets/data/breed-images.js.

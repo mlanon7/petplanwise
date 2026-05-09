@@ -1,0 +1,20 @@
+lifestyle,category,multiplier,note
+basic,default,0.80,
+basic,food,0.75,store-brand vs premium kibble
+basic,treats,0.60,
+basic,grooming,0.40,mostly DIY
+basic,training,0.30,YouTube + group class only
+basic,boarding,0.50,friend/family vs kennel
+basic,supplies,0.70,basics no luxuries
+basic,insurance,0.85,accident-only vs accident+illness
+basic,routine_vet,0.85,
+standard,default,1.00,U.S. median owner
+premium,default,1.40,
+premium,food,1.65,fresh/raw subscriptions prescription diets
+premium,treats,1.50,
+premium,grooming,2.00,pro grooming every 4-8 weeks
+premium,training,2.20,private trainer board-and-train
+premium,boarding,1.80,luxury suite kennel
+premium,supplies,1.50,premium gear
+premium,insurance,1.30,higher reimbursement % lower deductible
+premium,routine_vet,1.20,specialty clinic more frequent visits

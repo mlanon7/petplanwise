@@ -1,0 +1,21 @@
+name: Push CSVs to Google Sheets
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'assets/data/csv/**'
+  workflow_dispatch:
+
+jobs:
+  push:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '20' }
+      - name: Push every CSV to the Google Sheet
+        env:
+          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+          PETCOST_SHEET_ID:            ${{ secrets.PETCOST_SHEET_ID }}
+        run: node scripts/push-to-sheets.js

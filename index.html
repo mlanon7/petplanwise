@@ -1,0 +1,519 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pet Cost Calculator — How Much Does a Pet Really Cost?</title>
+  <meta name="description" content="Free dog and cat cost calculator. Get accurate monthly, annual, and lifetime estimates for pet ownership. Real veterinary data, U.S. averages, no email required." />
+  <link rel="canonical" href="https://petcostbill.com/" />
+  <meta property="og:title" content="Pet Cost Calculator — How Much Does a Pet Really Cost?" />
+  <meta property="og:description" content="Free dog and cat cost calculator with real veterinary data and U.S. averages. Plan your pet budget in seconds." />
+  <meta property="og:image" content="https://petcostbill.com/assets/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://petcostbill.com/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://petcostbill.com/assets/og-image.png" />
+  <meta name="twitter:title" content="Pet Cost Calculator — How Much Does a Pet Really Cost?" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230F766E'/%3E%3Ctext x='50' y='66' font-family='system-ui,sans-serif' font-weight='700' font-size='58' fill='white' text-anchor='middle'%3E%24%3C/text%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="/assets/css/site.css?v=20260509b" />
+
+  <style id="home-page-styles">
+  /* ============================================================
+     Self-contained homepage styles. Inline so they ship with the
+     HTML and never fight a stale cached site.css.
+     ============================================================ */
+  .hp-page { background: #F7F1E1; min-height: 100vh; padding: 24px 0; }
+  .hp-container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+  .hp-h1 { font-size: clamp(2rem, 4.5vw, 3rem); font-weight: 700;
+    letter-spacing: -0.02em; line-height: 1.1; margin: 0 0 12px; color: #1F2937; }
+  .hp-lede { color: #6B7280; font-size: 1.05rem; margin: 0 0 28px; max-width: 60ch; }
+
+  .hp-grid { display: grid; grid-template-columns: 1fr; gap: 24px; align-items: start; }
+  @media (min-width: 880px) { .hp-grid { grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 32px; } }
+
+  /* Form card */
+  .hp-form { background: #fff; border: 1px solid #E8DFC7; border-radius: 16px;
+    padding: 28px; box-shadow: 0 1px 2px rgba(15,23,42,0.05); }
+  .hp-form h2 { font-size: 1.15rem; font-weight: 700; margin: 0 0 20px; color: #1F2937; }
+  .hp-field { margin-bottom: 18px; }
+  .hp-field label.hp-label { display: block; font-size: 14px; font-weight: 600;
+    color: #374151; margin: 0 0 8px; }
+  .hp-form select { width: 100%; padding: 12px 14px; border: 1.5px solid #D9CFB5;
+    border-radius: 10px; background: #fff; color: #1F2937; font-size: 15px;
+    font-family: inherit; cursor: pointer; }
+  .hp-form select:focus { outline: 2px solid #0F766E; outline-offset: 2px; border-color: #0F766E; }
+
+  /* Pet Type — two big tiles */
+  .hp-pet-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .hp-pet-btn { background: #fff; border: 2px solid #D9CFB5; border-radius: 14px;
+    padding: 18px 14px; cursor: pointer; font-family: inherit;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 8px; min-height: 96px; color: #1F2937;
+    transition: border-color .15s, background .15s, color .15s; }
+  .hp-pet-btn:hover { border-color: #0F766E; }
+  .hp-pet-btn.is-active { border-color: #0F766E; background: #E6F4F2; color: #134E4A; }
+  .hp-pet-btn img.hp-pet-ico, .hp-pet-btn svg { width: 56px; height: 56px; display: block; }
+  .hp-pet-btn .lbl { font-size: 0.95rem; font-weight: 600; letter-spacing: 0.01em; }
+  .hp-pet-btn.is-active .lbl { font-weight: 700; }
+
+  /* Insurance row */
+  .hp-ins { display: flex; align-items: center; gap: 12px; background: #FBF6E8;
+    padding: 14px 16px; border-radius: 12px; border: 1px solid #E8DFC7;
+    margin-top: 8px; cursor: pointer; transition: border-color .15s; }
+  .hp-ins:hover { border-color: #0F766E; }
+  .hp-ins input { width: 20px; height: 20px; flex: 0 0 auto; accent-color: #0F766E; margin: 0; cursor: pointer; }
+  .hp-ins-lbl { font-size: 14px; font-weight: 500; color: #1F2937; }
+
+  /* Result column */
+  .hp-result { display: flex; flex-direction: column; gap: 14px; }
+
+  .hp-est { background: #fff; border: 1px solid #E8DFC7; border-radius: 16px;
+    padding: 22px 24px; box-shadow: 0 1px 2px rgba(15,23,42,0.05); }
+  .hp-est-label { display: flex; align-items: center; gap: 8px; font-size: 14px;
+    font-weight: 500; color: #6B7280; margin: 0 0 12px; }
+  .hp-est-label svg { width: 18px; height: 18px; color: #0F766E; }
+  .hp-est-amount { font-size: clamp(2rem, 5vw, 2.8rem); font-weight: 700;
+    color: #1F2937; line-height: 1; letter-spacing: -0.02em; display: inline; }
+  .hp-est-per { font-size: 1rem; font-weight: 500; color: #6B7280; margin-left: 4px; }
+  .hp-est-range { display: flex; gap: 18px; margin-top: 14px; font-size: 13px; color: #6B7280; }
+  .hp-est-ins { display: flex; gap: 8px; align-items: flex-start; margin-top: 12px;
+    padding: 10px 12px; background: #FBF6E8; border-radius: 8px;
+    font-size: 13px; color: #374151; line-height: 1.45; }
+  .hp-est-ins[hidden] { display: none; }
+  .hp-ins-icon { flex: 0 0 18px; width: 18px; height: 18px; border-radius: 50%;
+    background: #0F766E; color: #fff; display: inline-flex; align-items: center;
+    justify-content: center; font-weight: 700; font-size: 13px; line-height: 1; }
+
+  .hp-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .hp-cards .hp-card { background: #fff; border: 1px solid #E8DFC7; border-radius: 12px;
+    padding: 16px 18px; }
+  .hp-cards .hp-card .k { font-size: 11px; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.06em; color: #6B7280; margin: 0 0 4px; }
+  .hp-cards .hp-card .v { font-size: 1.4rem; font-weight: 700; color: #1F2937; }
+
+  .hp-drivers { background: #fff; border: 1px solid #E8DFC7; border-radius: 16px;
+    padding: 18px 22px; box-shadow: 0 1px 2px rgba(15,23,42,0.05); }
+  .hp-drivers h3 { display: flex; align-items: center; gap: 8px; font-size: 0.95rem;
+    font-weight: 700; margin: 0 0 12px; color: #1F2937; }
+  .hp-drivers h3 svg { width: 18px; height: 18px; color: #0F766E; }
+  .hp-drivers ul { list-style: none; padding: 0; margin: 0; }
+  .hp-drivers li { display: flex; justify-content: space-between; align-items: baseline;
+    padding: 9px 0; border-bottom: 1px dashed #E8DFC7; font-size: 0.95rem; }
+  .hp-drivers li:last-child { border-bottom: 0; }
+  .hp-drivers li .name { color: #374151; font-weight: 500; }
+  .hp-drivers li .val { color: #1F2937; font-weight: 700; }
+
+  .hp-discl { display: flex; gap: 10px; align-items: flex-start; background: #FBF6E8;
+    border: 1px solid #E8DFC7; border-radius: 12px; padding: 12px 14px;
+    font-size: 13px; color: #6B7280; line-height: 1.5; }
+  .hp-discl .ico { flex: 0 0 18px; width: 18px; height: 18px; border-radius: 50%;
+    background: #F1EAD3; display: inline-flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 700; color: #6B7280; font-style: normal; }
+
+  /* Categories */
+  .hp-cats { padding: 36px 0 8px; }
+  .hp-cats h2 { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.01em; margin: 0 0 18px; }
+  .hp-cats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+  .hp-cat { display: flex; flex-direction: column; gap: 4px; background: #fff;
+    border: 1px solid #E8DFC7; border-radius: 14px; padding: 18px; text-decoration: none;
+    color: #1F2937; transition: transform .15s, border-color .15s; }
+  .hp-cat:hover { border-color: #0F766E; transform: translateY(-2px); }
+  .hp-cat .tile { width: 40px; height: 40px; border-radius: 10px; background: #F1EAD3;
+    display: inline-flex; align-items: center; justify-content: center; color: #0F766E;
+    margin: 0 0 10px; font-size: 0; line-height: 0; }
+  .hp-cat .tile svg { width: 22px; height: 22px; display: block; }
+  .hp-cat h3 { font-size: 1.05rem; font-weight: 700; margin: 4px 0 2px; color: #1F2937; }
+  .hp-cat .desc { font-size: 13px; color: #6B7280; margin: 0 0 10px; }
+  .hp-cat .count { margin-top: auto; font-size: 13px; font-weight: 600; color: #0F766E; }
+
+  /* Trust strip */
+  .hp-trust { margin-top: 32px; background: #FBF6E8; border: 1px solid #E8DFC7;
+    border-radius: 16px; padding: 20px 24px; }
+  .hp-trust-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; }
+  .hp-trust-item { display: flex; gap: 12px; align-items: flex-start; }
+  .hp-trust-ico { flex: 0 0 36px; width: 36px; height: 36px; border-radius: 50%;
+    background: #F1EAD3; display: inline-flex; align-items: center; justify-content: center;
+    color: #0F766E; font-size: 0; line-height: 0; }
+  .hp-trust-ico svg { width: 18px; height: 18px; display: block; }
+  .hp-trust-item h4 { font-size: 0.95rem; font-weight: 700; margin: 0 0 2px; color: #1F2937; }
+  .hp-trust-item p { font-size: 13px; color: #6B7280; margin: 0; line-height: 1.45; }
+  .hp-trust-links { margin-top: 14px; padding-top: 14px; border-top: 1px solid #E8DFC7;
+    font-size: 13px; }
+  .hp-trust-links a { color: #0F766E; text-decoration: none; font-weight: 500; margin-right: 14px; }
+  .hp-trust-links a:hover { text-decoration: underline; }
+
+  /* Why plan card */
+  .hp-why { margin: 36px 0 16px; background: #fff; border: 1px solid #E8DFC7;
+    border-radius: 18px; overflow: hidden; }
+  .hp-why-img { width: 100%; aspect-ratio: 16/5; background: #F1EAD3 center/cover no-repeat; display: block; }
+  .hp-why-body { padding: 22px 26px 24px; }
+  .hp-why-body h2 { font-size: 1.3rem; font-weight: 700; margin: 0 0 8px; }
+  .hp-why-body p { color: #6B7280; margin: 0 0 12px; line-height: 1.55; }
+  .hp-why-body a { color: #0F766E; font-weight: 600; text-decoration: none; }
+  .hp-why-body a:hover { text-decoration: underline; }
+
+  /* FAQ */
+  .hp-faq { margin: 28px 0 8px; max-width: 720px; }
+  .hp-faq details { background: #fff; border: 1px solid #E8DFC7; border-radius: 12px;
+    padding: 14px 18px; margin-bottom: 10px; }
+  .hp-faq summary { cursor: pointer; font-weight: 600; color: #1F2937; }
+  .hp-faq p { color: #374151; margin: 8px 0 0; line-height: 1.55; }
+  </style>
+
+  <script type="application/ld+json">
+  { "@context": "https://schema.org", "@type": "WebSite", "name": "Pet Cost Calculator",
+    "url": "https://petcostbill.com/", "description": "Calculator-first cost estimates for U.S. dog and cat owners.",
+    "publisher": { "@type": "Organization", "name": "Pet Cost Calculator" } }
+  </script>
+  <script type="application/ld+json">
+  { "@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Pet Cost Calculator",
+    "applicationCategory": "FinanceApplication", "operatingSystem": "Web",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" } }
+  </script>
+  <script type="application/ld+json">
+  { "@context": "https://schema.org", "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How much does it cost to own a dog?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Most U.S. dog owners spend $1,200–$4,500 per year. Size, breed, age, and lifestyle drive most of the variation." } },
+      { "@type": "Question", "name": "How much does it cost to own a cat?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Cats typically cost $700–$2,000 per year." } },
+      { "@type": "Question", "name": "Is pet insurance worth it?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Insurance is most useful as protection against large unexpected bills. If your pet has one major event, insurance can pay back many times over. If your pet stays healthy, self-savings may come out ahead." } }
+    ] }
+  </script>
+
+  <script src="/assets/data/csv-loader-20260509.js" defer></script>
+  <script src="/assets/data/base-costs.js?v=20260509b" defer></script>
+  <script src="/assets/data/multipliers.js?v=20260509b" defer></script>
+  <script src="/assets/data/breeds.js?v=20260509b" defer></script>
+  <script src="/assets/data/procedures.js?v=20260509b" defer></script>
+  <script src="/assets/data/insurance.js?v=20260509b" defer></script>
+  <script src="/assets/data/cities.js?v=20260509b" defer></script>
+  <script src="/assets/data/breed-images.js?v=20260509b" defer></script>
+  <script src="/assets/js/layout-20260509.js" defer></script>
+  <script src="/assets/js/calculator-20260509.js" defer></script>
+</head>
+
+<body class="hp-page">
+<div id="site-header"></div>
+
+<main>
+  <section>
+    <div class="hp-container">
+      <h1 class="hp-h1">How Much Does a Pet Really Cost?</h1>
+      <p class="hp-lede">Get accurate estimates for dog and cat ownership costs. Plan your budget with real veterinary data and U.S. averages.</p>
+
+      <div class="hp-grid">
+        <!-- LEFT: form -->
+        <div class="hp-form" id="hp-form">
+          <h2>Calculate Pet Ownership Costs</h2>
+
+          <div class="hp-field">
+            <label class="hp-label">Pet Type</label>
+            <div class="hp-pet-row">
+              <button type="button" class="hp-pet-btn is-active" data-species="dog" aria-pressed="true">
+                <img class="hp-pet-ico" src="/logo/dog-svgrepo-com.svg?v=20260509b" alt="Dog illustration" width="56" height="56" />
+                <span class="lbl">Dog</span>
+              </button>
+              <button type="button" class="hp-pet-btn" data-species="cat" aria-pressed="false">
+                <img class="hp-pet-ico" src="/logo/cat-svgrepo-com.svg?v=20260509b" alt="Cat illustration" width="56" height="56" />
+                <span class="lbl">Cat</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="hp-field">
+            <label class="hp-label" for="hp-size">Size</label>
+            <select id="hp-size">
+              <option value="toy">Toy (under 10 lbs)</option>
+              <option value="small">Small (10–25 lbs)</option>
+              <option value="medium" selected>Medium (25–60 lbs)</option>
+              <option value="large">Large (60–90 lbs)</option>
+              <option value="giant">Giant (90+ lbs)</option>
+            </select>
+          </div>
+
+          <div class="hp-field">
+            <label class="hp-label" for="hp-age">Age</label>
+            <select id="hp-age">
+              <option value="puppy">Puppy / Kitten (under 1 year)</option>
+              <option value="adult" selected>Adult (1–7 years)</option>
+              <option value="senior">Senior (7+ years)</option>
+            </select>
+          </div>
+
+          <label class="hp-ins" for="hp-ins-cb">
+            <input type="checkbox" id="hp-ins-cb" />
+            <span class="hp-ins-lbl">I have pet insurance</span>
+          </label>
+        </div>
+
+        <!-- RIGHT: result -->
+        <div class="hp-result" id="hp-result" aria-live="polite">
+          <div class="hp-est">
+            <div class="hp-est-label">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+              Monthly Cost Estimate
+            </div>
+            <span class="hp-est-amount" id="hp-monthly">$—</span><span class="hp-est-per">/month</span>
+            <div class="hp-est-range">
+              <span>Low: <span id="hp-low">—</span></span>
+              <span>High: <span id="hp-high">—</span></span>
+            </div>
+            <div class="hp-est-ins" id="hp-ins-line" hidden>
+              <span class="hp-ins-icon" aria-hidden="true">+</span>
+              <span>Insurance premium adds approximately <strong id="hp-ins-amount">$0</strong>/month on top.</span>
+            </div>
+          </div>
+
+          <div class="hp-cards">
+            <div class="hp-card"><div class="k">Annual Cost</div><div class="v" id="hp-annual">$—</div></div>
+            <div class="hp-card"><div class="k" id="hp-life-k">Lifetime</div><div class="v" id="hp-lifetime">$—</div></div>
+          </div>
+
+          <div class="hp-drivers">
+            <h3>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+              Top Cost Drivers
+            </h3>
+            <ul id="hp-drivers-list"></ul>
+          </div>
+
+          <div class="hp-discl">
+            <span class="ico">i</span>
+            <span>Estimates based on U.S. averages. Actual costs vary by location, breed, and lifestyle.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trust strip -->
+      <div class="hp-trust">
+        <div class="hp-trust-row">
+          <div class="hp-trust-item">
+            <span class="hp-trust-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </span>
+            <div>
+              <h4>Veterinarian Reviewed</h4>
+              <p>Cost estimates reviewed by licensed veterinarians.</p>
+            </div>
+          </div>
+          <div class="hp-trust-item">
+            <span class="hp-trust-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            </span>
+            <div>
+              <h4>Data-Backed</h4>
+              <p>Based on real veterinary clinic pricing and surveys.</p>
+            </div>
+          </div>
+          <div class="hp-trust-item">
+            <span class="hp-trust-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </span>
+            <div>
+              <h4>Trusted by Thousands</h4>
+              <p>Helping pet owners plan since 2024.</p>
+            </div>
+          </div>
+        </div>
+        <div class="hp-trust-links">
+          <a href="/about/">Methodology</a>
+          <a href="/sources/">Data Sources</a>
+          <a href="/affiliate-disclosure/">Affiliate Disclosure</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories -->
+  <section class="hp-cats">
+    <div class="hp-container">
+      <h2>Explore by Category</h2>
+      <div class="hp-cats-grid">
+        <a class="hp-cat" href="/breeds/">
+          <span class="tile" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="6" cy="9" r="2.6"/><circle cx="18" cy="9" r="2.6"/><circle cx="9" cy="5" r="2.2"/><circle cx="15" cy="5" r="2.2"/><path d="M6.8 16.5c0-3.4 2.3-5.5 5.2-5.5s5.2 2.1 5.2 5.5c0 3-2.3 4.5-5.2 4.5s-5.2-1.5-5.2-4.5z"/></svg>
+          </span>
+          <h3>Breeds</h3>
+          <span class="desc">Compare costs across 38 dog and cat breeds.</span>
+          <span class="count">38 breeds →</span>
+        </a>
+        <a class="hp-cat" href="/states/">
+          <span class="tile" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </span>
+          <h3>States</h3>
+          <span class="desc">Pet costs by location and region.</span>
+          <span class="count">25 states →</span>
+        </a>
+        <a class="hp-cat" href="/vet-costs/">
+          <span class="tile" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7z"/></svg>
+          </span>
+          <h3>Vet Costs</h3>
+          <span class="desc">Procedure prices and emergency estimates.</span>
+          <span class="count">25+ procedures →</span>
+        </a>
+        <a class="hp-cat" href="/guides/">
+          <span class="tile" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          </span>
+          <h3>Guides</h3>
+          <span class="desc">Expert advice on pet care and budgeting.</span>
+          <span class="count">40+ guides →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why plan -->
+  <section>
+    <div class="hp-container">
+      <div class="hp-why">
+        <span class="hp-why-img" style="background-image: url('/assets/images/hero-pets.svg?v=20260509b');" role="img" aria-label="A friendly dog and a contented cat resting together"></span>
+        <div class="hp-why-body">
+          <h2>Why Plan for Pet Costs?</h2>
+          <p>Understanding the true cost of pet ownership helps you budget properly and ensure your furry friend gets the best care. From routine vet visits to unexpected emergencies, being prepared makes all the difference.</p>
+          <a href="/guides/">Read our planning guides →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section>
+    <div class="hp-container">
+      <h2 style="font-size:1.5rem;font-weight:700;margin:8px 0 12px;">Frequently asked</h2>
+      <div class="hp-faq">
+        <details>
+          <summary>How accurate are these calculators?</summary>
+          <p>They reflect current national survey averages and peer-reviewed price data, then add state, breed, age, and lifestyle adjustments. Each result shows a low / typical / high range so you see the spread rather than a falsely precise single number.</p>
+        </details>
+        <details>
+          <summary>How often are the numbers updated?</summary>
+          <p>We review every cost table at least quarterly against AVMA, NAPHIA, BLS CPI, and Banfield's State of Pet Health. Last full review: May 2026.</p>
+        </details>
+        <details>
+          <summary>Why CSV-backed cost tables?</summary>
+          <p>Every number on the site lives in a CSV file under <code>/assets/data/csv/</code>. Anyone can edit a row in a spreadsheet and the calculators pick up the change. No build step.</p>
+        </details>
+        <details>
+          <summary>Do you collect any personal data?</summary>
+          <p>No. The calculators run entirely in your browser. We don't ask for an email, we don't track you across the web, and your inputs never leave your device.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+
+<!-- Inline driver script: bypasses the data-calculator dispatch and drives the
+     above DOM directly. Waits for PETCOST_DATA.ready() then wires inputs. -->
+<script>
+(function () {
+  "use strict";
+  function $(id) { return document.getElementById(id); }
+  function fmt(n) { return "$" + Math.round(n).toLocaleString("en-US"); }
+
+  var state = { species: "dog", size: "medium", stage: "adult", state: "TX",
+    lifestyle: "standard", insurance: "no", indoor: "indoor" };
+
+  function recalc() {
+    var E = window.PetCostEngine;
+    if (!E || !E.computePet) return;
+    var stage = state.species === "cat"
+      ? (state.stage === "puppy" ? "kitten" : state.stage)
+      : (state.stage === "kitten" ? "puppy" : state.stage);
+
+    /* Compute both with and without insurance so we can:
+         - show the premium delta in the sub-line
+         - reflect total cost (incl. premium) in the headline when checked */
+    var baseOpts = Object.assign({}, state, { stage: stage, insurance: "no" });
+    var rNo  = E.computePet(state.species, baseOpts);
+    var rYes = E.computePet(state.species, Object.assign({}, baseOpts, { insurance: "yes" }));
+    var premium = rYes.monthly.typical - rNo.monthly.typical;
+    var r = (state.insurance === "yes") ? rYes : rNo;
+
+    $("hp-monthly").textContent  = fmt(r.monthly.typical);
+    $("hp-low").textContent      = fmt(r.monthly.low);
+    $("hp-high").textContent     = fmt(r.monthly.high);
+    $("hp-annual").textContent   = fmt(r.annual.typical);
+    $("hp-lifetime").textContent = fmt(r.lifetime.typical);
+    $("hp-life-k").textContent   = "Lifetime (" + r.years + " yr)";
+
+    /* Insurance sub-line — only visible when checkbox is on. */
+    var insLine = $("hp-ins-line");
+    if (state.insurance === "yes") {
+      $("hp-ins-amount").textContent = fmt(premium);
+      insLine.removeAttribute("hidden");
+    } else {
+      insLine.setAttribute("hidden", "");
+    }
+
+    /* Top drivers — use the breakdown matching what's shown in the headline. */
+    var sorted = r.breakdown.slice().sort(function (a, b) { return b.cost.typical - a.cost.typical; }).slice(0, 4);
+    var ul = $("hp-drivers-list");
+    ul.innerHTML = "";
+    sorted.forEach(function (b) {
+      var li = document.createElement("li");
+      var n = document.createElement("span"); n.className = "name"; n.textContent = b.name;
+      var v = document.createElement("span"); v.className = "val"; v.textContent = fmt(b.cost.typical / 12) + "/mo";
+      li.appendChild(n); li.appendChild(v); ul.appendChild(li);
+    });
+  }
+
+  function wireUp() {
+    document.querySelectorAll(".hp-pet-btn").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        document.querySelectorAll(".hp-pet-btn").forEach(function (b) {
+          b.classList.remove("is-active"); b.setAttribute("aria-pressed", "false");
+        });
+        btn.classList.add("is-active"); btn.setAttribute("aria-pressed", "true");
+        state.species = btn.getAttribute("data-species");
+        if (state.species === "cat" && state.stage === "puppy") state.stage = "kitten";
+        if (state.species === "dog" && state.stage === "kitten") state.stage = "puppy";
+        recalc();
+      });
+    });
+    $("hp-size").addEventListener("change", function (e) { state.size = e.target.value; recalc(); });
+    $("hp-age").addEventListener("change", function (e) {
+      var v = e.target.value;
+      state.stage = (state.species === "cat" && v === "puppy") ? "kitten" : v;
+      recalc();
+    });
+    $("hp-ins-cb").addEventListener("change", function (e) {
+      state.insurance = e.target.checked ? "yes" : "no"; recalc();
+    });
+  }
+
+  function tryRun() {
+    if (window.PetCostEngine && window.PetCostEngine.computePet
+        && window.PETCOST_DATA && window.PETCOST_DATA.baseCosts
+        && window.PETCOST_DATA.stateMultipliers) {
+      recalc();
+      return true;
+    }
+    return false;
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    wireUp();
+    var D = window.PETCOST_DATA;
+    if (D && typeof D.ready === "function") {
+      D.ready().then(tryRun).catch(tryRun);
+    }
+    /* Always poll briefly as a safety net — handles cases where ready()
+       resolves before the engine has shaped the data. */
+    var tries = 0;
+    var t = setInterval(function () {
+      if (tryRun() || ++tries > 100) clearInterval(t);
+    }, 60);
+  });
+})();
+</script>
+</body>
+</html>

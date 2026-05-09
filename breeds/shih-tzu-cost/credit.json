@@ -1,0 +1,23 @@
+{
+  "slug": "shih-tzu-cost",
+  "breed": "Shih Tzu",
+  "species": "dog",
+  "localPath": "assets/images/breeds/shih-tzu-cost/hero.jpg",
+  "sourceWebsite": "Wikimedia Commons",
+  "sourcePage": "https://commons.wikimedia.org/wiki/File:Shih_tzu_dog.jpg",
+  "sourceFileTitle": "File:Shih tzu dog.jpg",
+  "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Shih_tzu_dog.jpg/1280px-Shih_tzu_dog.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "mime": "image/jpeg",
+  "width": 1280,
+  "height": 1707,
+  "bytes": 826077,
+  "license": "CC0",
+  "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "attributionRequired": false,
+  "artist": "Marcelo RosaMelo",
+  "credit": "Own work",
+  "imageDescription": "Dog of the shih tzu breed",
+  "selectedScore": 57,
+  "altSuggestion": "Shih Tzu dog",
+  "reviewNote": "Free-license image from Wikimedia Commons. Verify visual breed accuracy before publishing."
+}

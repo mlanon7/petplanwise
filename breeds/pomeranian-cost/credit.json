@@ -1,0 +1,23 @@
+{
+  "slug": "pomeranian-cost",
+  "breed": "Pomeranian",
+  "species": "dog",
+  "localPath": "assets/images/breeds/pomeranian-cost/hero.jpg",
+  "sourceWebsite": "Wikimedia Commons",
+  "sourcePage": "https://commons.wikimedia.org/wiki/File:Pomeranian_Dog_-_Kolkata_2011-10-31_6415.JPG",
+  "sourceFileTitle": "File:Pomeranian Dog - Kolkata 2011-10-31 6415.JPG",
+  "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Pomeranian_Dog_-_Kolkata_2011-10-31_6415.JPG/1280px-Pomeranian_Dog_-_Kolkata_2011-10-31_6415.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "mime": "image/jpeg",
+  "width": 1280,
+  "height": 850,
+  "bytes": 207112,
+  "license": "CC BY 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+  "attributionRequired": true,
+  "artist": "Biswarup Ganguly",
+  "credit": "Own work",
+  "imageDescription": "This media file is uploaded with India loves Wikipedia event.",
+  "selectedScore": 43,
+  "altSuggestion": "Pomeranian dog",
+  "reviewNote": "Free-license image from Wikimedia Commons. Verify visual breed accuracy before publishing."
+}

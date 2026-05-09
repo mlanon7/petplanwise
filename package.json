@@ -1,0 +1,24 @@
+{
+  "name": "pet-cost-vet-bill-calculator",
+  "version": "1.0.0",
+  "private": true,
+  "type": "commonjs",
+  "description": "Calculator-first SEO site for U.S. dog and cat owners. Pure static HTML/CSS/JS, deploys to Vercel with zero build.",
+  "scripts": {
+    "dev": "node local-server.js",
+    "start": "node local-server.js",
+    "serve-legacy": "npx --yes serve -l 8080 .",
+    "build": "echo 'No build step. Fully static.'",
+    "test": "node tests/calculator.test.js",
+    "replace-domain": "node scripts/replace-domain.js",
+    "fetch-images": "node scripts/fetch-images-wikipedia.js",
+    "fetch-images-pexels": "node scripts/fetch-breed-images.js",
+    "sync": "node scripts/sync-from-sheets.js",
+    "prebuild": "node scripts/sync-from-sheets.js || true",
+    "push": "node scripts/push-to-sheets.js"
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "license": "UNLICENSED"
+}

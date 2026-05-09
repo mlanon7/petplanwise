@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About &amp; Methodology — Pet Cost &amp; Vet Bill Calculator</title>
+  <meta name="description" content="How we estimate pet costs: data sources, multipliers, update cadence, and our editorial approach. Calculator-first, source-backed, no vet-clinic marketing." />
+  <meta property="og:title" content="About &amp; Methodology — Pet Cost &amp; Vet Bill Calculator" />
+  <link rel="canonical" href="https://petcostbill.com/about/" />
+  <meta property="og:image" content="https://petcostbill.com/assets/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://petcostbill.com/assets/og-image.png" />
+  <meta name="twitter:title" content="About & Methodology — Pet Cost & Vet Bill Calculator" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230F766E'/%3E%3Ctext x='50' y='66' font-family='system-ui,sans-serif' font-weight='700' font-size='58' fill='white' text-anchor='middle'%3E%24%3C/text%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="/assets/css/site.css" />
+  <script src="/assets/js/layout.js" defer></script>
+</head>
+<body>
+<div id="site-header"></div>
+<main>
+  <div class="container"><nav class="breadcrumbs"><a href="/">Home</a><span>›</span>About &amp; methodology</nav></div>
+  <section style="padding: 24px 0 12px;"><div class="container">
+    <span class="eyebrow">About</span>
+    <h1>About &amp; methodology</h1>
+    <p class="lede prose">A calculator-first resource for U.S. dog and cat owners. We exist because most pet cost content online is either watered-down listicles or owned by insurance carriers. We're neither.</p>
+  </div></section>
+
+  <section><div class="container prose">
+    <h2>What we do</h2>
+    <p>Build interactive calculators that estimate pet ownership costs based on size, breed, age stage, state, and lifestyle — with transparent methodology and editable cost data files. No email gates. No popups. No carrier-specific recommendations.</p>
+
+    <h2>How our calculators work</h2>
+    <p>Each calculator uses the same engine and cost dataset. The math is straightforward:</p>
+    <pre style="background:var(--surface-2);padding:14px 18px;border-radius:10px;font-size:14px;overflow:auto;">
+total_category_cost = base_range × size_mult × age_mult × state_mult × lifestyle_mult
+total_annual = sum(all_category_costs)
+total_first_year = total_annual + first_year_one_time
+total_lifetime = total_annual × life_expectancy + first_year_one_time</pre>
+    <p>We always present low / typical / high ranges instead of single-point estimates because real costs vary substantially.</p>
+
+    <h2>Data sources</h2>
+    <p>Every calculator pulls from a small set of editable JSON-shaped data files. Cost ranges come from a blend of:</p>
+    <ul>
+      <li><strong>AVMA</strong> — U.S. Pet Ownership and Demographics Sourcebook</li>
+      <li><strong>ASPCA</strong> — Annual cost-of-pet-ownership estimates</li>
+      <li><strong>BLS CPI</strong> — Veterinary services index, regional breakdowns</li>
+      <li><strong>NAPHIA</strong> — 2024 State of the Industry (pet insurance premiums)</li>
+      <li><strong>Synchrony</strong> — Lifetime of Care studies (cats and dogs)</li>
+      <li><strong>Banfield Pet Hospital</strong> — State of Pet Health</li>
+      <li><strong>AAHA / AVDC</strong> — Veterinary care guidelines (dental, anesthesia)</li>
+      <li><strong>OFA / Morris Animal Foundation</strong> — Breed-specific health risk data</li>
+    </ul>
+
+    <h2>Update cadence</h2>
+    <p>Cost ranges are reviewed and updated quarterly. We bump the dataset when significant new survey or insurance data lands.</p>
+
+    <h2>What we deliberately don't do</h2>
+    <ul>
+      <li>We don't publish ZIP-level prices as if they're exact. State multipliers approximate vet labor cost-of-living differences.</li>
+      <li>We don't give veterinary or financial advice. Estimates are educational only.</li>
+      <li>We don't accept paid placements from insurance carriers. Affiliate links (when we add them) are clearly labeled.</li>
+      <li>We don't pretend a single dataset captures every breed, every clinic, or every individual pet's situation.</li>
+    </ul>
+
+    <h2>Editorial principles</h2>
+    <ul>
+      <li>Plain English over jargon.</li>
+      <li>Source-link in line whenever a number could be checked.</li>
+      <li>Show ranges, not false-precision averages.</li>
+      <li>Be neutral on insurance — show the math both ways.</li>
+      <li>Update or remove anything that becomes stale.</li>
+    </ul>
+
+    <h2>Editing the cost data</h2>
+    <p>The dataset lives in <code>/assets/data/csv/</code> as plain CSV files — one per logical table (base costs, multipliers, breeds, procedures, insurance, cities, image attribution). The CSVs are the <strong>sole source of truth</strong>; no numbers are duplicated in JavaScript. Edit a row in Excel, Numbers, or Google Sheets, save, refresh — no build step. Column documentation lives at <code>/assets/data/csv/README.md</code>.</p>
+
+    <h2>Contact</h2>
+    <p>Questions, corrections, source pointers: head to the <a href="/contact/">contact page</a> for our email and what to include.</p>
+  </div></section>
+</main>
+<div id="site-footer"></div>
+</body>
+</html>

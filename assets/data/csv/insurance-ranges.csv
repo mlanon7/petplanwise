@@ -1,0 +1,7 @@
+species,level,monthly_premium,description
+dog,low,25,"Younger/mixed breed, accident only"
+dog,typical,62,"Healthy adult, accident & illness"
+dog,high,120,"Older/high-risk breed, comprehensive"
+cat,low,12,"Younger/mixed, accident only"
+cat,typical,32,"Healthy adult, accident & illness"
+cat,high,60,"Older/high-risk, comprehensive"

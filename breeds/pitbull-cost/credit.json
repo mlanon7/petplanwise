@@ -1,0 +1,23 @@
+{
+  "slug": "pitbull-cost",
+  "breed": "American Staffordshire Terrier",
+  "species": "dog",
+  "localPath": "assets/images/breeds/pitbull-cost/hero.jpg",
+  "sourceWebsite": "Pexels",
+  "sourcePage": "https://www.pexels.com/photo/american-staffordshire-terrier-16164914/",
+  "sourceFileTitle": "American Staffordshire Terrier",
+  "downloadUrl": "https://images.pexels.com/photos/16164914/pexels-photo-16164914.jpeg?auto=compress&cs=tinysrgb&w=1280",
+  "mime": "image/jpeg",
+  "width": 1280,
+  "height": 2276,
+  "bytes": 212684,
+  "license": "Pexels Content License",
+  "licenseUrl": "https://www.pexels.com/license/",
+  "attributionRequired": false,
+  "artist": "Nicholas Espinosa",
+  "credit": "Pexels",
+  "imageDescription": "American Staffordshire Terrier standing outdoors",
+  "selectedScore": null,
+  "altSuggestion": "American Staffordshire Terrier dog",
+  "reviewNote": "Free-use Pexels image. Verify visual breed accuracy before publishing."
+}

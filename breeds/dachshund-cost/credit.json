@@ -1,0 +1,23 @@
+{
+  "slug": "dachshund-cost",
+  "breed": "Dachshund",
+  "species": "dog",
+  "localPath": "assets/images/breeds/dachshund-cost/hero.jpg",
+  "sourceWebsite": "Pexels",
+  "sourcePage": "https://www.pexels.com/photo/portrait-of-a-dachshund-11118046/",
+  "sourceFileTitle": "Portrait of a Dachshund",
+  "downloadUrl": "https://images.pexels.com/photos/11118046/pexels-photo-11118046.jpeg?auto=compress&cs=tinysrgb&w=1280",
+  "mime": "image/jpeg",
+  "width": 1280,
+  "height": 1920,
+  "bytes": 538382,
+  "license": "Pexels Content License",
+  "licenseUrl": "https://www.pexels.com/license/",
+  "attributionRequired": false,
+  "artist": "Vinicius Cezario",
+  "credit": "Pexels",
+  "imageDescription": "Dachshund standing outdoors on a patio",
+  "selectedScore": null,
+  "altSuggestion": "Dachshund dog",
+  "reviewNote": "Free-use Pexels image. Verify visual breed accuracy before publishing."
+}

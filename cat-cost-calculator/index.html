@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cat Cost Calculator — First Year, Annual &amp; Lifetime Estimates</title>
+  <meta name="description" content="Free cat cost calculator. Get monthly, annual, first-year, and lifetime estimates by age, indoor/outdoor, food type, and state — with low/typical/high ranges." />
+  <link rel="canonical" href="https://petcostbill.com/cat-cost-calculator/" />
+  <meta property="og:image" content="https://petcostbill.com/assets/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://petcostbill.com/assets/og-image.png" />
+  <meta name="twitter:title" content="Cat Cost Calculator — First Year, Annual & Lifetime Estimates" />
+  <meta property="og:title" content="Cat Cost Calculator" />
+  <meta property="og:description" content="What does a cat actually cost? See first-year, annual, and lifetime ranges with a category-by-category breakdown." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230F766E'/%3E%3Ctext x='50' y='66' font-family='system-ui,sans-serif' font-weight='700' font-size='58' fill='white' text-anchor='middle'%3E%24%3C/text%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="/assets/css/site.css" />
+  <script src="/assets/data/csv-loader.js" defer></script>
+  <script src="/assets/data/base-costs.js" defer></script>
+  <script src="/assets/data/multipliers.js" defer></script>
+  <script src="/assets/data/breeds.js" defer></script>
+  <script src="/assets/data/procedures.js" defer></script>
+  <script src="/assets/data/insurance.js" defer></script>
+  <script src="/assets/data/cities.js" defer></script>
+  <script src="/assets/data/breed-images.js" defer></script>
+  <script src="/assets/js/layout.js" defer></script>
+  <script src="/assets/js/calculator.js" defer></script>
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://petcostbill.com/"},
+    {"@type":"ListItem","position":2,"name":"Cat cost calculator","item":"https://petcostbill.com/cat-cost-calculator/"}
+  ]}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Cat Cost Calculator","applicationCategory":"FinanceApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"How much does a cat cost per year?","acceptedAnswer":{"@type":"Answer","text":"Most cat owners spend $700 to $2,000 per year. Indoor adult cats fall toward the low end; senior cats and premium-lifestyle owners run higher."}},
+    {"@type":"Question","name":"How much does a kitten cost in year one?","acceptedAnswer":{"@type":"Answer","text":"Expect $900 to $2,500 in year one. Spay or neuter, starter supplies, and the kitten vaccine series make up the bulk of one-time costs."}},
+    {"@type":"Question","name":"Is pet insurance worth it for cats?","acceptedAnswer":{"@type":"Answer","text":"Cat insurance is cheaper than dog insurance — roughly $20–$50 a month — and protects against urinary blockages, dental disease, and chronic kidney issues, all common in cats. Use the Insurance vs Savings calculator to compare."}}
+  ]}
+  </script>
+</head>
+<body>
+<div id="site-header"></div>
+
+<main>
+  <div class="container"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>›</span>Cat cost calculator</nav></div>
+
+  <section style="padding: 24px 0 12px;">
+    <div class="container">
+      <span class="eyebrow">🐈 Cat cost calculator</span>
+      <h1>How much does a cat actually cost?</h1>
+      <p class="last-updated-stamp last-updated-static">Last updated: <strong>May 2026</strong> · <a href="/about/">Methodology</a> · <a href="/sources/">Sources</a></p>
+      <div class="reviewer-block">
+        <span class="avatar" aria-hidden="true">PC</span>
+        <div>
+          <div class="who">Reviewed by Pet Cost Editorial Team</div>
+          <div class="meta">Cost data reviewed May 2026 · methodology audited quarterly</div>
+        </div>
+      </div>
+      <p class="lede prose">Pick age stage, indoor/outdoor, state, and lifestyle. We surface monthly, annual, first-year, and lifetime cost estimates — plus litter, dental, and routine vet ranges most calculators skip.</p>
+    </div>
+  </section>
+
+  <section style="padding-top: 8px;">
+    <div class="container">
+      <div data-calculator="cat"></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2>Cost ranges at a glance</h2>
+      <table class="cost-table">
+        <thead><tr><th>Category</th><th class="num">Low</th><th class="num">Typical</th><th class="num">High</th></tr></thead>
+        <tbody>
+          <tr><td>Food</td><td class="num">$180</td><td class="num">$360</td><td class="num">$720</td></tr>
+          <tr><td>Litter</td><td class="num">$120</td><td class="num">$240</td><td class="num">$480</td></tr>
+          <tr><td>Routine vet care</td><td class="num">$120</td><td class="num">$240</td><td class="num">$480</td></tr>
+          <tr><td>Vaccines</td><td class="num">$60</td><td class="num">$100</td><td class="num">$220</td></tr>
+          <tr><td>Flea / tick / parasite prevention</td><td class="num">$80</td><td class="num">$160</td><td class="num">$280</td></tr>
+          <tr><td>Dental (annualized)</td><td class="num">$0</td><td class="num">$100</td><td class="num">$600</td></tr>
+          <tr><td>Pet insurance (optional)</td><td class="num">$240</td><td class="num">$420</td><td class="num">$720</td></tr>
+        </tbody>
+      </table>
+      <p class="note">Annual ranges. Year-one one-time costs (adoption, spay/neuter, starter kit, microchip) usually add $400–$1,200 on top.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="grid grid-2">
+        <div>
+          <h2>What drives the price</h2>
+          <ul class="prose">
+            <li><strong>Indoor vs. outdoor.</strong> Outdoor cats see more parasites, injuries, and shorter lifespans — annual costs run higher.</li>
+            <li><strong>Age stage.</strong> Kittens need a vaccine series and spay/neuter. Senior cats often need bloodwork, dental, and kidney monitoring.</li>
+            <li><strong>Diet.</strong> Prescription urinary or kidney diets cost 2–3× regular grocery brands.</li>
+            <li><strong>Litter type.</strong> Crystal or natural pellet litters cost 2× clay clumping.</li>
+            <li><strong>Geography.</strong> Vet labor and emergency clinic pricing vary substantially by state.</li>
+          </ul>
+        </div>
+        <div>
+          <h2>Ways to save</h2>
+          <ul class="prose">
+            <li>Buy litter and food in bulk — automatic delivery often beats grocery prices.</li>
+            <li>Schedule annual exams; catching dental or kidney issues early prevents $1,500+ procedures.</li>
+            <li>Spay or neuter through a low-cost humane society clinic ($75–$200).</li>
+            <li>Keep cats indoors. The single biggest cost-saver across a lifetime.</li>
+            <li>Brush teeth or use dental treats — defers professional cleanings.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="affiliate">
+        <div>
+          <span class="affiliate-tag">Sponsored</span>
+          <h3>Compare pet insurance for cats</h3>
+          <p>Cat policies typically run $20–$50/month — enough to protect against a $3,000 urinary blockage.</p>
+        </div>
+        <a class="btn" href="/pet-insurance-vs-savings/">Run the math</a>
+  <span class="affiliate-disclosure-inline">Affiliate partner — we may earn a commission at no extra cost to you. <a href="/affiliate-disclosure/">Learn more.</a></span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2>FAQ</h2>
+      <div class="faq" style="max-width: var(--readw)">
+        <details><summary>How much does a cat cost per year?</summary><p>Most cat owners spend $700–$2,000 per year. Indoor adult cats fall on the low end; senior or chronic-illness cats trend higher.</p></details>
+        <details><summary>What's the first-year cost of a kitten?</summary><p>$900–$2,500. Spay/neuter, starter kit, kitten vaccine series, and microchipping are the big one-time costs.</p></details>
+        <details><summary>What's the lifetime cost of a cat?</summary><p>Industry estimates (Synchrony) put cat lifetime costs at $15,000–$45,000.</p></details>
+        <details><summary>Should I get pet insurance for my cat?</summary><p>Cat insurance is comparatively affordable, and urinary blockages and chronic kidney disease are common cat-specific risks. Worth modeling.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container sources">
+      <h2>Sources &amp; methodology</h2>
+      <ul>
+        <li>AVMA — U.S. Pet Ownership and Demographics</li>
+        <li>NAPHIA 2024 State of the Industry — pet insurance premium averages</li>
+        <li>BLS CPI — veterinary services index</li>
+        <li>Synchrony — Lifetime of Care study (cats)</li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+</body>
+</html>

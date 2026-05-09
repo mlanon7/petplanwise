@@ -1,0 +1,23 @@
+{
+  "slug": "boxer-cost",
+  "breed": "Boxer",
+  "species": "dog",
+  "localPath": "assets/images/breeds/boxer-cost/hero.jpg",
+  "sourceWebsite": "Wikimedia Commons",
+  "sourcePage": "https://commons.wikimedia.org/wiki/File:Boxer_dog_in_iran.jpg",
+  "sourceFileTitle": "File:Boxer dog in iran.jpg",
+  "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Boxer_dog_in_iran.jpg/1280px-Boxer_dog_in_iran.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "mime": "image/jpeg",
+  "width": 1280,
+  "height": 1920,
+  "bytes": 202030,
+  "license": "CC0",
+  "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "attributionRequired": false,
+  "artist": "Mostafameraji",
+  "credit": "Own work",
+  "imageDescription": "The Boxer is a medium to large, short-haired breed of dog, developed in Germany.",
+  "selectedScore": 47,
+  "altSuggestion": "Boxer dog",
+  "reviewNote": "Free-license image from Wikimedia Commons. Verify visual breed accuracy before publishing."
+}

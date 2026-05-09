@@ -1,0 +1,23 @@
+{
+  "slug": "bulldog-cost",
+  "breed": "English Bulldog",
+  "species": "dog",
+  "localPath": "assets/images/breeds/bulldog-cost/hero.jpg",
+  "sourceWebsite": "Wikimedia Commons",
+  "sourcePage": "https://commons.wikimedia.org/wiki/File:English_Bulldog_-Dog-220489-1280.jpg",
+  "sourceFileTitle": "File:English Bulldog -Dog-220489-1280.jpg",
+  "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/English_Bulldog_-Dog-220489-1280.jpg/1280px-English_Bulldog_-Dog-220489-1280.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "mime": "image/jpeg",
+  "width": 1280,
+  "height": 931,
+  "bytes": 323687,
+  "license": "CC0",
+  "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "attributionRequired": false,
+  "artist": "https://pixabay.com/pt/users/kaz-19203/",
+  "credit": "https://pixabay.com/pt/photos/c%C3%A3o-buldogue-bulldog-ingl%C3%AAs-animal-220489/",
+  "imageDescription": "English Bulldog",
+  "selectedScore": 57,
+  "altSuggestion": "English Bulldog dog",
+  "reviewNote": "Free-license image from Wikimedia Commons. Verify visual breed accuracy before publishing."
+}

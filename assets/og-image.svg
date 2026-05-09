@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0F766E"/>
+      <stop offset="1" stop-color="#115E59"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#F59E0B"/>
+      <stop offset="1" stop-color="#FACC15"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <g transform="translate(80,90)">
+    <rect x="0" y="0" width="86" height="86" rx="20" fill="#FFFFFF"/>
+    <text x="43" y="64" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-weight="700" font-size="56" fill="#0F766E" text-anchor="middle">$</text>
+  </g>
+  <text x="80" y="280" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-weight="700" font-size="78" fill="#FFFFFF">Pet Cost &amp;</text>
+  <text x="80" y="370" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-weight="700" font-size="78" fill="#FFFFFF">Vet Bill Calculator</text>
+  <text x="80" y="450" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-weight="500" font-size="32" fill="rgba(255,255,255,0.85)">Real costs of owning a dog or cat —</text>
+  <text x="80" y="495" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-weight="500" font-size="32" fill="rgba(255,255,255,0.85)">monthly, annual, lifetime, emergency.</text>
+  <rect x="80" y="540" width="180" height="6" fill="url(#accent)" rx="3"/>
+  <text x="80" y="585" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-weight="600" font-size="22" fill="rgba(255,255,255,0.7)">Source-backed · No popups · No email</text>
+</svg>
