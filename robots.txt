@@ -3,4 +3,4 @@ Allow: /
 Disallow: /_research/
 Disallow: /embed/cost-calculator/
 
-Sitemap: https://yourpetbill.com/sitemap.xml
+Sitemap: https://petplanwise.com/sitemap.xml

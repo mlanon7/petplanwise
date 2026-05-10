@@ -1,4 +1,4 @@
-# YourPetBill.com — Google Sheets seed manifest
+# PetPlanWise.com — Google Sheets seed manifest
 
 Each section below is one tab in the Sheet. Tab name = section title.
 Copy the lines under each tab heading into the matching tab in your Sheet.

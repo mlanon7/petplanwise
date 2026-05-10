@@ -6,8 +6,8 @@
 
   var HEADER = '\n  <header class="site-header">\n' +
     '    <div class="container">\n' +
-    '      <a href="/" class="brand" aria-label="YourPetBill.com home">\n' +
-    '        <img src="/logo/yourpetbill-lockup-horizontal.svg?v=20260510i" alt="YourPetBill.com" class="brand-logo" width="259" height="50" />\n' +
+    '      <a href="/" class="brand" aria-label="PetPlanWise.com home">\n' +
+    '        <img src="/logo/petplanwise-lockup-horizontal.svg?v=20260510m" alt="PetPlanWise.com" class="brand-logo" width="259" height="50" />\n' +
     '      </a>\n' +
     '      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">\n' +
     '        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>\n' +
@@ -54,7 +54,7 @@
     '        </div>\n' +
     '      </div>\n' +
     '      <div class="footer-bottom">\n' +
-    '        <span>© <span id="yr"></span> YourPetBill.com. Educational estimates only — not veterinary or financial advice.</span>\n' +
+    '        <span>© <span id="yr"></span> PetPlanWise.com. Educational estimates only — not veterinary or financial advice.</span>\n' +
     '        <span>Cost data last reviewed: <strong>May 2026</strong></span>\n' +
     '      </div>\n' +
     '    </div>\n' +
@@ -69,15 +69,15 @@
     s.textContent = JSON.stringify({
       "@context": "https://schema.org",
       "@type": "Organization",
-      "name": "YourPetBill.com",
-      "url": "https://yourpetbill.com/",
-      "logo": "https://yourpetbill.com/assets/og-image.png",
+      "name": "PetPlanWise.com",
+      "url": "https://petplanwise.com/",
+      "logo": "https://petplanwise.com/assets/og-image.png",
       "sameAs": [],
       "description": "Calculator-first, source-backed cost estimates for U.S. dog and cat owners. Independent of insurance carriers and retailers.",
       "contactPoint": {
         "@type": "ContactPoint",
         "contactType": "Editorial",
-        "url": "https://yourpetbill.com/contact/"
+        "url": "https://petplanwise.com/contact/"
       }
     });
     document.head.appendChild(s);

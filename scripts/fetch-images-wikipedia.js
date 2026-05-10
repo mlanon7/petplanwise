@@ -79,7 +79,7 @@ const NICE = (slug) => slug.replace(/-/g, " ").replace(/\b\w/g, c => c.toUpperCa
 
 function fetchBuf(url) {
   return new Promise((resolve, reject) => {
-    const opts = { headers: { "User-Agent": "yourpetbill-build/1.0 (https://yourpetbill.com)" } };
+    const opts = { headers: { "User-Agent": "petplanwise-build/1.0 (https://petplanwise.com)" } };
     https.get(url, opts, res => {
       if ((res.statusCode === 301 || res.statusCode === 302) && res.headers.location) {
         return fetchBuf(res.headers.location).then(resolve, reject);

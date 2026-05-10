@@ -1,4 +1,4 @@
-# YourPetBill.com
+# PetPlanWise.com
 
 A static, calculator-first SEO site for U.S. dog and cat owners. Pure HTML / CSS / vanilla JS — no build step, no framework. Deploys to Vercel, Netlify, Cloudflare Pages, or GitHub Pages with zero configuration.
 
@@ -54,7 +54,7 @@ git init
 git add .
 git commit -m "Initial site"
 git branch -M main
-git remote add origin git@github.com:YOUR-USERNAME/yourpetbill.git
+git remote add origin git@github.com:YOUR-USERNAME/petplanwise.git
 git push -u origin main
 ```
 

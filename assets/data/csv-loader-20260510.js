@@ -57,7 +57,7 @@
        1) Try Google Sheets gviz CSV endpoint by tab name (latest data).
        2) On failure, fall back to bundled /assets/data/csv/<file>.csv.
      The Sheet ID is configurable via window.PETCOST_SHEET_ID; the default is the
-     production YourPetBill sheet. To disable live fetch and only use bundled
+     production PetPlanWise sheet. To disable live fetch and only use bundled
      CSVs, set window.PETCOST_USE_SHEET = false BEFORE this file runs. */
   var SHEET_ID = (typeof window !== "undefined" && window.PETCOST_SHEET_ID)
     || "1phcplKG7wqlSR9Pnkj2v672oBiDGtcZSbBncSEUvsFQ";

@@ -41,7 +41,7 @@ const MIN_BYTES = 80 * 1024;
 const SUSPECT_KB = 60;
 const SUSPECT_WIDTH = 800;
 const FORCE_ALL = process.env.FORCE_ALL === "1";
-const UA = "yourpetbill-photo-audit/1.0 (https://yourpetbill.com)";
+const UA = "petplanwise-photo-audit/1.0 (https://petplanwise.com)";
 const DELAY_MS = 1100;
 
 // Filename keywords that strongly indicate NOT a real breed photo

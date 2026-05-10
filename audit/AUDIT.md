@@ -270,7 +270,7 @@ Eight pages missing it. Identify with
 That's intentional / acceptable for a 404 page, but worth confirming.
 
 ### 🟢 OG image is a single static asset for the whole site
-`https://yourpetbill.com/assets/og-image.png` is shared by every page.
+`https://petplanwise.com/assets/og-image.png` is shared by every page.
 Per-page OG images (e.g. with the breed's hero photo) would lift
 social-share CTR. Low priority.
 

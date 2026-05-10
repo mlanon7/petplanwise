@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 120" role="img" aria-label="YourPetBill.com">
-  <title>YourPetBill.com</title>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 120" role="img" aria-label="PetPlanWise.com">
+  <title>PetPlanWise.com</title>
   
   <g transform="translate(12 12)">
     <rect width="96" height="96" rx="21" fill="#0F766E"></rect>
@@ -13,5 +13,5 @@
     <path d="M55.68 60C55.68 56.64 52.8 54.72 48 54.72C43.2 54.72 40.32 56.64 40.32 60C40.32 63.36 43.2 64.8 48 65.28C53.76 65.76 55.68 67.68 55.68 70.56C55.68 73.92 52.8 75.84 48 75.84C43.2 75.84 40.32 73.92 40.32 70.56" fill="none" stroke="#0F766E" stroke-width="3.07" stroke-linecap="round"></path>
   </g>
   
-  <text x="130" y="78" font-family="Manrope, &#39;Helvetica Neue&#39;, Arial, sans-serif" font-weight="800" font-size="60" letter-spacing="-1.8" fill="#1F2937">Your<tspan fill="#115E59">Pet</tspan>Bill<tspan font-size="38" font-weight="600" fill="#6B7280" letter-spacing="-0.4" dy="-12">.com</tspan></text>
+  <text x="130" y="78" font-family="Manrope, &#39;Helvetica Neue&#39;, Arial, sans-serif" font-weight="800" font-size="60" letter-spacing="-1.8" fill="#1F2937">Pet<tspan fill="#115E59">Plan</tspan>Wise<tspan font-size="38" font-weight="600" fill="#6B7280" letter-spacing="-0.4" dy="-12">.com</tspan></text>
 </svg>

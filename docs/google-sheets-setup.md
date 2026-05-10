@@ -82,7 +82,7 @@ Instead of copy-pasting 18 tabs by hand, paste a single Apps Script and run it.
 
 After this runs once, every tab is populated, named correctly, and ready for the live site to fetch.
 
-The script also adds a "YourPetBill" menu to the Sheet so non-engineers can:
+The script also adds a "PetPlanWise" menu to the Sheet so non-engineers can:
 - Re-seed all tabs (resets to the version embedded in the script)
 - Validate that tab names match what the site expects
 

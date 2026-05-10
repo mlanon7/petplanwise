@@ -30,7 +30,7 @@ const BREEDS_CSV = path.join(ROOT, "assets/data/csv/breeds.csv");
 const MAX_PER_BREED = 8;             // 5-10 range; 8 is a good middle
 const MIN_WIDTH = 800;                // skip tiny thumbnails
 const MIN_BYTES = 50 * 1024;          // 50 KB floor — skip placeholder/icon images
-const UA = "petcost-bill-image-fetcher/1.0 (https://yourpetbill.com)";
+const UA = "petcost-bill-image-fetcher/1.0 (https://petplanwise.com)";
 const DELAY_MS = 1100;                // be polite to Wikimedia
 
 /* ---------- CSV parser ---------- */
