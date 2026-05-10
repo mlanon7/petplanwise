@@ -69,14 +69,14 @@
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "Pet Cost & Vet Bill Calculator",
-      "url": "https://petcostbill.com/",
-      "logo": "https://petcostbill.com/assets/og-image.png",
+      "url": "https://yourpetbill.com/",
+      "logo": "https://yourpetbill.com/assets/og-image.png",
       "sameAs": [],
       "description": "Calculator-first, source-backed cost estimates for U.S. dog and cat owners. Independent of insurance carriers and retailers.",
       "contactPoint": {
         "@type": "ContactPoint",
         "contactType": "Editorial",
-        "url": "https://petcostbill.com/contact/"
+        "url": "https://yourpetbill.com/contact/"
       }
     });
     document.head.appendChild(s);
@@ -285,4 +285,4 @@
       link.textContent = "Learn more.";
       link.style.cssText = "color:rgba(255,255,255,0.85);text-decoration:underline;";
       micro.appendChild(link);
-      cta.parentNode.appendChild(micro);
+      cta.parentNode.appendChild(mic

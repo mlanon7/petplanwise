@@ -6,17 +6,17 @@
   <title>About &amp; Methodology — Pet Cost &amp; Vet Bill Calculator</title>
   <meta name="description" content="How we estimate pet costs: data sources, multipliers, update cadence, and our editorial approach. Calculator-first, source-backed, no vet-clinic marketing." />
   <meta property="og:title" content="About &amp; Methodology — Pet Cost &amp; Vet Bill Calculator" />
-  <link rel="canonical" href="https://petcostbill.com/about/" />
-  <meta property="og:image" content="https://petcostbill.com/assets/og-image.png" />
+  <link rel="canonical" href="https://yourpetbill.com/about/" />
+  <meta property="og:image" content="https://yourpetbill.com/assets/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="https://petcostbill.com/assets/og-image.png" />
+  <meta name="twitter:image" content="https://yourpetbill.com/assets/og-image.png" />
   <meta name="twitter:title" content="About & Methodology — Pet Cost & Vet Bill Calculator" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230F766E'/%3E%3Ctext x='50' y='66' font-family='system-ui,sans-serif' font-weight='700' font-size='58' fill='white' text-anchor='middle'%3E%24%3C/text%3E%3C/svg%3E" />
-  <link rel="stylesheet" href="/assets/css/site.css?v=20260510k" />
-  <script src="/assets/js/layout-20260510h.js" defer></script>
+  <link rel="stylesheet" href="/assets/css/site.css?v=20260510l" />
+  <script src="/assets/js/layout-20260510i.js" defer></script>
 </head>
 <body>
 <div id="site-header"></div>
@@ -74,13 +74,13 @@ total_lifetime = total_annual × life_expectancy + first_year_one_time</pre>
       <li>Update or remove anything that becomes stale.</li>
     </ul>
 
-    <h2>Editing the cost data</h2>
-    <p>The dataset lives in <code>/assets/data/csv/</code> as plain CSV files — one per logical table (base costs, multipliers, breeds, procedures, insurance, cities, image attribution). The CSVs are the <strong>sole source of truth</strong>; no numbers are duplicated in JavaScript. Edit a row in Excel, Numbers, or Google Sheets, save, refresh — no build step. Column documentation lives at <code>/assets/data/csv/README.md</code>.</p>
+    <h2>Methodology in numbers</h2>
+    <p>For transparency, here are the actual values our calculator uses today. Updated quarterly.</p>
 
-    <h2>Contact</h2>
-    <p>Questions, corrections, source pointers: head to the <a href="/contact/">contact page</a> for our email and what to include.</p>
-  </div></section>
-</main>
-<div id="site-footer"></div>
-</body>
-</html>
+    <h3>Annual base cost ranges (dog, U.S. average before multipliers)</h3>
+    <table class="cost-table">
+      <thead><tr><th>Category</th><th class="num">Low</th><th class="num">Typical</th><th class="num">High</th><th>Source</th></tr></thead>
+      <tbody>
+        <tr><td>Food</td><td class="num">$240</td><td class="num">$480</td><td class="num">$1,200</td><td>AVMA + ASPCA</td></tr>
+        <tr><td>Routine vet</td><td class="num">$150</td><td class="num">$300</td><td class="num">$600</td><td>AAHA + Banfield</td></tr>
+        <tr><td>Vaccines</td><td class="n

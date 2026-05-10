@@ -69,14 +69,14 @@
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "Pet Cost & Vet Bill Calculator",
-      "url": "https://petcostbill.com/",
-      "logo": "https://petcostbill.com/assets/og-image.png",
+      "url": "https://yourpetbill.com/",
+      "logo": "https://yourpetbill.com/assets/og-image.png",
       "sameAs": [],
       "description": "Calculator-first, source-backed cost estimates for U.S. dog and cat owners. Independent of insurance carriers and retailers.",
       "contactPoint": {
         "@type": "ContactPoint",
         "contactType": "Editorial",
-        "url": "https://petcostbill.com/contact/"
+        "url": "https://yourpetbill.com/contact/"
       }
     });
     document.head.appendChild(s);
@@ -126,7 +126,7 @@
           block.innerHTML =
             '<img class="reviewer-photo" src="' + (R.photo_url || "/assets/images/reviewer-placeholder.svg") + '" alt="" width="44" height="44" />' +
             '<div class="reviewer-meta">' +
-              '<div class="reviewer-name">' + (R.name || "Pet Cost Editorial Team") + '</div>' +
+              '<div class="reviewer-name">' + (R.name || "YourPetBill Editorial") + '</div>' +
               '<div class="reviewer-title">' + (R.title || "Editorial reviewer") + '</div>' +
             '</div>';
           stamp.parentNode.insertBefore(block, stamp.nextSibling);

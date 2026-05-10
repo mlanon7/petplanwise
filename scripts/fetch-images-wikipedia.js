@@ -79,7 +79,7 @@ const NICE = (slug) => slug.replace(/-/g, " ").replace(/\b\w/g, c => c.toUpperCa
 
 function fetchBuf(url) {
   return new Promise((resolve, reject) => {
-    const opts = { headers: { "User-Agent": "petcostbill-build/1.0 (https://petcostbill.com)" } };
+    const opts = { headers: { "User-Agent": "yourpetbill-build/1.0 (https://yourpetbill.com)" } };
     https.get(url, opts, res => {
       if ((res.statusCode === 301 || res.statusCode === 302) && res.headers.location) {
         return fetchBuf(res.headers.location).then(resolve, reject);
@@ -139,22 +139,4 @@ async function getImageUrl(wikiTitle) {
   /* Write CSV rows — header first, then one row per slug. */
   const headers = ["slug","src","alt","credit","credit_url","license","license_url","width","height"];
   const csvRows = [headers.join(",")];
-  for (const slug of Object.keys(out).sort()) {
-    const e = out[slug];
-    csvRows.push([
-      csvCell(slug),
-      csvCell(e.src),
-      csvCell(e.alt),
-      csvCell(e.credit),
-      csvCell(e.creditUrl),
-      csvCell(e.license),
-      csvCell(e.licenseUrl),
-      csvCell(e.width),
-      csvCell(e.height)
-    ].join(","));
-  }
-  fs.writeFileSync(OUT_FILE, csvRows.join("\n") + "\n", "utf8");
-  console.log("\n=== Done === OK=" + ok + "  FAIL=" + fail);
-  console.log("Wrote " + OUT_FILE);
-  console.log("Images in " + IMG_DIR);
-})();
+  for (co
