@@ -35,65 +35,207 @@
     </div>
   </section>
 
+  <style>
+    .breed-search-bar {
+      background: #fff; border: 1px solid #E8DFC7; border-radius: 14px;
+      padding: 18px 20px; margin: 0 0 22px;
+      box-shadow: 0 1px 2px rgba(15,23,42,0.04);
+    }
+    .breed-search-bar input[type="search"] {
+      width: 100%; padding: 12px 16px; border: 1.5px solid #D9CFB5;
+      border-radius: 10px; font-size: 16px; font-family: inherit;
+      background: #fff; color: #1F2937; outline: none; transition: border-color .15s;
+    }
+    .breed-search-bar input[type="search"]:focus {
+      border-color: #0F766E; box-shadow: 0 0 0 3px rgba(15,118,110,0.15);
+    }
+    .breed-filter-chips { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
+    .breed-filter-chips button {
+      background: #FBF6E8; border: 1.5px solid #D9CFB5; border-radius: 999px;
+      padding: 7px 16px; font-size: 14px; font-weight: 500; color: #374151;
+      cursor: pointer; font-family: inherit; transition: all .15s;
+    }
+    .breed-filter-chips button:hover { border-color: #0F766E; color: #0F766E; }
+    .breed-filter-chips button.is-active {
+      background: #0F766E; color: #fff; border-color: #0F766E;
+    }
+    .breed-filter-chips button .pill-count {
+      display: inline-block; margin-left: 6px; padding: 1px 7px;
+      background: rgba(255,255,255,0.25); border-radius: 999px; font-size: 11px;
+    }
+    .breed-filter-chips button:not(.is-active) .pill-count {
+      background: #E8DFC7; color: #6B7280;
+    }
+    .breed-group-heading {
+      display: flex; align-items: baseline; justify-content: space-between;
+      margin: 28px 0 14px; padding-bottom: 8px; border-bottom: 1px solid #E8DFC7;
+    }
+    .breed-group-heading h2 {
+      font-size: 1.35rem; font-weight: 700; color: #1F2937; margin: 0;
+    }
+    .breed-group-heading .visible-count {
+      font-size: 13px; color: #6B7280; font-weight: 500;
+    }
+    .breed-card.is-hidden { display: none !important; }
+    .breed-empty-state {
+      display: none; text-align: center; padding: 36px 20px;
+      color: #6B7280; background: #FBF6E8;
+      border: 1px dashed #D9CFB5; border-radius: 12px;
+    }
+    .breed-empty-state.is-visible { display: block; }
+    .breed-group.is-empty { display: none; }
+  </style>
+
   <section><div class="container">
-    <h2>All breeds</h2>
-    <div class="grid grid-3">
-      <a class="card card-link" href="/breeds/labrador-retriever-cost/"><h3>Labrador Retriever</h3><p class="muted">Large, family favorite — hip dysplasia and obesity drive cost.</p></a>
-      <a class="card card-link" href="/breeds/golden-retriever-cost/"><h3>Golden Retriever</h3><p class="muted">Cancer-prone in later years; grooming a real line item.</p></a>
-      <a class="card card-link" href="/breeds/german-shepherd-cost/"><h3>German Shepherd</h3><p class="muted">Hip/elbow dysplasia, large food bills.</p></a>
-      <a class="card card-link" href="/breeds/french-bulldog-cost/"><h3>French Bulldog</h3><p class="muted">Brachycephalic — strongest insurance fit.</p></a>
-      <a class="card card-link" href="/breeds/bulldog-cost/"><h3>Bulldog</h3><p class="muted">High claim rates; one of the most expensive breeds.</p></a>
-      <a class="card card-link" href="/breeds/chihuahua-cost/"><h3>Chihuahua</h3><p class="muted">Toy size, long lifespan; dental care is the main spend.</p></a>
-      <a class="card card-link" href="/breeds/poodle-cost/"><h3>Poodle (Standard)</h3><p class="muted">Hypoallergenic coat needs pro grooming every 4–8 wks.</p></a>
-      <a class="card card-link" href="/breeds/dachshund-cost/"><h3>Dachshund</h3><p class="muted">IVDD risk; budget for possible spinal surgery.</p></a>
-      <a class="card card-link" href="/breeds/rottweiler-cost/"><h3>Rottweiler</h3><p class="muted">Giant size, dysplasia, bloat risk.</p></a>
-      <a class="card card-link" href="/breeds/australian-shepherd-cost/"><h3>Australian Shepherd</h3><p class="muted">Heavy coat; MDR1 testing recommended.</p></a>
-      <a class="card card-link" href="/breeds/pitbull-cost/"><h3>Pit Bull / AmStaff</h3><p class="muted">Generally healthy; rental policies sometimes restrict.</p></a>
-      <a class="card card-link" href="/breeds/beagle-cost/"><h3>Beagle</h3><p class="muted">Healthy small breed; watch obesity and ear infections.</p></a>
-      <a class="card card-link" href="/breeds/boxer-cost/"><h3>Boxer</h3><p class="muted">Cancer-prone; brachycephalic features.</p></a>
-      <a class="card card-link" href="/breeds/yorkshire-terrier-cost/"><h3>Yorkshire Terrier</h3><p class="muted">Long coat; dental and tracheal issues.</p></a>
-      <a class="card card-link" href="/breeds/siberian-husky-cost/"><h3>Siberian Husky</h3><p class="muted">Heavy double coat; eye conditions documented.</p></a>
-      <a class="card card-link" href="/breeds/doberman-cost/"><h3>Doberman Pinscher</h3><p class="muted">Cardiac and bleeding-disorder screening matters.</p></a>
-      <a class="card card-link" href="/breeds/pug-cost/"><h3>Pug</h3><p class="muted">BOAS surgery, eye injuries, skin folds.</p></a>
-      <a class="card card-link" href="/breeds/shih-tzu-cost/"><h3>Shih Tzu</h3><p class="muted">Long coat; eye and dental care.</p></a>
-      <a class="card card-link" href="/breeds/cavalier-king-charles-cost/"><h3>Cavalier King Charles</h3><p class="muted">Mitral valve disease; insurance strongly indicated.</p></a>
-      <a class="card card-link" href="/breeds/boston-terrier-cost/"><h3>Boston Terrier</h3><p class="muted">Brachycephalic features; corneal ulcers.</p></a>
-      <a class="card card-link" href="/breeds/mastiff-cost/"><h3>Mastiff</h3><p class="muted">Giant — dysplasia, bloat, short lifespan.</p></a>
-      <a class="card card-link" href="/breeds/great-dane-cost/"><h3>Great Dane</h3><p class="muted">Bloat is a real risk; preventive gastropexy common.</p></a>
-      <a class="card card-link" href="/breeds/pomeranian-cost/"><h3>Pomeranian</h3><p class="muted">Patellar luxation, dental disease, long lifespan.</p></a>
-      <a class="card card-link" href="/breeds/border-collie-cost/"><h3>Border Collie</h3><p class="muted">High-energy; daycare/training drives spend.</p></a>
-      <a class="card card-link" href="/breeds/bernese-mountain-dog-cost/"><h3>Bernese Mountain Dog</h3><p class="muted">Cancer-prone; very short lifespan.</p></a>
-      <a class="card card-link" href="/breeds/cane-corso-cost/"><h3>Cane Corso</h3><p class="muted">Giant; eyelid and hip surgeries.</p></a>
-      <a class="card card-link" href="/breeds/miniature-schnauzer-cost/"><h3>Miniature Schnauzer</h3><p class="muted">Pancreatitis-prone; regular grooming.</p></a>
-      <a class="card card-link" href="/breeds/cocker-spaniel-cost/"><h3>Cocker Spaniel</h3><p class="muted">Recurring ear infections; eye conditions.</p></a>
-      <a class="card card-link" href="/breeds/australian-cattle-dog-cost/"><h3>Australian Cattle Dog</h3><p class="muted">Healthy, very high energy.</p></a>
-      <a class="card card-link" href="/breeds/newfoundland-cost/"><h3>Newfoundland</h3><p class="muted">Giant; subaortic stenosis screening.</p></a>
-      <a class="card card-link" href="/breeds/maine-coon-cat-cost/"><h3>Maine Coon</h3><p class="muted">Long coat; HCM screening recommended.</p></a>
-      <a class="card card-link" href="/breeds/persian-cat-cost/"><h3>Persian</h3><p class="muted">Heavy grooming; eye and respiratory issues.</p></a>
-      <a class="card card-link" href="/breeds/siamese-cat-cost/"><h3>Siamese</h3><p class="muted">Generally healthy; low grooming needs.</p></a>
-      <a class="card card-link" href="/breeds/ragdoll-cat-cost/"><h3>Ragdoll</h3><p class="muted">Large, moderate grooming, healthy.</p></a>
-      <a class="card card-link" href="/breeds/bengal-cat-cost/"><h3>Bengal</h3><p class="muted">Active; HCM screening recommended.</p></a>
-      <a class="card card-link" href="/breeds/british-shorthair-cat-cost/"><h3>British Shorthair</h3><p class="muted">Generally healthy; HCM/PKD screening.</p></a>
-      <a class="card card-link" href="/breeds/sphynx-cat-cost/"><h3>Sphynx</h3><p class="muted">Hairless; weekly bathing, sun protection.</p></a>
-      <a class="card card-link" href="/breeds/scottish-fold-cat-cost/"><h3>Scottish Fold</h3><p class="muted">Welfare concerns from folded-ear gene.</p></a>
-      <a class="card card-link" href="/breeds/goldendoodle-cost/"><h3>Goldendoodle</h3><p class="muted">Designer hybrid; non-shedding coat + hip/ear/allergy costs.</p></a>
-      <a class="card card-link" href="/breeds/labradoodle-cost/"><h3>Labradoodle</h3><p class="muted">Lab+Poodle cross; pro grooming + hip dysplasia.</p></a>
-      <a class="card card-link" href="/breeds/bernedoodle-cost/"><h3>Bernedoodle</h3><p class="muted">Premium doodle; cancer risk from Bernese line.</p></a>
-      <a class="card card-link" href="/breeds/cavapoo-cost/"><h3>Cavapoo</h3><p class="muted">Small designer; Cavalier cardiac risks inherited.</p></a>
-      <a class="card card-link" href="/breeds/shiba-inu-cost/"><h3>Shiba Inu</h3><p class="muted">Long-lived spitz; allergies + glaucoma watch.</p></a>
-      <a class="card card-link" href="/breeds/belgian-malinois-cost/"><h3>Belgian Malinois</h3><p class="muted">High-drive working dog; training budget significant.</p></a>
-      <a class="card card-link" href="/breeds/havanese-cost/"><h3>Havanese</h3><p class="muted">Toy breed; coat care + luxating patella.</p></a>
-      <a class="card card-link" href="/breeds/maltese-cost/"><h3>Maltese</h3><p class="muted">Toy; dental + tracheal collapse drive cost.</p></a>
-      <a class="card card-link" href="/breeds/vizsla-cost/"><h3>Vizsla</h3><p class="muted">Active sporting breed; exercise + senior cancer screen.</p></a>
-      <a class="card card-link" href="/breeds/saint-bernard-cost/"><h3>Saint Bernard</h3><p class="muted">Giant; bloat + dysplasia + short lifespan.</p></a>
-      <a class="card card-link" href="/breeds/american-shorthair-cost/"><h3>American Shorthair</h3><p class="muted">Most common U.S. cat; healthy and long-lived.</p></a>
-      <a class="card card-link" href="/breeds/savannah-cat-cost/"><h3>Savannah Cat</h3><p class="muted">Exotic hybrid; up to $25K purchase. State legality varies.</p></a>
-      <a class="card card-link" href="/breeds/russian-blue-cost/"><h3>Russian Blue</h3><p class="muted">Very healthy; among the longest-lived cat breeds.</p></a>
-      <a class="card card-link" href="/breeds/norwegian-forest-cat-cost/"><h3>Norwegian Forest Cat</h3><p class="muted">Large semi-longhair; HCM screening recommended.</p></a>
-      <a class="card card-link" href="/breeds/abyssinian-cost/"><h3>Abyssinian</h3><p class="muted">Active; PRA + dental + renal issues common.</p></a>
-      <a class="card card-link" href="/breeds/munchkin-cost/"><h3>Munchkin</h3><p class="muted">Short-legged; controversial. Spinal screening matters.</p></a>
+
+    <div class="breed-search-bar">
+      <input type="search" id="breed-search-input" placeholder="Search breeds by name — e.g. 'french' or 'maine'..." aria-label="Search breeds" autocomplete="off" />
+      <div class="breed-filter-chips" role="tablist" aria-label="Filter by species">
+        <button type="button" data-filter="all" class="is-active" role="tab">All<span class="pill-count">54</span></button>
+        <button type="button" data-filter="dog" role="tab">Dogs<span class="pill-count">40</span></button>
+        <button type="button" data-filter="cat" role="tab">Cats<span class="pill-count">14</span></button>
+      </div>
     </div>
+
+    <div class="breed-group" id="breed-group-dog">
+      <div class="breed-group-heading">
+        <h2>Dog breeds</h2>
+        <span class="visible-count" id="visible-count-dog">40 breeds</span>
+      </div>
+      <div class="grid grid-3">
+      <a class="card card-link breed-card" data-species="dog" data-name="australian cattle dog" data-blurb="healthy, very high energy." href="/breeds/australian-cattle-dog-cost/"><h3>Australian Cattle Dog</h3><p class="muted">Healthy, very high energy.</p></a>
+      <a class="card card-link breed-card" data-species="dog" data-name="australian shepherd" data-blurb="heavy coat; mdr1 testing recommended." href="/breeds/australian-shepherd-cost/"><h3>Australian Shepherd</h3><p class="muted">Heavy coat; MDR1 testing recommended.</p></a>
+      <a class="card card-link breed-card" data-species="dog" data-name="beagle" data-blurb="healthy small breed; watch obesity and ear infections." href="/breeds/beagle-cost/"><h3>Beagle</h3><p class="muted">Healthy small breed; watch obesity and ear infections.</p></a>
+      <a class="card card-link breed-card" data-species="dog" data-name="belgian malinois" data-blurb="high-drive working dog; training budget significant." href="/breeds/belgian-malinois-cost/"><h3>Belgian Malinois</h3><p class="muted">High-drive working dog; training budget significant.</p></a>
+      <a class="card card-link breed-card" data-species="dog" data-name="bernedoodle" data-blurb="premium doodle; cancer risk from bernese line." href="/breeds/bernedoodle-cost/"><h3>Bernedoodle</h3><p class="muted">Premium doodle; cancer risk from Bernese line.</p></a>
+      <a class="card card-link breed-card" data-species="dog" data-name="bernese mountain dog" data-blurb="cancer-prone; very short lifespan." href="/breeds/bernese-mountain-dog-cost/"><h3>Bernese Mountain Dog</h3><p class="muted">Cancer-prone; very short lifespan.</p></a>
+      <a class="card card-link breed-card" data-species="dog" data-name="border collie" data-blurb="high-energy; daycare/training drives spend." href="/breeds/border-collie-cost/"><h3>Border Collie</h3><p class="muted">High-energy; daycare/training drives spend.</p></a>
+      <a class="card card-link breed-card" data-species="dog" data-name="boston terrier" data-blurb="brachycephalic features; corneal ulcers." href="/breeds/boston-terrier-cost/"><h3>Boston Terrier</h3><p class="muted">Brachycephalic features; corneal ulcers.</p></a>
+      <a class="card card-link breed-card" data-species="dog" data-name="boxer" data-blurb="cancer-prone; brachycephalic features." href="/breeds/boxer-cost/"><h3>Boxer</h3><p class="muted">Cancer-prone; brachycephalic features.</p></a>
+      <a class="card card-link breed-card" data-species="dog" data-name="bulldog" data-blurb="high claim rates; one of the most expensive breeds." href="/breeds/bulldog-cost/"><h3>Bulldog</h3><p class="muted">High claim rates; one of the most expensive breeds.</p></a>
+      <a class="card card-link breed-card" data-species="dog" data-name="cane corso" data-blurb="giant; eyelid and hip surgeries." href="/breeds/cane-corso-cost/"><h3>Cane Corso</h3><p class="muted">Giant; eyelid and hip surgeries.</p></a>
+      <a class="card card-link breed-card" data-species="dog" data-name="cavalier king charles" data-blurb="mitral valve disease; insurance strongly indicated." href="/breeds/cavalier-king-charles-cost/"><h3>Cavalier King Charles</h3><p class="muted">Mitral valve disease; insurance strongly indicated.</p></a>
+      <a class="card card-link breed-card" data-species="dog" data-name="cavapoo" data-blurb="small designer; cavalier cardiac risks inherited." href="/breeds/cavapoo-cost/"><h3>Cavapoo</h3><p class="muted">Small designer; Cavalier cardiac risks inherited.</p></a>
+      <a class="card card-link breed-card" data-species="dog" data-name="chihuahua" data-blurb="toy size, long lifespan; dental care is the main spend." href="/breeds/chihuahua-cost/"><h3>Chihuahua</h3><p class="muted">Toy size, long lifespan; dental care is the main spend.</p></a>
+      <a class="card card-link breed-card" data-species="dog" data-name="cocker spaniel" data-blurb="recurring ear infections; eye conditions." href="/breeds/cocker-spaniel-cost/"><h3>Cocker Spaniel</h3><p class="muted">Recurring ear infections; eye conditions.</p></a>
+      <a class="card card-link breed-card" data-species="dog" data-name="dachshund" data-blurb="ivdd risk; budget for possible spinal surgery." href="/breeds/dachshund-cost/"><h3>Dachshund</h3><p class="muted">IVDD risk; budget for possible spinal surgery.</p></a>
+      <a class="card card-link breed-card" data-species="dog" data-name="doberman pinscher" data-blurb="cardiac and bleeding-disorder screening matters." href="/breeds/doberman-cost/"><h3>Doberman Pinscher</h3><p class="muted">Cardiac and bleeding-disorder screening matters.</p></a>
+      <a class="card card-link breed-card" data-species="dog" data-name="french bulldog" data-blurb="brachycephalic — strongest insurance fit." href="/breeds/french-bulldog-cost/"><h3>French Bulldog</h3><p class="muted">Brachycephalic — strongest insurance fit.</p></a>
+      <a class="card card-link breed-card" data-species="dog" data-name="german shepherd" data-blurb="hip/elbow dysplasia, large food bills." href="/breeds/german-shepherd-cost/"><h3>German Shepherd</h3><p class="muted">Hip/elbow dysplasia, large food bills.</p></a>
+      <a class="card card-link breed-card" data-species="dog" data-name="golden retriever" data-blurb="cancer-prone in later years; grooming a real line item." href="/breeds/golden-retriever-cost/"><h3>Golden Retriever</h3><p class="muted">Cancer-prone in later years; grooming a real line item.</p></a>
+      <a class="card card-link breed-card" data-species="dog" data-name="goldendoodle" data-blurb="designer hybrid; non-shedding coat + hip/ear/allergy costs." href="/breeds/goldendoodle-cost/"><h3>Goldendoodle</h3><p class="muted">Designer hybrid; non-shedding coat + hip/ear/allergy costs.</p></a>
+      <a class="card card-link breed-card" data-species="dog" data-name="great dane" data-blurb="bloat is a real risk; preventive gastropexy common." href="/breeds/great-dane-cost/"><h3>Great Dane</h3><p class="muted">Bloat is a real risk; preventive gastropexy common.</p></a>
+      <a class="card card-link breed-card" data-species="dog" data-name="havanese" data-blurb="toy breed; coat care + luxating patella." href="/breeds/havanese-cost/"><h3>Havanese</h3><p class="muted">Toy breed; coat care + luxating patella.</p></a>
+      <a class="card card-link breed-card" data-species="dog" data-name="labradoodle" data-blurb="lab+poodle cross; pro grooming + hip dysplasia." href="/breeds/labradoodle-cost/"><h3>Labradoodle</h3><p class="muted">Lab+Poodle cross; pro grooming + hip dysplasia.</p></a>
+      <a class="card card-link breed-card" data-species="dog" data-name="labrador retriever" data-blurb="large, family favorite — hip dysplasia and obesity drive cost." href="/breeds/labrador-retriever-cost/"><h3>Labrador Retriever</h3><p class="muted">Large, family favorite — hip dysplasia and obesity drive cost.</p></a>
+      <a class="card card-link breed-card" data-species="dog" data-name="maltese" data-blurb="toy; dental + tracheal collapse drive cost." href="/breeds/maltese-cost/"><h3>Maltese</h3><p class="muted">Toy; dental + tracheal collapse drive cost.</p></a>
+      <a class="card card-link breed-card" data-species="dog" data-name="mastiff" data-blurb="giant — dysplasia, bloat, short lifespan." href="/breeds/mastiff-cost/"><h3>Mastiff</h3><p class="muted">Giant — dysplasia, bloat, short lifespan.</p></a>
+      <a class="card card-link breed-card" data-species="dog" data-name="miniature schnauzer" data-blurb="pancreatitis-prone; regular grooming." href="/breeds/miniature-schnauzer-cost/"><h3>Miniature Schnauzer</h3><p class="muted">Pancreatitis-prone; regular grooming.</p></a>
+      <a class="card card-link breed-card" data-species="dog" data-name="newfoundland" data-blurb="giant; subaortic stenosis screening." href="/breeds/newfoundland-cost/"><h3>Newfoundland</h3><p class="muted">Giant; subaortic stenosis screening.</p></a>
+      <a class="card card-link breed-card" data-species="dog" data-name="pit bull / amstaff" data-blurb="generally healthy; rental policies sometimes restrict." href="/breeds/pitbull-cost/"><h3>Pit Bull / AmStaff</h3><p class="muted">Generally healthy; rental policies sometimes restrict.</p></a>
+      <a class="card card-link breed-card" data-species="dog" data-name="pomeranian" data-blurb="patellar luxation, dental disease, long lifespan." href="/breeds/pomeranian-cost/"><h3>Pomeranian</h3><p class="muted">Patellar luxation, dental disease, long lifespan.</p></a>
+      <a class="card card-link breed-card" data-species="dog" data-name="poodle (standard)" data-blurb="hypoallergenic coat needs pro grooming every 4–8 wks." href="/breeds/poodle-cost/"><h3>Poodle (Standard)</h3><p class="muted">Hypoallergenic coat needs pro grooming every 4–8 wks.</p></a>
+      <a class="card card-link breed-card" data-species="dog" data-name="pug" data-blurb="boas surgery, eye injuries, skin folds." href="/breeds/pug-cost/"><h3>Pug</h3><p class="muted">BOAS surgery, eye injuries, skin folds.</p></a>
+      <a class="card card-link breed-card" data-species="dog" data-name="rottweiler" data-blurb="giant size, dysplasia, bloat risk." href="/breeds/rottweiler-cost/"><h3>Rottweiler</h3><p class="muted">Giant size, dysplasia, bloat risk.</p></a>
+      <a class="card card-link breed-card" data-species="dog" data-name="saint bernard" data-blurb="giant; bloat + dysplasia + short lifespan." href="/breeds/saint-bernard-cost/"><h3>Saint Bernard</h3><p class="muted">Giant; bloat + dysplasia + short lifespan.</p></a>
+      <a class="card card-link breed-card" data-species="dog" data-name="shiba inu" data-blurb="long-lived spitz; allergies + glaucoma watch." href="/breeds/shiba-inu-cost/"><h3>Shiba Inu</h3><p class="muted">Long-lived spitz; allergies + glaucoma watch.</p></a>
+      <a class="card card-link breed-card" data-species="dog" data-name="shih tzu" data-blurb="long coat; eye and dental care." href="/breeds/shih-tzu-cost/"><h3>Shih Tzu</h3><p class="muted">Long coat; eye and dental care.</p></a>
+      <a class="card card-link breed-card" data-species="dog" data-name="siberian husky" data-blurb="heavy double coat; eye conditions documented." href="/breeds/siberian-husky-cost/"><h3>Siberian Husky</h3><p class="muted">Heavy double coat; eye conditions documented.</p></a>
+      <a class="card card-link breed-card" data-species="dog" data-name="vizsla" data-blurb="active sporting breed; exercise + senior cancer screen." href="/breeds/vizsla-cost/"><h3>Vizsla</h3><p class="muted">Active sporting breed; exercise + senior cancer screen.</p></a>
+      <a class="card card-link breed-card" data-species="dog" data-name="yorkshire terrier" data-blurb="long coat; dental and tracheal issues." href="/breeds/yorkshire-terrier-cost/"><h3>Yorkshire Terrier</h3><p class="muted">Long coat; dental and tracheal issues.</p></a>
+      </div>
+    </div>
+
+    <div class="breed-group" id="breed-group-cat">
+      <div class="breed-group-heading">
+        <h2>Cat breeds</h2>
+        <span class="visible-count" id="visible-count-cat">14 breeds</span>
+      </div>
+      <div class="grid grid-3">
+      <a class="card card-link breed-card" data-species="cat" data-name="abyssinian" data-blurb="active; pra + dental + renal issues common." href="/breeds/abyssinian-cost/"><h3>Abyssinian</h3><p class="muted">Active; PRA + dental + renal issues common.</p></a>
+      <a class="card card-link breed-card" data-species="cat" data-name="american shorthair" data-blurb="most common u.s. cat; healthy and long-lived." href="/breeds/american-shorthair-cost/"><h3>American Shorthair</h3><p class="muted">Most common U.S. cat; healthy and long-lived.</p></a>
+      <a class="card card-link breed-card" data-species="cat" data-name="bengal" data-blurb="active; hcm screening recommended." href="/breeds/bengal-cat-cost/"><h3>Bengal</h3><p class="muted">Active; HCM screening recommended.</p></a>
+      <a class="card card-link breed-card" data-species="cat" data-name="british shorthair" data-blurb="generally healthy; hcm/pkd screening." href="/breeds/british-shorthair-cat-cost/"><h3>British Shorthair</h3><p class="muted">Generally healthy; HCM/PKD screening.</p></a>
+      <a class="card card-link breed-card" data-species="cat" data-name="maine coon" data-blurb="long coat; hcm screening recommended." href="/breeds/maine-coon-cat-cost/"><h3>Maine Coon</h3><p class="muted">Long coat; HCM screening recommended.</p></a>
+      <a class="card card-link breed-card" data-species="cat" data-name="munchkin" data-blurb="short-legged; controversial. spinal screening matters." href="/breeds/munchkin-cost/"><h3>Munchkin</h3><p class="muted">Short-legged; controversial. Spinal screening matters.</p></a>
+      <a class="card card-link breed-card" data-species="cat" data-name="norwegian forest cat" data-blurb="large semi-longhair; hcm screening recommended." href="/breeds/norwegian-forest-cat-cost/"><h3>Norwegian Forest Cat</h3><p class="muted">Large semi-longhair; HCM screening recommended.</p></a>
+      <a class="card card-link breed-card" data-species="cat" data-name="persian" data-blurb="heavy grooming; eye and respiratory issues." href="/breeds/persian-cat-cost/"><h3>Persian</h3><p class="muted">Heavy grooming; eye and respiratory issues.</p></a>
+      <a class="card card-link breed-card" data-species="cat" data-name="ragdoll" data-blurb="large, moderate grooming, healthy." href="/breeds/ragdoll-cat-cost/"><h3>Ragdoll</h3><p class="muted">Large, moderate grooming, healthy.</p></a>
+      <a class="card card-link breed-card" data-species="cat" data-name="russian blue" data-blurb="very healthy; among the longest-lived cat breeds." href="/breeds/russian-blue-cost/"><h3>Russian Blue</h3><p class="muted">Very healthy; among the longest-lived cat breeds.</p></a>
+      <a class="card card-link breed-card" data-species="cat" data-name="savannah cat" data-blurb="exotic hybrid; up to $25k purchase. state legality varies." href="/breeds/savannah-cat-cost/"><h3>Savannah Cat</h3><p class="muted">Exotic hybrid; up to $25K purchase. State legality varies.</p></a>
+      <a class="card card-link breed-card" data-species="cat" data-name="scottish fold" data-blurb="welfare concerns from folded-ear gene." href="/breeds/scottish-fold-cat-cost/"><h3>Scottish Fold</h3><p class="muted">Welfare concerns from folded-ear gene.</p></a>
+      <a class="card card-link breed-card" data-species="cat" data-name="siamese" data-blurb="generally healthy; low grooming needs." href="/breeds/siamese-cat-cost/"><h3>Siamese</h3><p class="muted">Generally healthy; low grooming needs.</p></a>
+      <a class="card card-link breed-card" data-species="cat" data-name="sphynx" data-blurb="hairless; weekly bathing, sun protection." href="/breeds/sphynx-cat-cost/"><h3>Sphynx</h3><p class="muted">Hairless; weekly bathing, sun protection.</p></a>
+      </div>
+    </div>
+
+    <div class="breed-empty-state" id="breed-empty">
+      No breeds match your search. Try a different keyword, or <button type="button" id="breed-empty-reset" style="background:transparent;border:0;color:#0F766E;text-decoration:underline;cursor:pointer;padding:0;font:inherit;">clear the filter</button>.
+    </div>
+
   </div></section>
+
+  <script>
+  (function () {
+    var input = document.getElementById('breed-search-input');
+    var chips = document.querySelectorAll('.breed-filter-chips button');
+    var cards = document.querySelectorAll('.breed-card');
+    var dogGroup = document.getElementById('breed-group-dog');
+    var catGroup = document.getElementById('breed-group-cat');
+    var emptyState = document.getElementById('breed-empty');
+    var resetBtn = document.getElementById('breed-empty-reset');
+    var visDog = document.getElementById('visible-count-dog');
+    var visCat = document.getElementById('visible-count-cat');
+
+    var currentFilter = 'all';
+    var currentQuery = '';
+
+    function apply() {
+      var visibleDog = 0, visibleCat = 0;
+      cards.forEach(function (card) {
+        var species = card.getAttribute('data-species');
+        var name = card.getAttribute('data-name') || '';
+        var blurb = card.getAttribute('data-blurb') || '';
+        var matchesFilter = currentFilter === 'all' || species === currentFilter;
+        var matchesQuery = currentQuery === '' || name.indexOf(currentQuery) >= 0 || blurb.indexOf(currentQuery) >= 0;
+        var visible = matchesFilter && matchesQuery;
+        card.classList.toggle('is-hidden', !visible);
+        if (visible) {
+          if (species === 'dog') visibleDog++;
+          else if (species === 'cat') visibleCat++;
+        }
+      });
+      dogGroup.classList.toggle('is-empty', visibleDog === 0);
+      catGroup.classList.toggle('is-empty', visibleCat === 0);
+      visDog.textContent = visibleDog + (visibleDog === 1 ? ' breed' : ' breeds');
+      visCat.textContent = visibleCat + (visibleCat === 1 ? ' breed' : ' breeds');
+      emptyState.classList.toggle('is-visible', (visibleDog + visibleCat) === 0);
+    }
+
+    input.addEventListener('input', function () {
+      currentQuery = input.value.trim().toLowerCase();
+      apply();
+    });
+
+    chips.forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        chips.forEach(function (c) { c.classList.remove('is-active'); });
+        chip.classList.add('is-active');
+        currentFilter = chip.getAttribute('data-filter');
+        apply();
+      });
+    });
+
+    resetBtn.addEventListener('click', function () {
+      input.value = '';
+      currentQuery = '';
+      currentFilter = 'all';
+      chips.forEach(function (c) { c.classList.toggle('is-active', c.getAttribute('data-filter') === 'all'); });
+      apply();
+      input.focus();
+    });
+  })();
+  </script>
 </main>
 <div id="site-footer"></div>
 </body>
