@@ -54,3 +54,15 @@ russian-blue,cat,Russian Blue,medium,1.00,1.00,500,1100,2000,18,"Quiet, gentle p
 norwegian-forest-cat,cat,Norwegian Forest Cat,large,1.15,1.10,800,1200,1500,15,"Large semi-longhair Scandinavian breed. Water-resistant double coat sheds seasonally. Prone to hypertrophic cardiomyopathy, glycogen storage disease type IV, and hip dysplasia."
 abyssinian,cat,Abyssinian,medium,1.00,1.10,500,1000,1500,14,"Ticked-coat active breed with strong East African ancestry. Prone to progressive retinal atrophy, pyruvate kinase deficiency, gingivitis, and renal amyloidosis."
 munchkin,cat,Munchkin,small,1.00,1.15,1000,1700,2500,13,"Short-legged cat breed from a spontaneous dominant gene mutation. Banned by some registries due to welfare concerns. Prone to lordosis and pectus excavatum."
+basset-hound,dog,Basset Hound,medium,1.05,1.10,800,1500,2500,12,Long back + drop ears drive IVDD and chronic ear-infection cost. Obesity-prone.
+bichon-frise,dog,Bichon Frise,small,1.30,1.15,1500,2200,3500,14,Allergic dermatitis is extremely common. Monthly professional grooming is non-negotiable.
+cockapoo,dog,Cockapoo,small,1.30,1.10,1500,2500,4000,14,Cocker × Poodle cross. Low-shedding but high grooming. Ear-infection risk inherited from Cocker side.
+german-shorthaired-pointer,dog,German Shorthaired Pointer,large,1.00,1.05,800,1500,3000,13,Very high-energy sporting breed. Bloat risk and orthopedic costs drive the bill if exercised inadequately.
+great-pyrenees,dog,Great Pyrenees,giant,1.15,1.15,800,1500,3000,11,"Giant breed — anesthesia, surgery, and medication doses all scale with body weight. Bone-cancer risk meaningful."
+mixed-breed,dog,Mixed Breed Dog,medium,1.00,0.90,0,250,600,13,Hybrid vigor + adoption-fee pricing make mixed-breed dogs the most cost-effective option for most households.
+pembroke-welsh-corgi,dog,Pembroke Welsh Corgi,small,1.05,1.10,1500,2200,3500,13,"Long back + heavy shedding. IVDD, hip dysplasia, and degenerative myelopathy are breed-specific risks."
+west-highland-white-terrier,dog,West Highland White Terrier,small,1.15,1.15,1200,2000,3000,13,Atopic dermatitis is the famous Westie issue. Westie lung disease (idiopathic pulmonary fibrosis) is a documented breed-specific risk.
+devon-rex,cat,Devon Rex,small,1.05,1.15,1500,2500,4000,14,"Wavy short coat, very low shedding, intensely social. HCM and congenital myasthenia gravis are breed-specific risks."
+domestic-shorthair,cat,Domestic Shorthair,small,1.00,0.90,0,100,300,15,Mixed-genetics non-pedigree cat — the most common cat type in U.S. households. Hybrid vigor + adoption pricing make this the most cost-effective cat option.
+exotic-shorthair,cat,Exotic Shorthair,small,1.10,1.25,1500,2500,4000,14,"Brachycephalic Persian-derivative with a short coat. Eye discharge, dental crowding, PKD risk inherited from Persian line."
+siberian-cat,cat,Siberian Cat,medium,1.15,1.05,1200,2000,3500,14,"Heavy triple coat, generally robust, marketed as lower-allergen due to reduced Fel d 1 production in many individuals."
