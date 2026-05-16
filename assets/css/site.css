@@ -128,6 +128,15 @@ hr { border: 0; border-top: 1px solid var(--border); margin: 2.5rem 0; }
   display: none;
   z-index: 100;
 }
+/* Invisible bridge so the 6px gap between trigger and panel stays hover-active. */
+.nav-dropdown::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 0;
+  right: 0;
+  height: 8px;
+}
 .nav-has-dropdown.open .nav-dropdown { display: block; }
 @media (hover: hover) and (pointer: fine) {
   .nav-has-dropdown:hover .nav-dropdown { display: block; }
