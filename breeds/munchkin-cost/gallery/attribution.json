@@ -6,11 +6,11 @@
   "files": [
     {
       "file": "01.jpg",
-      "description": "White Munchkin cat resting on a living room rug",
-      "source": "Pexels — Tahir Osman",
-      "artist": "Tahir Osman",
+      "description": "Grey and white Munchkin kitten with striking eyes",
+      "source": "Pexels — Tran Mau Tri Tam",
+      "artist": "Tran Mau Tri Tam",
       "license": "Pexels License (free for commercial use, attribution appreciated)",
-      "source_url": "https://www.pexels.com/photo/a-white-munchkin-cat-on-a-rug-in-a-living-room-15989368/",
+      "source_url": "https://www.pexels.com/photo/shallow-focus-photography-of-cat-2286016/",
       "breed": "munchkin"
     },
     {
@@ -24,11 +24,11 @@
     },
     {
       "file": "03.jpg",
-      "description": "Grey and white Munchkin kitten with striking eyes",
-      "source": "Pexels — Tran Mau Tri Tam",
-      "artist": "Tran Mau Tri Tam",
+      "description": "White Munchkin cat resting on a living room rug",
+      "source": "Pexels — Tahir Osman",
+      "artist": "Tahir Osman",
       "license": "Pexels License (free for commercial use, attribution appreciated)",
-      "source_url": "https://www.pexels.com/photo/shallow-focus-photography-of-cat-2286016/",
+      "source_url": "https://www.pexels.com/photo/a-white-munchkin-cat-on-a-rug-in-a-living-room-15989368/",
       "breed": "munchkin"
     },
     {

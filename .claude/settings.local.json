@@ -71,7 +71,10 @@
       "Bash(node -c assets/js/layout-20260515e.js)",
       "Bash(node -c compare/index.html)",
       "Read(//d/claude projects/petcost-bill/**)",
-      "Bash(grep -n '\\\\.nav a,\\\\|\\\\.nav-compare\\\\|\\\\.nav-ico\\\\|nav-cta {')"
+      "Bash(grep -n '\\\\.nav a,\\\\|\\\\.nav-compare\\\\|\\\\.nav-ico\\\\|nav-cta {')",
+      "Bash(awk '{print $5}')",
+      "Bash(cp breeds/dachshund-cost/gallery/01.jpg breeds/dachshund-cost/hero.jpg)",
+      "Bash(cp breeds/dachshund-cost/gallery/01.jpg breed_images/dachshund/dachshund_1.jpg)"
     ]
   }
 }

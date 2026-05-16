@@ -4,9 +4,12 @@
   "files": [
     {
       "file": "01.jpg",
-      "sourceFile": "dachshund_1.jpg",
-      "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
-      "breed": "dachshund"
+      "source": "Pexels — Sherry",
+      "breed": "dachshund",
+      "description": "Adult red-furred Dachshund with droopy ears standing in lush green grass, long body visible",
+      "artist": "Sherry",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/cute-dachshund-dog-in-lush-green-grass-32287765/"
     },
     {
       "file": "02.jpg",
@@ -32,5 +35,6 @@
       "source": "Free Stock (Pexels/Unsplash/Pixabay/Rawpixel)",
       "breed": "dachshund"
     }
-  ]
+  ],
+  "species": "dog"
 }
