@@ -7,7 +7,7 @@
   var HEADER = '\n  <header class="site-header">\n' +
     '    <div class="container">\n' +
     '      <a href="/" class="brand" aria-label="PetPlanWise.com home">\n' +
-    '        <img src="/logo/petplanwise-lockup-horizontal.svg?v=20260510m" alt="PetPlanWise.com" class="brand-logo" width="259" height="50" />\n' +
+    '        <img src="/logo/petplanwise-logo.png?v=20260515m" alt="PetPlanWise — smart planning for a lifetime of care" class="brand-logo" width="136" height="50" />\n' +
     '      </a>\n' +
     '      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">\n' +
     '        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>\n' +

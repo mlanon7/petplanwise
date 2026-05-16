@@ -75,7 +75,8 @@
       "Bash(awk '{print $5}')",
       "Bash(cp breeds/dachshund-cost/gallery/01.jpg breeds/dachshund-cost/hero.jpg)",
       "Bash(cp breeds/dachshund-cost/gallery/01.jpg breed_images/dachshund/dachshund_1.jpg)",
-      "Bash(node scripts/move-reviewer-block-to-bottom.js)"
+      "Bash(node scripts/move-reviewer-block-to-bottom.js)",
+      "Bash(cp \"D:/claude projects/petcost-bill/logo/PetPlanwise Log 1.png\" \"logo/petplanwise-logo.png\" && ls -la logo/petplanwise-logo.png)"
     ]
   }
 }
