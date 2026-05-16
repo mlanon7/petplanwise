@@ -139,44 +139,55 @@
       tog.setAttribute("aria-expanded", open ? "true" : "false");
     });
 
-    /* Dropdown ("Calculators" submenu) — click to open, click outside or
-       Escape to close. Hover also opens on pointer-fine devices via CSS. */
-    var ddToggle = document.querySelector(".nav-dropdown-toggle");
-    var ddMenu = document.querySelector(".nav-dropdown");
-    if (ddToggle && ddMenu) {
-      function closeDd() {
-        ddToggle.parentNode.classList.remove("open");
-        ddToggle.setAttribute("aria-expanded", "false");
+    /* Dropdown submenus (Calculators, Breeds, ...) — click to open, click
+       outside or Escape to close. Hover also opens on pointer-fine devices
+       via CSS. Wires up every .nav-has-dropdown independently. */
+    var allDropdowns = document.querySelectorAll(".nav-has-dropdown");
+    var ddInstances = [];
+    Array.prototype.forEach.call(allDropdowns, function (item) {
+      var toggle = item.querySelector(".nav-dropdown-toggle");
+      var menu = item.querySelector(".nav-dropdown");
+      if (!toggle || !menu) return;
+      function close() {
+        item.classList.remove("open");
+        toggle.setAttribute("aria-expanded", "false");
       }
-      function openDd() {
-        ddToggle.parentNode.classList.add("open");
-        ddToggle.setAttribute("aria-expanded", "true");
+      function open() {
+        // Close any other open dropdown first.
+        ddInstances.forEach(function (d) { if (d.item !== item) d.close(); });
+        item.classList.add("open");
+        toggle.setAttribute("aria-expanded", "true");
       }
-      ddToggle.addEventListener("click", function (e) {
+      toggle.addEventListener("click", function (e) {
         e.stopPropagation();
-        if (ddToggle.getAttribute("aria-expanded") === "true") closeDd();
-        else openDd();
+        if (toggle.getAttribute("aria-expanded") === "true") close();
+        else open();
       });
-      ddToggle.addEventListener("keydown", function (e) {
+      toggle.addEventListener("keydown", function (e) {
         if (e.key === "ArrowDown" || e.key === "Enter" || e.key === " ") {
           e.preventDefault();
-          openDd();
-          var first = ddMenu.querySelector("a");
+          open();
+          var first = menu.querySelector("a");
           if (first) first.focus();
         }
       });
-      ddMenu.addEventListener("keydown", function (e) {
-        var items = ddMenu.querySelectorAll("a");
+      menu.addEventListener("keydown", function (e) {
+        var items = menu.querySelectorAll("a");
         var idx = Array.prototype.indexOf.call(items, document.activeElement);
         if (e.key === "ArrowDown" && idx < items.length - 1) { e.preventDefault(); items[idx + 1].focus(); }
         else if (e.key === "ArrowUp" && idx > 0) { e.preventDefault(); items[idx - 1].focus(); }
-        else if (e.key === "Escape") { e.preventDefault(); closeDd(); ddToggle.focus(); }
+        else if (e.key === "Escape") { e.preventDefault(); close(); toggle.focus(); }
       });
+      ddInstances.push({ item: item, close: close });
+    });
+    if (ddInstances.length) {
       document.addEventListener("click", function (e) {
-        if (!ddToggle.parentNode.contains(e.target)) closeDd();
+        ddInstances.forEach(function (d) {
+          if (!d.item.contains(e.target)) d.close();
+        });
       });
       document.addEventListener("keydown", function (e) {
-        if (e.key === "Escape") closeDd();
+        if (e.key === "Escape") ddInstances.forEach(function (d) { d.close(); });
       });
     }
 
