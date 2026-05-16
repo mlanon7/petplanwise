@@ -1,6 +1,19 @@
 /* =============================================================
    Shared header + footer injection.
+
+   GA4 ANALYTICS SETUP (one-time, ~30 seconds):
+     1. In Google Analytics, create a "Web" property and copy the
+        Measurement ID (format: G-XXXXXXXXXX)
+     2. Replace the empty string on the next line with that ID
+     3. Push the change — tracking starts immediately for new visitors
+        who Accept on the cookie banner
+
+   Until you set an ID below, NO tracking script loads (verified
+   in loadGA4() further down). The consent banner won't appear
+   either, since there's nothing to consent to.
    ============================================================= */
+window.YPB_GA4_ID = window.YPB_GA4_ID || ""; // e.g. "G-XXXXXXXXXX"
+
 (function () {
   "use strict";
 
@@ -709,9 +722,13 @@
       });
     }
 
-    var c = getConsent();
-    if (c === "granted") loadGA4();
-    else if (c !== "denied") renderBanner();
+    /* Only show the consent banner if there's actually a GA4 ID
+       configured — otherwise there's nothing to consent to. */
+    if (window.YPB_GA4_ID && /^G-/.test(window.YPB_GA4_ID)) {
+      var c = getConsent();
+      if (c === "granted") loadGA4();
+      else if (c !== "denied") renderBanner();
+    }
 
     /* Footer "Cookie preferences" link reopens the banner. */
     document.addEventListener("click", function (e) {
