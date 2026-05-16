@@ -46,6 +46,7 @@
     '        <div>\n' +
     '          <h4>Browse</h4>\n' +
     '          <a href="/breeds/">All Breeds</a>\n' +
+    '          <a href="/compare/">Compare Breeds</a>\n' +
     '          <a href="/states/">By State</a>\n' +
     '          <a href="/vet-costs/">Vet Procedures</a>\n' +
     '          <a href="/guides/">Guides</a>\n' +

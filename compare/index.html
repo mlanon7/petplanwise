@@ -1,0 +1,830 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Compare Dog &amp; Cat Breeds Side-by-Side — PetPlanWise</title>
+  <meta name="description" content="Compare any two dog or cat breeds side by side. 12 trait bars, lifetime cost, health-risk notes, and a best-fit verdict. Source-backed (AKC, C-BARQ, NAPHIA)." />
+  <meta property="og:description" content="Compare any two dog or cat breeds side by side. 12 trait bars, lifetime cost, health-risk notes, and a best-fit verdict. Source-backed (AKC, C-BARQ, NAPHIA)." />
+  <meta property="og:title" content="Compare Dog &amp; Cat Breeds Side-by-Side — PetPlanWise" />
+  <link rel="canonical" href="https://petplanwise.com/compare/" />
+  <meta property="og:url" content="https://petplanwise.com/compare/" />
+  <meta property="og:image" content="https://petplanwise.com/assets/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://petplanwise.com/assets/og-image.png" />
+  <meta name="twitter:title" content="Compare Dog &amp; Cat Breeds Side-by-Side" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230F766E'/%3E%3Ctext x='50' y='66' font-family='system-ui,sans-serif' font-weight='700' font-size='58' fill='white' text-anchor='middle'%3E%24%3C/text%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" data-ppw-inter>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin data-ppw-inter>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" data-ppw-inter>
+  <link rel="stylesheet" href="/assets/css/site.css?v=20260515e" />
+  <script src="/assets/data/csv-loader-20260515e.js" defer></script>
+  <script src="/assets/data/base-costs.js" defer></script>
+  <script src="/assets/data/multipliers.js" defer></script>
+  <script src="/assets/data/breeds.js" defer></script>
+  <script src="/assets/data/procedures.js" defer></script>
+  <script src="/assets/data/insurance.js" defer></script>
+  <script src="/assets/data/cities.js" defer></script>
+  <script src="/assets/data/breed-images.js" defer></script>
+  <script src="/assets/js/layout-20260515e.js" defer></script>
+  <script src="/assets/js/calculator-20260515e.js" defer></script>
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://petplanwise.com/"},
+    {"@type":"ListItem","position":2,"name":"Compare breeds","item":"https://petplanwise.com/compare/"}
+  ]}
+  </script>
+
+  <style>
+    /* --- Compare page styles --- */
+    :root {
+      --cmp-a: #0F766E;
+      --cmp-a-soft: rgba(15,118,110,0.10);
+      --cmp-a-strong: rgba(15,118,110,0.85);
+      --cmp-b: #B91C5C;
+      --cmp-b-soft: rgba(185,28,92,0.10);
+      --cmp-b-strong: rgba(185,28,92,0.85);
+    }
+
+    .cmp-hero {
+      padding: 28px 0 12px;
+      text-align: center;
+    }
+    .cmp-hero h1 {
+      font-size: clamp(1.85rem, 4vw, 2.6rem);
+      margin: 0 0 10px;
+      letter-spacing: -0.02em;
+    }
+    .cmp-hero p.lede {
+      max-width: 640px;
+      margin: 0 auto;
+      font-size: 1.05rem;
+      color: var(--ink-2, #4B5563);
+    }
+
+    /* Picker row */
+    .cmp-pickers {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 14px;
+      align-items: end;
+      background: #fff;
+      border: 1px solid var(--border, #E8DFC7);
+      border-radius: 18px;
+      padding: 20px;
+      margin: 18px 0 28px;
+      box-shadow: 0 4px 16px rgba(15,23,42,0.04);
+    }
+    .cmp-picker {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      min-width: 0;
+    }
+    .cmp-picker-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-weight: 600;
+      color: var(--ink-2, #4B5563);
+    }
+    .cmp-picker.picker-a .cmp-picker-label::before { content: ""; display: inline-block; width: 10px; height: 10px; background: var(--cmp-a); border-radius: 50%; margin-right: 6px; vertical-align: middle; }
+    .cmp-picker.picker-b .cmp-picker-label::before { content: ""; display: inline-block; width: 10px; height: 10px; background: var(--cmp-b); border-radius: 50%; margin-right: 6px; vertical-align: middle; }
+    .cmp-picker select {
+      width: 100%;
+      padding: 12px 14px;
+      font-size: 16px;
+      font-family: inherit;
+      border: 1.5px solid var(--border-2, #D9CFB5);
+      border-radius: 10px;
+      background: #fff;
+      color: var(--ink, #1F2937);
+      cursor: pointer;
+      transition: border-color 150ms, box-shadow 150ms;
+    }
+    .cmp-picker.picker-a select:focus { outline: none; border-color: var(--cmp-a); box-shadow: 0 0 0 3px var(--cmp-a-soft); }
+    .cmp-picker.picker-b select:focus { outline: none; border-color: var(--cmp-b); box-shadow: 0 0 0 3px var(--cmp-b-soft); }
+    .cmp-swap-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1.5px solid var(--border-2, #D9CFB5);
+      background: #fff;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      transition: transform 200ms, border-color 150ms, box-shadow 150ms;
+      align-self: end;
+    }
+    .cmp-swap-btn:hover { transform: rotate(180deg); border-color: var(--primary, #0F766E); box-shadow: 0 4px 10px rgba(15,23,42,0.10); }
+    .cmp-swap-btn:focus-visible { outline: 2px solid var(--primary, #0F766E); outline-offset: 2px; }
+    .cmp-swap-btn svg { display: block; }
+    @media (max-width: 640px) {
+      .cmp-pickers { grid-template-columns: 1fr; }
+      .cmp-swap-btn { justify-self: center; margin: 6px 0; }
+    }
+
+    /* Breed hero cards */
+    .cmp-breed-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-bottom: 28px;
+    }
+    .cmp-breed-card {
+      border-radius: 16px;
+      overflow: hidden;
+      background: #fff;
+      border: 2px solid transparent;
+      box-shadow: 0 1px 3px rgba(15,23,42,0.04), 0 8px 20px rgba(15,23,42,0.06);
+      transition: transform 200ms, box-shadow 200ms;
+    }
+    .cmp-breed-card.is-a { border-color: var(--cmp-a); }
+    .cmp-breed-card.is-b { border-color: var(--cmp-b); }
+    .cmp-breed-photo {
+      aspect-ratio: 16/9;
+      background: var(--surface-2, #FBF6E8);
+      position: relative;
+      overflow: hidden;
+    }
+    .cmp-breed-photo img {
+      width: 100%; height: 100%; object-fit: cover; object-position: center; display: block;
+    }
+    .cmp-breed-photo::after {
+      content: "";
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.30) 100%);
+      pointer-events: none;
+    }
+    .cmp-breed-info { padding: 18px 20px; }
+    .cmp-breed-name { font-size: 1.4rem; font-weight: 700; margin: 0 0 4px; letter-spacing: -0.01em; }
+    .cmp-breed-sub { font-size: 13px; color: var(--ink-2, #4B5563); margin: 0 0 10px; }
+    .cmp-breed-tag {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .cmp-breed-card.is-a .cmp-breed-tag { background: var(--cmp-a-soft); color: var(--cmp-a); }
+    .cmp-breed-card.is-b .cmp-breed-tag { background: var(--cmp-b-soft); color: var(--cmp-b); }
+    @media (max-width: 640px) {
+      .cmp-breed-row { grid-template-columns: 1fr; }
+    }
+
+    /* Quick stats strip */
+    .cmp-quick-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .cmp-quick-stat {
+      background: var(--surface-2, #FBF6E8);
+      border-radius: 10px;
+      padding: 10px 12px;
+      text-align: center;
+    }
+    .cmp-quick-stat .label { display: block; font-size: 10px; text-transform: uppercase; letter-spacing: 0.07em; color: var(--muted, #6B7280); font-weight: 600; }
+    .cmp-quick-stat .value { display: block; font-size: 15px; font-weight: 700; color: var(--ink, #1F2937); margin-top: 2px; }
+
+    /* Bar comparison */
+    .cmp-bars {
+      background: #fff;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 1px 3px rgba(15,23,42,0.04), 0 8px 20px rgba(15,23,42,0.06);
+      margin-bottom: 28px;
+    }
+    .cmp-bars h2 {
+      font-size: 1.3rem;
+      margin: 0 0 4px;
+    }
+    .cmp-bars-intro {
+      color: var(--ink-2, #4B5563);
+      font-size: 14px;
+      margin: 0 0 18px;
+    }
+    .cmp-bar-row {
+      display: grid;
+      grid-template-columns: minmax(110px, 1fr) 1fr 1fr;
+      align-items: center;
+      gap: 10px 14px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border, #E8DFC7);
+    }
+    .cmp-bar-row:last-child { border-bottom: 0; }
+    .cmp-bar-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink, #1F2937);
+    }
+    .cmp-bar-label .hint { display: block; font-size: 11px; color: var(--muted, #6B7280); font-weight: 400; margin-top: 2px; }
+    .cmp-bar {
+      position: relative;
+      height: 26px;
+      border-radius: 6px;
+      background: var(--surface-2, #FBF6E8);
+      overflow: hidden;
+    }
+    .cmp-bar.is-a .cmp-bar-fill { background: linear-gradient(90deg, var(--cmp-a-strong), var(--cmp-a)); }
+    .cmp-bar.is-b .cmp-bar-fill { background: linear-gradient(90deg, var(--cmp-b-strong), var(--cmp-b)); }
+    .cmp-bar-fill {
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 0;
+      border-radius: 6px;
+      transition: width 600ms cubic-bezier(.2,.8,.2,1);
+    }
+    .cmp-bar-value {
+      position: relative;
+      z-index: 1;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 0 10px;
+      line-height: 26px;
+      mix-blend-mode: normal;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    }
+    .cmp-bar.is-low .cmp-bar-value {
+      color: var(--ink, #1F2937);
+      text-shadow: none;
+    }
+    @media (max-width: 640px) {
+      .cmp-bar-row { grid-template-columns: 1fr; gap: 6px; }
+      .cmp-bar-label { font-size: 14px; }
+    }
+
+    /* Cost block */
+    .cmp-cost-block {
+      background: linear-gradient(135deg, #FBF6E8 0%, #F1EAD3 100%);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 28px;
+    }
+    .cmp-cost-block h2 { font-size: 1.3rem; margin: 0 0 4px; }
+    .cmp-cost-block .sub { color: var(--ink-2, #4B5563); font-size: 14px; margin: 0 0 18px; }
+    .cmp-cost-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 14px;
+    }
+    .cmp-cost-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 16px 18px;
+      box-shadow: 0 1px 2px rgba(15,23,42,0.05);
+    }
+    .cmp-cost-card .lbl { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted, #6B7280); font-weight: 600; }
+    .cmp-cost-pair { display: flex; justify-content: space-between; align-items: baseline; margin-top: 6px; gap: 10px; }
+    .cmp-cost-pair > div { flex: 1; min-width: 0; }
+    .cmp-cost-pair .breed { font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; }
+    .cmp-cost-pair.is-a .breed { color: var(--cmp-a); }
+    .cmp-cost-pair.is-b .breed { color: var(--cmp-b); }
+    .cmp-cost-pair .amount {
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--ink, #1F2937);
+    }
+    .cmp-cost-delta {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: rgba(15,118,110,0.10);
+      color: var(--primary-700, #115E59);
+      font-size: 11px;
+      font-weight: 600;
+      margin-top: 6px;
+    }
+
+    /* Verdict */
+    .cmp-verdict {
+      background: #fff;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 1px 3px rgba(15,23,42,0.04), 0 8px 20px rgba(15,23,42,0.06);
+      margin-bottom: 28px;
+    }
+    .cmp-verdict h2 { font-size: 1.3rem; margin: 0 0 14px; }
+    .cmp-verdict-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .cmp-verdict-card {
+      border-radius: 12px;
+      padding: 16px 18px;
+      border: 2px solid transparent;
+    }
+    .cmp-verdict-card.is-a { background: var(--cmp-a-soft); border-color: var(--cmp-a); }
+    .cmp-verdict-card.is-b { background: var(--cmp-b-soft); border-color: var(--cmp-b); }
+    .cmp-verdict-card h3 { margin: 0 0 8px; font-size: 1.05rem; }
+    .cmp-verdict-card.is-a h3 { color: var(--cmp-a); }
+    .cmp-verdict-card.is-b h3 { color: var(--cmp-b); }
+    .cmp-verdict-card p { margin: 0; font-size: 14px; line-height: 1.55; color: var(--ink-2, #4B5563); }
+    @media (max-width: 640px) {
+      .cmp-verdict-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Health risks */
+    .cmp-health-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-bottom: 28px;
+    }
+    .cmp-health-card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 20px;
+      box-shadow: 0 1px 3px rgba(15,23,42,0.04);
+      border-top: 4px solid;
+    }
+    .cmp-health-card.is-a { border-top-color: var(--cmp-a); }
+    .cmp-health-card.is-b { border-top-color: var(--cmp-b); }
+    .cmp-health-card h3 { margin: 0 0 10px; font-size: 1.05rem; }
+    .cmp-health-card p { margin: 0; font-size: 14px; line-height: 1.6; color: var(--ink-2, #4B5563); }
+    @media (max-width: 640px) {
+      .cmp-health-row { grid-template-columns: 1fr; }
+    }
+
+    /* Action CTAs */
+    .cmp-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 36px;
+    }
+    .cmp-action-btn {
+      display: block;
+      text-align: center;
+      padding: 16px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform 150ms, box-shadow 150ms;
+    }
+    .cmp-action-btn.is-a { background: var(--cmp-a); color: #fff; }
+    .cmp-action-btn.is-a:hover { background: var(--primary-700, #115E59); transform: translateY(-2px); box-shadow: 0 6px 14px rgba(15,118,110,0.25); }
+    .cmp-action-btn.is-b { background: var(--cmp-b); color: #fff; }
+    .cmp-action-btn.is-b:hover { background: #9D1751; transform: translateY(-2px); box-shadow: 0 6px 14px rgba(185,28,92,0.25); }
+    @media (max-width: 640px) {
+      .cmp-actions { grid-template-columns: 1fr; }
+    }
+
+    /* Empty / loading state */
+    .cmp-empty {
+      text-align: center;
+      padding: 60px 20px;
+      background: var(--surface-2, #FBF6E8);
+      border-radius: 16px;
+      color: var(--muted, #6B7280);
+    }
+    .cmp-empty svg { width: 64px; height: 64px; margin: 0 auto 16px; opacity: 0.4; }
+
+    /* Methodology */
+    .cmp-methodology {
+      background: var(--surface-2, #FBF6E8);
+      border-radius: 12px;
+      padding: 18px 22px;
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--ink-2, #4B5563);
+      margin-bottom: 32px;
+    }
+    .cmp-methodology strong { color: var(--ink, #1F2937); }
+
+    /* Bar comparison: difference indicator */
+    .cmp-diff {
+      display: inline-block;
+      margin-left: 6px;
+      font-size: 11px;
+      padding: 1px 6px;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.06);
+      color: var(--muted, #6B7280);
+      font-weight: 500;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .cmp-bar-fill, .cmp-swap-btn, .cmp-action-btn, .cmp-breed-card { transition: none; }
+    }
+  </style>
+</head>
+<body>
+<div id="site-header"></div>
+<main>
+  <div class="container"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>›</span><a href="/breeds/">Breeds</a><span>›</span>Compare breeds</nav></div>
+
+  <section class="cmp-hero"><div class="container">
+    <h1>Compare two breeds side-by-side</h1>
+    <p class="lede">Pick any two of our 54 breeds. We'll show you 12 trait bars, lifetime cost, breed-specific health risks, and a best-fit verdict — all source-backed.</p>
+  </div></section>
+
+  <section><div class="container">
+    <div class="cmp-pickers" role="region" aria-label="Breed pickers">
+      <div class="cmp-picker picker-a">
+        <label class="cmp-picker-label" for="picker-a">Breed A</label>
+        <select id="picker-a" aria-label="Choose first breed">
+          <option value="">Loading...</option>
+        </select>
+      </div>
+      <button type="button" class="cmp-swap-btn" id="swap-btn" aria-label="Swap A and B">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/>
+        </svg>
+      </button>
+      <div class="cmp-picker picker-b">
+        <label class="cmp-picker-label" for="picker-b">Breed B</label>
+        <select id="picker-b" aria-label="Choose second breed">
+          <option value="">Loading...</option>
+        </select>
+      </div>
+    </div>
+
+    <div id="cmp-results">
+      <div class="cmp-empty">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg>
+        <p>Pick two breeds above to start comparing.</p>
+      </div>
+    </div>
+  </div></section>
+
+  <section><div class="container">
+    <div class="cmp-methodology">
+      <strong>How we score behavior:</strong> Breed scores are tendencies, not individual predictions. Per Morrill et al. 2022 (Science), breed explains only about 9% of behavioral variation between individual dogs — training, socialization, and individual genetics matter more than the breed label. Bar scores draw from AKC and CFA/TICA breed standards, C-BARQ (Hsu &amp; Serpell, UPenn), AKC breed profiles, and Banfield State of Pet Health. Cost figures use the same engine as the rest of the site; lifetime cost assumes a standard-lifestyle adult living in a national-average state with no major emergencies.
+    </div>
+  </div></section>
+</main>
+<div id="site-footer"></div>
+
+<script>
+/* =============================================================
+   Compare page engine — runs after PETCOST_DATA is ready.
+   ============================================================= */
+(function () {
+  "use strict";
+
+  var TRAITS_CSV_URL = "/assets/data/csv/breed-traits.csv";
+  var traitsBySlug = null;
+  var breedsBySlug = null;
+  var renderedOnce = false;
+
+  /* Inline CSV parser */
+  function parseCSV(text) {
+    var rows = [], row = [], field = "", inQ = false;
+    for (var i = 0; i < text.length; i++) {
+      var c = text[i];
+      if (inQ) {
+        if (c === '"' && text[i + 1] === '"') { field += '"'; i++; }
+        else if (c === '"') inQ = false;
+        else field += c;
+      } else {
+        if (c === '"') inQ = true;
+        else if (c === ",") { row.push(field); field = ""; }
+        else if (c === "\n" || c === "\r") {
+          if (field.length || row.length) { row.push(field); rows.push(row); row = []; field = ""; }
+        } else field += c;
+      }
+    }
+    if (field.length || row.length) { row.push(field); rows.push(row); }
+    var header = rows[0];
+    return rows.slice(1).map(function (r) {
+      var o = {};
+      header.forEach(function (h, i) { o[h] = (r[i] || "").trim(); });
+      return o;
+    });
+  }
+
+  function getQueryParam(name) {
+    var m = location.search.match(new RegExp("[?&]" + name + "=([^&]+)"));
+    return m ? decodeURIComponent(m[1]) : null;
+  }
+
+  function setQueryState(a, b) {
+    var qs = new URLSearchParams();
+    if (a) qs.set("a", a);
+    if (b) qs.set("b", b);
+    var url = location.pathname + (qs.toString() ? "?" + qs.toString() : "");
+    history.replaceState(null, "", url);
+  }
+
+  function fmtMoney(n) {
+    n = parseInt(n, 10);
+    if (!isFinite(n)) return "$—";
+    return "$" + n.toLocaleString("en-US");
+  }
+
+  function rescale1to5to1to10(n) { return Math.round(parseFloat(n) * 2); }
+
+  function escapeHtml(s) {
+    return String(s || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  }
+
+  function loadTraitsCsv() {
+    return fetch(TRAITS_CSV_URL).then(function (r) { return r.text(); }).then(function (txt) {
+      var rows = parseCSV(txt);
+      var map = {};
+      rows.forEach(function (r) { map[r.slug] = r; });
+      traitsBySlug = map;
+    });
+  }
+
+  /* Populate both <select> pickers. Dogs first, then Cats, alphabetized in each group. */
+  function populatePickers() {
+    var sel = function (n) { return document.getElementById(n); };
+    var pickerA = sel("picker-a"), pickerB = sel("picker-b");
+
+    var dogs = [], cats = [];
+    Object.keys(breedsBySlug).forEach(function (slug) {
+      var b = breedsBySlug[slug];
+      if (b.species === "dog") dogs.push(b);
+      else if (b.species === "cat") cats.push(b);
+    });
+    dogs.sort(function (a, b) { return a.name.localeCompare(b.name); });
+    cats.sort(function (a, b) { return a.name.localeCompare(b.name); });
+
+    function buildOptions() {
+      var html = '<option value="">— Pick a breed —</option>';
+      html += '<optgroup label="Dogs (' + dogs.length + ')">';
+      dogs.forEach(function (b) { html += '<option value="' + b.slug + '">' + escapeHtml(b.name) + '</option>'; });
+      html += '</optgroup>';
+      html += '<optgroup label="Cats (' + cats.length + ')">';
+      cats.forEach(function (b) { html += '<option value="' + b.slug + '">' + escapeHtml(b.name) + '</option>'; });
+      html += '</optgroup>';
+      return html;
+    }
+    pickerA.innerHTML = buildOptions();
+    pickerB.innerHTML = buildOptions();
+  }
+
+  /* Compute breed cost via engine */
+  function computeBreedCost(slug) {
+    var b = breedsBySlug[slug];
+    if (!b) return null;
+    try {
+      var r = window.PetCostEngine.computePet(b.species, {
+        breed: slug,
+        stage: "adult",
+        lifestyle: "standard",
+        insurance: "no"
+      });
+      return r;
+    } catch (e) { return null; }
+  }
+
+  function statRow(label, valueA, valueB, unit) {
+    unit = unit || "";
+    return '<div class="cmp-quick-stat"><span class="label">' + escapeHtml(label) + '</span><span class="value">' + escapeHtml(valueA) + (unit ? " " + unit : "") + '</span></div>';
+  }
+
+  function ascToVal(scoreA, scoreB, max, suffix) {
+    suffix = suffix || "";
+    var pctA = Math.max(0, Math.min(100, (scoreA / max) * 100));
+    var pctB = Math.max(0, Math.min(100, (scoreB / max) * 100));
+    var displayA = scoreA + (suffix ? " " + suffix : "");
+    var displayB = scoreB + (suffix ? " " + suffix : "");
+    return { pctA: pctA, pctB: pctB, displayA: displayA, displayB: displayB };
+  }
+
+  function barRow(label, hint, pctA, pctB, displayA, displayB) {
+    var lowA = pctA < 22 ? " is-low" : "";
+    var lowB = pctB < 22 ? " is-low" : "";
+    return '<div class="cmp-bar-row">' +
+      '<div class="cmp-bar-label">' + escapeHtml(label) + (hint ? '<span class="hint">' + escapeHtml(hint) + '</span>' : '') + '</div>' +
+      '<div class="cmp-bar is-a' + lowA + '"><div class="cmp-bar-fill" data-target="' + pctA + '"></div><span class="cmp-bar-value">' + escapeHtml(displayA) + '</span></div>' +
+      '<div class="cmp-bar is-b' + lowB + '"><div class="cmp-bar-fill" data-target="' + pctB + '"></div><span class="cmp-bar-value">' + escapeHtml(displayB) + '</span></div>' +
+      '</div>';
+  }
+
+  /* Build a one-sentence "Pick A if..." verdict based on trait differences */
+  function buildVerdict(a, b, tA, tB, costA, costB) {
+    function int(v) { return parseInt(v, 10) || 0; }
+
+    function reasons(traits, theirs) {
+      var r = [];
+      if (int(traits.affection_1to10) - int(theirs.affection_1to10) >= 2) r.push("you want a clingier, more affectionate companion");
+      if (int(traits.trainability_1to5) > int(theirs.trainability_1to5)) r.push("trainability matters to you");
+      if (int(traits.child_tolerance_1to10) - int(theirs.child_tolerance_1to10) >= 2) r.push("you have young kids");
+      if (int(theirs.shedding_1to5) - int(traits.shedding_1to5) >= 2) r.push("you want less shedding");
+      if (int(theirs.vocality_1to10) - int(traits.vocality_1to10) >= 2) r.push("you want a quieter home");
+      if (int(traits.protective_1to10) - int(theirs.protective_1to10) >= 3) r.push("you want a protective dog");
+      if (int(theirs.exercise_minutes_per_day) - int(traits.exercise_minutes_per_day) >= 30 || int(theirs.energy_1to5) - int(traits.energy_1to5) >= 2) r.push("you prefer a lower-energy pet");
+      if (costA && costB) {
+        if (a === a) {} // placeholder
+      }
+      if (r.length === 0) r.push("size, look, or breed-club role appeals to you");
+      return r;
+    }
+    var rA = reasons(tA, tB).slice(0, 3);
+    var rB = reasons(tB, tA).slice(0, 3);
+    var lifeDelta = costA && costB ? (costA.lifetime.typical - costB.lifetime.typical) : 0;
+    var costNote = "";
+    if (Math.abs(lifeDelta) > 3000) {
+      var cheaper = lifeDelta > 0 ? b.name : a.name;
+      costNote = " " + escapeHtml(cheaper) + " is roughly $" + Math.abs(Math.round(lifeDelta / 1000)) + "K cheaper over a lifetime.";
+    }
+    return {
+      a: "Pick " + escapeHtml(a.name) + " if " + rA.join(", or ") + ".",
+      b: "Pick " + escapeHtml(b.name) + " if " + rB.join(", or ") + "." + costNote
+    };
+  }
+
+  function render() {
+    var results = document.getElementById("cmp-results");
+    var slugA = document.getElementById("picker-a").value;
+    var slugB = document.getElementById("picker-b").value;
+
+    if (!slugA || !slugB) {
+      results.innerHTML = '<div class="cmp-empty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg><p>Pick two breeds above to start comparing.</p></div>';
+      setQueryState(slugA, slugB);
+      return;
+    }
+    if (slugA === slugB) {
+      results.innerHTML = '<div class="cmp-empty"><p>Pick two <em>different</em> breeds to compare.</p></div>';
+      setQueryState(slugA, slugB);
+      return;
+    }
+
+    setQueryState(slugA, slugB);
+
+    var a = breedsBySlug[slugA], b = breedsBySlug[slugB];
+    var tA = traitsBySlug[slugA] || {}, tB = traitsBySlug[slugB] || {};
+    var costA = computeBreedCost(slugA), costB = computeBreedCost(slugB);
+
+    // 1. Breed hero cards
+    function heroCard(side, breed, traits) {
+      var img = "/breeds/" + breed.slug + "-cost/hero.jpg";
+      var purchase = (breed.purchase && breed.purchase.typical)
+        ? "$" + parseInt(breed.purchase.low, 10).toLocaleString() + "–$" + parseInt(breed.purchase.high, 10).toLocaleString()
+        : "—";
+      var sizeLabel = breed.size ? breed.size.charAt(0).toUpperCase() + breed.size.slice(1) : "—";
+      var lifeYrs = breed.avgLife || "—";
+      return '<div class="cmp-breed-card is-' + side + '">' +
+        '<div class="cmp-breed-photo"><img src="' + img + '" alt="' + escapeHtml(breed.name) + '" loading="eager"></div>' +
+        '<div class="cmp-breed-info">' +
+          '<span class="cmp-breed-tag">' + (side === "a" ? "Breed A" : "Breed B") + '</span>' +
+          '<h2 class="cmp-breed-name" style="margin-top:8px;">' + escapeHtml(breed.name) + '</h2>' +
+          '<p class="cmp-breed-sub">' + escapeHtml(breed.species === "dog" ? "Dog" : "Cat") + ' · ' + escapeHtml(sizeLabel) + ' · ' + escapeHtml(traits.temperament || "") + '</p>' +
+          '<div class="cmp-quick-stats">' +
+            statRow("Weight (M)", traits.weight_male_lb || "—", "", "lb") +
+            statRow("Lifespan", lifeYrs, "", "yrs") +
+            statRow("Purchase", purchase) +
+            statRow("Exercise", traits.exercise_minutes_per_day || "—", "", "min/day") +
+          '</div>' +
+        '</div>' +
+      '</div>';
+    }
+
+    var html = '<div class="cmp-breed-row">' + heroCard("a", a, tA) + heroCard("b", b, tB) + '</div>';
+
+    // 2. Bar comparison
+    function row(label, hint, valA, valB, scaleMax, suffix) {
+      var pctA = Math.max(2, Math.min(100, (valA / scaleMax) * 100));
+      var pctB = Math.max(2, Math.min(100, (valB / scaleMax) * 100));
+      return barRow(label, hint, pctA, pctB, valA + (suffix || ""), valB + (suffix || ""));
+    }
+    function num(v) { return parseInt(v, 10) || 0; }
+    function range(v) {
+      if (!v) return 0;
+      var m = v.match(/(\d+)\s*-\s*(\d+)/);
+      if (m) return Math.round((parseInt(m[1], 10) + parseInt(m[2], 10)) / 2);
+      return parseInt(v, 10) || 0;
+    }
+
+    html += '<div class="cmp-bars"><h2>Trait comparison</h2><p class="cmp-bars-intro">12 traits sourced from AKC, CFA/TICA, and C-BARQ. Higher bar = higher score for that trait.</p>';
+
+    // Physical
+    html += row("Adult weight", "lbs (typical male)", range(tA.weight_male_lb), range(tB.weight_male_lb), 200, " lb");
+    html += row("Lifespan", "years", num(a.avgLife), num(b.avgLife), 20, " yrs");
+    // Care
+    html += row("Energy level", "AKC exercise rating", rescale1to5to1to10(tA.energy_1to5), rescale1to5to1to10(tB.energy_1to5), 10, "/10");
+    html += row("Trainability", "obedience rank (Coren)", rescale1to5to1to10(tA.trainability_1to5), rescale1to5to1to10(tB.trainability_1to5), 10, "/10");
+    html += row("Shedding", "amount per week", rescale1to5to1to10(tA.shedding_1to5), rescale1to5to1to10(tB.shedding_1to5), 10, "/10");
+    html += row("Grooming time", "minutes per week", num(tA.grooming_minutes_per_week), num(tB.grooming_minutes_per_week), 90, " min");
+    html += row("Exercise needs", "minutes per day", range(tA.exercise_minutes_per_day), range(tB.exercise_minutes_per_day), 150, " min");
+    html += row("Alone tolerance", "hours per day", range(tA.alone_hours), range(tB.alone_hours), 12, " hrs");
+    // Behavior
+    html += row("Affection with family", "how clingy / bonded", num(tA.affection_1to10), num(tB.affection_1to10), 10, "/10");
+    html += row("Tolerance with kids", "breed tendency only", num(tA.child_tolerance_1to10), num(tB.child_tolerance_1to10), 10, "/10");
+    html += row("Protective instinct", "guarding drive", num(tA.protective_1to10), num(tB.protective_1to10), 10, "/10");
+    html += row("Vocality", "how much they bark/meow", num(tA.vocality_1to10), num(tB.vocality_1to10), 10, "/10");
+    html += '</div>';
+
+    // 3. Cost block
+    if (costA && costB) {
+      function costCard(lbl, key, isRange) {
+        var aVal = isRange ? fmtMoney(costA[key].low) + "–" + fmtMoney(costA[key].high) : fmtMoney(costA[key].typical);
+        var bVal = isRange ? fmtMoney(costB[key].low) + "–" + fmtMoney(costB[key].high) : fmtMoney(costB[key].typical);
+        return '<div class="cmp-cost-card">' +
+          '<div class="lbl">' + escapeHtml(lbl) + '</div>' +
+          '<div class="cmp-cost-pair is-a"><div><div class="breed">' + escapeHtml(a.name) + '</div><div class="amount">' + aVal + '</div></div></div>' +
+          '<div class="cmp-cost-pair is-b"><div><div class="breed">' + escapeHtml(b.name) + '</div><div class="amount">' + bVal + '</div></div></div>' +
+          '</div>';
+      }
+      var lifeDelta = costA.lifetime.typical - costB.lifetime.typical;
+      var cheaper = lifeDelta > 0 ? b.name : a.name;
+      var deltaTxt = Math.abs(Math.round(lifeDelta / 100)) > 0
+        ? '<span class="cmp-cost-delta">' + escapeHtml(cheaper) + " saves ~$" + Math.abs(Math.round(lifeDelta)).toLocaleString() + " over a lifetime</span>"
+        : "";
+      html += '<div class="cmp-cost-block"><h2>Cost comparison</h2><p class="sub">Standard-lifestyle adult, national-average state, no major emergencies. ' + deltaTxt + '</p>' +
+        '<div class="cmp-cost-grid">' +
+          costCard("First-year cost", "firstYear") +
+          costCard("Annual cost", "annual") +
+          costCard("Lifetime cost", "lifetime") +
+          costCard("Suggested emergency fund", "emergencyFund") +
+        '</div></div>';
+    }
+
+    // 4. Verdict
+    var v = buildVerdict(a, b, tA, tB, costA, costB);
+    html += '<div class="cmp-verdict"><h2>Best fit verdict</h2><div class="cmp-verdict-grid">' +
+      '<div class="cmp-verdict-card is-a"><h3>' + escapeHtml(a.name) + '</h3><p>' + v.a + '</p></div>' +
+      '<div class="cmp-verdict-card is-b"><h3>' + escapeHtml(b.name) + '</h3><p>' + v.b + '</p></div>' +
+      '</div></div>';
+
+    // 5. Health risks
+    var notesA = (a.notes || "").trim();
+    var notesB = (b.notes || "").trim();
+    if (notesA || notesB) {
+      html += '<div class="cmp-health-row">' +
+        '<div class="cmp-health-card is-a"><h3>Health notes — ' + escapeHtml(a.name) + '</h3><p>' + escapeHtml(notesA || "—") + '</p></div>' +
+        '<div class="cmp-health-card is-b"><h3>Health notes — ' + escapeHtml(b.name) + '</h3><p>' + escapeHtml(notesB || "—") + '</p></div>' +
+        '</div>';
+    }
+
+    // 6. Action CTAs
+    html += '<div class="cmp-actions">' +
+      '<a class="cmp-action-btn is-a" href="/breeds/' + a.slug + '-cost/">See the full ' + escapeHtml(a.name) + ' page →</a>' +
+      '<a class="cmp-action-btn is-b" href="/breeds/' + b.slug + '-cost/">See the full ' + escapeHtml(b.name) + ' page →</a>' +
+      '</div>';
+
+    results.innerHTML = html;
+
+    // Animate bars from 0% to target
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        results.querySelectorAll(".cmp-bar-fill").forEach(function (el) {
+          el.style.width = el.getAttribute("data-target") + "%";
+        });
+      });
+    });
+  }
+
+  function wirePickers() {
+    var pickerA = document.getElementById("picker-a");
+    var pickerB = document.getElementById("picker-b");
+    var swap = document.getElementById("swap-btn");
+
+    pickerA.addEventListener("change", render);
+    pickerB.addEventListener("change", render);
+    swap.addEventListener("click", function () {
+      var av = pickerA.value, bv = pickerB.value;
+      pickerA.value = bv; pickerB.value = av;
+      render();
+    });
+
+    /* Restore from query string if present */
+    var qa = getQueryParam("a"), qb = getQueryParam("b");
+    if (qa && breedsBySlug[qa]) pickerA.value = qa;
+    if (qb && breedsBySlug[qb]) pickerB.value = qb;
+    if (qa || qb) render();
+  }
+
+  function start() {
+    var D = window.PETCOST_DATA;
+    if (!D || typeof D.ready !== "function") {
+      setTimeout(start, 50);
+      return;
+    }
+    D.ready().then(function () {
+      breedsBySlug = D.breeds || {};
+      // Inject slug onto each breed object for convenience
+      Object.keys(breedsBySlug).forEach(function (s) { breedsBySlug[s].slug = s; });
+      return loadTraitsCsv();
+    }).then(function () {
+      populatePickers();
+      wirePickers();
+    }).catch(function (e) {
+      console.error("compare init failed", e);
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", start);
+  } else {
+    start();
+  }
+})();
+</script>
+</body>
+</html>
