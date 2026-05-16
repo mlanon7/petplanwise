@@ -113,11 +113,50 @@
     else years = 12;
 
     var firstYear = combine(annual, oneTime);
+
+    /* ---- Phase-weighted lifetime projection ----
+       Don't multiply the *current* stage's annual cost by full lifespan
+       (the old logic made a "senior in Manhattan, premium lifestyle"
+       project to $213K because it modeled senior costs for every year).
+       Instead, split the projection into puppy/kitten + adult + senior
+       phases, re-compute the annual for each phase, then sum. */
+    function annualForStage(stg) {
+      var a = { low: 0, typical: 0, high: 0 };
+      cats.forEach(function (k) {
+        var base = ((D.baseCosts || {})[species] || {})[k];
+        if (!base) return;
+        var sizeMult = (species === "dog") ? ((D.sizeMultipliers || {})[effectiveSize] || 1) : 1;
+        var ageMult = pickAge(species, stg, k);
+        var lifeMult = pickLifestyle(opts.lifestyle, k);
+        var locMult = opts.city ? pickCity(opts.city, k) : pickState(opts.state, k);
+        var bMult = breedMult(breed, k);
+        var isSizeKey = ["food","grooming","boarding","preventatives","supplies","insurance","vaccines","routine_vet"].indexOf(k) >= 0;
+        var m = (isSizeKey ? sizeMult : 1) * ageMult * lifeMult * locMult * bMult;
+        a = combine(a, applyM(base, m));
+      });
+      if (opts.insurance === "yes") {
+        var ip = ((D.insurance || {}).monthlyPremium || {})[species];
+        var stageKey = species === "cat" ? (stg === "puppy" ? "kitten" : stg) : (stg === "kitten" ? "puppy" : stg);
+        var p = ip ? (ip[stageKey] || ip.adult) : null;
+        if (p) a = combine(a, { low: p.low * 12, typical: p.typical * 12, high: p.high * 12 });
+      }
+      return a;
+    }
+    var puppyStage = species === "dog" ? "puppy" : "kitten";
+    var puppyAnnual = annualForStage(puppyStage);
+    var adultAnnual = annualForStage("adult");
+    var seniorAnnual = annualForStage("senior");
+    /* Year allocation: puppyhood ~1yr, senior ~20% of life (min 2, max 4),
+       remainder is adult. One-time first-year costs apply once. */
+    var seniorYears = Math.min(4, Math.max(2, Math.round(years * 0.20)));
+    var puppyYears = 1;
+    var adultYears = Math.max(1, years - puppyYears - seniorYears);
     var lifetime = {
-      low: annual.low * years + oneTime.low,
-      typical: annual.typical * years + oneTime.typical,
-      high: annual.high * years + oneTime.high
+      low:     puppyAnnual.low     * puppyYears + adultAnnual.low     * adultYears + seniorAnnual.low     * seniorYears + oneTime.low,
+      typical: puppyAnnual.typical * puppyYears + adultAnnual.typical * adultYears + seniorAnnual.typical * seniorYears + oneTime.typical,
+      high:    puppyAnnual.high    * puppyYears + adultAnnual.high    * adultYears + seniorAnnual.high    * seniorYears + oneTime.high
     };
+
     var monthly = { low: annual.low / 12, typical: annual.typical / 12, high: annual.high / 12 };
     var ef = (D.emergencyFund || {})[species] || { low: 1500, typical: 3000, high: 6000 };
 

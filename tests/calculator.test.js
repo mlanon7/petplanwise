@@ -128,6 +128,13 @@ for (const f of FILES) eval(fs.readFileSync(path.join(ROOT, f), "utf8"));
   inRange("Medium adult lifetime", r1.lifetime.typical, 10000, 60000);
   assert("Lifetime > annual × 5", r1.lifetime.typical > r1.annual.typical * 5);
 
+  console.log("\n--- Lifetime is phase-weighted (regression: senior selection no longer inflates lifetime) ---");
+  const lifeAdult = E.computePet("dog", { size: "medium", stage: "adult",  state: "TX", lifestyle: "standard", insurance: "no" }).lifetime.typical;
+  const lifeSenior = E.computePet("dog", { size: "medium", stage: "senior", state: "TX", lifestyle: "standard", insurance: "no" }).lifetime.typical;
+  assert("Senior selection lifetime is within 15% of adult lifetime (phase-weighted)", Math.abs(lifeAdult - lifeSenior) / lifeAdult < 0.15);
+  const lifeSeniorPrem = E.computePet("dog", { size: "giant", stage: "senior", city: "manhattan-ny", lifestyle: "premium", insurance: "yes" }).lifetime.typical;
+  inRange("Giant senior Manhattan premium lifetime (was $74K-$213K in old logic)", lifeSeniorPrem, 30000, 120000);
+
   console.log("\n=========================================");
   console.log("RESULT: " + pass + " passed, " + fail + " failed");
   console.log("=========================================\n");
