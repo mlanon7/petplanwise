@@ -21,8 +21,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" data-ppw-inter>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin data-ppw-inter>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" data-ppw-inter>
-  <link rel="stylesheet" href="/assets/css/site.css?v=20260515h" />
-  <script src="/assets/data/csv-loader-20260515h.js" defer></script>
+  <link rel="stylesheet" href="/assets/css/site.css?v=20260515i" />
+  <script src="/assets/data/csv-loader-20260515i.js" defer></script>
   <script src="/assets/data/base-costs.js" defer></script>
   <script src="/assets/data/multipliers.js" defer></script>
   <script src="/assets/data/breeds.js" defer></script>
@@ -30,8 +30,8 @@
   <script src="/assets/data/insurance.js" defer></script>
   <script src="/assets/data/cities.js" defer></script>
   <script src="/assets/data/breed-images.js" defer></script>
-  <script src="/assets/js/layout-20260515h.js" defer></script>
-  <script src="/assets/js/calculator-20260515h.js" defer></script>
+  <script src="/assets/js/layout-20260515i.js" defer></script>
+  <script src="/assets/js/calculator-20260515i.js" defer></script>
 
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
@@ -67,6 +67,55 @@
       color: var(--ink-2, #4B5563);
     }
 
+    /* Species filter chips */
+    .cmp-species-filter {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin: 8px 0 14px;
+      flex-wrap: wrap;
+    }
+    .cmp-species-filter button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 22px;
+      border-radius: 999px;
+      border: 1.5px solid var(--border-2, #D9CFB5);
+      background: #fff;
+      font: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink, #1F2937);
+      cursor: pointer;
+      transition: background 150ms, color 150ms, border-color 150ms, transform 150ms;
+    }
+    .cmp-species-filter button:hover {
+      border-color: var(--primary, #0F766E);
+      color: var(--primary-700, #115E59);
+    }
+    .cmp-species-filter button:focus-visible {
+      outline: 2px solid var(--primary, #0F766E);
+      outline-offset: 2px;
+    }
+    .cmp-species-filter button.is-active {
+      background: var(--primary, #0F766E);
+      border-color: var(--primary, #0F766E);
+      color: #fff;
+      box-shadow: 0 4px 10px rgba(15,118,110,0.18);
+    }
+    .cmp-species-filter button.is-active:hover { color: #fff; }
+    .cmp-species-filter button svg { flex-shrink: 0; }
+    .cmp-species-filter .count {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 1px 8px;
+      border-radius: 999px;
+      background: rgba(0,0,0,0.08);
+      color: inherit;
+    }
+    .cmp-species-filter button.is-active .count { background: rgba(255,255,255,0.22); }
+
     /* Picker row */
     .cmp-pickers {
       display: grid;
@@ -77,7 +126,7 @@
       border: 1px solid var(--border, #E8DFC7);
       border-radius: 18px;
       padding: 20px;
-      margin: 18px 0 28px;
+      margin: 0 0 28px;
       box-shadow: 0 4px 16px rgba(15,23,42,0.04);
     }
     .cmp-picker {
@@ -480,6 +529,17 @@
   </div></section>
 
   <section><div class="container">
+    <div class="cmp-species-filter" role="tablist" aria-label="Compare by species">
+      <button type="button" data-species="dog" class="is-active" role="tab" aria-selected="true">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 5.172C10 3.782 8.423 2.679 6.5 3c-2.823.47-4.113 6.006-4 7 .08.703 1.725 1.722 3.656 1H10"/><path d="M14.267 5.172c0-1.39 1.577-2.493 3.5-2.172 2.823.47 4.113 6.006 4 7-.08.703-1.725 1.722-3.657 1h-3.844"/><path d="M8 14v.5"/><path d="M16 14v.5"/><path d="M11.25 16.25h1.5L12 17l-.75-.75Z"/><path d="M4.5 13.5C4.5 12 5 11 5 11s2 1 2 4 1 5 1 5h8s1-2 1-5 2-4 2-4 .5 1 .5 2.5"/></svg>
+        Dogs <span class="count" id="species-count-dog">—</span>
+      </button>
+      <button type="button" data-species="cat" role="tab" aria-selected="false">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5c.67 0 1.35.09 2 .26 1.78-2 5.03-2.84 6.42-2.26 1.4.58-.42 7-.42 7 .57 1.07 1 2.24 1 3.44C21 17.9 16.97 21 12 21s-9-3-9-7.56c0-1.25.5-2.4 1-3.44 0 0-1.89-6.42-.5-7 1.39-.58 4.72.23 6.5 2.23A9.04 9.04 0 0 1 12 5Z"/><path d="M8 14v.5"/><path d="M16 14v.5"/><path d="M11.25 16.25h1.5L12 17l-.75-.75Z"/></svg>
+        Cats <span class="count" id="species-count-cat">—</span>
+      </button>
+    </div>
+
     <div class="cmp-pickers" role="region" aria-label="Breed pickers">
       <div class="cmp-picker picker-a">
         <label class="cmp-picker-label" for="picker-a">Breed A</label>
@@ -561,6 +621,7 @@
 
   function setQueryState(a, b) {
     var qs = new URLSearchParams();
+    qs.set("species", currentSpecies);
     if (a) qs.set("a", a);
     if (b) qs.set("b", b);
     var url = location.pathname + (qs.toString() ? "?" + qs.toString() : "");
@@ -589,31 +650,67 @@
   }
 
   /* Populate both <select> pickers. Dogs first, then Cats, alphabetized in each group. */
-  function populatePickers() {
-    var sel = function (n) { return document.getElementById(n); };
-    var pickerA = sel("picker-a"), pickerB = sel("picker-b");
+  var currentSpecies = "dog";
 
-    var dogs = [], cats = [];
+  /* Cache sorted breed lists by species for fast picker repopulation */
+  var dogsList = null, catsList = null;
+  function buildSpeciesLists() {
+    if (dogsList) return;
+    dogsList = []; catsList = [];
     Object.keys(breedsBySlug).forEach(function (slug) {
       var b = breedsBySlug[slug];
-      if (b.species === "dog") dogs.push(b);
-      else if (b.species === "cat") cats.push(b);
+      if (b.species === "dog") dogsList.push(b);
+      else if (b.species === "cat") catsList.push(b);
     });
-    dogs.sort(function (a, b) { return a.name.localeCompare(b.name); });
-    cats.sort(function (a, b) { return a.name.localeCompare(b.name); });
+    dogsList.sort(function (a, b) { return a.name.localeCompare(b.name); });
+    catsList.sort(function (a, b) { return a.name.localeCompare(b.name); });
+  }
 
-    function buildOptions() {
-      var html = '<option value="">— Pick a breed —</option>';
-      html += '<optgroup label="Dogs (' + dogs.length + ')">';
-      dogs.forEach(function (b) { html += '<option value="' + b.slug + '">' + escapeHtml(b.name) + '</option>'; });
-      html += '</optgroup>';
-      html += '<optgroup label="Cats (' + cats.length + ')">';
-      cats.forEach(function (b) { html += '<option value="' + b.slug + '">' + escapeHtml(b.name) + '</option>'; });
-      html += '</optgroup>';
-      return html;
-    }
-    pickerA.innerHTML = buildOptions();
-    pickerB.innerHTML = buildOptions();
+  function populatePickers() {
+    buildSpeciesLists();
+    var pickerA = document.getElementById("picker-a");
+    var pickerB = document.getElementById("picker-b");
+    var list = currentSpecies === "cat" ? catsList : dogsList;
+    var label = currentSpecies === "cat" ? "Cats" : "Dogs";
+
+    var html = '<option value="">— Pick a breed —</option>';
+    html += '<optgroup label="' + label + ' (' + list.length + ')">';
+    list.forEach(function (b) { html += '<option value="' + b.slug + '">' + escapeHtml(b.name) + '</option>'; });
+    html += '</optgroup>';
+    pickerA.innerHTML = html;
+    pickerB.innerHTML = html;
+
+    // Update the species-filter chip counts (once we have the data)
+    var cDog = document.getElementById("species-count-dog");
+    var cCat = document.getElementById("species-count-cat");
+    if (cDog) cDog.textContent = String(dogsList.length);
+    if (cCat) cCat.textContent = String(catsList.length);
+  }
+
+  function setSpecies(newSpecies, opts) {
+    opts = opts || {};
+    if (newSpecies !== "dog" && newSpecies !== "cat") newSpecies = "dog";
+    if (newSpecies === currentSpecies && !opts.force) return;
+    currentSpecies = newSpecies;
+
+    // Toggle chip active state
+    document.querySelectorAll(".cmp-species-filter button").forEach(function (btn) {
+      var on = btn.getAttribute("data-species") === newSpecies;
+      btn.classList.toggle("is-active", on);
+      btn.setAttribute("aria-selected", on ? "true" : "false");
+    });
+
+    // Capture current selections — keep if they match the new species, clear otherwise
+    var pickerA = document.getElementById("picker-a");
+    var pickerB = document.getElementById("picker-b");
+    var keepA = breedsBySlug[pickerA.value] && breedsBySlug[pickerA.value].species === newSpecies ? pickerA.value : "";
+    var keepB = breedsBySlug[pickerB.value] && breedsBySlug[pickerB.value].species === newSpecies ? pickerB.value : "";
+
+    populatePickers();
+    pickerA.value = keepA;
+    pickerB.value = keepB;
+
+    if (!opts.skipRender) render();
   }
 
   /* Compute breed cost via engine */
@@ -869,11 +966,26 @@
       render();
     });
 
-    /* Restore from query string if present */
-    var qa = getQueryParam("a"), qb = getQueryParam("b");
-    if (qa && breedsBySlug[qa]) pickerA.value = qa;
-    if (qb && breedsBySlug[qb]) pickerB.value = qb;
-    if (qa || qb) render();
+    /* Species chip clicks */
+    document.querySelectorAll(".cmp-species-filter button").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        setSpecies(btn.getAttribute("data-species"));
+      });
+    });
+
+    /* Determine initial species — from ?species, then breed A in URL, default dog */
+    var qa = getQueryParam("a"), qb = getQueryParam("b"), qs = getQueryParam("species");
+    var initialSpecies = "dog";
+    if (qs === "dog" || qs === "cat") initialSpecies = qs;
+    else if (qa && breedsBySlug[qa]) initialSpecies = breedsBySlug[qa].species;
+    else if (qb && breedsBySlug[qb]) initialSpecies = breedsBySlug[qb].species;
+
+    setSpecies(initialSpecies, { force: true, skipRender: true });
+
+    /* Restore breed selections — only if they match the active species */
+    if (qa && breedsBySlug[qa] && breedsBySlug[qa].species === currentSpecies) pickerA.value = qa;
+    if (qb && breedsBySlug[qb] && breedsBySlug[qb].species === currentSpecies) pickerB.value = qb;
+    if (pickerA.value || pickerB.value) render();
   }
 
   function start() {
