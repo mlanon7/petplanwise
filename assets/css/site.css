@@ -197,6 +197,11 @@ hr { border: 0; border-top: 1px solid var(--border); margin: 2.5rem 0; }
 
 .nav-toggle { display: none; background: none; border: 0; padding: 8px; cursor: pointer; color: var(--ink); }
 
+/* The mobile close button is injected by layout JS into every page; hide it
+   on desktop where the menu is always open and the X would just overlap
+   nav items and steal clicks. */
+.nav-close { display: none; }
+
 /* Backdrop — only ever visible on mobile when the menu panel is open */
 .nav-backdrop {
   position: fixed;
@@ -1898,6 +1903,11 @@ section { padding: 48px 0; }
   width: auto;
   display: block;
   max-width: 320px;
+  /* Logo PNG has a solid white background. Multiply blend collapses
+     white pixels into whatever sits behind them (cream page bg, white
+     mobile menu panel, etc.), so it blends correctly everywhere
+     without re-exporting the asset. */
+  mix-blend-mode: multiply;
 }
 .site-header .brand {
   display: inline-flex;
