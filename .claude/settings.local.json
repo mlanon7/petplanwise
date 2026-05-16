@@ -74,7 +74,8 @@
       "Bash(grep -n '\\\\.nav a,\\\\|\\\\.nav-compare\\\\|\\\\.nav-ico\\\\|nav-cta {')",
       "Bash(awk '{print $5}')",
       "Bash(cp breeds/dachshund-cost/gallery/01.jpg breeds/dachshund-cost/hero.jpg)",
-      "Bash(cp breeds/dachshund-cost/gallery/01.jpg breed_images/dachshund/dachshund_1.jpg)"
+      "Bash(cp breeds/dachshund-cost/gallery/01.jpg breed_images/dachshund/dachshund_1.jpg)",
+      "Bash(node scripts/move-reviewer-block-to-bottom.js)"
     ]
   }
 }
