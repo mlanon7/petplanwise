@@ -10,13 +10,13 @@ const fs = require("fs");
 const path = require("path");
 
 const ROOT = path.resolve(__dirname, "..");
-const OLD_V = "20260516c";
-const NEW_V = "20260516d";
+const OLD_V = "20260516d";
+const NEW_V = "20260516e";
 
 const RENAMES = [
-  ["assets/js/layout-20260516c.js", "assets/js/layout-20260516d.js"],
-  ["assets/js/calculator-20260516c.js", "assets/js/calculator-20260516d.js"],
-  ["assets/data/csv-loader-20260516c.js", "assets/data/csv-loader-20260516d.js"],
+  ["assets/js/layout-20260516d.js", "assets/js/layout-20260516e.js"],
+  ["assets/js/calculator-20260516d.js", "assets/js/calculator-20260516e.js"],
+  ["assets/data/csv-loader-20260516d.js", "assets/data/csv-loader-20260516e.js"],
 ];
 
 // 1) Rename files on disk.
@@ -45,9 +45,9 @@ const files = walk(ROOT, []);
 let changed = 0;
 const replacements = [
   ["v=" + OLD_V, "v=" + NEW_V],
-  ["layout-20260516c.js", "layout-20260516d.js"],
-  ["calculator-20260516c.js", "calculator-20260516d.js"],
-  ["csv-loader-20260516c.js", "csv-loader-20260516d.js"],
+  ["layout-20260516d.js", "layout-20260516e.js"],
+  ["calculator-20260516d.js", "calculator-20260516e.js"],
+  ["csv-loader-20260516d.js", "csv-loader-20260516e.js"],
 ];
 
 for (const f of files) {

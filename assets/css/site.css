@@ -170,6 +170,19 @@ hr { border: 0; border-top: 1px solid var(--border); margin: 2.5rem 0; }
 .nav a.nav-cta:hover { background: var(--primary-700, #115E59); color: #fff; }
 .nav a.nav-cta[aria-current="page"] { background: var(--primary-700, #115E59); color: #fff; }
 
+/* Soft-highlight nav item — used for interactive discovery features like Find My Breed */
+.nav a.nav-highlight {
+  background: rgba(15,118,110,0.06);
+  color: var(--primary-700, #115E59);
+  font-weight: 600;
+}
+.nav a.nav-highlight:hover { background: rgba(15,118,110,0.12); color: var(--primary-700, #115E59); }
+.nav a.nav-highlight .nav-ico { color: var(--primary, #0F766E); }
+.nav a.nav-highlight[aria-current="page"] {
+  background: rgba(15,118,110,0.12);
+  color: var(--primary-700, #115E59);
+}
+
 /* Leading icon on every nav item (links + dropdown toggles) */
 .nav .nav-ico {
   flex-shrink: 0;
