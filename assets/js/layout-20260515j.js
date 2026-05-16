@@ -13,12 +13,10 @@
     '        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>\n' +
     '      </button>\n' +
     '      <nav class="nav" aria-label="Primary">\n' +
-    '        <a href="/compare/" class="nav-compare" data-nav-section="compare" aria-label="Compare breeds side by side">\n' +
-    '          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>\n' +
-    '          Compare\n' +
-    '        </a>\n' +
     '        <div class="nav-item nav-has-dropdown">\n' +
-    '          <button type="button" class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true" data-nav-section="calculators">Calculators\n' +
+    '          <button type="button" class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true" data-nav-section="calculators">\n' +
+    '            <svg class="nav-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>\n' +
+    '            Calculators\n' +
     '            <svg class="chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>\n' +
     '          </button>\n' +
     '          <div class="nav-dropdown" role="menu">\n' +
@@ -29,10 +27,36 @@
     '            <a href="/pet-insurance-vs-savings/" role="menuitem"><span class="nav-dd-title">Insurance vs Savings</span><span class="nav-dd-sub">Break-even calculator</span></a>\n' +
     '          </div>\n' +
     '        </div>\n' +
-    '        <a href="/breeds/" data-nav-section="breeds">Breeds</a>\n' +
-    '        <a href="/states/" data-nav-section="states">States</a>\n' +
-    '        <a href="/guides/" data-nav-section="guides">Guides</a>\n' +
-    '        <a href="/pet-insurance-vs-savings/" class="nav-cta" data-nav-section="insurance">Compare Insurance →</a>\n' +
+    '        <a href="/compare/" data-nav-section="compare">\n' +
+    '          <svg class="nav-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>\n' +
+    '          Compare\n' +
+    '        </a>\n' +
+    '        <div class="nav-item nav-has-dropdown">\n' +
+    '          <button type="button" class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true" data-nav-section="breeds">\n' +
+    '            <svg class="nav-ico" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><circle cx="6" cy="9" r="2.4"/><circle cx="18" cy="9" r="2.4"/><circle cx="9" cy="5" r="2"/><circle cx="15" cy="5" r="2"/><path d="M6.8 16.5c0-3.4 2.3-5.5 5.2-5.5s5.2 2.1 5.2 5.5c0 3-2.3 4.5-5.2 4.5s-5.2-1.5-5.2-4.5z"/></svg>\n' +
+    '            Breeds\n' +
+    '            <svg class="chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>\n' +
+    '          </button>\n' +
+    '          <div class="nav-dropdown" role="menu">\n' +
+    '            <a href="/breeds/" role="menuitem"><span class="nav-dd-title">All Breeds</span><span class="nav-dd-sub">54 dog &amp; cat cost guides</span></a>\n' +
+    '            <a href="/breeds/labrador-retriever-cost/" role="menuitem"><span class="nav-dd-title">Labrador Retriever</span><span class="nav-dd-sub">Most popular U.S. dog</span></a>\n' +
+    '            <a href="/breeds/french-bulldog-cost/" role="menuitem"><span class="nav-dd-title">French Bulldog</span><span class="nav-dd-sub">Currently #1 per AKC</span></a>\n' +
+    '            <a href="/breeds/maine-coon-cat-cost/" role="menuitem"><span class="nav-dd-title">Maine Coon</span><span class="nav-dd-sub">Most popular U.S. cat</span></a>\n' +
+    '            <a href="/compare/" role="menuitem"><span class="nav-dd-title">Compare two breeds</span><span class="nav-dd-sub">Side-by-side trait bars</span></a>\n' +
+    '          </div>\n' +
+    '        </div>\n' +
+    '        <a href="/states/" data-nav-section="states">\n' +
+    '          <svg class="nav-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>\n' +
+    '          By State\n' +
+    '        </a>\n' +
+    '        <a href="/guides/" data-nav-section="guides">\n' +
+    '          <svg class="nav-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>\n' +
+    '          Guides\n' +
+    '        </a>\n' +
+    '        <a href="/pet-insurance-vs-savings/" class="nav-cta" data-nav-section="insurance">\n' +
+    '          <svg class="nav-ico" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>\n' +
+    '          Get Insurance Quotes\n' +
+    '        </a>\n' +
     '      </nav>\n' +
     '    </div>\n' +
     '  </header>';

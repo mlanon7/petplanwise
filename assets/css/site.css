@@ -95,7 +95,7 @@ hr { border: 0; border-top: 1px solid var(--border); margin: 2.5rem 0; }
   font-weight: 500; font-size: 14px;
   background: transparent; border: 0; cursor: pointer;
   font-family: inherit;
-  display: inline-flex; align-items: center; gap: 4px;
+  display: inline-flex; align-items: center; gap: 6px;
 }
 .nav a:hover, .nav-dropdown-toggle:hover { background: var(--surface-2); color: var(--ink); }
 .nav a:focus-visible, .nav-dropdown-toggle:focus-visible {
@@ -156,31 +156,17 @@ hr { border: 0; border-top: 1px solid var(--border); margin: 2.5rem 0; }
 .nav a.nav-cta:hover { background: var(--primary-700, #115E59); color: #fff; }
 .nav a.nav-cta[aria-current="page"] { background: var(--primary-700, #115E59); color: #fff; }
 
-/* "Compare" — first nav item, subtle teal-tinted pill with icon */
-.nav a.nav-compare {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 7px 12px;
-  background: linear-gradient(135deg, rgba(15,118,110,0.08) 0%, rgba(185,28,92,0.06) 100%);
-  border: 1px solid rgba(15,118,110,0.25);
-  color: var(--primary-700, #115E59);
-  font-weight: 600;
-  border-radius: 999px;
-  margin-right: 4px;
+/* Leading icon on every nav item (links + dropdown toggles) */
+.nav .nav-ico {
+  flex-shrink: 0;
+  color: var(--primary, #0F766E);
+  transition: color 150ms;
 }
-.nav a.nav-compare svg { color: var(--primary, #0F766E); }
-.nav a.nav-compare:hover {
-  background: linear-gradient(135deg, rgba(15,118,110,0.15) 0%, rgba(185,28,92,0.12) 100%);
-  border-color: var(--primary, #0F766E);
-  color: var(--primary-700, #115E59);
-}
-.nav a.nav-compare[aria-current="page"] {
-  background: var(--primary, #0F766E);
-  border-color: var(--primary, #0F766E);
-  color: #fff;
-}
-.nav a.nav-compare[aria-current="page"] svg { color: #fff; }
+.nav a:hover .nav-ico,
+.nav-dropdown-toggle:hover .nav-ico { color: var(--primary-700, #115E59); }
+.nav a[aria-current="page"] .nav-ico,
+.nav-dropdown-toggle[aria-current="page"] .nav-ico { color: var(--primary-700, #115E59); }
+.nav a.nav-cta .nav-ico { color: #fff; }
 
 .nav-toggle { display: none; background: none; border: 0; padding: 8px; cursor: pointer; color: var(--ink); }
 
@@ -212,17 +198,6 @@ hr { border: 0; border-top: 1px solid var(--border); margin: 2.5rem 0; }
     text-align: center;
     justify-content: center;
     border-radius: 8px;
-  }
-  /* Mobile: flatten the Compare pill into a regular list item */
-  .nav a.nav-compare {
-    background: transparent;
-    border: 0;
-    border-bottom: 1px solid var(--border);
-    border-radius: 0;
-    margin-right: 0;
-    padding: 12px 8px;
-    justify-content: flex-start;
-    color: var(--primary-700, #115E59);
   }
 }
 

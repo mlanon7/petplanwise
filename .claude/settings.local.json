@@ -70,7 +70,8 @@
       "Bash(awk -F, '{print NF}')",
       "Bash(node -c assets/js/layout-20260515e.js)",
       "Bash(node -c compare/index.html)",
-      "Read(//d/claude projects/petcost-bill/**)"
+      "Read(//d/claude projects/petcost-bill/**)",
+      "Bash(grep -n '\\\\.nav a,\\\\|\\\\.nav-compare\\\\|\\\\.nav-ico\\\\|nav-cta {')"
     ]
   }
 }
