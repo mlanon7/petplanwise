@@ -7,3 +7,11 @@ node_modules/
 
 # Local research PDFs — third-party material, not deployed
 _research/
+
+# Claude Code agent state, worktrees, personal settings — never deploy
+.claude/
+
+# OS / editor cruft
+Thumbs.db
+*.swp
+*~

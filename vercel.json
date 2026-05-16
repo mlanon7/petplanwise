@@ -71,6 +71,16 @@
       "source": "/_research/(.*)",
       "destination": "/",
       "permanent": false
+    },
+    {
+      "source": "/.claude/:rest*",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/.git/:rest*",
+      "destination": "/",
+      "permanent": false
     }
   ]
 }
