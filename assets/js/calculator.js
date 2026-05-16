@@ -908,25 +908,3 @@
     });
   });
 })();
-nsurance")  mountInsurance(node);
-      else if (t === "homehero")   mountHomeHero(node, prefill);
-    });
-  }
-  document.addEventListener("DOMContentLoaded", function () {
-    var nodes = document.querySelectorAll("[data-calculator]");
-    nodes.forEach(showSkeleton);
-    var ready = (D && typeof D.ready === "function") ? D.ready() : Promise.resolve();
-    ready.then(function () {
-      var ok = !!(D && D.baseCosts && Object.keys(D.baseCosts.dog || {}).length);
-      if (!ok) throw new Error("PETCOST_DATA empty after load");
-      doMount();
-    }).catch(function (e) {
-      nodes.forEach(function (n) { showError(n, e); });
-    });
-  });
-})();
- {
-      nodes.forEach(function (n) { showError(n, e); });
-    });
-  });
-})();

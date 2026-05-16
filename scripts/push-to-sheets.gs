@@ -1,5 +1,5 @@
 /**
- * push-to-sheets.gs — YourPetBill.com data seeder
+ * push-to-sheets.gs — PetPlanWise.com data seeder
  *
  * One-time / on-demand: pushes every CSV in /assets/data/csv/ from the
  * petcost-bill repo into a tab in this Google Sheet.
@@ -42,7 +42,7 @@ const CSV_DATA = {
   "life-expectancy": "species,group,years\ndog,toy,14\ndog,small,14\ndog,medium,12\ndog,large,11\ndog,giant,9\ncat,indoor,15\ncat,outdoor,10\n",
   "lifestyle-multipliers": "lifestyle,category,multiplier,note\nbasic,default,0.80,\nbasic,food,0.75,store-brand vs premium kibble\nbasic,treats,0.60,\nbasic,grooming,0.40,mostly DIY\nbasic,training,0.30,YouTube + group class only\nbasic,boarding,0.50,friend/family vs kennel\nbasic,supplies,0.70,basics no luxuries\nbasic,insurance,0.85,accident-only vs accident+illness\nbasic,routine_vet,0.85,\nstandard,default,1.00,U.S. median owner\npremium,default,1.40,\npremium,food,1.65,fresh/raw subscriptions prescription diets\npremium,treats,1.50,\npremium,grooming,2.00,pro grooming every 4-8 weeks\npremium,training,2.20,private trainer board-and-train\npremium,boarding,1.80,luxury suite kennel\npremium,supplies,1.50,premium gear\npremium,insurance,1.30,higher reimbursement % lower deductible\npremium,routine_vet,1.20,specialty clinic more frequent visits\n",
   "procedures": "key,name,low,typical,high,species,emergency_note\nphysical_exam,Wellness physical (annual),80,150,300,any,\nvaccines,Core vaccines (annual),80,200,400,any,\ndental_cleaning,Dental cleaning,200,600,1200,any,\nmicrochip,Microchip insertion,25,60,150,any,\nspay_neuter,Spay / neuter,200,600,1500,any,\nxray,X-ray (single view),80,200,500,any,\nultrasound,Ultrasound,200,500,1000,any,\nblood_work,Blood work / panel,80,250,600,any,\nurinalysis,Urinalysis,50,150,300,any,\nantibiotics,Antibiotic course,30,100,300,any,\npain_relief,Pain management (week),20,80,200,any,\nthyroid_meds,Thyroid medication (month),15,50,150,any,\nemergency_exam,ER exam (after hours),100,200,400,any,\nwound_repair,Wound / laceration repair,400,1100,2800,any,\ntoxin_ingestion,Toxin ingestion treatment,250,1100,4500,any,\"Call ASPCA Poison Control 888-426-4435 or your nearest ER immediately.\"\nforeign_object,Foreign object removal,800,3500,8000,any,\nurinary_blockage,Urinary blockage (cat),1200,2800,5500,cat,\"A blocked male cat is a life-threatening emergency. Go to the ER now.\"\nbroken_bone,Fracture repair,800,3500,7500,any,\nbloat_gdv,Bloat / GDV surgery,1800,5000,10000,dog,\"Bloat is a surgical emergency. Do not delay.\"\nparvo,Parvo treatment (puppy),600,2200,6500,dog,\"Suspected parvo in unvaccinated puppies — call your vet immediately.\"\nhbc,Hit-by-car trauma,1000,4000,12000,any,\nseizure_workup,Seizure diagnostics,500,1400,3500,any,\nheatstroke,Heatstroke treatment,400,1500,4500,any,\"Move to shade, apply cool (not cold) water, drive to ER.\"\nacl_surgery,ACL/CCL surgery (dog),2000,4500,7500,dog,\nivdd_surgery,IVDD spinal surgery,3500,7000,12000,dog,\n",
-  "reviewer": "field,value\nname,Dr. Sarah Patel DVM\ntitle,Veterinary reviewer\nlicense,(license number on file with editorial)\nlicense_state,(pending real reviewer)\nphoto_url,/assets/images/reviewer-placeholder.svg\nbio,Reviews quarterly cost data updates against current AVMA NAPHIA and BLS sources. Real DVM placeholder — swap with a paid retained reviewer before public launch.\nreview_date,2026-05\n",
+  "reviewer": "field,value\nname,PetPlanWise Editorial\ntitle,Editorial team (no individual veterinarian endorsement)\nlicense,n/a\nlicense_state,n/a\nphoto_url,\nbio,Methodology and cost data are fact-checked in-house against published AVMA NAPHIA BLS AAHA and Banfield sources. We do not currently have a retained veterinarian on staff and we do not represent any individual DVM endorsement of this content. See /editorial-standards/ for our review process.\nreview_date,2026-05\n",
   "size-multipliers": "size,multiplier,note\ntoy,0.70,< 10 lb\nsmall,0.85,10-25 lb\nmedium,1.00,25-60 lb\nlarge,1.25,60-90 lb\ngiant,1.55,90+ lb\n",
   "state-adjusted-categories": "category\nroutine_vet\nvaccines\ngrooming\nboarding\ninsurance\nspay_neuter\n",
   "state-multipliers": "state,multiplier\nAL,0.92\nAK,1.18\nAZ,1.02\nAR,0.90\nCA,1.28\nCO,1.10\nCT,1.18\nDE,1.05\nFL,1.06\nGA,0.96\nHI,1.30\nID,0.96\nIL,1.04\nIN,0.94\nIA,0.92\nKS,0.92\nKY,0.92\nLA,0.94\nME,1.05\nMD,1.12\nMA,1.22\nMI,0.96\nMN,1.02\nMS,0.88\nMO,0.92\nMT,0.98\nNE,0.92\nNV,1.06\nNH,1.10\nNJ,1.18\nNM,0.94\nNY,1.30\nNC,0.98\nND,0.94\nOH,0.94\nOK,0.90\nOR,1.10\nPA,1.02\nRI,1.10\nSC,0.96\nSD,0.92\nTN,0.94\nTX,0.98\nUT,1.00\nVT,1.06\nVA,1.04\nWA,1.16\nWV,0.90\nWI,0.96\nWY,0.96\nDC,1.32\n"
@@ -100,7 +100,7 @@ function pushAllCsvsToTabs() {
     "Done. Tabs created: " + created + ", replaced: " + replaced +
     "\n\n" + log.join("\n");
   Logger.log(summary);
-  try { SpreadsheetApp.getUi().alert("YourPetBill seeder", summary, SpreadsheetApp.getUi().ButtonSet.OK); }
+  try { SpreadsheetApp.getUi().alert("PetPlanWise seeder", summary, SpreadsheetApp.getUi().ButtonSet.OK); }
   catch (e) { /* no UI in scheduled runs */ }
 }
 
@@ -110,7 +110,7 @@ function pushAllCsvsToTabs() {
 // =============================================================
 function onOpen() {
   SpreadsheetApp.getUi()
-    .createMenu("YourPetBill")
+    .createMenu("PetPlanWise")
     .addItem("Seed all tabs from latest data", "pushAllCsvsToTabs")
     .addItem("Validate tab names match site", "validateTabNames_")
     .addToUi();

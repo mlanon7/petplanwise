@@ -5,8 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>About &amp; Methodology — PetPlanWise</title>
   <meta name="description" content="How we estimate pet costs: data sources, multipliers, update cadence, and our editorial approach. Calculator-first, source-backed, no vet-clinic marketing." />
+  <meta property="og:description" content="How we estimate pet costs: data sources, multipliers, update cadence, and our editorial approach. Calculator-first, source-backed, no vet-clinic marketing." />
   <meta property="og:title" content="About &amp; Methodology — PetPlanWise" />
   <link rel="canonical" href="https://petplanwise.com/about/" />
+  <meta property="og:url" content="https://petplanwise.com/about/" />
   <meta property="og:image" content="https://petplanwise.com/assets/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -15,13 +17,17 @@
   <meta name="twitter:image" content="https://petplanwise.com/assets/og-image.png" />
   <meta name="twitter:title" content="About & Methodology — PetPlanWise" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230F766E'/%3E%3Ctext x='50' y='66' font-family='system-ui,sans-serif' font-weight='700' font-size='58' fill='white' text-anchor='middle'%3E%24%3C/text%3E%3C/svg%3E" />
-  <link rel="stylesheet" href="/assets/css/site.css?v=20260510m" />
-  <script src="/assets/js/layout-20260510i.js" defer></script>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" data-ppw-inter>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin data-ppw-inter>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" data-ppw-inter>
+  <link rel="stylesheet" href="/assets/css/site.css?v=20260515c" />
+  <script src="/assets/js/layout-20260515c.js" defer></script>
 </head>
 <body>
 <div id="site-header"></div>
 <main>
-  <div class="container"><nav class="breadcrumbs"><a href="/">Home</a><span>›</span>About &amp; methodology</nav></div>
+  <div class="container"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>›</span>About &amp; methodology</nav></div>
   <section style="padding: 24px 0 12px;"><div class="container">
     <span class="eyebrow">About</span>
     <h1>About &amp; methodology</h1>
@@ -42,7 +48,7 @@ total_lifetime = total_annual × life_expectancy + first_year_one_time</pre>
     <p>We always present low / typical / high ranges instead of single-point estimates because real costs vary substantially.</p>
 
     <h2>Data sources</h2>
-    <p>Every calculator pulls from a small set of editable JSON-shaped data files. Cost ranges come from a blend of:</p>
+    <p>Every calculator pulls from a small set of editable CSV data files under <code>/assets/data/csv/</code> — anyone can read or fork them. Cost ranges come from a blend of:</p>
     <ul>
       <li><strong>AVMA</strong> — U.S. Pet Ownership and Demographics Sourcebook</li>
       <li><strong>ASPCA</strong> — Annual cost-of-pet-ownership estimates</li>
@@ -82,5 +88,64 @@ total_lifetime = total_annual × life_expectancy + first_year_one_time</pre>
       <thead><tr><th>Category</th><th class="num">Low</th><th class="num">Typical</th><th class="num">High</th><th>Source</th></tr></thead>
       <tbody>
         <tr><td>Food</td><td class="num">$240</td><td class="num">$480</td><td class="num">$1,200</td><td>AVMA + ASPCA</td></tr>
+        <tr><td>Treats</td><td class="num">$60</td><td class="num">$120</td><td class="num">$300</td><td>APPA</td></tr>
         <tr><td>Routine vet</td><td class="num">$150</td><td class="num">$300</td><td class="num">$600</td><td>AAHA + Banfield</td></tr>
-        <tr><td>Vaccines</td><td class="n
+        <tr><td>Vaccines</td><td class="num">$80</td><td class="num">$150</td><td class="num">$300</td><td>AAHA</td></tr>
+        <tr><td>Preventatives (flea/tick/heartworm)</td><td class="num">$120</td><td class="num">$240</td><td class="num">$420</td><td>AVMA + American Heartworm Society</td></tr>
+        <tr><td>Grooming</td><td class="num">$0</td><td class="num">$240</td><td class="num">$1,200</td><td>APPA</td></tr>
+        <tr><td>Training</td><td class="num">$0</td><td class="num">$150</td><td class="num">$900</td><td>APPA</td></tr>
+        <tr><td>Boarding</td><td class="num">$0</td><td class="num">$240</td><td class="num">$900</td><td>APPA</td></tr>
+        <tr><td>Pet insurance (optional)</td><td class="num">$300</td><td class="num">$744</td><td class="num">$1,200</td><td>NAPHIA 2024 ($62.44/mo dogs)</td></tr>
+        <tr><td>Supplies</td><td class="num">$80</td><td class="num">$180</td><td class="num">$420</td><td>APPA</td></tr>
+        <tr><td>License</td><td class="num">$10</td><td class="num">$20</td><td class="num">$40</td><td>Municipal averages</td></tr>
+      </tbody>
+    </table>
+    <p class="muted text-sm">Multipliers (size, age, state, lifestyle, breed) are applied on top of these base ranges. See <a href="/sources/">sources</a> for citations.</p>
+
+    <h3>Annual base cost ranges (cat, U.S. average before multipliers)</h3>
+    <table class="cost-table">
+      <thead><tr><th>Category</th><th class="num">Low</th><th class="num">Typical</th><th class="num">High</th><th>Source</th></tr></thead>
+      <tbody>
+        <tr><td>Food</td><td class="num">$180</td><td class="num">$360</td><td class="num">$720</td><td>AVMA + ASPCA</td></tr>
+        <tr><td>Treats</td><td class="num">$40</td><td class="num">$80</td><td class="num">$180</td><td>APPA</td></tr>
+        <tr><td>Litter</td><td class="num">$120</td><td class="num">$240</td><td class="num">$480</td><td>APPA</td></tr>
+        <tr><td>Routine vet</td><td class="num">$120</td><td class="num">$240</td><td class="num">$480</td><td>AAHA/AAFP feline guidelines</td></tr>
+        <tr><td>Vaccines</td><td class="num">$60</td><td class="num">$100</td><td class="num">$220</td><td>AAHA/AAFP</td></tr>
+        <tr><td>Preventatives</td><td class="num">$80</td><td class="num">$160</td><td class="num">$280</td><td>AVMA</td></tr>
+        <tr><td>Dental</td><td class="num">$0</td><td class="num">$100</td><td class="num">$600</td><td>AVDC + AAHA dental guidelines</td></tr>
+        <tr><td>Pet insurance (optional)</td><td class="num">$240</td><td class="num">$384</td><td class="num">$720</td><td>NAPHIA 2024 ($32.21/mo cats)</td></tr>
+        <tr><td>Supplies</td><td class="num">$60</td><td class="num">$120</td><td class="num">$280</td><td>APPA</td></tr>
+        <tr><td>Grooming</td><td class="num">$0</td><td class="num">$60</td><td class="num">$300</td><td>APPA</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Multipliers we apply</h3>
+    <ul>
+      <li><strong>Size (dogs only):</strong> toy 0.70 · small 0.85 · medium 1.00 · large 1.25 · giant 1.55 — scales food, grooming, boarding, preventatives, supplies, vaccines, and routine vet.</li>
+      <li><strong>Age stage:</strong> puppy/kitten 1.10–1.15 default with vaccine multipliers 2.10–2.20 in the first year; senior 1.05 default with routine-vet escalation to 1.50–1.60.</li>
+      <li><strong>Lifestyle:</strong> basic 0.80 · standard 1.00 · premium 1.40 default. Category-specific overrides (e.g. premium grooming 2.00, premium training 2.20) are applied where the spend gap is meaningful.</li>
+      <li><strong>State:</strong> 0.88 (MS) to 1.32 (DC). Applied only to cost-of-living-sensitive categories: routine vet, vaccines, grooming, boarding, insurance, spay/neuter.</li>
+      <li><strong>City:</strong> optional metro override (e.g. Manhattan 1.45) replaces the state multiplier when chosen.</li>
+      <li><strong>Breed:</strong> a health-risk multiplier from <code>breeds.csv</code> (e.g. French Bulldog 1.55, Bulldog 1.70) scales routine_vet to reflect known breed-typical conditions. Sources: OFA, AKC Canine Health Foundation, Royal Veterinary College BOAS research.</li>
+    </ul>
+    <p class="muted text-sm">Multipliers compound. A premium-lifestyle giant senior dog in Manhattan will see annual cost roughly 3.5–4× the small adult standard-lifestyle Texas baseline. That matches real-world spread observed in Synchrony's Lifetime of Care studies.</p>
+
+    <h3>Lifetime calculation note</h3>
+    <p>Our default <code>lifetime = annual × years + first_year_one_time</code>. This assumes the user-selected stage holds across the pet's life — which is a simplification. Senior years are typically 20–60% more expensive than adult years (per our own age multipliers). A pet selected as "adult" today and held for 12 years will spend roughly $1,500–3,000 more in real terms than the headline lifetime number suggests. We surface this caveat on every calculator's methodology block.</p>
+
+    <h3>Reviewer disclosure</h3>
+    <p>We do not currently have a retained veterinarian on staff. Methodology and cost data are fact-checked in-house against the sources listed above. We do <strong>not</strong> represent that any individual DVM has endorsed this content. See our <a href="/editorial-standards/">editorial standards</a>.</p>
+
+    <h2>Contact</h2>
+    <p>Questions about methodology, source corrections, or partnerships: <a href="/contact/">contact us</a>.</p>
+  </div></section>
+</main>
+<div id="site-footer"></div>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+  {"@type":"ListItem","position":1,"name":"Home","item":"https://petplanwise.com/"},
+  {"@type":"ListItem","position":2,"name":"About & methodology","item":"https://petplanwise.com/about/"}
+]}
+</script>
+</body>
+</html>

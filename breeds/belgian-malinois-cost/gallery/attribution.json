@@ -1,0 +1,52 @@
+{
+  "slug": "belgian-malinois",
+  "breed": "belgian malinois",
+  "species": "dog",
+  "files": [
+    {
+      "file": "01.jpg",
+      "description": "Belgian Malinois standing in shallow shoreline water, alert posture",
+      "source": "Pexels — Jozef Feher",
+      "artist": "Jozef Feher",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/belgian-malinois-dog-in-water-on-sea-shore-20207074/",
+      "breed": "belgian-malinois"
+    },
+    {
+      "file": "02.jpg",
+      "description": "Belgian Malinois standing in a brown field beneath a blue sky",
+      "source": "Pexels — Laura Paredis",
+      "artist": "Laura Paredis",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/malinois-dog-standing-on-brown-field-under-blue-sky-13076152/",
+      "breed": "belgian-malinois"
+    },
+    {
+      "file": "03.jpg",
+      "description": "Playful Belgian Malinois carrying a stick in a park",
+      "source": "Pexels — Jeroen van Wouden",
+      "artist": "Jeroen van Wouden",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/playful-belgian-malinois-with-stick-in-park-32533831/",
+      "breed": "belgian-malinois"
+    },
+    {
+      "file": "04.jpg",
+      "description": "Close-up portrait of a Belgian Malinois in sunlight",
+      "source": "Pexels — Fernando Lacerda Branco",
+      "artist": "Fernando Lacerda Branco",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/close-up-shot-of-a-belgian-malinois-12429055/",
+      "breed": "belgian-malinois"
+    },
+    {
+      "file": "05.jpg",
+      "description": "Belgian Malinois sitting in the bed of a pickup truck outdoors",
+      "source": "Pexels — Amar",
+      "artist": "Amar",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/belgian-malinois-dog-in-pickup-truck-outdoors-30403066/",
+      "breed": "belgian-malinois"
+    }
+  ]
+}

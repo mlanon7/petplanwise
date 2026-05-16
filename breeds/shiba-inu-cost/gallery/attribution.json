@@ -1,0 +1,52 @@
+{
+  "slug": "shiba-inu",
+  "breed": "shiba inu",
+  "species": "dog",
+  "files": [
+    {
+      "file": "01.jpg",
+      "description": "Portrait of a Shiba Inu in well-lit conditions",
+      "source": "Pexels — Ekaterina Lukyanenko",
+      "artist": "Ekaterina Lukyanenko",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/portrait-of-a-shiba-dog-15585112/",
+      "breed": "shiba-inu"
+    },
+    {
+      "file": "02.jpg",
+      "description": "Shiba Inu in a harness among autumn leaves in a park",
+      "source": "Pexels — Ferry Chenille",
+      "artist": "Ferry Chenille",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/shiba-inu-dog-on-leash-in-fall-park-setting-37348538/",
+      "breed": "shiba-inu"
+    },
+    {
+      "file": "03.jpg",
+      "description": "Shiba Inu smiling outdoors with tongue out",
+      "source": "Pexels — Refargotohp",
+      "artist": "Refargotohp",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/portrait-of-smiling-dog-16730750/",
+      "breed": "shiba-inu"
+    },
+    {
+      "file": "04.jpg",
+      "description": "Brown and white Shiba Inu indoors in natural light",
+      "source": "Pexels — Mikky K",
+      "artist": "Mikky K",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/photo-of-a-brown-and-white-shiba-inu-dog-11043684/",
+      "breed": "shiba-inu"
+    },
+    {
+      "file": "05.jpg",
+      "description": "Close-up of a fluffy Shiba Inu gazing attentively",
+      "source": "Pexels — Matyas Varga",
+      "artist": "Matyas Varga",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/close-up-shot-of-a-shiba-inu-10670323/",
+      "breed": "shiba-inu"
+    }
+  ]
+}

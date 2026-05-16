@@ -1,0 +1,52 @@
+{
+  "slug": "russian-blue",
+  "breed": "russian blue",
+  "species": "cat",
+  "files": [
+    {
+      "file": "01.jpg",
+      "description": "Russian Blue cat close-up with striking eyes",
+      "source": "Pexels — Belen Capello",
+      "artist": "Belen Capello",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/close-up-shot-of-a-russian-gray-cat-8810701/",
+      "breed": "russian-blue"
+    },
+    {
+      "file": "02.jpg",
+      "description": "Russian Blue cat lying on a wicker chair with red cushion",
+      "source": "Pexels — Belen Capello",
+      "artist": "Belen Capello",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/close-up-shot-of-a-russian-gray-cat-lying-down-8810686/",
+      "breed": "russian-blue"
+    },
+    {
+      "file": "03.jpg",
+      "description": "Russian Blue cat yawning indoors",
+      "source": "Pexels — Toni Tan",
+      "artist": "Toni Tan",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/close-up-shot-of-a-russian-blue-cat-lying-down-5864514/",
+      "breed": "russian-blue"
+    },
+    {
+      "file": "04.jpg",
+      "description": "Russian Blue cat peering through green leaves",
+      "source": "Pexels — Dios Ajandy",
+      "artist": "Dios Ajandy",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/russian-blue-cat-near-green-leaves-13604939/",
+      "breed": "russian-blue"
+    },
+    {
+      "file": "05.png",
+      "description": "Elegant grey Russian Blue cat resting on a sofa",
+      "source": "Pexels — Honye Sanges",
+      "artist": "Honye Sanges",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/elegant-gray-cat-resting-on-a-sofa-indoors-32890491/",
+      "breed": "russian-blue"
+    }
+  ]
+}

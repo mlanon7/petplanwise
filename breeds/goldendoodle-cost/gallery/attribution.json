@@ -1,0 +1,52 @@
+{
+  "slug": "goldendoodle",
+  "breed": "goldendoodle",
+  "species": "dog",
+  "files": [
+    {
+      "file": "01.jpg",
+      "description": "Goldendoodle lying on green grass in a sunny park",
+      "source": "Pexels — dbaler",
+      "artist": "dbaler",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/brown-poodle-lying-on-the-green-grass-10521310/",
+      "breed": "goldendoodle"
+    },
+    {
+      "file": "02.jpg",
+      "description": "Curly-coated Goldendoodle standing indoors",
+      "source": "Pexels — Lesli Whitecotton",
+      "artist": "Lesli Whitecotton",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/brown-dog-in-close-up-shot-13332364/",
+      "breed": "goldendoodle"
+    },
+    {
+      "file": "03.jpg",
+      "description": "Close-up portrait of a Goldendoodle with soft fur",
+      "source": "Pexels — Catherine Dempsey",
+      "artist": "Catherine Dempsey",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/close-up-portrait-of-a-goldendoodle-dog-36858569/",
+      "breed": "goldendoodle"
+    },
+    {
+      "file": "04.jpg",
+      "description": "Goldendoodle playing among autumn leaves",
+      "source": "Pexels — Graham Roy",
+      "artist": "Graham Roy",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/photograph-of-a-goldendoodle-near-autumn-leaves-10002216/",
+      "breed": "goldendoodle"
+    },
+    {
+      "file": "05.jpg",
+      "description": "Goldendoodle sitting on grass in a sunny park",
+      "source": "Pexels — Sophia Martin",
+      "artist": "Sophia Martin",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/photo-of-a-goldendoodle-sitting-on-the-grass-24354848/",
+      "breed": "goldendoodle"
+    }
+  ]
+}

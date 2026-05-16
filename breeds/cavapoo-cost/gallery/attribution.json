@@ -1,0 +1,52 @@
+{
+  "slug": "cavapoo",
+  "breed": "cavapoo",
+  "species": "dog",
+  "files": [
+    {
+      "file": "01.jpg",
+      "description": "Cavapoo puppy exploring a green meadow",
+      "source": "Pexels — Christy Day",
+      "artist": "Christy Day",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/adorable-cavapoo-puppy-in-lush-green-meadow-33336009/",
+      "breed": "cavapoo"
+    },
+    {
+      "file": "02.jpg",
+      "description": "Cavapoo running with a toy along a pathway",
+      "source": "Pexels — Olavi Anttila",
+      "artist": "Olavi Anttila",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/energetic-cavapoo-dog-running-with-toy-on-pathway-29296765/",
+      "breed": "cavapoo"
+    },
+    {
+      "file": "03.jpg",
+      "description": "Curly-furred Cavapoo sitting on concrete with tongue out",
+      "source": "Pexels — Maheshwar Reddy",
+      "artist": "Maheshwar Reddy",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/close-up-of-cavapoo-dog-16632809/",
+      "breed": "cavapoo"
+    },
+    {
+      "file": "04.jpg",
+      "description": "Cavapoo playing with a ball in a sunny green field",
+      "source": "Pexels — Olavi Anttila",
+      "artist": "Olavi Anttila",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/cavapoo-playing-with-ball-in-sunny-field-29296768/",
+      "breed": "cavapoo"
+    },
+    {
+      "file": "05.jpg",
+      "description": "Cavapoo strolling along a gravel path outdoors",
+      "source": "Pexels — Olavi Anttila",
+      "artist": "Olavi Anttila",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/adorable-cavapoo-dog-strolling-outdoors-29296772/",
+      "breed": "cavapoo"
+    }
+  ]
+}

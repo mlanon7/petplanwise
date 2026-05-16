@@ -1,8 +1,8 @@
 field,value
-name,Dr. Sarah Patel DVM
-title,Veterinary reviewer
-license,(license number on file with editorial)
-license_state,(pending real reviewer)
-photo_url,/assets/images/reviewer-placeholder.svg
-bio,Reviews quarterly cost data updates against current AVMA NAPHIA and BLS sources. Real DVM placeholder — swap with a paid retained reviewer before public launch.
+name,PetPlanWise Editorial
+title,Editorial team (no individual veterinarian endorsement)
+license,n/a
+license_state,n/a
+photo_url,
+bio,Methodology and cost data are fact-checked in-house against published AVMA NAPHIA BLS AAHA and Banfield sources. We do not currently have a retained veterinarian on staff and we do not represent any individual DVM endorsement of this content. See /editorial-standards/ for our review process.
 review_date,2026-05

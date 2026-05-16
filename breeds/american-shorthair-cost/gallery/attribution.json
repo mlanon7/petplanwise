@@ -1,0 +1,53 @@
+{
+  "slug": "american-shorthair",
+  "breed": "american shorthair",
+  "species": "cat",
+  "note": "Breed tagging weak on Pexels; selections are visually consistent shorthaired tabbies.",
+  "files": [
+    {
+      "file": "01.jpg",
+      "description": "American Shorthair cat lying in soft lighting",
+      "source": "Pexels — Igor Ejov",
+      "artist": "Igor Ejov",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/close-up-photo-of-a-cat-13302239/",
+      "breed": "american-shorthair"
+    },
+    {
+      "file": "02.png",
+      "description": "Grey and white shorthaired cat with bright green eyes",
+      "source": "Pexels — Gabriel Crisan",
+      "artist": "Gabriel Crisan",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/close-up-photo-of-gray-cat-with-green-eyes-2167221/",
+      "breed": "american-shorthair"
+    },
+    {
+      "file": "03.jpg",
+      "description": "Grey tabby shorthair cat resting indoors",
+      "source": "Pexels — Canaros",
+      "artist": "Canaros",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/a-tabby-cat-on-black-surface-6830192/",
+      "breed": "american-shorthair"
+    },
+    {
+      "file": "04.png",
+      "description": "Grey tabby shorthair cat sitting near a window",
+      "source": "Pexels — Gabriel Crisan",
+      "artist": "Gabriel Crisan",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/tabby-cat-2173009/",
+      "breed": "american-shorthair"
+    },
+    {
+      "file": "05.jpg",
+      "description": "Dramatic portrait of a tabby shorthair cat",
+      "source": "Pexels — Poopfishsocks",
+      "artist": "Poopfishsocks",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/dramatic-portrait-of-a-senior-tabby-cat-34195657/",
+      "breed": "american-shorthair"
+    }
+  ]
+}

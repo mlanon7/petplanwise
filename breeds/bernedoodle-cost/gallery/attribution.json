@@ -1,0 +1,52 @@
+{
+  "slug": "bernedoodle",
+  "breed": "bernedoodle",
+  "species": "dog",
+  "files": [
+    {
+      "file": "01.jpg",
+      "description": "Wet Bernedoodle relaxing on green grass outdoors",
+      "source": "Pexels — Rob Waller",
+      "artist": "Rob Waller",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/a-wet-dog-on-the-grass-8195262/",
+      "breed": "bernedoodle"
+    },
+    {
+      "file": "02.jpg",
+      "description": "Tricolor Bernedoodle puppies on a white blanket",
+      "source": "Pexels — Balanced Obedience",
+      "artist": "Balanced Obedience",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/adorable-bernedoodle-puppies-on-a-blanket-33605646/",
+      "breed": "bernedoodle"
+    },
+    {
+      "file": "03.jpg",
+      "description": "Black and white Bernedoodle sitting outdoors with a pet tag",
+      "source": "Pexels — Esteban Arango",
+      "artist": "Esteban Arango",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/a-black-and-white-dog-with-pet-tag-10226911/",
+      "breed": "bernedoodle"
+    },
+    {
+      "file": "04.jpg",
+      "description": "Young Bernedoodle playing on grass in daylight",
+      "source": "Pexels — Rob Waller",
+      "artist": "Rob Waller",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/a-dog-on-the-grass-8195257/",
+      "breed": "bernedoodle"
+    },
+    {
+      "file": "05.jpg",
+      "description": "Studio portrait of a tricolor Bernedoodle puppy",
+      "source": "Pexels — Poodles2Doodles",
+      "artist": "Poodles2Doodles",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/black-and-white-poodle-puppy-1458924/",
+      "breed": "bernedoodle"
+    }
+  ]
+}

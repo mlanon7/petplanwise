@@ -1,0 +1,52 @@
+{
+  "slug": "havanese",
+  "breed": "havanese",
+  "species": "dog",
+  "files": [
+    {
+      "file": "01.jpg",
+      "description": "Black long-haired Havanese walking through grass",
+      "source": "Pexels — Alexa's Fotos",
+      "artist": "Alexa's Fotos",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/close-up-of-black-dog-17704145/",
+      "breed": "havanese"
+    },
+    {
+      "file": "02.jpg",
+      "description": "Fluffy Havanese resting on a sandy beach",
+      "source": "Pexels — JacLou DL",
+      "artist": "JacLou DL",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/adorable-fluffy-dog-relaxing-on-sandy-beach-31365340/",
+      "breed": "havanese"
+    },
+    {
+      "file": "03.jpg",
+      "description": "Havanese with long silky fur and tongue out",
+      "source": "Pexels — Jesus Esteban",
+      "artist": "Jesus Esteban",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/close-up-of-a-havanese-dog-with-tongue-out-35117929/",
+      "breed": "havanese"
+    },
+    {
+      "file": "04.jpg",
+      "description": "Havanese puppy running across grass",
+      "source": "Pexels — Detlef Bukowski",
+      "artist": "Detlef Bukowski",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/adorable-havanese-puppy-running-on-grass-29633098/",
+      "breed": "havanese"
+    },
+    {
+      "file": "05.jpg",
+      "description": "Two Havanese puppies sitting on a white block",
+      "source": "Pexels — Denniz Futalan",
+      "artist": "Denniz Futalan",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/two-adorable-havanese-dog-puppies-17099645/",
+      "breed": "havanese"
+    }
+  ]
+}

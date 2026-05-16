@@ -1,0 +1,52 @@
+{
+  "slug": "maltese",
+  "breed": "maltese",
+  "species": "dog",
+  "files": [
+    {
+      "file": "01.jpg",
+      "description": "Small white Maltese on a leash on sunny pavement",
+      "source": "Pexels — Mladen Scekic",
+      "artist": "Mladen Scekic",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/maltese-dog-on-leash-23542118/",
+      "breed": "maltese"
+    },
+    {
+      "file": "02.jpg",
+      "description": "Close-up of a fluffy white Maltese",
+      "source": "Pexels — Izafi",
+      "artist": "Izafi",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/white-maltese-dog-26201109/",
+      "breed": "maltese"
+    },
+    {
+      "file": "03.jpg",
+      "description": "Maltese standing on textured pavement outdoors",
+      "source": "Pexels — Jevtajevtic7",
+      "artist": "Jevtajevtic7",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/adorable-maltese-dog-on-textured-pavement-35447898/",
+      "breed": "maltese"
+    },
+    {
+      "file": "04.jpg",
+      "description": "Small white Maltese lying on grass outdoors",
+      "source": "Pexels — Raul Captura",
+      "artist": "Raul Captura",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/adorable-maltese-dog-relaxing-on-lawn-28959770/",
+      "breed": "maltese"
+    },
+    {
+      "file": "05.jpg",
+      "description": "Close-up of a fluffy white Maltese face",
+      "source": "Pexels — Alina Zahorulko",
+      "artist": "Alina Zahorulko",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/close-up-of-white-maltese-dog-being-held-31848853/",
+      "breed": "maltese"
+    }
+  ]
+}

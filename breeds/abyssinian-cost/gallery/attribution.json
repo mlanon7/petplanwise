@@ -1,0 +1,52 @@
+{
+  "slug": "abyssinian",
+  "breed": "abyssinian",
+  "species": "cat",
+  "files": [
+    {
+      "file": "01.jpg",
+      "description": "Abyssinian cat sitting on the ground in warm sunlight",
+      "source": "Pexels — Lindsey Garrett",
+      "artist": "Lindsey Garrett",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/abyssinian-cat-sitting-on-ground-13986951/",
+      "breed": "abyssinian"
+    },
+    {
+      "file": "02.jpg",
+      "description": "Abyssinian cat looking intently outdoors",
+      "source": "Pexels — Pinamon",
+      "artist": "Pinamon",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/a-tabby-cat-in-tilt-shift-lens-10923694/",
+      "breed": "abyssinian"
+    },
+    {
+      "file": "03.jpg",
+      "description": "Abyssinian cat resting on a marble surface",
+      "source": "Pexels — 221095294",
+      "artist": "221095294",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/brown-cat-on-white-marble-surface-11926911/",
+      "breed": "abyssinian"
+    },
+    {
+      "file": "04.jpg",
+      "description": "Abyssinian cat sitting indoors beside a sunlit window",
+      "source": "Pexels — Vina Lina",
+      "artist": "Vina Lina",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/brown-cat-sitting-beside-the-glass-window-12314459/",
+      "breed": "abyssinian"
+    },
+    {
+      "file": "05.jpg",
+      "description": "Abyssinian cat sitting gracefully outdoors",
+      "source": "Pexels — dqnguyen15",
+      "artist": "dqnguyen15",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/abyssinian-cat-outdoors-in-ha-noi-vietnam-36945968/",
+      "breed": "abyssinian"
+    }
+  ]
+}

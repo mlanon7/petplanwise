@@ -1,0 +1,53 @@
+{
+  "slug": "savannah-cat",
+  "breed": "savannah cat",
+  "species": "cat",
+  "note": "Pexels search returns mostly servals (the wild ancestor of the Savannah breed). Only photo 1 is clearly tagged Savannah; the rest are serval images that visually resemble the breed. Consider replacing if strict breed accuracy is required.",
+  "files": [
+    {
+      "file": "01.jpg",
+      "description": "Spotted Savannah cat lying on the floor indoors",
+      "source": "Pexels — Pinkinesss",
+      "artist": "Pinkinesss",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/relaxed-savannah-cat-lying-on-floor-indoors-31231397/",
+      "breed": "savannah-cat"
+    },
+    {
+      "file": "02.jpg",
+      "description": "Tall spotted cat walking beside a wooden fence",
+      "source": "Pexels — kl47",
+      "artist": "kl47",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/close-up-of-a-serval-cat-in-natural-habitat-28926641/",
+      "breed": "savannah-cat"
+    },
+    {
+      "file": "03.jpg",
+      "description": "Spotted Savannah-type cat portrait outdoors",
+      "source": "Pexels — Molnar Tamas Photography",
+      "artist": "Molnar Tamas Photography",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/a-serval-sitting-on-the-ground-25956283/",
+      "breed": "savannah-cat"
+    },
+    {
+      "file": "04.jpg",
+      "description": "Spotted cat with tall ears resting among green ivy",
+      "source": "Pexels — guvo59",
+      "artist": "guvo59",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/serene-serval-resting-in-lush-greenery-31651302/",
+      "breed": "savannah-cat"
+    },
+    {
+      "file": "05.jpg",
+      "description": "Spotted Savannah/serval-type cat walking through foliage",
+      "source": "Pexels — Molnar Tamas Photography",
+      "artist": "Molnar Tamas Photography",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/a-serval-in-a-zoo-25956267/",
+      "breed": "savannah-cat"
+    }
+  ]
+}

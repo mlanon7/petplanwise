@@ -1,0 +1,52 @@
+{
+  "slug": "labradoodle",
+  "breed": "labradoodle",
+  "species": "dog",
+  "files": [
+    {
+      "file": "01.jpg",
+      "description": "Labradoodle on a leash during an autumn walk",
+      "source": "Pexels — Alican Helik",
+      "artist": "Alican Helik",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/a-dog-on-a-leash-14935889/",
+      "breed": "labradoodle"
+    },
+    {
+      "file": "02.jpg",
+      "description": "Golden Labradoodle smiling in a sunlit park",
+      "source": "Pexels — Karl Byron",
+      "artist": "Karl Byron",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/joyful-golden-labradoodle-in-sunlit-park-30279211/",
+      "breed": "labradoodle"
+    },
+    {
+      "file": "03.jpg",
+      "description": "Two shaggy Labradoodles standing outdoors on leashes",
+      "source": "Pexels — Chris F",
+      "artist": "Chris F",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/two-labradoodles-on-leashes-27035105/",
+      "breed": "labradoodle"
+    },
+    {
+      "file": "04.jpg",
+      "description": "Brown Labradoodle standing on a porch",
+      "source": "Pexels — Julissa Pires",
+      "artist": "Julissa Pires",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/photo-of-a-brown-labradoodle-dog-11941915/",
+      "breed": "labradoodle"
+    },
+    {
+      "file": "05.jpg",
+      "description": "Labradoodle sitting on a sunny grass lawn",
+      "source": "Pexels — Catherine Dempsey",
+      "artist": "Catherine Dempsey",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/cute-labradoodle-sitting-on-sunny-lawn-37490809/",
+      "breed": "labradoodle"
+    }
+  ]
+}

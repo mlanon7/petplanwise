@@ -5,10 +5,10 @@ A static, calculator-first SEO site for U.S. dog and cat owners. Pure HTML / CSS
 ## What's inside
 
 - **5 calculators** — dog cost, cat cost, vet bill, emergency vet, insurance vs savings
-- **9 SEO guides** — average cost (dog/cat), puppy/kitten first year, emergency vet visit, dental cleaning (dog/cat), spay/neuter, insurance vs savings
-- **6 breed pages** — Lab, French Bulldog, Golden, GSD, Chihuahua, Maine Coon
-- **4 state pages** — CA, TX, FL, NY
-- **Legal & about** — methodology, sources, affiliate disclosure, privacy, terms
+- **43 SEO guides** — pillar cost guides (avg cost dog/cat, puppy/kitten first year), procedure cost guides (dental, spay/neuter, vaccines, x-rays, surgery), insurance comparison guides, hidden-costs, senior pet, decision-tree guides, breed-cluster guides
+- **54 base breed pages + 150 breed-in-state variants** — dogs (Lab, GSD, Goldendoodle, Frenchie, Vizsla, Saint Bernard, Belgian Malinois, doodle line-up, etc.) and cats (Maine Coon, Persian, Siamese, Ragdoll, Bengal, Savannah, Russian Blue, etc.)
+- **25 state pages** with state-prefilled calculators (CA, TX, FL, NY, OH, NJ, MA, MI, GA, IL, NC, PA, VA, WA, AZ, MD, CO, IN, MN, MO, NV, OK, OR, TN, WI)
+- **Legal & about** — methodology, sources, affiliate disclosure, editorial standards, privacy (GDPR/CCPA-ready with cookie banner), terms, contact
 
 Every calculator and guide page ships with FAQ schema, BreadcrumbList schema, SoftwareApplication or Article schema, OG tags, and a unique title + meta description.
 

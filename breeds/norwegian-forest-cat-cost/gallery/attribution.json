@@ -1,0 +1,52 @@
+{
+  "slug": "norwegian-forest-cat",
+  "breed": "norwegian forest cat",
+  "species": "cat",
+  "files": [
+    {
+      "file": "01.jpg",
+      "description": "Norwegian Forest Cat sitting among spring blooms",
+      "source": "Pexels — Danniel Corbit",
+      "artist": "Danniel Corbit",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/majestic-norwegian-forest-cat-in-vibrant-spring-garden-31739872/",
+      "breed": "norwegian-forest-cat"
+    },
+    {
+      "file": "02.jpg",
+      "description": "Long-haired Norwegian Forest Cat with green eyes",
+      "source": "Pexels — Travis Ireland",
+      "artist": "Travis Ireland",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/majestic-fluffy-cat-with-white-and-brown-fur-32063367/",
+      "breed": "norwegian-forest-cat"
+    },
+    {
+      "file": "03.jpg",
+      "description": "Norwegian Forest Cat resting in a flowering meadow",
+      "source": "Pexels — Danniel Corbit",
+      "artist": "Danniel Corbit",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/majestic-norwegian-forest-cat-in-lush-meadow-31739898/",
+      "breed": "norwegian-forest-cat"
+    },
+    {
+      "file": "04.jpg",
+      "description": "Long-haired Norwegian Forest Cat in woodland",
+      "source": "Pexels — Danniel Corbit",
+      "artist": "Danniel Corbit",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/cat-in-a-forest-18266238/",
+      "breed": "norwegian-forest-cat"
+    },
+    {
+      "file": "05.jpg",
+      "description": "Fluffy Norwegian Forest Cat relaxing outdoors",
+      "source": "Pexels — Travis Ireland",
+      "artist": "Travis Ireland",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/fluffy-white-and-brown-cat-relaxing-outdoors-32063369/",
+      "breed": "norwegian-forest-cat"
+    }
+  ]
+}

@@ -13,10 +13,22 @@
     '        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>\n' +
     '      </button>\n' +
     '      <nav class="nav" aria-label="Primary">\n' +
-    '        <a href="/breeds/">Breeds</a>\n' +
-    '        <a href="/states/">States</a>\n' +
-    '        <a href="/vet-costs/">Vet Costs</a>\n' +
-    '        <a href="/guides/">Guides</a>\n' +
+    '        <div class="nav-item nav-has-dropdown">\n' +
+    '          <button type="button" class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true" data-nav-section="calculators">Calculators\n' +
+    '            <svg class="chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>\n' +
+    '          </button>\n' +
+    '          <div class="nav-dropdown" role="menu">\n' +
+    '            <a href="/dog-cost-calculator/" role="menuitem"><span class="nav-dd-title">Dog Cost</span><span class="nav-dd-sub">Monthly · annual · lifetime</span></a>\n' +
+    '            <a href="/cat-cost-calculator/" role="menuitem"><span class="nav-dd-title">Cat Cost</span><span class="nav-dd-sub">Monthly · annual · lifetime</span></a>\n' +
+    '            <a href="/vet-bill-calculator/" role="menuitem"><span class="nav-dd-title">Vet Bill Builder</span><span class="nav-dd-sub">Line-item procedure costs</span></a>\n' +
+    '            <a href="/emergency-vet-cost-calculator/" role="menuitem"><span class="nav-dd-title">Emergency Vet</span><span class="nav-dd-sub">ER scenario ranges</span></a>\n' +
+    '            <a href="/pet-insurance-vs-savings/" role="menuitem"><span class="nav-dd-title">Insurance vs Savings</span><span class="nav-dd-sub">Break-even calculator</span></a>\n' +
+    '          </div>\n' +
+    '        </div>\n' +
+    '        <a href="/breeds/" data-nav-section="breeds">Breeds</a>\n' +
+    '        <a href="/states/" data-nav-section="states">States</a>\n' +
+    '        <a href="/guides/" data-nav-section="guides">Guides</a>\n' +
+    '        <a href="/pet-insurance-vs-savings/" class="nav-cta" data-nav-section="insurance">Compare Insurance →</a>\n' +
     '      </nav>\n' +
     '    </div>\n' +
     '  </header>';
@@ -51,6 +63,7 @@
     '          <a href="/privacy/">Privacy</a>\n' +
     '          <a href="/terms/">Terms</a>\n' +
     '          <a href="/affiliate-disclosure/">Affiliates</a>\n' +
+    '          <a href="#" data-ppw-cookie-prefs>Cookie preferences</a>\n' +
     '        </div>\n' +
     '      </div>\n' +
     '      <div class="footer-bottom">\n' +
@@ -91,13 +104,68 @@
     var y = document.getElementById("yr");
     if (y) y.textContent = new Date().getFullYear();
 
-    /* Nav toggle */
+    /* Nav toggle (mobile hamburger) */
     var tog = document.querySelector(".nav-toggle");
     var nav = document.querySelector(".nav");
     if (tog && nav) tog.addEventListener("click", function () {
       var open = nav.classList.toggle("open");
       tog.setAttribute("aria-expanded", open ? "true" : "false");
     });
+
+    /* Dropdown ("Calculators" submenu) — click to open, click outside or
+       Escape to close. Hover also opens on pointer-fine devices via CSS. */
+    var ddToggle = document.querySelector(".nav-dropdown-toggle");
+    var ddMenu = document.querySelector(".nav-dropdown");
+    if (ddToggle && ddMenu) {
+      function closeDd() {
+        ddToggle.parentNode.classList.remove("open");
+        ddToggle.setAttribute("aria-expanded", "false");
+      }
+      function openDd() {
+        ddToggle.parentNode.classList.add("open");
+        ddToggle.setAttribute("aria-expanded", "true");
+      }
+      ddToggle.addEventListener("click", function (e) {
+        e.stopPropagation();
+        if (ddToggle.getAttribute("aria-expanded") === "true") closeDd();
+        else openDd();
+      });
+      ddToggle.addEventListener("keydown", function (e) {
+        if (e.key === "ArrowDown" || e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          openDd();
+          var first = ddMenu.querySelector("a");
+          if (first) first.focus();
+        }
+      });
+      ddMenu.addEventListener("keydown", function (e) {
+        var items = ddMenu.querySelectorAll("a");
+        var idx = Array.prototype.indexOf.call(items, document.activeElement);
+        if (e.key === "ArrowDown" && idx < items.length - 1) { e.preventDefault(); items[idx + 1].focus(); }
+        else if (e.key === "ArrowUp" && idx > 0) { e.preventDefault(); items[idx - 1].focus(); }
+        else if (e.key === "Escape") { e.preventDefault(); closeDd(); ddToggle.focus(); }
+      });
+      document.addEventListener("click", function (e) {
+        if (!ddToggle.parentNode.contains(e.target)) closeDd();
+      });
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") closeDd();
+      });
+    }
+
+    /* Active-section indicator: mark the nav item that matches the current URL. */
+    (function () {
+      var p = window.location.pathname;
+      var section = null;
+      if (/^\/(dog-cost-calculator|cat-cost-calculator|vet-bill-calculator|emergency-vet-cost-calculator)\//.test(p)) section = "calculators";
+      else if (/^\/pet-insurance-vs-savings\//.test(p)) section = "insurance";
+      else if (/^\/breeds\//.test(p)) section = "breeds";
+      else if (/^\/states\//.test(p)) section = "states";
+      else if (/^\/guides\//.test(p) || /^\/vet-costs\//.test(p)) section = "guides";
+      if (!section) return;
+      var marks = document.querySelectorAll('[data-nav-section="' + section + '"]');
+      marks.forEach(function (m) { m.setAttribute("aria-current", "page"); });
+    })();
 
     /* Last-updated stamp under H1 — only on guides + standalone calc pages */
     var path = window.location.pathname;
@@ -236,24 +304,38 @@
         grid.style.cssText = "display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;";
         container.appendChild(grid);
 
-        data.files.forEach(function (file) {
-          var fig = document.createElement("figure");
-          fig.className = "breed-gallery-item";
-          fig.style.cssText = "margin:0;background:#fff;border:1px solid #E8DFC7;border-radius:12px;overflow:hidden;aspect-ratio:1/1;position:relative;";
+        var galleryItems = []; // collect for lightbox
+        data.files.forEach(function (file, idx) {
+          var fullSrc = breedCostPath + "/gallery/" + file.file;
+          var altText = file.description || ((data.breed || "breed").replace(/-/g, " ") + " gallery photo");
+          galleryItems.push({
+            src: fullSrc,
+            alt: altText,
+            caption: file.description || "",
+            credit: file.source || file.artist || ""
+          });
+
+          var btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "breed-gallery-item";
+          btn.setAttribute("aria-label", "Open photo: " + altText);
+          btn.setAttribute("data-gallery-index", String(idx));
+          btn.style.cssText = "margin:0;padding:0;background:#fff;border:1px solid #E8DFC7;border-radius:12px;overflow:hidden;aspect-ratio:1/1;position:relative;cursor:zoom-in;display:block;width:100%;font:inherit;color:inherit;transition:transform 180ms cubic-bezier(.2,.8,.2,1),box-shadow 180ms cubic-bezier(.2,.8,.2,1),border-color 180ms cubic-bezier(.2,.8,.2,1);";
           var im = document.createElement("img");
-          im.src = breedCostPath + "/gallery/" + file.file;
-          im.alt = file.description || ((data.breed || "breed").replace(/-/g, " ") + " gallery photo");
+          im.src = fullSrc;
+          im.alt = altText;
           im.loading = "lazy";
           im.decoding = "async";
-          im.style.cssText = "position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;border-radius:0;";
-          fig.appendChild(im);
+          im.style.cssText = "position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;border-radius:0;transition:transform 220ms cubic-bezier(.2,.8,.2,1);";
+          btn.appendChild(im);
           if (file.source || file.artist || file.license) {
             var cap2 = document.createElement("figcaption");
-            cap2.style.cssText = "position:absolute;bottom:0;left:0;right:0;padding:6px 10px;background:linear-gradient(transparent,rgba(0,0,0,0.55));color:#fff;font-size:11px;line-height:1.4;";
+            cap2.style.cssText = "position:absolute;bottom:0;left:0;right:0;padding:6px 10px;background:linear-gradient(transparent,rgba(0,0,0,0.55));color:#fff;font-size:11px;line-height:1.4;text-align:left;pointer-events:none;";
             cap2.textContent = file.source || (file.artist || "Source");
-            fig.appendChild(cap2);
+            btn.appendChild(cap2);
           }
-          grid.appendChild(fig);
+          btn.addEventListener("click", function () { openLightbox(galleryItems, idx); });
+          grid.appendChild(btn);
         });
 
         var mn = document.querySelector("main");
@@ -261,6 +343,70 @@
       }).catch(function () { /* gallery is optional */ });
     }
     renderBreedGallery();
+
+    /* ---------- Lightbox ---------- */
+    function openLightbox(items, startIdx) {
+      var current = startIdx || 0;
+      var overlay = document.createElement("div");
+      overlay.className = "ppw-lightbox";
+      overlay.setAttribute("role", "dialog");
+      overlay.setAttribute("aria-modal", "true");
+      overlay.setAttribute("aria-label", "Photo viewer");
+      overlay.innerHTML =
+        '<button type="button" class="ppw-lb-close" aria-label="Close (Esc)">&times;</button>' +
+        '<button type="button" class="ppw-lb-prev" aria-label="Previous photo">&#8249;</button>' +
+        '<button type="button" class="ppw-lb-next" aria-label="Next photo">&#8250;</button>' +
+        '<figure class="ppw-lb-figure">' +
+          '<img class="ppw-lb-img" alt="">' +
+          '<figcaption class="ppw-lb-caption"></figcaption>' +
+        '</figure>' +
+        '<div class="ppw-lb-counter" aria-live="polite"></div>';
+
+      var img = overlay.querySelector(".ppw-lb-img");
+      var cap = overlay.querySelector(".ppw-lb-caption");
+      var counter = overlay.querySelector(".ppw-lb-counter");
+      var btnPrev = overlay.querySelector(".ppw-lb-prev");
+      var btnNext = overlay.querySelector(".ppw-lb-next");
+      var btnClose = overlay.querySelector(".ppw-lb-close");
+
+      function render() {
+        var it = items[current];
+        img.src = it.src;
+        img.alt = it.alt || "";
+        var line = [];
+        if (it.caption) line.push(it.caption);
+        if (it.credit) line.push("Source: " + it.credit);
+        cap.textContent = line.join(" · ");
+        cap.style.display = line.length ? "block" : "none";
+        counter.textContent = (current + 1) + " / " + items.length;
+        btnPrev.style.visibility = items.length > 1 ? "visible" : "hidden";
+        btnNext.style.visibility = items.length > 1 ? "visible" : "hidden";
+      }
+      function close() {
+        document.removeEventListener("keydown", onKey);
+        document.body.style.overflow = "";
+        if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
+      }
+      function prev() { current = (current - 1 + items.length) % items.length; render(); }
+      function next() { current = (current + 1) % items.length; render(); }
+      function onKey(e) {
+        if (e.key === "Escape") close();
+        else if (e.key === "ArrowLeft") prev();
+        else if (e.key === "ArrowRight") next();
+      }
+
+      btnClose.addEventListener("click", close);
+      btnPrev.addEventListener("click", prev);
+      btnNext.addEventListener("click", next);
+      overlay.addEventListener("click", function (e) {
+        if (e.target === overlay || e.target === img.parentNode) close();
+      });
+      document.addEventListener("keydown", onKey);
+      document.body.style.overflow = "hidden";
+      document.body.appendChild(overlay);
+      render();
+      btnClose.focus();
+    }
 
     /* Affiliate microcopy near every CTA */
     document.querySelectorAll(".affiliate").forEach(function (block) {
@@ -366,21 +512,84 @@
     }
     renderRelatedSection();
 
-    /* GA4 placeholder. Set window.YPB_GA4_ID = "G-..." before this script loads
-       (e.g. inline in head), and analytics will activate. Otherwise no-op. */
-    if (!window.gtag && !document.querySelector('script[data-ga4]')) {
-      var GA4_ID = window.YPB_GA4_ID || "";
-      if (GA4_ID && /^G-/.test(GA4_ID)) {
-        var gaScript = document.createElement("script");
-        gaScript.async = true;
-        gaScript.src = "https://www.googletagmanager.com/gtag/js?id=" + GA4_ID;
-        gaScript.setAttribute("data-ga4", "true");
-        document.head.appendChild(gaScript);
-        window.dataLayer = window.dataLayer || [];
-        window.gtag = function () { window.dataLayer.push(arguments); };
-        window.gtag("js", new Date());
-        window.gtag("config", GA4_ID, { anonymize_ip: true });
-      }
+    /* ----------------------------------------------------------------
+       Cookie consent banner (ePrivacy / GDPR / CCPA-friendly)
+       - Default state: non-essential cookies BLOCKED.
+       - GA4 only loads after consent === "granted".
+       - "Decline" sets consent === "denied" and never loads GA4.
+       - window.PPW_resetConsent() clears the choice (used by /privacy/).
+       ---------------------------------------------------------------- */
+    function getConsent() {
+      try { return localStorage.getItem("ppw_consent") || ""; } catch (e) { return ""; }
     }
+    function setConsent(v) {
+      try { localStorage.setItem("ppw_consent", v); } catch (e) {}
+    }
+    window.PPW_resetConsent = function () {
+      try { localStorage.removeItem("ppw_consent"); } catch (e) {}
+      try {
+        document.cookie.split(";").forEach(function (c) {
+          var name = c.split("=")[0].trim();
+          if (/^_ga|^_gid|^_gat/.test(name)) {
+            document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
+          }
+        });
+      } catch (e) {}
+      location.reload();
+    };
+
+    function loadGA4() {
+      if (window.gtag || document.querySelector('script[data-ga4]')) return;
+      var GA4_ID = window.YPB_GA4_ID || "";
+      if (!GA4_ID || !/^G-/.test(GA4_ID)) return;
+      var gaScript = document.createElement("script");
+      gaScript.async = true;
+      gaScript.src = "https://www.googletagmanager.com/gtag/js?id=" + GA4_ID;
+      gaScript.setAttribute("data-ga4", "true");
+      document.head.appendChild(gaScript);
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () { window.dataLayer.push(arguments); };
+      window.gtag("js", new Date());
+      window.gtag("config", GA4_ID, { anonymize_ip: true, allow_google_signals: false, allow_ad_personalization_signals: false });
+    }
+
+    function renderBanner() {
+      if (document.getElementById("ppw-cookie-banner")) return;
+      var bar = document.createElement("div");
+      bar.id = "ppw-cookie-banner";
+      bar.setAttribute("role", "dialog");
+      bar.setAttribute("aria-label", "Cookie preferences");
+      bar.innerHTML = '<div class="ppw-cookie-inner">' +
+        '<div class="ppw-cookie-msg">We use a single analytics cookie (Google Analytics 4, IP-anonymized) to understand which pages are useful. We do not sell or share personal information. ' +
+        '<a href="/privacy/">Read our privacy policy</a>.</div>' +
+        '<div class="ppw-cookie-actions">' +
+          '<button type="button" class="btn-cookie btn-cookie-decline" data-ppw-consent="denied">Decline</button>' +
+          '<button type="button" class="btn-cookie btn-cookie-accept" data-ppw-consent="granted">Accept</button>' +
+        '</div></div>';
+      document.body.appendChild(bar);
+      bar.addEventListener("click", function (e) {
+        var t = e.target;
+        if (t && t.getAttribute && t.getAttribute("data-ppw-consent")) {
+          var choice = t.getAttribute("data-ppw-consent");
+          setConsent(choice);
+          bar.parentNode.removeChild(bar);
+          if (choice === "granted") loadGA4();
+        }
+      });
+    }
+
+    var c = getConsent();
+    if (c === "granted") loadGA4();
+    else if (c !== "denied") renderBanner();
+
+    /* Footer "Cookie preferences" link reopens the banner. */
+    document.addEventListener("click", function (e) {
+      var t = e.target;
+      if (t && t.matches && (t.matches('[data-ppw-cookie-prefs]') || t.matches('[data-ppw-cookie-prefs] *'))) {
+        e.preventDefault();
+        try { localStorage.removeItem("ppw_consent"); } catch (er) {}
+        renderBanner();
+      }
+    });
   });
 })();

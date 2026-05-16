@@ -1,0 +1,52 @@
+{
+  "slug": "vizsla",
+  "breed": "vizsla",
+  "species": "dog",
+  "files": [
+    {
+      "file": "01.jpg",
+      "description": "Alert Vizsla wearing a blue collar outdoors",
+      "source": "Pexels — Alex Qian",
+      "artist": "Alex Qian",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/brown-short-coat-dog-outdoor-2304910/",
+      "breed": "vizsla"
+    },
+    {
+      "file": "02.jpg",
+      "description": "Vizsla relaxing on a wooden deck",
+      "source": "Pexels — Dale Heins",
+      "artist": "Dale Heins",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/adorable-vizsla-dog-12568425/",
+      "breed": "vizsla"
+    },
+    {
+      "file": "03.jpg",
+      "description": "Vizsla looking back at camera in warm sunlight",
+      "source": "Pexels — Willians Huerta",
+      "artist": "Willians Huerta",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/close-up-of-a-vizsla-dog-in-natural-light-36530587/",
+      "breed": "vizsla"
+    },
+    {
+      "file": "04.jpg",
+      "description": "Alert copper-coated Vizsla in a snowy forest",
+      "source": "Pexels — Jozef Feher",
+      "artist": "Jozef Feher",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/a-dog-on-the-snow-1777473/",
+      "breed": "vizsla"
+    },
+    {
+      "file": "05.jpg",
+      "description": "Two Vizslas standing together in a sunny field",
+      "source": "Pexels — Nina Kvaltinova",
+      "artist": "Nina Kvaltinova",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/two-dogs-enjoying-a-sunny-day-outdoors-36007541/",
+      "breed": "vizsla"
+    }
+  ]
+}

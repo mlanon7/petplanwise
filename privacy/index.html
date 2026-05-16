@@ -5,8 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Privacy Policy — PetPlanWise</title>
   <meta name="description" content="How we collect, use, and protect information on PetPlanWise. Cookies, analytics, advertising, affiliate tracking, CCPA, and GDPR." />
+  <meta property="og:description" content="How we collect, use, and protect information on PetPlanWise. Cookies, analytics, advertising, affiliate tracking, CCPA, and GDPR." />
   <meta property="og:title" content="Privacy Policy — PetPlanWise" />
   <link rel="canonical" href="https://petplanwise.com/privacy/" />
+  <meta property="og:url" content="https://petplanwise.com/privacy/" />
   <meta property="og:image" content="https://petplanwise.com/assets/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -15,13 +17,17 @@
   <meta name="twitter:image" content="https://petplanwise.com/assets/og-image.png" />
   <meta name="twitter:title" content="Privacy Policy — PetPlanWise" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230F766E'/%3E%3Ctext x='50' y='66' font-family='system-ui,sans-serif' font-weight='700' font-size='58' fill='white' text-anchor='middle'%3E%24%3C/text%3E%3C/svg%3E" />
-  <link rel="stylesheet" href="/assets/css/site.css?v=20260510m" />
-  <script src="/assets/js/layout-20260510i.js" defer></script>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" data-ppw-inter>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin data-ppw-inter>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" data-ppw-inter>
+  <link rel="stylesheet" href="/assets/css/site.css?v=20260515c" />
+  <script src="/assets/js/layout-20260515c.js" defer></script>
 </head>
 <body>
 <div id="site-header"></div>
 <main>
-  <div class="container"><nav class="breadcrumbs"><a href="/">Home</a><span>›</span>Privacy</nav></div>
+  <div class="container"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>›</span>Privacy</nav></div>
   <section style="padding: 24px 0 12px;"><div class="container">
     <span class="eyebrow">Privacy</span>
     <h1>Privacy policy</h1>
@@ -55,21 +61,50 @@
       <li>To present aggregated, anonymized statistics about how the Site is used.</li>
     </ul>
 
-    <h2>4. Cookies and analytics</h2>
-    <p>We use a small number of analytics cookies to understand which pages are useful and how to improve the calculators. We do not sell or rent personal information to third parties. You can control cookies through your browser settings.</p>
-
-    <h2>5. Your choices</h2>
+    <h2>4. Cookies, analytics, and advertising providers we use</h2>
+    <p>We name our third-party providers explicitly so you can review their own privacy policies and opt-out controls:</p>
     <ul>
-      <li>Disable cookies in your browser at any time.</li>
+      <li><strong>Google Analytics 4 (GA4)</strong> — provided by Google LLC. Sets cookies (e.g. <code>_ga</code>, <code>_ga_*</code>) and processes IP address and event data to produce aggregated traffic reports. We have <strong>IP anonymization enabled</strong> and we do <strong>not</strong> enable Google Signals or cross-device identity stitching. Google's privacy policy: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>. Opt out via the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">GA Opt-out Browser Add-on</a>.</li>
+      <li><strong>Affiliate tracking redirects</strong> — when you click an affiliate link (clearly labeled "Sponsored" on the page), the destination affiliate program (e.g. Lemonade, Embrace, CareCredit) may set its own cookies on its domain. We do not control those cookies. See each partner's privacy policy for details.</li>
+      <li><strong>Hosting (Vercel)</strong> — our hosting provider keeps short-term server logs (IP, user agent, referrer) for abuse prevention. <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener">Vercel privacy policy</a>.</li>
+    </ul>
+    <p>We do <strong>not</strong> use cross-site retargeting pixels, ad-tech identity graphs, or "data broker" enrichment.</p>
+
+    <h2>5. Legal bases (GDPR / UK GDPR)</h2>
+    <p>If you visit from the European Economic Area, the United Kingdom, or Switzerland, our legal bases for processing the categories above are:</p>
+    <ul>
+      <li><strong>Legitimate interest</strong> — operating, securing, and understanding aggregated use of the Site.</li>
+      <li><strong>Consent</strong> — for non-essential analytics cookies, captured via the cookie banner on first visit. You can withdraw consent at any time by clicking "Cookie preferences" in the footer or by clearing site cookies.</li>
+      <li><strong>Legal obligation</strong> — to comply with applicable law and respond to lawful requests.</li>
+    </ul>
+    <p>You have the right to access, rectify, erase, restrict, port, and object to processing of your personal data. Email us via the <a href="/contact/">contact page</a> to exercise any of these rights.</p>
+
+    <h2>6. California rights (CCPA / CPRA)</h2>
+    <p>California residents have the right to know what personal information we collect, to delete it, to correct it, and to opt out of any "sale" or "sharing" of personal information. <strong>We do not sell or share personal information</strong> as those terms are defined under the CCPA/CPRA. To submit a verifiable consumer request, email us at <a href="mailto:hello@petplanwise.com?subject=CCPA%20request">hello@petplanwise.com</a> with the subject line "CCPA request" and the action you want us to take. We will respond within 45 days.</p>
+    <p><a href="#" onclick="if(window.PPW_resetConsent){window.PPW_resetConsent();return false;}return true;">Do Not Sell or Share My Personal Information</a> — clicking this link resets your cookie preferences and disables non-essential analytics on this device.</p>
+
+    <h2>7. Your choices</h2>
+    <ul>
+      <li>Manage non-essential cookies through the cookie banner (footer "Cookie preferences" link).</li>
+      <li>Disable cookies entirely in your browser at any time.</li>
       <li>Use private/incognito browsing to reduce tracking.</li>
+      <li>Install the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google Analytics Opt-out Add-on</a>.</li>
       <li>Email us at the address on the <a href="/contact/">contact page</a> for any privacy request.</li>
     </ul>
 
-    <h2>6. Children</h2>
-    <p>The Site is not directed to children under 13. We do not knowingly collect personal information from children.</p>
+    <h2>8. Data retention</h2>
+    <ul>
+      <li>Server access logs: up to 30 days.</li>
+      <li>GA4 event data: 2 months (the shortest setting available in GA4).</li>
+      <li>Email correspondence: retained only as needed to respond, typically 12 months.</li>
+      <li>Local browser preferences (<code>localStorage</code>): retained on your device until you clear it.</li>
+    </ul>
 
-    <h2>7. Updates</h2>
-    <p>We may update this policy. The "Last updated" date at the top reflects the most recent change.</p>
+    <h2>9. Children</h2>
+    <p>The Site is not directed to children under 13. We do not knowingly collect personal information from children. If you believe a child has provided personal information to us, contact us and we will delete it.</p>
+
+    <h2>10. Updates</h2>
+    <p>We may update this policy. The "Last updated" date at the top reflects the most recent change. Material changes will be flagged at the top of this page.</p>
   </div></section>
 </main>
 <div id="site-footer"></div>

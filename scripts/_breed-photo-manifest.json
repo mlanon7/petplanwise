@@ -1,0 +1,165 @@
+{
+  "belgian-malinois": {
+    "species": "dog",
+    "photos": [
+      {"url": "https://images.pexels.com/photos/20207074/pexels-photo-20207074.jpeg?w=1600", "source": "Pexels", "photographer": "Jozef Feher", "source_page": "https://www.pexels.com/photo/belgian-malinois-dog-in-water-on-sea-shore-20207074/", "alt": "Belgian Malinois standing in shallow shoreline water, alert posture"},
+      {"url": "https://images.pexels.com/photos/13076152/pexels-photo-13076152.jpeg?w=1600", "source": "Pexels", "photographer": "Laura Paredis", "source_page": "https://www.pexels.com/photo/malinois-dog-standing-on-brown-field-under-blue-sky-13076152/", "alt": "Belgian Malinois standing in a brown field beneath a blue sky"},
+      {"url": "https://images.pexels.com/photos/32533831/pexels-photo-32533831.jpeg?w=1600", "source": "Pexels", "photographer": "Jeroen van Wouden", "source_page": "https://www.pexels.com/photo/playful-belgian-malinois-with-stick-in-park-32533831/", "alt": "Playful Belgian Malinois carrying a stick in a park"},
+      {"url": "https://images.pexels.com/photos/12429055/pexels-photo-12429055.jpeg?w=1600", "source": "Pexels", "photographer": "Fernando Lacerda Branco", "source_page": "https://www.pexels.com/photo/close-up-shot-of-a-belgian-malinois-12429055/", "alt": "Close-up portrait of a Belgian Malinois in sunlight"},
+      {"url": "https://images.pexels.com/photos/30403066/pexels-photo-30403066.jpeg?w=1600", "source": "Pexels", "photographer": "Amar", "source_page": "https://www.pexels.com/photo/belgian-malinois-dog-in-pickup-truck-outdoors-30403066/", "alt": "Belgian Malinois sitting in the bed of a pickup truck outdoors"}
+    ]
+  },
+  "bernedoodle": {
+    "species": "dog",
+    "photos": [
+      {"url": "https://images.pexels.com/photos/8195262/pexels-photo-8195262.jpeg?w=1600", "source": "Pexels", "photographer": "Rob Waller", "source_page": "https://www.pexels.com/photo/a-wet-dog-on-the-grass-8195262/", "alt": "Wet Bernedoodle relaxing on green grass outdoors"},
+      {"url": "https://images.pexels.com/photos/33605646/pexels-photo-33605646.jpeg?w=1600", "source": "Pexels", "photographer": "Balanced Obedience", "source_page": "https://www.pexels.com/photo/adorable-bernedoodle-puppies-on-a-blanket-33605646/", "alt": "Tricolor Bernedoodle puppies on a white blanket"},
+      {"url": "https://images.pexels.com/photos/10226911/pexels-photo-10226911.jpeg?w=1600", "source": "Pexels", "photographer": "Esteban Arango", "source_page": "https://www.pexels.com/photo/a-black-and-white-dog-with-pet-tag-10226911/", "alt": "Black and white Bernedoodle sitting outdoors with a pet tag"},
+      {"url": "https://images.pexels.com/photos/8195257/pexels-photo-8195257.jpeg?w=1600", "source": "Pexels", "photographer": "Rob Waller", "source_page": "https://www.pexels.com/photo/a-dog-on-the-grass-8195257/", "alt": "Young Bernedoodle playing on grass in daylight"},
+      {"url": "https://images.pexels.com/photos/1458924/pexels-photo-1458924.jpeg?w=1600", "source": "Pexels", "photographer": "Poodles2Doodles", "source_page": "https://www.pexels.com/photo/black-and-white-poodle-puppy-1458924/", "alt": "Studio portrait of a tricolor Bernedoodle puppy"}
+    ]
+  },
+  "cavapoo": {
+    "species": "dog",
+    "photos": [
+      {"url": "https://images.pexels.com/photos/33336009/pexels-photo-33336009.jpeg?w=1600", "source": "Pexels", "photographer": "Christy Day", "source_page": "https://www.pexels.com/photo/adorable-cavapoo-puppy-in-lush-green-meadow-33336009/", "alt": "Cavapoo puppy exploring a green meadow"},
+      {"url": "https://images.pexels.com/photos/29296765/pexels-photo-29296765.jpeg?w=1600", "source": "Pexels", "photographer": "Olavi Anttila", "source_page": "https://www.pexels.com/photo/energetic-cavapoo-dog-running-with-toy-on-pathway-29296765/", "alt": "Cavapoo running with a toy along a pathway"},
+      {"url": "https://images.pexels.com/photos/16632809/pexels-photo-16632809.jpeg?w=1600", "source": "Pexels", "photographer": "Maheshwar Reddy", "source_page": "https://www.pexels.com/photo/close-up-of-cavapoo-dog-16632809/", "alt": "Curly-furred Cavapoo sitting on concrete with tongue out"},
+      {"url": "https://images.pexels.com/photos/29296768/pexels-photo-29296768.jpeg?w=1600", "source": "Pexels", "photographer": "Olavi Anttila", "source_page": "https://www.pexels.com/photo/cavapoo-playing-with-ball-in-sunny-field-29296768/", "alt": "Cavapoo playing with a ball in a sunny green field"},
+      {"url": "https://images.pexels.com/photos/29296772/pexels-photo-29296772.jpeg?w=1600", "source": "Pexels", "photographer": "Olavi Anttila", "source_page": "https://www.pexels.com/photo/adorable-cavapoo-dog-strolling-outdoors-29296772/", "alt": "Cavapoo strolling along a gravel path outdoors"}
+    ]
+  },
+  "goldendoodle": {
+    "species": "dog",
+    "photos": [
+      {"url": "https://images.pexels.com/photos/10521310/pexels-photo-10521310.jpeg?w=1600", "source": "Pexels", "photographer": "dbaler", "source_page": "https://www.pexels.com/photo/brown-poodle-lying-on-the-green-grass-10521310/", "alt": "Goldendoodle lying on green grass in a sunny park"},
+      {"url": "https://images.pexels.com/photos/13332364/pexels-photo-13332364.jpeg?w=1600", "source": "Pexels", "photographer": "Lesli Whitecotton", "source_page": "https://www.pexels.com/photo/brown-dog-in-close-up-shot-13332364/", "alt": "Curly-coated Goldendoodle standing indoors"},
+      {"url": "https://images.pexels.com/photos/36858569/pexels-photo-36858569.jpeg?w=1600", "source": "Pexels", "photographer": "Catherine Dempsey", "source_page": "https://www.pexels.com/photo/close-up-portrait-of-a-goldendoodle-dog-36858569/", "alt": "Close-up portrait of a Goldendoodle with soft fur"},
+      {"url": "https://images.pexels.com/photos/10002216/pexels-photo-10002216.jpeg?w=1600", "source": "Pexels", "photographer": "Graham Roy", "source_page": "https://www.pexels.com/photo/photograph-of-a-goldendoodle-near-autumn-leaves-10002216/", "alt": "Goldendoodle playing among autumn leaves"},
+      {"url": "https://images.pexels.com/photos/24354848/pexels-photo-24354848.jpeg?w=1600", "source": "Pexels", "photographer": "Sophia Martin", "source_page": "https://www.pexels.com/photo/photo-of-a-goldendoodle-sitting-on-the-grass-24354848/", "alt": "Goldendoodle sitting on grass in a sunny park"}
+    ]
+  },
+  "havanese": {
+    "species": "dog",
+    "photos": [
+      {"url": "https://images.pexels.com/photos/17704145/pexels-photo-17704145.jpeg?w=1600", "source": "Pexels", "photographer": "Alexa's Fotos", "source_page": "https://www.pexels.com/photo/close-up-of-black-dog-17704145/", "alt": "Black long-haired Havanese walking through grass"},
+      {"url": "https://images.pexels.com/photos/31365340/pexels-photo-31365340.jpeg?w=1600", "source": "Pexels", "photographer": "JacLou DL", "source_page": "https://www.pexels.com/photo/adorable-fluffy-dog-relaxing-on-sandy-beach-31365340/", "alt": "Fluffy Havanese resting on a sandy beach"},
+      {"url": "https://images.pexels.com/photos/35117929/pexels-photo-35117929.jpeg?w=1600", "source": "Pexels", "photographer": "Jesus Esteban", "source_page": "https://www.pexels.com/photo/close-up-of-a-havanese-dog-with-tongue-out-35117929/", "alt": "Havanese with long silky fur and tongue out"},
+      {"url": "https://images.pexels.com/photos/29633098/pexels-photo-29633098.jpeg?w=1600", "source": "Pexels", "photographer": "Detlef Bukowski", "source_page": "https://www.pexels.com/photo/adorable-havanese-puppy-running-on-grass-29633098/", "alt": "Havanese puppy running across grass"},
+      {"url": "https://images.pexels.com/photos/17099645/pexels-photo-17099645.jpeg?w=1600", "source": "Pexels", "photographer": "Denniz Futalan", "source_page": "https://www.pexels.com/photo/two-adorable-havanese-dog-puppies-17099645/", "alt": "Two Havanese puppies sitting on a white block"}
+    ]
+  },
+  "labradoodle": {
+    "species": "dog",
+    "photos": [
+      {"url": "https://images.pexels.com/photos/14935889/pexels-photo-14935889.jpeg?w=1600", "source": "Pexels", "photographer": "Alican Helik", "source_page": "https://www.pexels.com/photo/a-dog-on-a-leash-14935889/", "alt": "Labradoodle on a leash during an autumn walk"},
+      {"url": "https://images.pexels.com/photos/30279211/pexels-photo-30279211.jpeg?w=1600", "source": "Pexels", "photographer": "Karl Byron", "source_page": "https://www.pexels.com/photo/joyful-golden-labradoodle-in-sunlit-park-30279211/", "alt": "Golden Labradoodle smiling in a sunlit park"},
+      {"url": "https://images.pexels.com/photos/27035105/pexels-photo-27035105.jpeg?w=1600", "source": "Pexels", "photographer": "Chris F", "source_page": "https://www.pexels.com/photo/two-labradoodles-on-leashes-27035105/", "alt": "Two shaggy Labradoodles standing outdoors on leashes"},
+      {"url": "https://images.pexels.com/photos/11941915/pexels-photo-11941915.jpeg?w=1600", "source": "Pexels", "photographer": "Julissa Pires", "source_page": "https://www.pexels.com/photo/photo-of-a-brown-labradoodle-dog-11941915/", "alt": "Brown Labradoodle standing on a porch"},
+      {"url": "https://images.pexels.com/photos/37490809/pexels-photo-37490809.jpeg?w=1600", "source": "Pexels", "photographer": "Catherine Dempsey", "source_page": "https://www.pexels.com/photo/cute-labradoodle-sitting-on-sunny-lawn-37490809/", "alt": "Labradoodle sitting on a sunny grass lawn"}
+    ]
+  },
+  "maltese": {
+    "species": "dog",
+    "photos": [
+      {"url": "https://images.pexels.com/photos/23542118/pexels-photo-23542118.jpeg?w=1600", "source": "Pexels", "photographer": "Mladen Scekic", "source_page": "https://www.pexels.com/photo/maltese-dog-on-leash-23542118/", "alt": "Small white Maltese on a leash on sunny pavement"},
+      {"url": "https://images.pexels.com/photos/26201109/pexels-photo-26201109.jpeg?w=1600", "source": "Pexels", "photographer": "Izafi", "source_page": "https://www.pexels.com/photo/white-maltese-dog-26201109/", "alt": "Close-up of a fluffy white Maltese"},
+      {"url": "https://images.pexels.com/photos/35447898/pexels-photo-35447898.jpeg?w=1600", "source": "Pexels", "photographer": "Jevtajevtic7", "source_page": "https://www.pexels.com/photo/adorable-maltese-dog-on-textured-pavement-35447898/", "alt": "Maltese standing on textured pavement outdoors"},
+      {"url": "https://images.pexels.com/photos/28959770/pexels-photo-28959770.jpeg?w=1600", "source": "Pexels", "photographer": "Raul Captura", "source_page": "https://www.pexels.com/photo/adorable-maltese-dog-relaxing-on-lawn-28959770/", "alt": "Small white Maltese lying on grass outdoors"},
+      {"url": "https://images.pexels.com/photos/31848853/pexels-photo-31848853.jpeg?w=1600", "source": "Pexels", "photographer": "Alina Zahorulko", "source_page": "https://www.pexels.com/photo/close-up-of-white-maltese-dog-being-held-31848853/", "alt": "Close-up of a fluffy white Maltese face"}
+    ]
+  },
+  "saint-bernard": {
+    "species": "dog",
+    "photos": [
+      {"url": "https://images.pexels.com/photos/6072009/pexels-photo-6072009.jpeg?w=1600", "source": "Pexels", "photographer": "Katerina", "source_page": "https://www.pexels.com/photo/saint-bernard-lying-on-a-grassy-field-6072009/", "alt": "Saint Bernard lying on a frost-covered grassy field"},
+      {"url": "https://images.pexels.com/photos/10253852/pexels-photo-10253852.jpeg?w=1600", "source": "Pexels", "photographer": "Silvi", "source_page": "https://www.pexels.com/photo/close-up-of-bernhardiner-dog-10253852/", "alt": "Close-up of a Saint Bernard among autumn leaves"},
+      {"url": "https://images.pexels.com/photos/12345219/pexels-photo-12345219.jpeg?w=1600", "source": "Pexels", "photographer": "Ron Graham Becker", "source_page": "https://www.pexels.com/photo/a-close-up-shot-of-a-saint-bernard-dog-12345219/", "alt": "Close-up portrait of a Saint Bernard with tongue out"},
+      {"url": "https://images.pexels.com/photos/19201777/pexels-photo-19201777.jpeg?w=1600", "source": "Pexels", "photographer": "Kelly", "source_page": "https://www.pexels.com/photo/st-bernard-dog-walking-on-the-grass-19201777/", "alt": "Saint Bernard walking on grass with tongue out"},
+      {"url": "https://images.pexels.com/photos/6721024/pexels-photo-6721024.jpeg?w=1600", "source": "Pexels", "photographer": "Katerina", "source_page": "https://www.pexels.com/photo/saint-bernard-dog-on-snow-covered-ground-6721024/", "alt": "Saint Bernard standing in a snowy forest landscape"}
+    ]
+  },
+  "shiba-inu": {
+    "species": "dog",
+    "photos": [
+      {"url": "https://images.pexels.com/photos/15585112/pexels-photo-15585112.jpeg?w=1600", "source": "Pexels", "photographer": "Ekaterina Lukyanenko", "source_page": "https://www.pexels.com/photo/portrait-of-a-shiba-dog-15585112/", "alt": "Portrait of a Shiba Inu in well-lit conditions"},
+      {"url": "https://images.pexels.com/photos/37348538/pexels-photo-37348538.jpeg?w=1600", "source": "Pexels", "photographer": "Ferry Chenille", "source_page": "https://www.pexels.com/photo/shiba-inu-dog-on-leash-in-fall-park-setting-37348538/", "alt": "Shiba Inu in a harness among autumn leaves in a park"},
+      {"url": "https://images.pexels.com/photos/16730750/pexels-photo-16730750.jpeg?w=1600", "source": "Pexels", "photographer": "Refargotohp", "source_page": "https://www.pexels.com/photo/portrait-of-smiling-dog-16730750/", "alt": "Shiba Inu smiling outdoors with tongue out"},
+      {"url": "https://images.pexels.com/photos/11043684/pexels-photo-11043684.jpeg?w=1600", "source": "Pexels", "photographer": "Mikky K", "source_page": "https://www.pexels.com/photo/photo-of-a-brown-and-white-shiba-inu-dog-11043684/", "alt": "Brown and white Shiba Inu indoors in natural light"},
+      {"url": "https://images.pexels.com/photos/10670323/pexels-photo-10670323.jpeg?w=1600", "source": "Pexels", "photographer": "Matyas Varga", "source_page": "https://www.pexels.com/photo/close-up-shot-of-a-shiba-inu-10670323/", "alt": "Close-up of a fluffy Shiba Inu gazing attentively"}
+    ]
+  },
+  "vizsla": {
+    "species": "dog",
+    "photos": [
+      {"url": "https://images.pexels.com/photos/2304910/pexels-photo-2304910.jpeg?w=1600", "source": "Pexels", "photographer": "Alex Qian", "source_page": "https://www.pexels.com/photo/brown-short-coat-dog-outdoor-2304910/", "alt": "Alert Vizsla wearing a blue collar outdoors"},
+      {"url": "https://images.pexels.com/photos/12568425/pexels-photo-12568425.jpeg?w=1600", "source": "Pexels", "photographer": "Dale Heins", "source_page": "https://www.pexels.com/photo/adorable-vizsla-dog-12568425/", "alt": "Vizsla relaxing on a wooden deck"},
+      {"url": "https://images.pexels.com/photos/36530587/pexels-photo-36530587.jpeg?w=1600", "source": "Pexels", "photographer": "Willians Huerta", "source_page": "https://www.pexels.com/photo/close-up-of-a-vizsla-dog-in-natural-light-36530587/", "alt": "Vizsla looking back at camera in warm sunlight"},
+      {"url": "https://images.pexels.com/photos/1777473/pexels-photo-1777473.jpeg?w=1600", "source": "Pexels", "photographer": "Jozef Feher", "source_page": "https://www.pexels.com/photo/a-dog-on-the-snow-1777473/", "alt": "Alert copper-coated Vizsla in a snowy forest"},
+      {"url": "https://images.pexels.com/photos/36007541/pexels-photo-36007541.jpeg?w=1600", "source": "Pexels", "photographer": "Nina Kvaltinova", "source_page": "https://www.pexels.com/photo/two-dogs-enjoying-a-sunny-day-outdoors-36007541/", "alt": "Two Vizslas standing together in a sunny field"}
+    ]
+  },
+  "abyssinian": {
+    "species": "cat",
+    "photos": [
+      {"url": "https://images.pexels.com/photos/13986951/pexels-photo-13986951.jpeg?w=1600", "source": "Pexels", "photographer": "Lindsey Garrett", "source_page": "https://www.pexels.com/photo/abyssinian-cat-sitting-on-ground-13986951/", "alt": "Abyssinian cat sitting on the ground in warm sunlight"},
+      {"url": "https://images.pexels.com/photos/10923694/pexels-photo-10923694.jpeg?w=1600", "source": "Pexels", "photographer": "Pinamon", "source_page": "https://www.pexels.com/photo/a-tabby-cat-in-tilt-shift-lens-10923694/", "alt": "Abyssinian cat looking intently outdoors"},
+      {"url": "https://images.pexels.com/photos/11926911/pexels-photo-11926911.jpeg?w=1600", "source": "Pexels", "photographer": "221095294", "source_page": "https://www.pexels.com/photo/brown-cat-on-white-marble-surface-11926911/", "alt": "Abyssinian cat resting on a marble surface"},
+      {"url": "https://images.pexels.com/photos/12314459/pexels-photo-12314459.jpeg?w=1600", "source": "Pexels", "photographer": "Vina Lina", "source_page": "https://www.pexels.com/photo/brown-cat-sitting-beside-the-glass-window-12314459/", "alt": "Abyssinian cat sitting indoors beside a sunlit window"},
+      {"url": "https://images.pexels.com/photos/36945968/pexels-photo-36945968.jpeg?w=1600", "source": "Pexels", "photographer": "dqnguyen15", "source_page": "https://www.pexels.com/photo/abyssinian-cat-outdoors-in-ha-noi-vietnam-36945968/", "alt": "Abyssinian cat sitting gracefully outdoors"}
+    ]
+  },
+  "american-shorthair": {
+    "species": "cat",
+    "note": "Breed tagging weak on Pexels; selections are visually consistent shorthaired tabbies.",
+    "photos": [
+      {"url": "https://images.pexels.com/photos/13302239/pexels-photo-13302239.jpeg?w=1600", "source": "Pexels", "photographer": "Igor Ejov", "source_page": "https://www.pexels.com/photo/close-up-photo-of-a-cat-13302239/", "alt": "American Shorthair cat lying in soft lighting"},
+      {"url": "https://images.pexels.com/photos/2167221/pexels-photo-2167221.png?w=1600", "source": "Pexels", "photographer": "Gabriel Crisan", "source_page": "https://www.pexels.com/photo/close-up-photo-of-gray-cat-with-green-eyes-2167221/", "alt": "Grey and white shorthaired cat with bright green eyes"},
+      {"url": "https://images.pexels.com/photos/6830192/pexels-photo-6830192.jpeg?w=1600", "source": "Pexels", "photographer": "Canaros", "source_page": "https://www.pexels.com/photo/a-tabby-cat-on-black-surface-6830192/", "alt": "Grey tabby shorthair cat resting indoors"},
+      {"url": "https://images.pexels.com/photos/2173009/pexels-photo-2173009.png?w=1600", "source": "Pexels", "photographer": "Gabriel Crisan", "source_page": "https://www.pexels.com/photo/tabby-cat-2173009/", "alt": "Grey tabby shorthair cat sitting near a window"},
+      {"url": "https://images.pexels.com/photos/34195657/pexels-photo-34195657.jpeg?w=1600", "source": "Pexels", "photographer": "Poopfishsocks", "source_page": "https://www.pexels.com/photo/dramatic-portrait-of-a-senior-tabby-cat-34195657/", "alt": "Dramatic portrait of a tabby shorthair cat"}
+    ]
+  },
+  "munchkin": {
+    "species": "cat",
+    "note": "Short-leg trait not always visually obvious; selections rely on photographer breed tagging.",
+    "photos": [
+      {"url": "https://images.pexels.com/photos/15989368/pexels-photo-15989368.jpeg?w=1600", "source": "Pexels", "photographer": "Tahir Osman", "source_page": "https://www.pexels.com/photo/a-white-munchkin-cat-on-a-rug-in-a-living-room-15989368/", "alt": "White Munchkin cat resting on a living room rug"},
+      {"url": "https://images.pexels.com/photos/4971355/pexels-photo-4971355.jpeg?w=1600", "source": "Pexels", "photographer": "Tran Mau Tri Tam", "source_page": "https://www.pexels.com/photo/cute-munchkin-cat-on-the-sofa-4971355/", "alt": "Munchkin cat lounging on a sofa"},
+      {"url": "https://images.pexels.com/photos/2286016/pexels-photo-2286016.jpeg?w=1600", "source": "Pexels", "photographer": "Tran Mau Tri Tam", "source_page": "https://www.pexels.com/photo/shallow-focus-photography-of-cat-2286016/", "alt": "Grey and white Munchkin kitten with striking eyes"},
+      {"url": "https://images.pexels.com/photos/2194416/pexels-photo-2194416.jpeg?w=1600", "source": "Pexels", "photographer": "Tran Mau Tri Tam", "source_page": "https://www.pexels.com/photo/gray-tabby-kitten-on-a-white-surface-2194416/", "alt": "Grey tabby Munchkin kitten on a white surface"},
+      {"url": "https://images.pexels.com/photos/5044088/pexels-photo-5044088.jpeg?w=1600", "source": "Pexels", "photographer": "Tran Mau Tri Tam", "source_page": "https://www.pexels.com/photo/a-cute-cat-on-the-table-5044088/", "alt": "Wide-eyed Munchkin kitten near a woven basket"}
+    ]
+  },
+  "norwegian-forest-cat": {
+    "species": "cat",
+    "photos": [
+      {"url": "https://images.pexels.com/photos/31739872/pexels-photo-31739872.jpeg?w=1600", "source": "Pexels", "photographer": "Danniel Corbit", "source_page": "https://www.pexels.com/photo/majestic-norwegian-forest-cat-in-vibrant-spring-garden-31739872/", "alt": "Norwegian Forest Cat sitting among spring blooms"},
+      {"url": "https://images.pexels.com/photos/32063367/pexels-photo-32063367.jpeg?w=1600", "source": "Pexels", "photographer": "Travis Ireland", "source_page": "https://www.pexels.com/photo/majestic-fluffy-cat-with-white-and-brown-fur-32063367/", "alt": "Long-haired Norwegian Forest Cat with green eyes"},
+      {"url": "https://images.pexels.com/photos/31739898/pexels-photo-31739898.jpeg?w=1600", "source": "Pexels", "photographer": "Danniel Corbit", "source_page": "https://www.pexels.com/photo/majestic-norwegian-forest-cat-in-lush-meadow-31739898/", "alt": "Norwegian Forest Cat resting in a flowering meadow"},
+      {"url": "https://images.pexels.com/photos/18266238/pexels-photo-18266238.jpeg?w=1600", "source": "Pexels", "photographer": "Danniel Corbit", "source_page": "https://www.pexels.com/photo/cat-in-a-forest-18266238/", "alt": "Long-haired Norwegian Forest Cat in woodland"},
+      {"url": "https://images.pexels.com/photos/32063369/pexels-photo-32063369.jpeg?w=1600", "source": "Pexels", "photographer": "Travis Ireland", "source_page": "https://www.pexels.com/photo/fluffy-white-and-brown-cat-relaxing-outdoors-32063369/", "alt": "Fluffy Norwegian Forest Cat relaxing outdoors"}
+    ]
+  },
+  "russian-blue": {
+    "species": "cat",
+    "photos": [
+      {"url": "https://images.pexels.com/photos/8810701/pexels-photo-8810701.jpeg?w=1600", "source": "Pexels", "photographer": "Belen Capello", "source_page": "https://www.pexels.com/photo/close-up-shot-of-a-russian-gray-cat-8810701/", "alt": "Russian Blue cat close-up with striking eyes"},
+      {"url": "https://images.pexels.com/photos/8810686/pexels-photo-8810686.jpeg?w=1600", "source": "Pexels", "photographer": "Belen Capello", "source_page": "https://www.pexels.com/photo/close-up-shot-of-a-russian-gray-cat-lying-down-8810686/", "alt": "Russian Blue cat lying on a wicker chair with red cushion"},
+      {"url": "https://images.pexels.com/photos/5864514/pexels-photo-5864514.jpeg?w=1600", "source": "Pexels", "photographer": "Toni Tan", "source_page": "https://www.pexels.com/photo/close-up-shot-of-a-russian-blue-cat-lying-down-5864514/", "alt": "Russian Blue cat yawning indoors"},
+      {"url": "https://images.pexels.com/photos/13604939/pexels-photo-13604939.jpeg?w=1600", "source": "Pexels", "photographer": "Dios Ajandy", "source_page": "https://www.pexels.com/photo/russian-blue-cat-near-green-leaves-13604939/", "alt": "Russian Blue cat peering through green leaves"},
+      {"url": "https://images.pexels.com/photos/32890491/pexels-photo-32890491.png?w=1600", "source": "Pexels", "photographer": "Honye Sanges", "source_page": "https://www.pexels.com/photo/elegant-gray-cat-resting-on-a-sofa-indoors-32890491/", "alt": "Elegant grey Russian Blue cat resting on a sofa"}
+    ]
+  },
+  "savannah-cat": {
+    "species": "cat",
+    "note": "Pexels search returns mostly servals (the wild ancestor of the Savannah breed). Only photo 1 is clearly tagged Savannah; the rest are serval images that visually resemble the breed. Consider replacing if strict breed accuracy is required.",
+    "photos": [
+      {"url": "https://images.pexels.com/photos/31231397/pexels-photo-31231397.jpeg?w=1600", "source": "Pexels", "photographer": "Pinkinesss", "source_page": "https://www.pexels.com/photo/relaxed-savannah-cat-lying-on-floor-indoors-31231397/", "alt": "Spotted Savannah cat lying on the floor indoors"},
+      {"url": "https://images.pexels.com/photos/28926641/pexels-photo-28926641.jpeg?w=1600", "source": "Pexels", "photographer": "kl47", "source_page": "https://www.pexels.com/photo/close-up-of-a-serval-cat-in-natural-habitat-28926641/", "alt": "Tall spotted cat walking beside a wooden fence"},
+      {"url": "https://images.pexels.com/photos/25956283/pexels-photo-25956283.jpeg?w=1600", "source": "Pexels", "photographer": "Molnar Tamas Photography", "source_page": "https://www.pexels.com/photo/a-serval-sitting-on-the-ground-25956283/", "alt": "Spotted Savannah-type cat portrait outdoors"},
+      {"url": "https://images.pexels.com/photos/31651302/pexels-photo-31651302.jpeg?w=1600", "source": "Pexels", "photographer": "guvo59", "source_page": "https://www.pexels.com/photo/serene-serval-resting-in-lush-greenery-31651302/", "alt": "Spotted cat with tall ears resting among green ivy"},
+      {"url": "https://images.pexels.com/photos/25956267/pexels-photo-25956267.jpeg?w=1600", "source": "Pexels", "photographer": "Molnar Tamas Photography", "source_page": "https://www.pexels.com/photo/a-serval-in-a-zoo-25956267/", "alt": "Spotted Savannah/serval-type cat walking through foliage"}
+    ]
+  }
+}

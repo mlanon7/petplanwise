@@ -1,0 +1,53 @@
+{
+  "slug": "munchkin",
+  "breed": "munchkin",
+  "species": "cat",
+  "note": "Short-leg trait not always visually obvious; selections rely on photographer breed tagging.",
+  "files": [
+    {
+      "file": "01.jpg",
+      "description": "White Munchkin cat resting on a living room rug",
+      "source": "Pexels — Tahir Osman",
+      "artist": "Tahir Osman",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/a-white-munchkin-cat-on-a-rug-in-a-living-room-15989368/",
+      "breed": "munchkin"
+    },
+    {
+      "file": "02.jpg",
+      "description": "Munchkin cat lounging on a sofa",
+      "source": "Pexels — Tran Mau Tri Tam",
+      "artist": "Tran Mau Tri Tam",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/cute-munchkin-cat-on-the-sofa-4971355/",
+      "breed": "munchkin"
+    },
+    {
+      "file": "03.jpg",
+      "description": "Grey and white Munchkin kitten with striking eyes",
+      "source": "Pexels — Tran Mau Tri Tam",
+      "artist": "Tran Mau Tri Tam",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/shallow-focus-photography-of-cat-2286016/",
+      "breed": "munchkin"
+    },
+    {
+      "file": "04.jpg",
+      "description": "Grey tabby Munchkin kitten on a white surface",
+      "source": "Pexels — Tran Mau Tri Tam",
+      "artist": "Tran Mau Tri Tam",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/gray-tabby-kitten-on-a-white-surface-2194416/",
+      "breed": "munchkin"
+    },
+    {
+      "file": "05.jpg",
+      "description": "Wide-eyed Munchkin kitten near a woven basket",
+      "source": "Pexels — Tran Mau Tri Tam",
+      "artist": "Tran Mau Tri Tam",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/a-cute-cat-on-the-table-5044088/",
+      "breed": "munchkin"
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "slug": "saint-bernard",
+  "breed": "saint bernard",
+  "species": "dog",
+  "files": [
+    {
+      "file": "01.jpg",
+      "description": "Saint Bernard lying on a frost-covered grassy field",
+      "source": "Pexels — Katerina",
+      "artist": "Katerina",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/saint-bernard-lying-on-a-grassy-field-6072009/",
+      "breed": "saint-bernard"
+    },
+    {
+      "file": "02.jpg",
+      "description": "Close-up of a Saint Bernard among autumn leaves",
+      "source": "Pexels — Silvi",
+      "artist": "Silvi",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/close-up-of-bernhardiner-dog-10253852/",
+      "breed": "saint-bernard"
+    },
+    {
+      "file": "03.jpg",
+      "description": "Close-up portrait of a Saint Bernard with tongue out",
+      "source": "Pexels — Ron Graham Becker",
+      "artist": "Ron Graham Becker",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/a-close-up-shot-of-a-saint-bernard-dog-12345219/",
+      "breed": "saint-bernard"
+    },
+    {
+      "file": "04.jpg",
+      "description": "Saint Bernard walking on grass with tongue out",
+      "source": "Pexels — Kelly",
+      "artist": "Kelly",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/st-bernard-dog-walking-on-the-grass-19201777/",
+      "breed": "saint-bernard"
+    },
+    {
+      "file": "05.jpg",
+      "description": "Saint Bernard standing in a snowy forest landscape",
+      "source": "Pexels — Katerina",
+      "artist": "Katerina",
+      "license": "Pexels License (free for commercial use, attribution appreciated)",
+      "source_url": "https://www.pexels.com/photo/saint-bernard-dog-on-snow-covered-ground-6721024/",
+      "breed": "saint-bernard"
+    }
+  ]
+}
