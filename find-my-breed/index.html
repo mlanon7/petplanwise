@@ -1,0 +1,1302 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Find My Breed — Personalized Pet Match Quiz | PetPlanWise</title>
+  <meta name="description" content="Answer 5 quick questions about your lifestyle and find your top dog or cat breed matches. Real trait data from 54 breeds — backed by AKC, C-BARQ, and NAPHIA." />
+  <meta property="og:description" content="Answer 5 quick questions about your lifestyle and find your top dog or cat breed matches. Real trait data from 54 breeds — backed by AKC, C-BARQ, and NAPHIA." />
+  <meta property="og:title" content="Find My Breed — Personalized Pet Match Quiz | PetPlanWise" />
+  <link rel="canonical" href="https://petplanwise.com/find-my-breed/" />
+  <meta property="og:url" content="https://petplanwise.com/find-my-breed/" />
+  <meta property="og:image" content="https://petplanwise.com/assets/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://petplanwise.com/assets/og-image.png" />
+  <meta name="twitter:title" content="Find My Breed — Personalized Pet Match Quiz" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230F766E'/%3E%3Ctext x='50' y='66' font-family='system-ui,sans-serif' font-weight='700' font-size='58' fill='white' text-anchor='middle'%3E%24%3C/text%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" data-ppw-inter>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin data-ppw-inter>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" data-ppw-inter>
+  <link rel="stylesheet" href="/assets/css/site.css?v=20260516d" />
+  <script src="/assets/data/csv-loader-20260516d.js" defer></script>
+  <script src="/assets/js/layout-20260516d.js" defer></script>
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://petplanwise.com/"},
+    {"@type":"ListItem","position":2,"name":"Find my breed","item":"https://petplanwise.com/find-my-breed/"}
+  ]}
+  </script>
+
+  <style>
+    :root {
+      --fmb-teal: #0F766E;
+      --fmb-teal-700: #115E59;
+      --fmb-teal-soft: rgba(15,118,110,0.08);
+      --fmb-teal-mid: rgba(15,118,110,0.18);
+      --fmb-cream: #FAF7EE;
+      --fmb-ink: #1F2937;
+      --fmb-ink-2: #4B5563;
+      --fmb-muted: #6B7280;
+      --fmb-border: #E5E7EB;
+      --fmb-success: #059669;
+      --fmb-danger: #B91C5C;
+    }
+
+    .fmb-hero {
+      padding: 28px 0 8px;
+      text-align: center;
+    }
+    .fmb-hero h1 {
+      font-size: clamp(1.85rem, 4vw, 2.6rem);
+      margin: 0 0 10px;
+      letter-spacing: -0.02em;
+    }
+    .fmb-hero p.lede {
+      max-width: 640px;
+      margin: 0 auto;
+      font-size: 1.05rem;
+      color: var(--fmb-ink-2);
+    }
+
+    /* Progress dots */
+    .fmb-progress {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      margin: 22px 0 18px;
+    }
+    .fmb-dot {
+      width: 28px;
+      height: 6px;
+      border-radius: 3px;
+      background: var(--fmb-border);
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+    .fmb-dot.active { background: var(--fmb-teal); transform: scaleY(1.4); }
+    .fmb-dot.done { background: var(--fmb-teal-mid); }
+
+    /* Wizard frame */
+    .fmb-wizard {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 16px 80px;
+      position: relative;
+    }
+    .fmb-slide {
+      display: none;
+      animation: fmbSlideIn 0.35s ease;
+    }
+    .fmb-slide.active { display: block; }
+    @keyframes fmbSlideIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .fmb-card {
+      background: #fff;
+      border: 1px solid var(--fmb-border);
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: 0 4px 16px rgba(15,118,110,0.04);
+    }
+    @media (max-width: 600px) { .fmb-card { padding: 20px 16px; } }
+
+    .fmb-step-label {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--fmb-teal);
+      margin-bottom: 4px;
+    }
+    .fmb-question {
+      font-size: clamp(1.4rem, 3vw, 1.7rem);
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin: 0 0 6px;
+      color: var(--fmb-ink);
+    }
+    .fmb-hint {
+      font-size: 0.95rem;
+      color: var(--fmb-ink-2);
+      margin: 0 0 22px;
+    }
+
+    /* Big visual choice tiles (species + space) */
+    .fmb-tiles {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 12px;
+      margin: 8px 0 4px;
+    }
+    .fmb-tile {
+      background: #fff;
+      border: 2px solid var(--fmb-border);
+      border-radius: 14px;
+      padding: 22px 14px;
+      cursor: pointer;
+      text-align: center;
+      font: inherit;
+      font-weight: 600;
+      color: var(--fmb-ink);
+      transition: all 0.18s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+    .fmb-tile:hover { border-color: var(--fmb-teal); background: var(--fmb-teal-soft); }
+    .fmb-tile.selected {
+      border-color: var(--fmb-teal);
+      background: var(--fmb-teal-soft);
+      box-shadow: 0 0 0 4px rgba(15,118,110,0.08);
+    }
+    .fmb-tile .fmb-tile-emoji { font-size: 32px; line-height: 1; }
+    .fmb-tile .fmb-tile-sub {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--fmb-muted);
+    }
+
+    /* Sliders */
+    .fmb-slider-group { margin: 0 0 22px; }
+    .fmb-slider-group:last-child { margin-bottom: 0; }
+    .fmb-slider-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--fmb-ink);
+      margin: 0 0 8px;
+    }
+    .fmb-slider-value {
+      font-weight: 700;
+      color: var(--fmb-teal);
+      font-size: 14px;
+    }
+    .fmb-range {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 100%;
+      height: 8px;
+      border-radius: 4px;
+      background: linear-gradient(to right, var(--fmb-teal-mid) 0%, var(--fmb-teal) var(--pct, 50%), var(--fmb-border) var(--pct, 50%), var(--fmb-border) 100%);
+      outline: none;
+      cursor: pointer;
+    }
+    .fmb-range::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #fff;
+      border: 3px solid var(--fmb-teal);
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(15,118,110,0.25);
+    }
+    .fmb-range::-moz-range-thumb {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #fff;
+      border: 3px solid var(--fmb-teal);
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(15,118,110,0.25);
+    }
+    .fmb-range-ends {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--fmb-muted);
+      margin: 6px 2px 0;
+    }
+
+    /* Yes/No toggle pair */
+    .fmb-yesno {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 8px 0 22px;
+    }
+    .fmb-yesno button {
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: 2px solid var(--fmb-border);
+      background: #fff;
+      font: inherit;
+      font-weight: 600;
+      color: var(--fmb-ink);
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }
+    .fmb-yesno button:hover { border-color: var(--fmb-teal); }
+    .fmb-yesno button.selected {
+      border-color: var(--fmb-teal);
+      background: var(--fmb-teal-soft);
+      color: var(--fmb-teal-700);
+    }
+
+    .fmb-toggle-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--fmb-border);
+    }
+    .fmb-toggle-row:last-child { border-bottom: 0; }
+    .fmb-toggle-row .fmb-toggle-label {
+      font-weight: 600;
+      color: var(--fmb-ink);
+      font-size: 15px;
+    }
+    .fmb-toggle-row .fmb-toggle-hint {
+      font-size: 12px;
+      color: var(--fmb-muted);
+      margin-top: 2px;
+    }
+    .fmb-mini-toggle {
+      display: inline-flex;
+      gap: 6px;
+    }
+    .fmb-mini-toggle button {
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: 1.5px solid var(--fmb-border);
+      background: #fff;
+      font: inherit;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--fmb-ink-2);
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }
+    .fmb-mini-toggle button.selected {
+      background: var(--fmb-teal);
+      border-color: var(--fmb-teal);
+      color: #fff;
+    }
+
+    /* Trait chips */
+    .fmb-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 8px 0 6px;
+    }
+    .fmb-chip {
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 2px solid var(--fmb-border);
+      background: #fff;
+      font: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--fmb-ink);
+      cursor: pointer;
+      transition: all 0.18s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .fmb-chip:hover { border-color: var(--fmb-teal); }
+    .fmb-chip.selected {
+      background: var(--fmb-teal);
+      border-color: var(--fmb-teal);
+      color: #fff;
+    }
+    .fmb-chip-counter {
+      font-size: 12px;
+      color: var(--fmb-muted);
+      margin-top: 12px;
+    }
+
+    /* Nav buttons */
+    .fmb-nav {
+      display: flex;
+      gap: 10px;
+      margin-top: 24px;
+      justify-content: space-between;
+    }
+    .fmb-btn {
+      padding: 12px 22px;
+      border-radius: 10px;
+      font: inherit;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.18s ease;
+      border: 2px solid transparent;
+    }
+    .fmb-btn-primary {
+      background: var(--fmb-teal);
+      color: #fff;
+      border-color: var(--fmb-teal);
+    }
+    .fmb-btn-primary:hover { background: var(--fmb-teal-700); border-color: var(--fmb-teal-700); }
+    .fmb-btn-primary:disabled { background: var(--fmb-border); border-color: var(--fmb-border); color: var(--fmb-muted); cursor: not-allowed; }
+    .fmb-btn-ghost {
+      background: transparent;
+      color: var(--fmb-ink-2);
+      border-color: var(--fmb-border);
+    }
+    .fmb-btn-ghost:hover { border-color: var(--fmb-teal); color: var(--fmb-teal); }
+
+    /* Live preview strip */
+    .fmb-preview {
+      position: sticky;
+      bottom: 12px;
+      max-width: 720px;
+      margin: 14px auto 0;
+      background: #fff;
+      border: 1px solid var(--fmb-teal-mid);
+      border-radius: 12px;
+      box-shadow: 0 8px 22px rgba(15,118,110,0.12);
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+    }
+    .fmb-preview-label {
+      font-weight: 500;
+      color: var(--fmb-muted);
+      flex: 1;
+    }
+    .fmb-preview-match {
+      font-weight: 700;
+      color: var(--fmb-teal);
+    }
+    .fmb-preview.hidden { display: none; }
+
+    /* Results */
+    .fmb-results-hero {
+      text-align: center;
+      padding: 12px 0 18px;
+    }
+    .fmb-results-hero h2 {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      margin: 0 0 6px;
+      letter-spacing: -0.02em;
+    }
+    .fmb-results-hero p { color: var(--fmb-ink-2); margin: 0; }
+
+    .fmb-result-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 8px;
+    }
+    .fmb-result-card {
+      display: grid;
+      grid-template-columns: 140px 1fr auto;
+      gap: 16px;
+      background: #fff;
+      border: 1px solid var(--fmb-border);
+      border-radius: 14px;
+      padding: 14px;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .fmb-result-card:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.06); }
+    .fmb-result-card.top {
+      border-color: var(--fmb-teal);
+      box-shadow: 0 8px 24px rgba(15,118,110,0.14);
+    }
+    .fmb-result-card.top::before {
+      content: "TOP MATCH";
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: var(--fmb-teal);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      padding: 4px 10px;
+      border-radius: 999px;
+      z-index: 2;
+    }
+    .fmb-result-photo {
+      width: 140px;
+      height: 140px;
+      border-radius: 12px;
+      object-fit: cover;
+      background: var(--fmb-cream);
+      display: block;
+    }
+    .fmb-result-info { min-width: 0; }
+    .fmb-result-name {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin: 0 0 4px;
+      color: var(--fmb-ink);
+    }
+    .fmb-result-meta {
+      font-size: 12px;
+      color: var(--fmb-muted);
+      margin-bottom: 8px;
+    }
+    .fmb-result-reasons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 10px;
+    }
+    .fmb-reason {
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--fmb-teal-soft);
+      color: var(--fmb-teal-700);
+      font-weight: 500;
+    }
+    .fmb-reason.neg {
+      background: rgba(185,28,92,0.08);
+      color: var(--fmb-danger);
+    }
+    .fmb-result-actions {
+      display: flex;
+      gap: 8px;
+      font-size: 13px;
+    }
+    .fmb-result-actions a {
+      color: var(--fmb-teal);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .fmb-result-actions a:hover { text-decoration: underline; }
+    .fmb-result-actions a + a::before {
+      content: "·";
+      margin-right: 8px;
+      color: var(--fmb-border);
+    }
+
+    .fmb-score-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-width: 80px;
+    }
+    .fmb-score {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--fmb-teal);
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+    .fmb-score-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--fmb-muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+    .fmb-result-card.top .fmb-score { font-size: 2.5rem; }
+
+    @media (max-width: 600px) {
+      .fmb-result-card { grid-template-columns: 96px 1fr; padding: 12px; }
+      .fmb-result-photo { width: 96px; height: 96px; }
+      .fmb-score-block { grid-column: 2; flex-direction: row; gap: 8px; justify-content: flex-start; align-items: baseline; }
+      .fmb-score { font-size: 1.5rem; }
+      .fmb-result-card.top .fmb-score { font-size: 1.7rem; }
+      .fmb-score-label { margin-top: 0; }
+    }
+
+    .fmb-results-actions {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 24px 0 12px;
+    }
+
+    .fmb-disclaimer {
+      max-width: 720px;
+      margin: 18px auto 0;
+      padding: 14px 16px;
+      background: var(--fmb-cream);
+      border-radius: 10px;
+      font-size: 13px;
+      color: var(--fmb-ink-2);
+      line-height: 1.5;
+    }
+
+    /* Confetti canvas */
+    .fmb-confetti {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 50;
+    }
+  </style>
+</head>
+<body>
+<div id="site-header"></div>
+<main>
+  <div class="container"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>›</span>Find my breed</nav></div>
+
+  <section class="fmb-hero"><div class="container">
+    <h1>Find your best-fit breed</h1>
+    <p class="lede">Five quick questions about your lifestyle and what you want in a pet. We match against real trait data from 54 dog and cat breeds.</p>
+    <div class="fmb-progress" id="fmb-progress" role="progressbar" aria-valuemin="1" aria-valuemax="5" aria-valuenow="1">
+      <div class="fmb-dot active" data-step="0"></div>
+      <div class="fmb-dot" data-step="1"></div>
+      <div class="fmb-dot" data-step="2"></div>
+      <div class="fmb-dot" data-step="3"></div>
+      <div class="fmb-dot" data-step="4"></div>
+    </div>
+  </div></section>
+
+  <div class="fmb-wizard">
+
+    <!-- STEP 0: Species -->
+    <div class="fmb-slide active" data-step="0">
+      <div class="fmb-card">
+        <div class="fmb-step-label">Step 1 of 5</div>
+        <h2 class="fmb-question">Dog person, cat person, or open to either?</h2>
+        <p class="fmb-hint">We'll filter the results accordingly.</p>
+        <div class="fmb-tiles" id="fmb-species-tiles">
+          <button type="button" class="fmb-tile" data-species="dog">
+            <span class="fmb-tile-emoji">🐶</span>
+            <span>Dog</span>
+            <span class="fmb-tile-sub">40 breeds</span>
+          </button>
+          <button type="button" class="fmb-tile" data-species="cat">
+            <span class="fmb-tile-emoji">🐱</span>
+            <span>Cat</span>
+            <span class="fmb-tile-sub">14 breeds</span>
+          </button>
+          <button type="button" class="fmb-tile" data-species="either">
+            <span class="fmb-tile-emoji">🐾</span>
+            <span>Either</span>
+            <span class="fmb-tile-sub">Show me both</span>
+          </button>
+        </div>
+        <div class="fmb-nav">
+          <span></span>
+          <button type="button" class="fmb-btn fmb-btn-primary" id="fmb-next-0" disabled>Continue →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 1: Lifestyle (energy + alone hours) -->
+    <div class="fmb-slide" data-step="1">
+      <div class="fmb-card">
+        <div class="fmb-step-label">Step 2 of 5</div>
+        <h2 class="fmb-question">Your daily lifestyle</h2>
+        <p class="fmb-hint">Slide to match your reality, not your aspiration.</p>
+
+        <div class="fmb-slider-group">
+          <div class="fmb-slider-label">
+            <span>How active are you?</span>
+            <span class="fmb-slider-value" id="fmb-energy-val">Moderate</span>
+          </div>
+          <input type="range" class="fmb-range" id="fmb-energy" min="1" max="5" step="1" value="3" />
+          <div class="fmb-range-ends"><span>Couch potato</span><span>Marathon runner</span></div>
+        </div>
+
+        <div class="fmb-slider-group">
+          <div class="fmb-slider-label">
+            <span>How long is your pet usually home alone?</span>
+            <span class="fmb-slider-value" id="fmb-alone-val">6 hours</span>
+          </div>
+          <input type="range" class="fmb-range" id="fmb-alone" min="0" max="12" step="1" value="6" />
+          <div class="fmb-range-ends"><span>Rarely alone</span><span>10+ hours</span></div>
+        </div>
+
+        <div class="fmb-slider-group">
+          <div class="fmb-slider-label"><span>Where will they live?</span></div>
+          <div class="fmb-tiles" id="fmb-space-tiles" style="grid-template-columns: repeat(3, 1fr);">
+            <button type="button" class="fmb-tile" data-space="small">
+              <span class="fmb-tile-emoji">🏢</span>
+              <span>Apartment</span>
+            </button>
+            <button type="button" class="fmb-tile selected" data-space="medium">
+              <span class="fmb-tile-emoji">🏘️</span>
+              <span>House, small yard</span>
+            </button>
+            <button type="button" class="fmb-tile" data-space="large">
+              <span class="fmb-tile-emoji">🏡</span>
+              <span>Big yard / land</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="fmb-nav">
+          <button type="button" class="fmb-btn fmb-btn-ghost" data-back="0">← Back</button>
+          <button type="button" class="fmb-btn fmb-btn-primary" id="fmb-next-1">Continue →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 2: Household -->
+    <div class="fmb-slide" data-step="2">
+      <div class="fmb-card">
+        <div class="fmb-step-label">Step 3 of 5</div>
+        <h2 class="fmb-question">Who else is in the home?</h2>
+        <p class="fmb-hint">This affects which temperaments are a good fit.</p>
+
+        <div class="fmb-toggle-row">
+          <div>
+            <div class="fmb-toggle-label">Kids under 12 in the home</div>
+            <div class="fmb-toggle-hint">We'll prioritize breeds with high child tolerance.</div>
+          </div>
+          <div class="fmb-mini-toggle" data-key="kids">
+            <button type="button" data-val="false" class="selected">No</button>
+            <button type="button" data-val="true">Yes</button>
+          </div>
+        </div>
+
+        <div class="fmb-toggle-row">
+          <div>
+            <div class="fmb-toggle-label">Frequent guests / strangers</div>
+            <div class="fmb-toggle-hint">If you host often, breeds that welcome strangers score higher.</div>
+          </div>
+          <div class="fmb-mini-toggle" data-key="strangers">
+            <button type="button" data-val="false" class="selected">No</button>
+            <button type="button" data-val="true">Yes</button>
+          </div>
+        </div>
+
+        <div class="fmb-toggle-row">
+          <div>
+            <div class="fmb-toggle-label">First-time pet owner</div>
+            <div class="fmb-toggle-hint">We'll favor easy-to-train, forgiving breeds.</div>
+          </div>
+          <div class="fmb-mini-toggle" data-key="newbie">
+            <button type="button" data-val="false" class="selected">No</button>
+            <button type="button" data-val="true">Yes</button>
+          </div>
+        </div>
+
+        <div class="fmb-nav">
+          <button type="button" class="fmb-btn fmb-btn-ghost" data-back="1">← Back</button>
+          <button type="button" class="fmb-btn fmb-btn-primary" id="fmb-next-2">Continue →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 3: Priorities (chips) -->
+    <div class="fmb-slide" data-step="3">
+      <div class="fmb-card">
+        <div class="fmb-step-label">Step 4 of 5</div>
+        <h2 class="fmb-question">What matters most to you?</h2>
+        <p class="fmb-hint">Pick up to 3. These are the traits we'll weight most heavily.</p>
+        <div class="fmb-chips" id="fmb-priority-chips">
+          <button type="button" class="fmb-chip" data-priority="affectionate">💞 Affectionate</button>
+          <button type="button" class="fmb-chip" data-priority="independent">🧘 Independent</button>
+          <button type="button" class="fmb-chip" data-priority="trainable">🎓 Easy to train</button>
+          <button type="button" class="fmb-chip" data-priority="quiet">🤫 Quiet</button>
+          <button type="button" class="fmb-chip" data-priority="protective">🛡️ Protective</button>
+          <button type="button" class="fmb-chip" data-priority="low-shedding">✨ Low shedding</button>
+          <button type="button" class="fmb-chip" data-priority="low-grooming">⏱️ Low grooming</button>
+          <button type="button" class="fmb-chip" data-priority="playful">🎾 Playful</button>
+          <button type="button" class="fmb-chip" data-priority="kid-friendly">👨‍👩‍👧 Great with kids</button>
+        </div>
+        <div class="fmb-chip-counter"><span id="fmb-chip-count">0</span> / 3 selected</div>
+
+        <div class="fmb-nav">
+          <button type="button" class="fmb-btn fmb-btn-ghost" data-back="2">← Back</button>
+          <button type="button" class="fmb-btn fmb-btn-primary" id="fmb-next-3">See my matches →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 4: Results -->
+    <div class="fmb-slide" data-step="4">
+      <div class="fmb-results-hero">
+        <h2>Your best-fit matches</h2>
+        <p>Based on your lifestyle and priorities, here's the top 5 from our library.</p>
+      </div>
+      <div class="fmb-result-list" id="fmb-result-list"></div>
+
+      <div class="fmb-results-actions">
+        <button type="button" class="fmb-btn fmb-btn-ghost" id="fmb-restart">↻ Start over</button>
+        <button type="button" class="fmb-btn fmb-btn-primary" id="fmb-share">🔗 Share my results</button>
+      </div>
+
+      <div class="fmb-disclaimer">
+        <strong>How we score:</strong> Each breed gets a 0–100 fit score based on weighted matches across energy, time-alone tolerance, size compatibility, kid/stranger compatibility, and your three priority traits. Trait data comes from AKC standards, C-BARQ (UPenn Vet), and breed-specific veterinary sources — see <a href="/sources/">/sources/</a>. <strong>Important:</strong> these are statistical averages. Individual pets vary widely (per Morrill et al. 2022, breed explains only ~9% of behavioral variation). The best dog or cat for you may be a mix from your local shelter.
+      </div>
+    </div>
+
+    <!-- Live preview strip (visible from step 1 onward) -->
+    <div class="fmb-preview hidden" id="fmb-preview">
+      <span class="fmb-preview-label">Top match so far:</span>
+      <span class="fmb-preview-match" id="fmb-preview-text">—</span>
+    </div>
+
+  </div>
+
+  <canvas class="fmb-confetti" id="fmb-confetti" aria-hidden="true"></canvas>
+</main>
+<div id="site-footer"></div>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ===== State ===== */
+  var state = {
+    species: null,           // 'dog' | 'cat' | 'either'
+    energy: 3,               // 1-5
+    aloneHours: 6,           // 0-12
+    space: "medium",         // 'small' | 'medium' | 'large'
+    kids: false,
+    strangers: false,
+    newbie: false,
+    priorities: []           // up to 3
+  };
+  var step = 0;
+  var traitsBySlug = null;
+  var breedsBySlug = null;
+
+  /* ===== Cat slug map (matches /compare/) ===== */
+  var CAT_SLUGS = {
+    "abyssinian":1, "american-shorthair":1, "bengal":1, "british-shorthair":1,
+    "maine-coon":1, "munchkin":1, "norwegian-forest-cat":1, "persian":1,
+    "ragdoll":1, "russian-blue":1, "savannah-cat":1, "scottish-fold":1,
+    "siamese":1, "sphynx":1
+  };
+  var CAT_LEGACY_DASH_CAT = {
+    "bengal":1, "british-shorthair":1, "maine-coon":1, "persian":1,
+    "ragdoll":1, "scottish-fold":1, "siamese":1, "sphynx":1
+  };
+  function breedPagePath(slug) {
+    var suffix = CAT_LEGACY_DASH_CAT[slug] ? "-cat-cost" : "-cost";
+    return "/breeds/" + slug + suffix + "/";
+  }
+  function heroImg(slug) {
+    return breedPagePath(slug) + "hero.jpg";
+  }
+
+  /* ===== Tiny CSV parser ===== */
+  function parseCSV(text) {
+    var rows = [], row = [], field = "", inQ = false;
+    for (var i = 0; i < text.length; i++) {
+      var c = text[i];
+      if (inQ) {
+        if (c === '"' && text[i+1] === '"') { field += '"'; i++; }
+        else if (c === '"') inQ = false;
+        else field += c;
+      } else {
+        if (c === '"') inQ = true;
+        else if (c === ",") { row.push(field); field = ""; }
+        else if (c === "\n" || c === "\r") {
+          if (field.length || row.length) { row.push(field); rows.push(row); row = []; field = ""; }
+        } else field += c;
+      }
+    }
+    if (field.length || row.length) { row.push(field); rows.push(row); }
+    var header = rows[0];
+    return rows.slice(1).map(function (r) {
+      var o = {};
+      header.forEach(function (h, i) { o[h] = (r[i] || "").trim(); });
+      return o;
+    });
+  }
+
+  /* ===== Data load ===== */
+  function ensureData() {
+    if (traitsBySlug && breedsBySlug) return Promise.resolve();
+    return fetch("/assets/data/csv/breed-traits.csv")
+      .then(function (r) { return r.text(); })
+      .then(function (txt) {
+        var rows = parseCSV(txt);
+        traitsBySlug = {};
+        rows.forEach(function (r) { traitsBySlug[r.slug] = r; });
+      })
+      .then(function () {
+        return fetch("/assets/data/csv/breeds.csv")
+          .then(function (r) { return r.text(); })
+          .then(function (txt) {
+            var rows = parseCSV(txt);
+            breedsBySlug = {};
+            rows.forEach(function (r) {
+              breedsBySlug[r.slug] = {
+                slug: r.slug,
+                name: r.name,
+                species: r.species || (CAT_SLUGS[r.slug] ? "cat" : "dog"),
+                avgLife: r.avg_life ? parseFloat(r.avg_life) : null,
+                purchase: r.purchase_typical ? parseFloat(r.purchase_typical) : null
+              };
+            });
+          });
+      });
+  }
+
+  /* ===== Scoring engine ===== */
+  function parseRangeMax(s) {
+    if (!s) return null;
+    var parts = String(s).split("-");
+    var v = parseFloat(parts[parts.length - 1]);
+    return isNaN(v) ? null : v;
+  }
+  function parseRangeMid(s) {
+    if (!s) return null;
+    var parts = String(s).split("-");
+    if (parts.length === 1) return parseFloat(parts[0]);
+    return (parseFloat(parts[0]) + parseFloat(parts[1])) / 2;
+  }
+
+  function priorityScore(p, t) {
+    var v = 0;
+    switch (p) {
+      case "affectionate":  v = (parseFloat(t.affection_1to10) || 5) / 10; break;
+      case "independent":   v = 1 - ((parseFloat(t.affection_1to10) || 5) / 10); break;
+      case "trainable":     v = (parseFloat(t.trainability_1to5) || 3) / 5; break;
+      case "quiet":         v = 1 - ((parseFloat(t.vocality_1to10) || 5) / 10); break;
+      case "protective":    v = (parseFloat(t.protective_1to10) || 3) / 10; break;
+      case "low-shedding":  v = 1 - ((parseFloat(t.shedding_1to5) || 3) / 5); break;
+      case "low-grooming":
+        var gm = parseFloat(t.grooming_minutes_per_week);
+        if (isNaN(gm)) gm = 30;
+        v = 1 - Math.min(1, gm / 90);
+        break;
+      case "playful":       v = (parseFloat(t.energy_1to5) || 3) / 5; break;
+      case "kid-friendly":  v = (parseFloat(t.child_tolerance_1to10) || 5) / 10; break;
+      default: v = 0.5;
+    }
+    return Math.max(0, Math.min(1, v));
+  }
+  function priorityLabel(p) {
+    return {
+      "affectionate":"Very affectionate", "independent":"Independent",
+      "trainable":"Easy to train", "quiet":"Quiet",
+      "protective":"Protective", "low-shedding":"Low shedding",
+      "low-grooming":"Low grooming", "playful":"Playful",
+      "kid-friendly":"Great with kids"
+    }[p] || p;
+  }
+
+  function scoreBreed(slug) {
+    var breed = breedsBySlug[slug];
+    var t = traitsBySlug[slug];
+    if (!breed || !t) return null;
+
+    // Species hard filter
+    if (state.species === "dog" && breed.species !== "dog") return null;
+    if (state.species === "cat" && breed.species !== "cat") return null;
+
+    var parts = [];
+    var reasonsPos = [];
+    var reasonsNeg = [];
+
+    // --- Energy match
+    var be = parseFloat(t.energy_1to5) || 3;
+    var energyDiff = Math.abs(state.energy - be);
+    var energyScore = 1 - (energyDiff / 4);
+    parts.push({ w: 2.0, v: energyScore });
+    if (energyDiff <= 0.5) reasonsPos.push("Energy level matches yours");
+    else if (energyDiff >= 2 && state.energy > be) reasonsNeg.push("Lower energy than you");
+    else if (energyDiff >= 2) reasonsNeg.push("Higher energy than you");
+
+    // --- Alone hours
+    var aloneMax = parseRangeMax(t.alone_hours);
+    if (aloneMax == null) aloneMax = 4;
+    var aloneScore;
+    if (state.aloneHours <= aloneMax) aloneScore = 1;
+    else aloneScore = Math.max(0, 1 - (state.aloneHours - aloneMax) / 4);
+    parts.push({ w: 1.8, v: aloneScore });
+    if (state.aloneHours > aloneMax + 2) reasonsNeg.push("May struggle " + state.aloneHours + "h alone");
+    else if (state.aloneHours >= 6 && aloneMax >= 8) reasonsPos.push("Handles long days alone");
+
+    // --- Size / space (dogs)
+    if (breed.species === "dog") {
+      var maxW = parseRangeMax(t.weight_male_lb) || 50;
+      var sizeScore = 1;
+      if (state.space === "small") {
+        if (maxW <= 25) sizeScore = 1;
+        else if (maxW <= 50) sizeScore = 0.7;
+        else if (maxW <= 80) sizeScore = 0.35;
+        else sizeScore = 0.1;
+      } else if (state.space === "large") {
+        sizeScore = maxW >= 25 ? 1 : 0.75;
+      }
+      parts.push({ w: 1.5, v: sizeScore });
+      if (state.space === "small" && maxW <= 25) reasonsPos.push("Apartment-friendly size");
+      else if (state.space === "small" && maxW > 80) reasonsNeg.push("Likely too large for an apartment");
+      else if (state.space === "large" && maxW >= 60) reasonsPos.push("Loves having room to roam");
+    } else {
+      // Cats: size doesn't really matter, neutral score
+      parts.push({ w: 0.5, v: 1 });
+    }
+
+    // --- Kids
+    if (state.kids) {
+      var kidVal = (parseFloat(t.child_tolerance_1to10) || 5) / 10;
+      parts.push({ w: 2.0, v: kidVal });
+      if (kidVal >= 0.8) reasonsPos.push("Great with kids");
+      else if (kidVal < 0.5) reasonsNeg.push("Not ideal with young kids");
+    }
+
+    // --- Strangers
+    if (state.strangers) {
+      var strV = t.stranger_friendly === "high" ? 1 : t.stranger_friendly === "medium" ? 0.6 : 0.25;
+      parts.push({ w: 1.2, v: strV });
+      if (strV === 1) reasonsPos.push("Welcomes visitors");
+      else if (strV <= 0.3) reasonsNeg.push("Wary of strangers");
+    }
+
+    // --- First-time owner (favor trainability + low protectiveness)
+    if (state.newbie) {
+      var trainV = (parseFloat(t.trainability_1to5) || 3) / 5;
+      var protV = (parseFloat(t.protective_1to10) || 3) / 10;
+      var newbieScore = trainV * 0.7 + (1 - protV) * 0.3;
+      parts.push({ w: 1.4, v: newbieScore });
+      if (newbieScore >= 0.8) reasonsPos.push("Beginner-friendly");
+      else if (newbieScore < 0.5) reasonsNeg.push("Better for experienced owners");
+    }
+
+    // --- Priority chips
+    state.priorities.forEach(function (p) {
+      var v = priorityScore(p, t);
+      parts.push({ w: 2.2, v: v });
+      if (v >= 0.78) reasonsPos.push(priorityLabel(p));
+      else if (v < 0.35) reasonsNeg.push("Not " + priorityLabel(p).toLowerCase());
+    });
+
+    // Weighted average -> 0..100
+    var totalW = 0, totalV = 0;
+    parts.forEach(function (p) { totalW += p.w; totalV += p.w * p.v; });
+    var match = Math.round((totalV / totalW) * 100);
+
+    // Mix positive + negative reasons (cap at 4 total)
+    var reasons = [];
+    reasonsPos.slice(0, 3).forEach(function (r) { reasons.push({ text: r, pos: true }); });
+    if (reasons.length < 4) {
+      reasonsNeg.slice(0, 4 - reasons.length).forEach(function (r) { reasons.push({ text: r, pos: false }); });
+    }
+
+    return { slug: slug, breed: breed, match: match, reasons: reasons };
+  }
+
+  function computeRankings() {
+    var results = [];
+    Object.keys(breedsBySlug).forEach(function (slug) {
+      var r = scoreBreed(slug);
+      if (r) results.push(r);
+    });
+    results.sort(function (a, b) { return b.match - a.match; });
+    return results;
+  }
+
+  /* ===== UI: step navigation ===== */
+  function goToStep(n) {
+    step = n;
+    document.querySelectorAll(".fmb-slide").forEach(function (el) {
+      el.classList.toggle("active", parseInt(el.getAttribute("data-step"), 10) === n);
+    });
+    document.querySelectorAll(".fmb-dot").forEach(function (el, i) {
+      el.classList.toggle("active", i === n);
+      el.classList.toggle("done", i < n);
+    });
+    document.getElementById("fmb-progress").setAttribute("aria-valuenow", String(n + 1));
+    // Live preview is shown on steps 1-3
+    var preview = document.getElementById("fmb-preview");
+    preview.classList.toggle("hidden", !(n >= 1 && n <= 3));
+    if (n === 4) renderResults();
+    else updatePreview();
+    // Scroll to top of the wizard on each step
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  /* ===== UI: live preview ===== */
+  function updatePreview() {
+    if (!traitsBySlug || !breedsBySlug) return;
+    if (!state.species) return;
+    var top = computeRankings()[0];
+    if (!top) return;
+    document.getElementById("fmb-preview-text").textContent =
+      top.breed.name + " · " + top.match + "% match";
+  }
+
+  /* ===== UI: results render ===== */
+  function renderResults() {
+    var list = document.getElementById("fmb-result-list");
+    list.innerHTML = "";
+    var top5 = computeRankings().slice(0, 5);
+    if (!top5.length) {
+      list.innerHTML = '<p style="text-align:center;color:#6B7280;padding:40px 0;">No matches — try widening your species filter.</p>';
+      return;
+    }
+    top5.forEach(function (r, idx) {
+      var card = document.createElement("a");
+      card.className = "fmb-result-card" + (idx === 0 ? " top" : "");
+      card.href = breedPagePath(r.slug);
+      card.style.textDecoration = "none";
+      card.style.color = "inherit";
+
+      var reasonsHtml = r.reasons.map(function (x) {
+        return '<span class="fmb-reason' + (x.pos ? '' : ' neg') + '">' +
+               (x.pos ? '✓ ' : '× ') + escapeHtml(x.text) + '</span>';
+      }).join("");
+
+      var compareA = top5[0].slug, compareB = r.slug;
+      var compareLink = idx === 0 ? "" :
+        '<a href="/compare/?species=' + r.breed.species + '&a=' + compareA + '&b=' + compareB + '" onclick="event.stopPropagation();">Compare with top match</a>';
+
+      card.innerHTML =
+        '<img class="fmb-result-photo" src="' + heroImg(r.slug) + '" alt="' + escapeHtml(r.breed.name) + '" loading="lazy" onerror="this.style.background=\'var(--fmb-cream)\';this.removeAttribute(\'src\');" />' +
+        '<div class="fmb-result-info">' +
+          '<div class="fmb-result-name">' + escapeHtml(r.breed.name) + '</div>' +
+          '<div class="fmb-result-meta">' + (r.breed.species === "cat" ? "Cat" : "Dog") +
+            (r.breed.avgLife ? ' · ~' + r.breed.avgLife + ' yr lifespan' : '') +
+            (r.breed.purchase ? ' · $' + r.breed.purchase.toLocaleString() + ' typical purchase' : '') +
+          '</div>' +
+          '<div class="fmb-result-reasons">' + reasonsHtml + '</div>' +
+          '<div class="fmb-result-actions">' +
+            '<a href="' + breedPagePath(r.slug) + '">See full cost breakdown</a>' +
+            compareLink +
+          '</div>' +
+        '</div>' +
+        '<div class="fmb-score-block">' +
+          '<div class="fmb-score">' + r.match + '%</div>' +
+          '<div class="fmb-score-label">match</div>' +
+        '</div>';
+      list.appendChild(card);
+    });
+
+    // Confetti burst for the top match
+    setTimeout(fireConfetti, 250);
+  }
+
+  function escapeHtml(s) {
+    return String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  }
+
+  /* ===== Confetti (small canvas burst, no library) ===== */
+  function fireConfetti() {
+    var canvas = document.getElementById("fmb-confetti");
+    var ctx = canvas.getContext("2d");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    var colors = ["#0F766E", "#14B8A6", "#F59E0B", "#B91C5C", "#FDE68A"];
+    var pieces = [];
+    for (var i = 0; i < 80; i++) {
+      pieces.push({
+        x: window.innerWidth / 2,
+        y: window.innerHeight / 3,
+        vx: (Math.random() - 0.5) * 12,
+        vy: Math.random() * -10 - 4,
+        g: 0.35,
+        size: 6 + Math.random() * 6,
+        rot: Math.random() * Math.PI,
+        vr: (Math.random() - 0.5) * 0.3,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        life: 0
+      });
+    }
+    var maxLife = 90;
+    function frame() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      var anyAlive = false;
+      pieces.forEach(function (p) {
+        if (p.life > maxLife) return;
+        p.x += p.vx;
+        p.y += p.vy;
+        p.vy += p.g;
+        p.rot += p.vr;
+        p.life++;
+        anyAlive = true;
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate(p.rot);
+        ctx.globalAlpha = Math.max(0, 1 - p.life / maxLife);
+        ctx.fillStyle = p.color;
+        ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * 0.6);
+        ctx.restore();
+      });
+      if (anyAlive) requestAnimationFrame(frame);
+      else ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+    requestAnimationFrame(frame);
+  }
+
+  /* ===== Slider value formatters ===== */
+  var ENERGY_LABELS = { 1: "Couch potato", 2: "Low-key", 3: "Moderate", 4: "Active", 5: "Marathon runner" };
+  function updateSliderUI() {
+    document.getElementById("fmb-energy-val").textContent = ENERGY_LABELS[state.energy];
+    document.getElementById("fmb-alone-val").textContent = state.aloneHours + " hour" + (state.aloneHours === 1 ? "" : "s");
+    var er = document.getElementById("fmb-energy");
+    er.style.setProperty("--pct", ((state.energy - 1) / 4) * 100 + "%");
+    var ar = document.getElementById("fmb-alone");
+    ar.style.setProperty("--pct", (state.aloneHours / 12) * 100 + "%");
+  }
+
+  /* ===== Wire up controls ===== */
+  function wire() {
+    // Species tiles
+    document.querySelectorAll("#fmb-species-tiles .fmb-tile").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        state.species = btn.getAttribute("data-species");
+        document.querySelectorAll("#fmb-species-tiles .fmb-tile").forEach(function (b) { b.classList.remove("selected"); });
+        btn.classList.add("selected");
+        document.getElementById("fmb-next-0").disabled = false;
+      });
+    });
+    document.getElementById("fmb-next-0").addEventListener("click", function () { goToStep(1); });
+
+    // Lifestyle sliders
+    var energyEl = document.getElementById("fmb-energy");
+    energyEl.addEventListener("input", function () {
+      state.energy = parseInt(energyEl.value, 10);
+      updateSliderUI();
+      updatePreview();
+    });
+    var aloneEl = document.getElementById("fmb-alone");
+    aloneEl.addEventListener("input", function () {
+      state.aloneHours = parseInt(aloneEl.value, 10);
+      updateSliderUI();
+      updatePreview();
+    });
+    // Space tiles
+    document.querySelectorAll("#fmb-space-tiles .fmb-tile").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        state.space = btn.getAttribute("data-space");
+        document.querySelectorAll("#fmb-space-tiles .fmb-tile").forEach(function (b) { b.classList.remove("selected"); });
+        btn.classList.add("selected");
+        updatePreview();
+      });
+    });
+    document.getElementById("fmb-next-1").addEventListener("click", function () { goToStep(2); });
+
+    // Household toggles
+    document.querySelectorAll(".fmb-mini-toggle").forEach(function (group) {
+      var key = group.getAttribute("data-key");
+      group.querySelectorAll("button").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          group.querySelectorAll("button").forEach(function (b) { b.classList.remove("selected"); });
+          btn.classList.add("selected");
+          state[key] = btn.getAttribute("data-val") === "true";
+          updatePreview();
+        });
+      });
+    });
+    document.getElementById("fmb-next-2").addEventListener("click", function () { goToStep(3); });
+
+    // Priority chips
+    document.querySelectorAll("#fmb-priority-chips .fmb-chip").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var p = btn.getAttribute("data-priority");
+        var idx = state.priorities.indexOf(p);
+        if (idx >= 0) {
+          state.priorities.splice(idx, 1);
+          btn.classList.remove("selected");
+        } else {
+          if (state.priorities.length >= 3) {
+            // Replace oldest selection
+            var dropped = state.priorities.shift();
+            var droppedBtn = document.querySelector('#fmb-priority-chips .fmb-chip[data-priority="' + dropped + '"]');
+            if (droppedBtn) droppedBtn.classList.remove("selected");
+          }
+          state.priorities.push(p);
+          btn.classList.add("selected");
+        }
+        document.getElementById("fmb-chip-count").textContent = state.priorities.length;
+        updatePreview();
+      });
+    });
+    document.getElementById("fmb-next-3").addEventListener("click", function () { goToStep(4); });
+
+    // Back buttons
+    document.querySelectorAll("[data-back]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        goToStep(parseInt(btn.getAttribute("data-back"), 10));
+      });
+    });
+
+    // Restart
+    document.getElementById("fmb-restart").addEventListener("click", function () {
+      state = {
+        species: null, energy: 3, aloneHours: 6, space: "medium",
+        kids: false, strangers: false, newbie: false, priorities: []
+      };
+      // Reset UI
+      document.querySelectorAll(".fmb-tile, .fmb-chip").forEach(function (b) { b.classList.remove("selected"); });
+      document.querySelector('#fmb-space-tiles .fmb-tile[data-space="medium"]').classList.add("selected");
+      document.querySelectorAll(".fmb-mini-toggle").forEach(function (g) {
+        g.querySelectorAll("button").forEach(function (b) { b.classList.remove("selected"); });
+        g.querySelector('button[data-val="false"]').classList.add("selected");
+      });
+      document.getElementById("fmb-energy").value = 3;
+      document.getElementById("fmb-alone").value = 6;
+      document.getElementById("fmb-chip-count").textContent = "0";
+      document.getElementById("fmb-next-0").disabled = true;
+      updateSliderUI();
+      goToStep(0);
+    });
+
+    // Share results
+    document.getElementById("fmb-share").addEventListener("click", function () {
+      var btn = this;
+      var qs = new URLSearchParams();
+      qs.set("s", state.species || "either");
+      qs.set("e", state.energy);
+      qs.set("a", state.aloneHours);
+      qs.set("sp", state.space);
+      if (state.kids) qs.set("k", "1");
+      if (state.strangers) qs.set("st", "1");
+      if (state.newbie) qs.set("nb", "1");
+      if (state.priorities.length) qs.set("p", state.priorities.join(","));
+      var url = location.origin + location.pathname + "?" + qs.toString();
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(function () {
+          var orig = btn.textContent;
+          btn.textContent = "✓ Copied!";
+          setTimeout(function () { btn.textContent = orig; }, 1800);
+        });
+      } else {
+        prompt("Copy your results link:", url);
+      }
+    });
+  }
+
+  /* ===== Restore state from URL query (for shared links) ===== */
+  function restoreFromUrl() {
+    var qs = new URLSearchParams(location.search);
+    if (!qs.has("s")) return false;
+    state.species = qs.get("s") || "either";
+    state.energy = parseInt(qs.get("e") || "3", 10);
+    state.aloneHours = parseInt(qs.get("a") || "6", 10);
+    state.space = qs.get("sp") || "medium";
+    state.kids = qs.get("k") === "1";
+    state.strangers = qs.get("st") === "1";
+    state.newbie = qs.get("nb") === "1";
+    state.priorities = (qs.get("p") || "").split(",").filter(Boolean).slice(0, 3);
+    return true;
+  }
+
+  /* ===== Init ===== */
+  function init() {
+    wire();
+    updateSliderUI();
+    ensureData().then(function () {
+      if (restoreFromUrl()) {
+        // Skip to results
+        goToStep(4);
+      }
+    }).catch(function (e) {
+      console.error("find-my-breed init failed", e);
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+})();
+</script>
+</body>
+</html>

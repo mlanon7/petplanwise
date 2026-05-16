@@ -26,6 +26,7 @@
     '            <a href="/emergency-vet-cost-calculator/" role="menuitem"><span class="nav-dd-title">Emergency Vet</span><span class="nav-dd-sub">ER scenario ranges</span></a>\n' +
     '            <a href="/pet-insurance-vs-savings/" role="menuitem"><span class="nav-dd-title">Insurance vs Savings</span><span class="nav-dd-sub">Break-even calculator</span></a>\n' +
     '            <div class="nav-dd-divider" role="separator" aria-hidden="true"></div>\n' +
+    '            <a href="/find-my-breed/" role="menuitem" data-nav-section="find-my-breed"><span class="nav-dd-title">Find My Breed</span><span class="nav-dd-sub">5-question match quiz</span></a>\n' +
     '            <a href="/states/" role="menuitem" data-nav-section="states"><span class="nav-dd-title">By State</span><span class="nav-dd-sub">25 state-prefilled calculators</span></a>\n' +
     '          </div>\n' +
     '        </div>\n' +
@@ -72,6 +73,7 @@
     '        <div>\n' +
     '          <h4>Browse</h4>\n' +
     '          <a href="/breeds/">All Breeds</a>\n' +
+    '          <a href="/find-my-breed/">Find My Breed</a>\n' +
     '          <a href="/compare/">Compare Breeds</a>\n' +
     '          <a href="/states/">By State</a>\n' +
     '          <a href="/vet-costs/">Vet Procedures</a>\n' +
@@ -196,7 +198,7 @@
       var p = window.location.pathname;
       var section = null;
       if (/^\/compare\//.test(p)) section = "compare";
-      else if (/^\/(dog-cost-calculator|cat-cost-calculator|vet-bill-calculator|emergency-vet-cost-calculator)\//.test(p)) section = "calculators";
+      else if (/^\/(dog-cost-calculator|cat-cost-calculator|vet-bill-calculator|emergency-vet-cost-calculator|find-my-breed)\//.test(p)) section = "calculators";
       else if (/^\/pet-insurance-vs-savings\//.test(p)) section = "insurance";
       else if (/^\/breeds\//.test(p)) section = "breeds";
       else if (/^\/states\//.test(p)) section = "states";
