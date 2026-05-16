@@ -43,7 +43,7 @@
     '            <a href="/compare/" role="menuitem"><span class="nav-dd-title">Compare two breeds</span><span class="nav-dd-sub">Side-by-side trait bars</span></a>\n' +
     '          </div>\n' +
     '        </div>\n' +
-    '        <a href="/find-my-breed/" class="nav-highlight" data-nav-section="find-my-breed">\n' +
+    '        <a href="/find-my-breed/" data-nav-section="find-my-breed">\n' +
     '          <svg class="nav-ico" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M12 2.5l1.9 5.6 5.6 1.9-5.6 1.9L12 17.5l-1.9-5.6L4.5 10l5.6-1.9L12 2.5z"/><circle cx="19" cy="19" r="2"/><circle cx="5" cy="19" r="1.5"/></svg>\n' +
     '          Find My Breed\n' +
     '        </a>\n' +
