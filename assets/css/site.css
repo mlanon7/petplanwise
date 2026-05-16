@@ -1730,10 +1730,10 @@ section { padding: 48px 0; }
    Brand logo (new PetPlanWise.com SVG)
    ============================================================ */
 .brand-logo {
-  height: 50px;
+  height: 58px;
   width: auto;
   display: block;
-  max-width: 280px;
+  max-width: 320px;
 }
 .site-header .brand {
   display: inline-flex;
@@ -1741,7 +1741,7 @@ section { padding: 48px 0; }
   text-decoration: none;
 }
 @media (max-width: 720px) {
-  .brand-logo { height: 40px; max-width: 220px; }
+  .brand-logo { height: 46px; max-width: 240px; }
 }
 
 
