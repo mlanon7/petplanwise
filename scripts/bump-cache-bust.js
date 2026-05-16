@@ -10,13 +10,13 @@ const fs = require("fs");
 const path = require("path");
 
 const ROOT = path.resolve(__dirname, "..");
-const OLD_V = "20260516g";
-const NEW_V = "20260516h";
+const OLD_V = "20260516h";
+const NEW_V = "20260516i";
 
 const RENAMES = [
-  ["assets/js/layout-20260516g.js", "assets/js/layout-20260516h.js"],
-  ["assets/js/calculator-20260516g.js", "assets/js/calculator-20260516h.js"],
-  ["assets/data/csv-loader-20260516g.js", "assets/data/csv-loader-20260516h.js"],
+  ["assets/js/layout-20260516h.js", "assets/js/layout-20260516i.js"],
+  ["assets/js/calculator-20260516h.js", "assets/js/calculator-20260516i.js"],
+  ["assets/data/csv-loader-20260516h.js", "assets/data/csv-loader-20260516i.js"],
 ];
 
 // 1) Rename files on disk.
@@ -45,15 +45,21 @@ const files = walk(ROOT, []);
 let changed = 0;
 const replacements = [
   ["v=" + OLD_V, "v=" + NEW_V],
-  ["layout-20260516g.js", "layout-20260516h.js"],
-  ["calculator-20260516g.js", "calculator-20260516h.js"],
-  ["csv-loader-20260516g.js", "csv-loader-20260516h.js"],
+  ["layout-20260516h.js", "layout-20260516i.js"],
+  ["calculator-20260516h.js", "calculator-20260516i.js"],
+  ["csv-loader-20260516h.js", "csv-loader-20260516i.js"],
 ];
+
+/* Force any hero.{jpg,svg,png,webp}?v=... to NEW_V — older breed pages
+   may carry stale cache-bust strings from before this script existed,
+   so a literal split-and-join won't catch them. This regex sweep does. */
+const heroRe = /(hero\.(?:jpg|svg|png|webp))\?v=[a-z0-9]+/g;
 
 for (const f of files) {
   let html = fs.readFileSync(f, "utf8");
   const orig = html;
   for (const [from, to] of replacements) html = html.split(from).join(to);
+  html = html.replace(heroRe, '$1?v=' + NEW_V);
   if (html !== orig) {
     fs.writeFileSync(f, html, "utf8");
     changed++;

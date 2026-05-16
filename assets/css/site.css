@@ -97,7 +97,7 @@ hr { border: 0; border-top: 1px solid var(--border); margin: 2.5rem 0; }
   font-family: inherit;
   display: inline-flex; align-items: center; gap: 6px;
 }
-.nav a:hover, .nav-dropdown-toggle:hover { background: var(--surface-2); color: var(--ink); }
+.nav a:hover, .nav-dropdown-toggle:hover { background: rgba(15,118,110,0.08); color: var(--primary-700, #115E59); }
 .nav a:focus-visible, .nav-dropdown-toggle:focus-visible {
   outline: 2px solid var(--primary, #0F766E); outline-offset: 2px;
 }
@@ -176,7 +176,7 @@ hr { border: 0; border-top: 1px solid var(--border); margin: 2.5rem 0; }
   color: var(--primary-700, #115E59);
   font-weight: 600;
 }
-.nav a.nav-highlight:hover { background: rgba(15,118,110,0.12); color: var(--primary-700, #115E59); }
+.nav a.nav-highlight:hover { background: rgba(15,118,110,0.14); color: var(--primary-700, #115E59); }
 .nav a.nav-highlight .nav-ico { color: var(--primary, #0F766E); }
 .nav a.nav-highlight[aria-current="page"] {
   background: rgba(15,118,110,0.12);
