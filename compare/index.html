@@ -21,8 +21,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" data-ppw-inter>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin data-ppw-inter>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" data-ppw-inter>
-  <link rel="stylesheet" href="/assets/css/site.css?v=20260515g" />
-  <script src="/assets/data/csv-loader-20260515g.js" defer></script>
+  <link rel="stylesheet" href="/assets/css/site.css?v=20260515h" />
+  <script src="/assets/data/csv-loader-20260515h.js" defer></script>
   <script src="/assets/data/base-costs.js" defer></script>
   <script src="/assets/data/multipliers.js" defer></script>
   <script src="/assets/data/breeds.js" defer></script>
@@ -30,8 +30,8 @@
   <script src="/assets/data/insurance.js" defer></script>
   <script src="/assets/data/cities.js" defer></script>
   <script src="/assets/data/breed-images.js" defer></script>
-  <script src="/assets/js/layout-20260515g.js" defer></script>
-  <script src="/assets/js/calculator-20260515g.js" defer></script>
+  <script src="/assets/js/layout-20260515h.js" defer></script>
+  <script src="/assets/js/calculator-20260515h.js" defer></script>
 
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
@@ -215,21 +215,27 @@
       font-size: 14px;
       margin: 0 0 18px;
     }
-    /* New: vertical bar layout per trait — label above, two stacked bars below */
+    /* Side-by-side trait rows: label | bar A | bar B
+       Each bar cell internally uses the new pill design (score on left,
+       gradient pill, HIGHEST badge). */
     .cmp-trait {
+      display: grid;
+      grid-template-columns: minmax(110px, 1fr) 1.4fr 1.4fr;
+      align-items: center;
+      gap: 12px 16px;
       padding: 14px 0;
       border-bottom: 1px solid var(--border, #E8DFC7);
     }
     .cmp-trait:last-child { border-bottom: 0; }
     .cmp-trait-header {
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 700;
       color: var(--ink, #1F2937);
-      margin: 0 0 10px;
+      line-height: 1.35;
     }
     .cmp-trait-header .hint {
       display: block;
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 400;
       color: var(--muted, #6B7280);
       margin-top: 2px;
@@ -237,13 +243,13 @@
     .cmp-trait-bar {
       display: flex;
       align-items: center;
-      gap: 12px;
-      padding: 4px 0;
+      gap: 10px;
+      min-width: 0; /* let flex children shrink */
     }
     .cmp-trait-score {
       flex: 0 0 auto;
-      min-width: 64px;
-      font-size: 14px;
+      min-width: 52px;
+      font-size: 13px;
       font-weight: 800;
       color: var(--ink, #1F2937);
       text-align: right;
@@ -251,18 +257,19 @@
       letter-spacing: -0.01em;
     }
     .cmp-trait-score .max {
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 500;
       color: var(--muted, #6B7280);
-      margin-left: 2px;
+      margin-left: 1px;
     }
     .cmp-trait-track {
       flex: 1 1 auto;
       position: relative;
-      height: 14px;
+      height: 12px;
       background: var(--surface-2, #FBF6E8);
       border-radius: 999px;
       overflow: hidden;
+      min-width: 40px;
     }
     .cmp-trait-fill {
       height: 100%;
@@ -278,32 +285,31 @@
     }
     .cmp-trait-badge {
       flex: 0 0 auto;
-      min-width: 72px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 4px 10px;
+      padding: 3px 8px;
       background: var(--cmp-a, #0F766E);
       color: #fff;
-      font-size: 10px;
+      font-size: 9px;
       font-weight: 800;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       border-radius: 999px;
       box-shadow: 0 2px 4px rgba(15,118,110,0.20);
+      white-space: nowrap;
     }
     .cmp-trait-bar.is-b .cmp-trait-badge {
       background: var(--cmp-b, #B91C5C);
       box-shadow: 0 2px 4px rgba(185,28,92,0.20);
     }
-    .cmp-trait-badge.is-empty {
-      background: transparent;
-      box-shadow: none;
-      pointer-events: none;
-    }
-    @media (max-width: 640px) {
-      .cmp-trait-score { min-width: 56px; font-size: 13px; }
-      .cmp-trait-badge { min-width: 0; padding: 3px 8px; font-size: 9px; }
+    /* Hide the empty-slot badge entirely so the bar can use the freed space */
+    .cmp-trait-badge.is-empty { display: none; }
+
+    @media (max-width: 720px) {
+      /* On narrow screens: stack label + two bars vertically. */
+      .cmp-trait { grid-template-columns: 1fr; gap: 6px 0; }
+      .cmp-trait-header { margin-bottom: 4px; }
     }
 
     /* Cost block */
