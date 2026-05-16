@@ -2067,6 +2067,14 @@ main .container.prose h2,
   border-radius: 0 !important;
   display: block !important;
 }
+/* Per-breed crop overrides: some source photos sit the dog's face higher
+   or lower in the frame than the default centered 1:1 crop expects.
+   Shift the focal point so the full face (eyes through mouth) stays in
+   the visible window. Add a selector here when a photo crops badly. */
+.breed-hero-static img[src*="/pembroke-welsh-corgi-cost/"],
+.breed-hero-static img[src*="/soft-coated-wheaten-terrier-cost/"] {
+  object-position: center 30% !important;
+}
 @media (max-width: 540px) {
   .breed-hero-static { max-width: 92vw !important; }
 }
