@@ -62,7 +62,9 @@
       "Bash(echo \"--- worktree breed_images ---\"; ls -la breed_images/ 2>&1 | head -20; echo \"\"; echo \"--- main repo breed_images ---\"; ls -la \"D:/claude projects/petcost-bill/breed_images/\" 2>&1 | head -10; echo \"\"; echo \"--- did the new folders land in worktree? ---\"; ls breed_images/vizsla/ breed_images/savannah-cat/ breed_images/abyssinian/ 2>/dev/null)",
       "Bash(awk '{print $NF}')",
       "Bash(awk -F/ '{print $1}')",
-      "Bash(git add *)"
+      "Bash(git add *)",
+      "Bash(grep -v '\\\\.sample$')",
+      "Bash(git commit -m ' *)"
     ]
   }
 }
