@@ -36,7 +36,7 @@
     '            <svg class="chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>\n' +
     '          </button>\n' +
     '          <div class="nav-dropdown" role="menu">\n' +
-    '            <a href="/breeds/" role="menuitem"><span class="nav-dd-title">All Breeds</span><span class="nav-dd-sub">66 dogs &amp; cats · photos · traits · costs</span></a>\n' +
+    '            <a href="/breeds/" role="menuitem"><span class="nav-dd-title">All Breeds</span><span class="nav-dd-sub">71 dogs &amp; cats · photos · traits · costs</span></a>\n' +
     '            <a href="/breeds/labrador-retriever-cost/" role="menuitem"><span class="nav-dd-title">Labrador Retriever</span><span class="nav-dd-sub">Most popular U.S. dog</span></a>\n' +
     '            <a href="/breeds/french-bulldog-cost/" role="menuitem"><span class="nav-dd-title">French Bulldog</span><span class="nav-dd-sub">Currently #1 per AKC</span></a>\n' +
     '            <a href="/breeds/maine-coon-cat-cost/" role="menuitem"><span class="nav-dd-title">Maine Coon</span><span class="nav-dd-sub">Most popular U.S. cat</span></a>\n' +
