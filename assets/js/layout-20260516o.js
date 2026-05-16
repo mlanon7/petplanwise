@@ -154,7 +154,19 @@
       closeBtn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg>';
       nav.insertBefore(closeBtn, nav.firstChild);
 
+      /* Remember the nav's original parent so we can put it back on close.
+         The header has backdrop-filter which creates a stacking context
+         that traps z-index — moving the nav to body (root context) lets
+         the panel + backdrop layer correctly. */
+      var navOriginalParent = nav.parentNode;
+      var navOriginalNextSibling = nav.nextSibling;
+
       function openMobileNav() {
+        /* Lift the panel out of the header's stacking context so the
+           backdrop doesn't end up on top of the nav */
+        if (nav.parentNode !== document.body) document.body.appendChild(nav);
+        /* Force-reflow before adding .open so the transform transition plays */
+        void nav.offsetWidth;
         nav.classList.add("open");
         backdrop.classList.add("is-active");
         document.body.classList.add("nav-locked");
@@ -172,6 +184,15 @@
           var t = item.querySelector(".nav-dropdown-toggle");
           if (t) t.setAttribute("aria-expanded", "false");
         });
+        /* Restore the nav to its original DOM location AFTER the slide-out
+           transition completes (250ms), so the close animation is visible.
+           Guarded against rapid re-open: if user toggled back open before
+           the timeout, leave the nav in body. */
+        setTimeout(function () {
+          if (!nav.classList.contains("open") && nav.parentNode === document.body && navOriginalParent) {
+            navOriginalParent.insertBefore(nav, navOriginalNextSibling);
+          }
+        }, 260);
       }
 
       tog.addEventListener("click", function () {
@@ -196,9 +217,15 @@
         }
       });
 
-      /* If viewport grows back above 820px while menu is open, reset state */
+      /* If viewport grows back above 820px while menu is open, reset state +
+         move nav back to header so desktop flex layout renders correctly. */
       window.addEventListener("resize", function () {
-        if (window.innerWidth > 820 && nav.classList.contains("open")) closeMobileNav();
+        if (window.innerWidth > 820) {
+          if (nav.classList.contains("open")) closeMobileNav();
+          if (nav.parentNode === document.body && navOriginalParent) {
+            navOriginalParent.insertBefore(nav, navOriginalNextSibling);
+          }
+        }
       });
     }
 
