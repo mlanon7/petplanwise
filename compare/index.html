@@ -21,8 +21,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" data-ppw-inter>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin data-ppw-inter>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" data-ppw-inter>
-  <link rel="stylesheet" href="/assets/css/site.css?v=20260515f" />
-  <script src="/assets/data/csv-loader-20260515f.js" defer></script>
+  <link rel="stylesheet" href="/assets/css/site.css?v=20260515g" />
+  <script src="/assets/data/csv-loader-20260515g.js" defer></script>
   <script src="/assets/data/base-costs.js" defer></script>
   <script src="/assets/data/multipliers.js" defer></script>
   <script src="/assets/data/breeds.js" defer></script>
@@ -30,8 +30,8 @@
   <script src="/assets/data/insurance.js" defer></script>
   <script src="/assets/data/cities.js" defer></script>
   <script src="/assets/data/breed-images.js" defer></script>
-  <script src="/assets/js/layout-20260515f.js" defer></script>
-  <script src="/assets/js/calculator-20260515f.js" defer></script>
+  <script src="/assets/js/layout-20260515g.js" defer></script>
+  <script src="/assets/js/calculator-20260515g.js" defer></script>
 
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
@@ -215,55 +215,95 @@
       font-size: 14px;
       margin: 0 0 18px;
     }
-    .cmp-bar-row {
-      display: grid;
-      grid-template-columns: minmax(110px, 1fr) 1fr 1fr;
-      align-items: center;
-      gap: 10px 14px;
-      padding: 12px 0;
+    /* New: vertical bar layout per trait — label above, two stacked bars below */
+    .cmp-trait {
+      padding: 14px 0;
       border-bottom: 1px solid var(--border, #E8DFC7);
     }
-    .cmp-bar-row:last-child { border-bottom: 0; }
-    .cmp-bar-label {
-      font-size: 13px;
-      font-weight: 600;
+    .cmp-trait:last-child { border-bottom: 0; }
+    .cmp-trait-header {
+      font-size: 14px;
+      font-weight: 700;
       color: var(--ink, #1F2937);
+      margin: 0 0 10px;
     }
-    .cmp-bar-label .hint { display: block; font-size: 11px; color: var(--muted, #6B7280); font-weight: 400; margin-top: 2px; }
-    .cmp-bar {
+    .cmp-trait-header .hint {
+      display: block;
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--muted, #6B7280);
+      margin-top: 2px;
+    }
+    .cmp-trait-bar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 4px 0;
+    }
+    .cmp-trait-score {
+      flex: 0 0 auto;
+      min-width: 64px;
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--ink, #1F2937);
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      letter-spacing: -0.01em;
+    }
+    .cmp-trait-score .max {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--muted, #6B7280);
+      margin-left: 2px;
+    }
+    .cmp-trait-track {
+      flex: 1 1 auto;
       position: relative;
-      height: 26px;
-      border-radius: 6px;
+      height: 14px;
       background: var(--surface-2, #FBF6E8);
+      border-radius: 999px;
       overflow: hidden;
     }
-    .cmp-bar.is-a .cmp-bar-fill { background: linear-gradient(90deg, var(--cmp-a-strong), var(--cmp-a)); }
-    .cmp-bar.is-b .cmp-bar-fill { background: linear-gradient(90deg, var(--cmp-b-strong), var(--cmp-b)); }
-    .cmp-bar-fill {
-      position: absolute;
-      left: 0; top: 0; bottom: 0;
+    .cmp-trait-fill {
+      height: 100%;
       width: 0;
-      border-radius: 6px;
-      transition: width 600ms cubic-bezier(.2,.8,.2,1);
+      border-radius: 999px;
+      transition: width 700ms cubic-bezier(.2,.8,.2,1);
     }
-    .cmp-bar-value {
-      position: relative;
-      z-index: 1;
+    .cmp-trait-bar.is-a .cmp-trait-fill {
+      background: linear-gradient(90deg, #14B8A6 0%, var(--cmp-a, #0F766E) 100%);
+    }
+    .cmp-trait-bar.is-b .cmp-trait-fill {
+      background: linear-gradient(90deg, #FB7185 0%, var(--cmp-b, #B91C5C) 100%);
+    }
+    .cmp-trait-badge {
+      flex: 0 0 auto;
+      min-width: 72px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px 10px;
+      background: var(--cmp-a, #0F766E);
       color: #fff;
-      font-size: 12px;
-      font-weight: 700;
-      padding: 0 10px;
-      line-height: 26px;
-      mix-blend-mode: normal;
-      text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-radius: 999px;
+      box-shadow: 0 2px 4px rgba(15,118,110,0.20);
     }
-    .cmp-bar.is-low .cmp-bar-value {
-      color: var(--ink, #1F2937);
-      text-shadow: none;
+    .cmp-trait-bar.is-b .cmp-trait-badge {
+      background: var(--cmp-b, #B91C5C);
+      box-shadow: 0 2px 4px rgba(185,28,92,0.20);
+    }
+    .cmp-trait-badge.is-empty {
+      background: transparent;
+      box-shadow: none;
+      pointer-events: none;
     }
     @media (max-width: 640px) {
-      .cmp-bar-row { grid-template-columns: 1fr; gap: 6px; }
-      .cmp-bar-label { font-size: 14px; }
+      .cmp-trait-score { min-width: 56px; font-size: 13px; }
+      .cmp-trait-badge { min-width: 0; padding: 3px 8px; font-size: 9px; }
     }
 
     /* Cost block */
@@ -419,7 +459,7 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .cmp-bar-fill, .cmp-swap-btn, .cmp-action-btn, .cmp-breed-card { transition: none; }
+      .cmp-trait-fill, .cmp-swap-btn, .cmp-action-btn, .cmp-breed-card { transition: none; }
     }
   </style>
 </head>
@@ -599,14 +639,39 @@
     return { pctA: pctA, pctB: pctB, displayA: displayA, displayB: displayB };
   }
 
-  function barRow(label, hint, pctA, pctB, displayA, displayB) {
-    var lowA = pctA < 22 ? " is-low" : "";
-    var lowB = pctB < 22 ? " is-low" : "";
-    return '<div class="cmp-bar-row">' +
-      '<div class="cmp-bar-label">' + escapeHtml(label) + (hint ? '<span class="hint">' + escapeHtml(hint) + '</span>' : '') + '</div>' +
-      '<div class="cmp-bar is-a' + lowA + '"><div class="cmp-bar-fill" data-target="' + pctA + '"></div><span class="cmp-bar-value">' + escapeHtml(displayA) + '</span></div>' +
-      '<div class="cmp-bar is-b' + lowB + '"><div class="cmp-bar-fill" data-target="' + pctB + '"></div><span class="cmp-bar-value">' + escapeHtml(displayB) + '</span></div>' +
+  /* Format the score column: "9 /10" for normalized 1-10 traits,
+     "58 lb" / "13 yrs" etc. for unit-bearing traits. The suffix arg
+     tells us which mode to use. */
+  function scoreHtml(value, suffix) {
+    if (suffix === "/10") {
+      return escapeHtml(String(value)) + ' <span class="max">/10</span>';
+    }
+    return escapeHtml(String(value) + (suffix || ""));
+  }
+
+  function barRow(label, hint, pctA, pctB, valA, valB, displayA, displayB, suffix) {
+    /* Decide which side gets the HIGHEST badge — uses raw numeric value
+       so we don't get fooled by string-vs-number compare. */
+    var nA = parseFloat(valA), nB = parseFloat(valB);
+    var aWins = isFinite(nA) && isFinite(nB) && nA > nB;
+    var bWins = isFinite(nA) && isFinite(nB) && nB > nA;
+
+    function side(klass, isWinner, pct, display) {
+      var badge = isWinner
+        ? '<span class="cmp-trait-badge">HIGHEST</span>'
+        : '<span class="cmp-trait-badge is-empty" aria-hidden="true"></span>';
+      return '<div class="cmp-trait-bar ' + klass + '">' +
+        '<span class="cmp-trait-score">' + display + '</span>' +
+        '<div class="cmp-trait-track"><div class="cmp-trait-fill" data-target="' + pct + '"></div></div>' +
+        badge +
       '</div>';
+    }
+
+    return '<div class="cmp-trait">' +
+      '<div class="cmp-trait-header">' + escapeHtml(label) + (hint ? '<span class="hint">' + escapeHtml(hint) + '</span>' : '') + '</div>' +
+      side("is-a", aWins, pctA, scoreHtml(valA, suffix)) +
+      side("is-b", bWins, pctB, scoreHtml(valB, suffix)) +
+    '</div>';
   }
 
   /* Build a one-sentence "Pick A if..." verdict based on trait differences */
@@ -694,7 +759,9 @@
     function row(label, hint, valA, valB, scaleMax, suffix) {
       var pctA = Math.max(2, Math.min(100, (valA / scaleMax) * 100));
       var pctB = Math.max(2, Math.min(100, (valB / scaleMax) * 100));
-      return barRow(label, hint, pctA, pctB, valA + (suffix || ""), valB + (suffix || ""));
+      // Pass raw numeric values to barRow so it can pick the HIGHEST badge;
+      // suffix (e.g. "/10", " lb", " yrs") drives display formatting only.
+      return barRow(label, hint, pctA, pctB, valA, valB, valA + (suffix || ""), valB + (suffix || ""), suffix);
     }
     function num(v) { return parseInt(v, 10) || 0; }
     function range(v) {
@@ -776,7 +843,7 @@
     // Animate bars from 0% to target
     requestAnimationFrame(function () {
       requestAnimationFrame(function () {
-        results.querySelectorAll(".cmp-bar-fill").forEach(function (el) {
+        results.querySelectorAll(".cmp-trait-fill").forEach(function (el) {
           el.style.width = el.getAttribute("data-target") + "%";
         });
       });
