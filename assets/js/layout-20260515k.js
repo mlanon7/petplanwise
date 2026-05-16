@@ -25,6 +25,8 @@
     '            <a href="/vet-bill-calculator/" role="menuitem"><span class="nav-dd-title">Vet Bill Builder</span><span class="nav-dd-sub">Line-item procedure costs</span></a>\n' +
     '            <a href="/emergency-vet-cost-calculator/" role="menuitem"><span class="nav-dd-title">Emergency Vet</span><span class="nav-dd-sub">ER scenario ranges</span></a>\n' +
     '            <a href="/pet-insurance-vs-savings/" role="menuitem"><span class="nav-dd-title">Insurance vs Savings</span><span class="nav-dd-sub">Break-even calculator</span></a>\n' +
+    '            <div class="nav-dd-divider" role="separator" aria-hidden="true"></div>\n' +
+    '            <a href="/states/" role="menuitem" data-nav-section="states"><span class="nav-dd-title">By State</span><span class="nav-dd-sub">25 state-prefilled calculators</span></a>\n' +
     '          </div>\n' +
     '        </div>\n' +
     '        <a href="/compare/" data-nav-section="compare">\n' +
@@ -45,10 +47,6 @@
     '            <a href="/compare/" role="menuitem"><span class="nav-dd-title">Compare two breeds</span><span class="nav-dd-sub">Side-by-side trait bars</span></a>\n' +
     '          </div>\n' +
     '        </div>\n' +
-    '        <a href="/states/" data-nav-section="states">\n' +
-    '          <svg class="nav-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>\n' +
-    '          By State\n' +
-    '        </a>\n' +
     '        <a href="/guides/" data-nav-section="guides">\n' +
     '          <svg class="nav-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>\n' +
     '          Guides\n' +
