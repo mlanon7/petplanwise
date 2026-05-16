@@ -205,8 +205,9 @@
       node.parentNode.insertBefore(row, node);
     });
 
-    /* Searchable filter on hub pages */
-    var hubPaths = ["/guides/", "/breeds/", "/states/", "/vet-costs/"];
+    /* Searchable filter on hub pages.
+       /breeds/ is excluded — it has its own search + species-filter UI. */
+    var hubPaths = ["/guides/", "/states/", "/vet-costs/"];
     if (hubPaths.indexOf(path) >= 0) {
       var firstGrid = document.querySelector("main .grid.grid-3, main .grid.grid-4");
       if (firstGrid && !document.querySelector(".hub-search")) {
