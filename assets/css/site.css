@@ -937,6 +937,38 @@ section { padding: 48px 0; }
   outline-offset: 2px;
 }
 
+/* ============================================================
+   Hub search — JS-injected on /guides/, /states/, /vet-costs/
+   ============================================================ */
+.hub-search {
+  background: #fff;
+  border: 1px solid var(--border, #E8DFC7);
+  border-radius: 14px;
+  padding: 16px 18px;
+  margin: 0 0 22px;
+  box-shadow: 0 1px 2px rgba(15,23,42,0.04);
+}
+.hub-search input[type="search"] {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1.5px solid var(--border-2, #D9CFB5);
+  border-radius: 10px;
+  font: inherit;
+  font-size: 16px;
+  background: #fff;
+  color: var(--ink, #1F2937);
+  outline: none;
+  transition: border-color 150ms, box-shadow 150ms;
+}
+.hub-search input[type="search"]::placeholder {
+  color: var(--muted, #6B7280);
+}
+.hub-search input[type="search"]:focus {
+  border-color: var(--primary, #0F766E);
+  box-shadow: 0 0 0 3px rgba(15,118,110,0.15);
+}
+.hub-card-hidden { display: none !important; }
+
 /* Print stylesheet — hide nav, footer, trust strips; keep estimate readable */
 @media print {
   .site-header, .site-footer, .nav, .nav-toggle,
