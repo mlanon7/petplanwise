@@ -156,6 +156,32 @@ hr { border: 0; border-top: 1px solid var(--border); margin: 2.5rem 0; }
 .nav a.nav-cta:hover { background: var(--primary-700, #115E59); color: #fff; }
 .nav a.nav-cta[aria-current="page"] { background: var(--primary-700, #115E59); color: #fff; }
 
+/* "Compare" — first nav item, subtle teal-tinted pill with icon */
+.nav a.nav-compare {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 12px;
+  background: linear-gradient(135deg, rgba(15,118,110,0.08) 0%, rgba(185,28,92,0.06) 100%);
+  border: 1px solid rgba(15,118,110,0.25);
+  color: var(--primary-700, #115E59);
+  font-weight: 600;
+  border-radius: 999px;
+  margin-right: 4px;
+}
+.nav a.nav-compare svg { color: var(--primary, #0F766E); }
+.nav a.nav-compare:hover {
+  background: linear-gradient(135deg, rgba(15,118,110,0.15) 0%, rgba(185,28,92,0.12) 100%);
+  border-color: var(--primary, #0F766E);
+  color: var(--primary-700, #115E59);
+}
+.nav a.nav-compare[aria-current="page"] {
+  background: var(--primary, #0F766E);
+  border-color: var(--primary, #0F766E);
+  color: #fff;
+}
+.nav a.nav-compare[aria-current="page"] svg { color: #fff; }
+
 .nav-toggle { display: none; background: none; border: 0; padding: 8px; cursor: pointer; color: var(--ink); }
 
 @media (max-width: 820px) {
@@ -186,6 +212,17 @@ hr { border: 0; border-top: 1px solid var(--border); margin: 2.5rem 0; }
     text-align: center;
     justify-content: center;
     border-radius: 8px;
+  }
+  /* Mobile: flatten the Compare pill into a regular list item */
+  .nav a.nav-compare {
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid var(--border);
+    border-radius: 0;
+    margin-right: 0;
+    padding: 12px 8px;
+    justify-content: flex-start;
+    color: var(--primary-700, #115E59);
   }
 }
 

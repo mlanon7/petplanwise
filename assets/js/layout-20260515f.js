@@ -13,6 +13,10 @@
     '        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>\n' +
     '      </button>\n' +
     '      <nav class="nav" aria-label="Primary">\n' +
+    '        <a href="/compare/" class="nav-compare" data-nav-section="compare" aria-label="Compare breeds side by side">\n' +
+    '          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>\n' +
+    '          Compare\n' +
+    '        </a>\n' +
     '        <div class="nav-item nav-has-dropdown">\n' +
     '          <button type="button" class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true" data-nav-section="calculators">Calculators\n' +
     '            <svg class="chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>\n' +
@@ -158,7 +162,8 @@
     (function () {
       var p = window.location.pathname;
       var section = null;
-      if (/^\/(dog-cost-calculator|cat-cost-calculator|vet-bill-calculator|emergency-vet-cost-calculator)\//.test(p)) section = "calculators";
+      if (/^\/compare\//.test(p)) section = "compare";
+      else if (/^\/(dog-cost-calculator|cat-cost-calculator|vet-bill-calculator|emergency-vet-cost-calculator)\//.test(p)) section = "calculators";
       else if (/^\/pet-insurance-vs-savings\//.test(p)) section = "insurance";
       else if (/^\/breeds\//.test(p)) section = "breeds";
       else if (/^\/states\//.test(p)) section = "states";

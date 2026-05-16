@@ -69,7 +69,16 @@
       "Bash(node scripts/add-comparison-trait-columns.js)",
       "Bash(awk -F, '{print NF}')",
       "Bash(node -c assets/js/layout-20260515e.js)",
-      "Bash(node -c compare/index.html)"
+      "Bash(node -c compare/index.html)",
+      "Bash(find:*)",
+      "Bash(grep:*)",
+      "Bash(cd:*)",
+      "Bash(cat:*)",
+      "Bash(ls:*)",
+      "Bash(head:*)",
+      "Bash(tail:*)",
+      "Bash(sort:*)",
+      "Bash(wc:*)"
     ]
   }
 }
