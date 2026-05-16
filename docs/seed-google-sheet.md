@@ -100,7 +100,7 @@ siamese,/breeds/siamese-cat-cost/hero.jpg,Siamese cat cat,Jean Beaufort,https://
 siberian-husky,/breeds/siberian-husky-cost/hero.jpg,Siberian Husky dog,Wolf Art,https://www.pexels.com/photo/black-and-white-siberian-husky-8661629/,Pexels Content License,https://www.pexels.com/license/,1280,1600
 sphynx,/breeds/sphynx-cat-cost/hero.jpg,Sphynx cat cat,Jakub Hałun,https://commons.wikimedia.org/wiki/File:20170604_Sphynx_cat_7984.jpg,CC BY-SA 4.0,https://creativecommons.org/licenses/by-sa/4.0,1280,1061
 yorkshire-terrier,/breeds/yorkshire-terrier-cost/hero.jpg,Yorkshire Terrier dog,photostockeditor,https://www.pexels.com/photo/yorkshire-terrier-dog-pet-yorkie-8018340/,Pexels Content License,https://www.pexels.com/license/,1280,1707
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+
 ```
 
 ## Tab: breeds.csv
