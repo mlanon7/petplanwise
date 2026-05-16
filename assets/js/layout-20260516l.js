@@ -136,13 +136,71 @@
     var y = document.getElementById("yr");
     if (y) y.textContent = new Date().getFullYear();
 
-    /* Nav toggle (mobile hamburger) */
+    /* Nav toggle (mobile hamburger) — slide-in panel with backdrop, scroll-lock */
     var tog = document.querySelector(".nav-toggle");
     var nav = document.querySelector(".nav");
-    if (tog && nav) tog.addEventListener("click", function () {
-      var open = nav.classList.toggle("open");
-      tog.setAttribute("aria-expanded", open ? "true" : "false");
-    });
+    if (tog && nav) {
+      /* Insert backdrop element once (no need to ship it in markup) */
+      var backdrop = document.createElement("div");
+      backdrop.className = "nav-backdrop";
+      backdrop.setAttribute("aria-hidden", "true");
+      document.body.appendChild(backdrop);
+
+      /* Insert a close (X) button at the top of the menu panel */
+      var closeBtn = document.createElement("button");
+      closeBtn.type = "button";
+      closeBtn.className = "nav-close";
+      closeBtn.setAttribute("aria-label", "Close menu");
+      closeBtn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg>';
+      nav.insertBefore(closeBtn, nav.firstChild);
+
+      function openMobileNav() {
+        nav.classList.add("open");
+        backdrop.classList.add("is-active");
+        document.body.classList.add("nav-locked");
+        tog.setAttribute("aria-expanded", "true");
+      }
+      function closeMobileNav() {
+        nav.classList.remove("open");
+        backdrop.classList.remove("is-active");
+        document.body.classList.remove("nav-locked");
+        tog.setAttribute("aria-expanded", "false");
+        /* Also collapse any expanded dropdowns inside the panel so the
+           next open starts clean */
+        nav.querySelectorAll(".nav-has-dropdown.open").forEach(function (item) {
+          item.classList.remove("open");
+          var t = item.querySelector(".nav-dropdown-toggle");
+          if (t) t.setAttribute("aria-expanded", "false");
+        });
+      }
+
+      tog.addEventListener("click", function () {
+        if (nav.classList.contains("open")) closeMobileNav();
+        else openMobileNav();
+      });
+      backdrop.addEventListener("click", closeMobileNav);
+      closeBtn.addEventListener("click", closeMobileNav);
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && nav.classList.contains("open")) closeMobileNav();
+      });
+
+      /* If user taps a leaf link inside the menu, close it (so they don't
+         have to back-out manually after navigating) */
+      nav.addEventListener("click", function (e) {
+        var a = e.target.closest && e.target.closest("a[href]");
+        if (a && a.getAttribute("href") && a.getAttribute("href").indexOf("#") !== 0) {
+          if (window.matchMedia && window.matchMedia("(max-width: 820px)").matches) {
+            /* Allow the click to navigate, but close the panel */
+            closeMobileNav();
+          }
+        }
+      });
+
+      /* If viewport grows back above 820px while menu is open, reset state */
+      window.addEventListener("resize", function () {
+        if (window.innerWidth > 820 && nav.classList.contains("open")) closeMobileNav();
+      });
+    }
 
     /* Dropdown submenus (Calculators, Breeds, ...) — click to open, click
        outside or Escape to close. Hover also opens on pointer-fine devices
