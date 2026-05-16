@@ -2067,13 +2067,20 @@ main .container.prose h2,
   border-radius: 0 !important;
   display: block !important;
 }
-/* Per-breed crop overrides: some source photos sit the dog's face higher
-   or lower in the frame than the default centered 1:1 crop expects.
-   Shift the focal point so the full face (eyes through mouth) stays in
-   the visible window. Add a selector here when a photo crops badly. */
+/* Per-breed crop overrides. Some source photos are tall portraits
+   (~2:3) where the default 1:1 crop chops the dog at the mouth no
+   matter where we set object-position. For those, switch the figure
+   itself to a matching 2:3 aspect ratio so the full body fits with
+   zero cropping. Reduce max-width to keep visual mass reasonable.
+   Add a selector pair here when a photo doesn't fit the 1:1 frame. */
+.breed-hero-static:has(img[src*="/pembroke-welsh-corgi-cost/"]),
+.breed-hero-static:has(img[src*="/soft-coated-wheaten-terrier-cost/"]) {
+  aspect-ratio: 2 / 3 !important;
+  max-width: 360px !important;
+}
 .breed-hero-static img[src*="/pembroke-welsh-corgi-cost/"],
 .breed-hero-static img[src*="/soft-coated-wheaten-terrier-cost/"] {
-  object-position: center 30% !important;
+  object-fit: contain !important;
 }
 @media (max-width: 540px) {
   .breed-hero-static { max-width: 92vw !important; }
