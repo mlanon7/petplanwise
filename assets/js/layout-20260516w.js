@@ -12,7 +12,7 @@
    in loadGA4() further down). The consent banner won't appear
    either, since there's nothing to consent to.
    ============================================================= */
-window.YPB_GA4_ID = window.YPB_GA4_ID || ""; // e.g. "G-XXXXXXXXXX"
+window.YPB_GA4_ID = window.YPB_GA4_ID || "G-SDLMQMD34D"; // PetPlanWise Web stream
 
 (function () {
   "use strict";
