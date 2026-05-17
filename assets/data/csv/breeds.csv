@@ -3,7 +3,7 @@ labrador-retriever,dog,Labrador Retriever,large,1.00,1.10,800,1500,3500,11,Prone
 french-bulldog,dog,French Bulldog,small,1.10,1.55,1500,3500,8000,9,"Brachycephalic — higher rates of respiratory issues, allergies, and C-section births. Insurance is often a strong fit for this breed.",https://www.akc.org/dog-breeds/,2026-05
 golden-retriever,dog,Golden Retriever,large,1.10,1.20,500,1200,3500,11,Coat requires regular grooming. Hip dysplasia common. Generally healthy and responsive to vet care.,https://www.akc.org/dog-breeds/,2026-05
 german-shepherd,dog,German Shepherd,large,1.05,1.25,500,1000,3000,10,Hip dysplasia is common. High energy requires good nutrition and preventive care.,https://www.akc.org/dog-breeds/,2026-05
-bulldog,dog,Bulldog,small,0.90,1.70,1000,3000,8000,8,"Brachycephalic with frequent respiratory, skin, and joint issues. One of the higher-cost breeds.",https://www.akc.org/dog-breeds/,2026-05
+bulldog,dog,Bulldog,medium,0.90,1.70,1000,3000,8000,8,"Brachycephalic with frequent respiratory, skin, and joint issues. One of the higher-cost breeds.",https://www.akc.org/dog-breeds/,2026-05
 maine-coon,cat,Maine Coon,large,1.60,1.30,800,1500,3000,13,Long coat means real grooming costs. Hypertrophic cardiomyopathy (HCM) screening is recommended.,https://cfa.org/breeds/,2026-05
 persian,cat,Persian,small,2.00,1.35,500,1200,3500,11,Extensive grooming required to prevent matting. Prone to eye issues and respiratory problems.,https://cfa.org/breeds/,2026-05
 siamese,cat,Siamese,small,0.80,1.10,400,800,2000,14,Generally healthy. Low grooming needs. Minimal breed-specific health issues.,https://cfa.org/breeds/,2026-05
