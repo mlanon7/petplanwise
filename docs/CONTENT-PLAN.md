@@ -6,6 +6,28 @@ site being live. This is the prioritized next-content sprint.
 
 ---
 
+## Progress (updated 2026-05-20)
+
+- ✅ **P1 — Dog ear infection** — guide existed; strengthened (FAQ 2→5, insurance
+  worked example, drop-ear-breed cross-links, dateModified bumped).
+- ✅ **P2 — Cat X-ray** — strengthened (title, FAQ 1→5, insurance table, related
+  cat-cost cross-links).
+- ✅ **P3 — Cat bloodwork** — strengthened (title, FAQ 1→5, insurance table,
+  "how often", related cross-links).
+- ✅ **P4 — Sedation & anesthesia** — NEW guides shipped:
+  `/guides/dog-sedation-anesthesia-cost/` + `/guides/cat-sedation-cost/`.
+- ✅ **P5 — Vet visit without insurance** — NEW guide shipped:
+  `/guides/vet-visit-cost-without-insurance/`. CTA points to the internal
+  insurance-vs-savings calculator; swap in a real affiliate link once a
+  program is approved.
+- ⏳ **P6 — Geographic** — DEFERRED. Blocked on the state-page differentiation
+  work (see GPT audit). Do P6 as part of that redesign, not standalone.
+
+**Next data checkpoint:** re-pull GSC ~2026-06-03 (two weeks out) and
+re-prioritize before writing more. Let the new guides start indexing first.
+
+---
+
 ## The core finding
 
 GSC shows **vet condition-cost queries are the biggest cluster AND already
