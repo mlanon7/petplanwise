@@ -26,6 +26,36 @@ site being live. This is the prioritized next-content sprint.
 **Next data checkpoint:** re-pull GSC ~2026-06-03 (two weeks out) and
 re-prioritize before writing more. Let the new guides start indexing first.
 
+### Round 2 (2026-05-20): keyword research + 14 new guides shipped
+
+Ran a Google Autocomplete harvest (618 unique cost/insurance queries across
+66 seeds) + web price research, cross-referenced vs. existing 46 guides to
+find gaps. Built Tiers 1-3 via `scripts/add-condition-guides.js` (one-shot
+generator, per-guide data, mirrors the cat-x-ray template):
+
+- **Tier 1 (easy wins):** cat-spay-cost, dog-neuter-cost, pet-microchip-cost
+- **Tier 2 (condition costs):** parvo-treatment-cost, heartworm-treatment-cost,
+  cat-diabetes-cost, cat-kidney-disease-cost, dog-cancer-treatment-cost,
+  cat-cancer-treatment-cost
+- **Tier 3 (specific surgeries):** dog-hip-dysplasia-surgery-cost,
+  dog-bloat-gdv-surgery-cost, cherry-eye-surgery-cost, dog-c-section-cost,
+  cat-abscess-cost
+
+All 14 registered in the guides hub (ItemList + new "Conditions, surgeries &
+treatments" card section) and sitemap-guides.xml. Audited: JSON-LD parses,
+visible-FAQ == schema-FAQ (5 each), canonicals correct, all internal links
+resolve, no dup positions/URLs, sitemap well-formed.
+
+**Deferred (Tier 4):** pet-euthanasia/cremation cost (high volume but
+competitive + sensitive), cat-declaw-cost (skipped on brand grounds —
+banned in several states, AVMA discourages).
+
+**Confirmed for later:** geo-intent ("in NJ/NYC/FL/near me") is pervasive
+across every procedure — strong signal for the deferred Priority 6 once
+state pages are differentiated. "best pet insurance" cluster is the biggest
+commercial prize but too competitive head-on; keep capturing via condition-
+guide CTAs.
+
 ---
 
 ## The core finding
