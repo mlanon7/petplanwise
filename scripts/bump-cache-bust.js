@@ -10,13 +10,13 @@ const fs = require("fs");
 const path = require("path");
 
 const ROOT = path.resolve(__dirname, "..");
-const OLD_V = "20260516w";
-const NEW_V = "20260516x";
+const OLD_V = "20260516x";
+const NEW_V = "20260516y";
 
 const RENAMES = [
-  ["assets/js/layout-20260516w.js", "assets/js/layout-20260516x.js"],
-  ["assets/js/calculator-20260516w.js", "assets/js/calculator-20260516x.js"],
-  ["assets/data/csv-loader-20260516w.js", "assets/data/csv-loader-20260516x.js"],
+  ["assets/js/layout-20260516x.js", "assets/js/layout-20260516y.js"],
+  ["assets/js/calculator-20260516x.js", "assets/js/calculator-20260516y.js"],
+  ["assets/data/csv-loader-20260516x.js", "assets/data/csv-loader-20260516y.js"],
 ];
 
 // 1) Rename files on disk.
@@ -45,9 +45,9 @@ const files = walk(ROOT, []);
 let changed = 0;
 const replacements = [
   ["v=" + OLD_V, "v=" + NEW_V],
-  ["layout-20260516w.js", "layout-20260516x.js"],
-  ["calculator-20260516w.js", "calculator-20260516x.js"],
-  ["csv-loader-20260516w.js", "csv-loader-20260516x.js"],
+  ["layout-20260516x.js", "layout-20260516y.js"],
+  ["calculator-20260516x.js", "calculator-20260516y.js"],
+  ["csv-loader-20260516x.js", "csv-loader-20260516y.js"],
 ];
 
 /* Force any hero.{jpg,svg,png,webp}?v=... to NEW_V — older breed pages
