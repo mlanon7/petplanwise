@@ -15,3 +15,9 @@ _research/
 Thumbs.db
 *.swp
 *~
+
+# Generated/backup artifacts — keep out of the deployable tree
+*.tmp
+*.clean
+hero-old.jpg
+hero-prev.jpg
