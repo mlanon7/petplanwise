@@ -26,7 +26,7 @@
   </url>
 <url>
     <loc>https://petplanwise.com/guides/cat-bloodwork-cost/</loc>
-    <lastmod>2026-05-08</lastmod>
+    <lastmod>2026-05-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -74,7 +74,7 @@
   </url>
 <url>
     <loc>https://petplanwise.com/guides/cat-x-ray-cost/</loc>
-    <lastmod>2026-05-08</lastmod>
+    <lastmod>2026-05-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -116,7 +116,7 @@
   </url>
 <url>
     <loc>https://petplanwise.com/guides/dog-ear-infection-cost/</loc>
-    <lastmod>2026-05-08</lastmod>
+    <lastmod>2026-05-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -257,5 +257,23 @@
     <lastmod>2026-05-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://petplanwise.com/guides/dog-sedation-anesthesia-cost/</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://petplanwise.com/guides/cat-sedation-cost/</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://petplanwise.com/guides/vet-visit-cost-without-insurance/</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>
