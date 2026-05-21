@@ -13,6 +13,7 @@
    either, since there's nothing to consent to.
    ============================================================= */
 window.YPB_GA4_ID = window.YPB_GA4_ID || "G-SDLMQMD34D"; // PetPlanWise Web stream
+window.YPB_AHREFS_KEY = window.YPB_AHREFS_KEY || "wY6hk1lMVpXnaKH97NnNgg"; // Ahrefs Web Analytics (cookieless, GDPR-safe)
 
 (function () {
   "use strict";
@@ -696,6 +697,22 @@ window.YPB_GA4_ID = window.YPB_GA4_ID || "G-SDLMQMD34D"; // PetPlanWise Web stre
       window.gtag("js", new Date());
       window.gtag("config", GA4_ID, { anonymize_ip: true, allow_google_signals: false, allow_ad_personalization_signals: false });
     }
+
+    /* Ahrefs Web Analytics — cookieless and GDPR-compliant, so it loads
+       for ALL visitors without the consent gate (no cookies, no personal
+       data). Independent of GA4. No-ops if the key is blank. */
+    function loadAhrefs() {
+      var KEY = window.YPB_AHREFS_KEY || "";
+      if (!KEY) return;
+      if (document.querySelector('script[data-ahrefs]')) return;
+      var s = document.createElement("script");
+      s.async = true;
+      s.src = "https://analytics.ahrefs.com/analytics.js";
+      s.setAttribute("data-key", KEY);
+      s.setAttribute("data-ahrefs", "true");
+      document.head.appendChild(s);
+    }
+    loadAhrefs();
 
     function renderBanner() {
       if (document.getElementById("ppw-cookie-banner")) return;
