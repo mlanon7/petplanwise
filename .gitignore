@@ -8,8 +8,13 @@ node_modules/
 # Local research PDFs — third-party material, not deployed
 _research/
 
-# Claude Code agent state, worktrees, personal settings — never deploy
-.claude/
+# Claude Code: track the reusable toolkit (README/commands/lessons/prompts),
+# but NEVER track local state or secrets (settings.local.json, worktrees, launch.json).
+.claude/*
+!.claude/README.md
+!.claude/commands/
+!.claude/lessons/
+!.claude/prompts/
 
 # OS / editor cruft
 Thumbs.db
