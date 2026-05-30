@@ -4,6 +4,12 @@
    Also renames layout-20260510i.js → layout-20260514a.js (and same for
    calculator + csv-loader) so browsers fetch fresh files even when the
    query-string isn't honored.
+
+   IMPORTANT: after renaming, this also copies each dated canonical file to
+   its plain name (calculator-<date>.js -> calculator.js, etc.). The plain
+   copies are what tests/calculator.test.js loads; without this sync they go
+   stale and the suite silently validates a non-shipped engine (this bit us
+   once — see the note at the top of tests/calculator.test.js).
 */
 "use strict";
 const fs = require("fs");
@@ -26,6 +32,18 @@ for (const [from, to] of RENAMES) {
   if (fs.existsSync(src) && !fs.existsSync(dst)) {
     fs.renameSync(src, dst);
     console.log("Renamed: " + from + " -> " + to);
+  }
+}
+
+// 1b) Keep the plain copies in sync with the dated canonical files.
+//     Tests load the plain names (calculator.js, csv-loader.js); pages load
+//     the dated names. Copy dated -> plain so the two never drift.
+for (const [, to] of RENAMES) {
+  const dated = path.join(ROOT, to);
+  const plain = path.join(ROOT, to.replace("-" + NEW_V, ""));
+  if (fs.existsSync(dated)) {
+    fs.copyFileSync(dated, plain);
+    console.log("Synced:  " + to + " -> " + path.relative(ROOT, plain));
   }
 }
 
