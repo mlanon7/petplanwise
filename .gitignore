@@ -8,6 +8,12 @@ node_modules/
 # Local research PDFs — third-party material, not deployed
 _research/
 
+# Raw breed-image source archive (Pexels gallery candidates) — no page
+# references it; live hero images live at breeds/<slug>-cost/hero.{jpg,webp}.
+# 135 MB of dead weight if deployed. Kept on local disk for future gallery
+# work; attribution metadata preserved at breed_images/attribution.csv.
+breed_images/
+
 # Claude Code: track the reusable toolkit (README/commands/lessons/prompts),
 # but NEVER track local state or secrets (settings.local.json, worktrees, launch.json).
 .claude/*
