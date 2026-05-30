@@ -37,14 +37,16 @@ defineGlobal("fetch", function (url) {
 const fs = require("fs");
 const path = require("path");
 const ROOT = path.join(__dirname, "..");
+// NOTE: assets/js/calculator.js must stay byte-identical to the dated engine
+// that ships (assets/js/calculator-<cachebust>.js). They drifted once — the
+// plain copy went stale while the lifetime fix landed only in the dated copy,
+// so the tests silently validated a non-shipped engine. Keep them in sync
+// (scripts/bump-cache-bust.js could copy dated -> plain to enforce this).
+//
+// The 7 legacy data shims (base-costs.js, multipliers.js, ...) were no-op
+// files; they have been deleted. csv-loader.js populates PETCOST_DATA.
 const FILES = [
   "assets/data/csv-loader.js",
-  "assets/data/base-costs.js",
-  "assets/data/multipliers.js",
-  "assets/data/breeds.js",
-  "assets/data/procedures.js",
-  "assets/data/insurance.js",
-  "assets/data/cities.js",
   "assets/js/calculator.js"
 ];
 for (const f of FILES) eval(fs.readFileSync(path.join(ROOT, f), "utf8"));
