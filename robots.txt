@@ -3,4 +3,41 @@ Allow: /
 Disallow: /_research/
 Disallow: /embed/cost-calculator/
 
+# Explicitly allow major AI / search crawlers (cold-start AI-citability posture).
+# Each fenced into its own block so a future Disallow can't bleed across agents.
+User-agent: GPTBot
+Allow: /
+Disallow: /_research/
+Disallow: /embed/cost-calculator/
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /_research/
+Disallow: /embed/cost-calculator/
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /_research/
+Disallow: /embed/cost-calculator/
+
+User-agent: Claude-Web
+Allow: /
+Disallow: /_research/
+Disallow: /embed/cost-calculator/
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /_research/
+Disallow: /embed/cost-calculator/
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /_research/
+Disallow: /embed/cost-calculator/
+
+User-agent: CCBot
+Allow: /
+Disallow: /_research/
+Disallow: /embed/cost-calculator/
+
 Sitemap: https://petplanwise.com/sitemap.xml
