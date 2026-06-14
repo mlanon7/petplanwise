@@ -71,7 +71,7 @@ window.YPB_AHREFS_KEY = window.YPB_AHREFS_KEY || "wY6hk1lMVpXnaKH97NnNgg"; // Ah
     '        </a>\n' +
     '        <a href="/pet-insurance-vs-savings/" class="nav-cta" data-nav-section="insurance">\n' +
     '          <svg class="nav-ico" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>\n' +
-    '          Get Insurance Quotes\n' +
+    '          Insurance vs. savings\n' +
     '        </a>\n' +
     '      </nav>\n' +
     '    </div>\n' +

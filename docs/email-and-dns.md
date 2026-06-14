@@ -25,17 +25,22 @@ Gmail, not ImprovMX — this matters for DKIM (see "Authentication reality").
 
 ## Addresses
 
-| Address | Purpose | Where it appears |
-|---|---|---|
-| `martin@petplanwise.com` | Personal / outreach identity (cold pitches, Qwoted, shelter campaign) | Outreach only — set as Gmail default "Send mail as" |
-| `hello@petplanwise.com` | General contact | `/contact/`, `/privacy/` |
-| `editorial@petplanwise.com` | Editorial | `/editorial-standards/` |
-| `corrections@petplanwise.com` | Corrections | `/editorial-standards/` |
+As of 2026-06-14 the **website displays only `martin@petplanwise.com`**.
+Every on-site contact point — the contact page, the privacy/CCPA request
+line, and editorial corrections — routes there. The role aliases below are
+kept only as optional ImprovMX forwards for mail already addressed to them;
+they are **no longer surfaced anywhere on the site**.
 
-All of these **forward to the owner's Gmail** via ImprovMX. **Action item:**
-confirm ImprovMX is set to **catch-all** (or has these exact aliases) —
-otherwise mail to `hello@`/`editorial@`/`corrections@` is silently lost
-even though the site publishes them.
+| Address | Purpose | Where it appears on-site |
+|---|---|---|
+| `martin@petplanwise.com` | The single public address — contact, corrections, CCPA requests, outreach, Qwoted | `/contact/`, `/privacy/`, `/editorial-standards/`; Gmail default "Send mail as" |
+| `hello@` / `editorial@` / `corrections@` | Legacy aliases — forward to Gmail if still hit, but not published | none (removed from the site 2026-06-14) |
+
+All addresses **forward to the owner's Gmail** via ImprovMX. With the site
+now pointing only at `martin@`, the catch-all is no longer load-bearing for
+published addresses — but keeping it enabled means any legacy `hello@` link
+still in the wild (old emails, cached pages, the Wayback Machine) won't
+bounce.
 
 ---
 
