@@ -4,8 +4,8 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Embed the Pet Cost Calculator on Your Site (Free) — PetPlanWise.com</title>
-<meta name="description" content="Free embeddable pet cost calculator widget for blogs and pet sites. Single iframe snippet, no signup, no API key required." />
-<meta name="robots" content="noindex,follow" />
+<meta name="description" content="Free embeddable pet cost calculator widget for blogs and pet sites. Copy one snippet — no signup, no API key. Live U.S. dog & cat cost data from AVMA, NAPHIA, BLS." />
+<meta name="robots" content="index,follow" />
 <link rel="canonical" href="https://petplanwise.com/embed/" />
   <meta property="og:url" content="https://petplanwise.com/embed/" />
 <meta property="og:title" content="Embed the Pet Cost Calculator on Your Site (Free)" />
@@ -63,12 +63,15 @@
     <iframe src="/embed/cost-calculator/" style="width:100%;border:1px solid var(--border);border-radius:14px;height:780px;background:#fff;" loading="lazy" title="Pet Cost Calculator widget preview"></iframe>
 
     <h2>Copy-paste embed code</h2>
-    <p>Drop this into your HTML wherever you want the calculator to appear:</p>
-    <pre class="embed-snippet" id="snippet">&lt;iframe
-  src="https://petplanwise.com/embed/cost-calculator/"
-  style="width:100%;height:780px;border:0;border-radius:14px;"
-  loading="lazy"
-  title="Pet Cost Calculator"&gt;&lt;/iframe&gt;</pre>
+    <p>Drop this into your HTML wherever you want the calculator to appear. It includes a small credit line — keeping it is what lets us keep the widget free and the data current:</p>
+    <pre class="embed-snippet" id="snippet">&lt;div style="max-width:720px;margin:0 auto;"&gt;
+  &lt;iframe src="https://petplanwise.com/embed/cost-calculator/"
+    style="width:100%;height:780px;border:0;border-radius:14px;"
+    loading="lazy" title="Pet Cost Calculator"&gt;&lt;/iframe&gt;
+  &lt;p style="font:13px/1.4 system-ui,sans-serif;text-align:center;margin:8px 0 0;"&gt;
+    &lt;a href="https://petplanwise.com/" rel="noopener"&gt;Pet cost calculator&lt;/a&gt; by PetPlanWise
+  &lt;/p&gt;
+&lt;/div&gt;</pre>
     <button class="copy-btn" onclick="
       const t=document.getElementById('snippet').textContent;
       navigator.clipboard.writeText(t).then(()=>{this.textContent='Copied ✓';setTimeout(()=>{this.textContent='Copy embed code';},1500);});
@@ -95,8 +98,8 @@
     <h2>Recommended height</h2>
     <p>The default <code>780px</code> covers most desktop layouts. On narrow embeds (sidebars), bump to <code>1100px</code> to allow the result panel to stack below the form.</p>
 
-    <h2>Attribution (optional, appreciated)</h2>
-    <p>The widget includes a small "Powered by PetPlanWise.com" line at the bottom. If you remove it via CSS, please add an attribution link somewhere on the page. We don't enforce this — the widget works either way — but linking back helps us keep the data updated and free.</p>
+    <h2>Attribution</h2>
+    <p>The snippet includes one small credit line — <em>Pet cost calculator by PetPlanWise</em> — directly below the widget. That link is the whole deal: it's how we fund keeping the data current and the widget free for everyone, with no signup or paywall. Please leave it in. It's unobtrusive, it won't slow your page, and it's the only thing we ask in return.</p>
 
     <h2>For developers — the calculator engine</h2>
     <p>If you'd rather build your own UI on top of our cost engine, every number lives in CSV files at <code>/assets/data/csv/</code> and the JavaScript engine is at <code>/assets/js/calculator.js</code>. Fork it, wrap your own UI, ship. If you do, <a href="/contact/">contact</a> us — we'll feature the best implementations.</p>
