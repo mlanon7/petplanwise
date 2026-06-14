@@ -67,11 +67,6 @@
     <priority>0.8</priority>
   </url>
 <url>
-    ${1}2026-06-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-<url>
     <loc>https://petplanwise.com/editorial-standards/</loc>
     <lastmod>2026-05-14</lastmod>
     <changefreq>monthly</changefreq>
