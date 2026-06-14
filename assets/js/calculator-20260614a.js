@@ -160,9 +160,17 @@
     var monthly = { low: annual.low / 12, typical: annual.typical / 12, high: annual.high / 12 };
     var ef = (D.emergencyFund || {})[species] || { low: 1500, typical: 3000, high: 6000 };
 
+    /* Per-phase annual costs + year allocation, exposed so the UI can chart
+       the phase-weighted projection (the engine's defining feature). */
+    var phases = [
+      { key: puppyStage, label: species === "cat" ? "Kitten" : "Puppy", years: puppyYears, annual: puppyAnnual },
+      { key: "adult", label: "Adult", years: adultYears, annual: adultAnnual },
+      { key: "senior", label: "Senior", years: seniorYears, annual: seniorAnnual }
+    ];
+
     return {
       breakdown: breakdown, annual: annual, firstYear: firstYear, lifetime: lifetime,
-      monthly: monthly, oneTime: oneTime, years: years, emergencyFund: ef
+      monthly: monthly, oneTime: oneTime, years: years, emergencyFund: ef, phases: phases
     };
   }
 
@@ -289,6 +297,45 @@
       "City and state multipliers are planning adjustments based on cost-of-living and BLS CPI veterinary services data — not real-time clinic quotes.");
   }
 
+  /* Inline-SVG bar+whisker chart of annual cost across life stages.
+     Visualizes the phase-weighted projection: each stage estimated
+     separately, so "senior" doesn't bill senior prices for life. */
+  function phaseChartEl(r) {
+    var phases = (r && r.phases) || [];
+    if (phases.length < 2) return null;
+    var W = 480, H = 232, padL = 12, padR = 12, padT = 34, padB = 46;
+    var plotH = H - padT - padB;
+    var maxVal = 0;
+    phases.forEach(function (p) { if (p.annual.typical > maxVal) maxVal = p.annual.typical; });
+    if (maxVal <= 0) maxVal = 1;
+    var innerW = W - padL - padR;
+    var slot = innerW / phases.length;
+    var barW = Math.min(96, slot * 0.52);
+    var baseY = padT + plotH;
+    var TEAL = "#0F766E", GRID = "#E8DFC7", INK = "#1F2937", MUTED = "#6B7280";
+    var P = [];
+    P.push('<svg viewBox="0 0 ' + W + ' ' + H + '" width="100%" role="img" aria-label="Typical annual cost by life stage" style="display:block;max-width:520px;margin:0 auto;font-family:Inter,system-ui,sans-serif;overflow:visible;">');
+    P.push('<title>Typical annual cost by life stage</title>');
+    P.push('<line x1="' + padL + '" y1="' + baseY + '" x2="' + (W - padR) + '" y2="' + baseY + '" stroke="' + GRID + '" stroke-width="1"/>');
+    phases.forEach(function (p, i) {
+      var cx = padL + slot * (i + 0.5);
+      var x = cx - barW / 2;
+      var hTyp = Math.max(2, (p.annual.typical / maxVal) * plotH);
+      var yTyp = baseY - hTyp;
+      P.push('<rect x="' + x.toFixed(1) + '" y="' + yTyp.toFixed(1) + '" width="' + barW.toFixed(1) + '" height="' + hTyp.toFixed(1) + '" rx="7" fill="' + TEAL + '"/>');
+      P.push('<text x="' + cx.toFixed(1) + '" y="' + (yTyp - 9).toFixed(1) + '" text-anchor="middle" font-size="14" font-weight="700" fill="' + INK + '">' + fmt(p.annual.typical) + '</text>');
+      P.push('<text x="' + cx.toFixed(1) + '" y="' + (baseY + 21).toFixed(1) + '" text-anchor="middle" font-size="13.5" font-weight="600" fill="' + INK + '">' + p.label + '</text>');
+      P.push('<text x="' + cx.toFixed(1) + '" y="' + (baseY + 38).toFixed(1) + '" text-anchor="middle" font-size="11" fill="' + MUTED + '">' + p.years + (p.years === 1 ? " yr" : " yrs") + '</text>');
+    });
+    P.push('</svg>');
+    var box = el("div", { class: "phase-chart", style: "margin:22px 0 4px;background:#FFFFFF;border:1px solid #E8DFC7;border-radius:16px;padding:18px 16px 14px;box-shadow:0 1px 2px rgba(15,23,42,0.06),0 1px 3px rgba(15,23,42,0.05);" });
+    box.appendChild(el("div", { style: "font-size:15px;font-weight:700;color:#1F2937;margin:0 0 2px;" }, "Cost by life stage (per year)"));
+    box.appendChild(el("p", { style: "font-size:13px;color:#6B7280;line-height:1.5;margin:0 0 10px;" },
+      "Why a senior pet doesn't cost senior prices for life: we estimate each stage on its own, then add the years up. Bars show the typical annual cost in each stage."));
+    box.appendChild(el("div", { html: P.join("") }));
+    return box;
+  }
+
   function renderPetResults(host, species, opts, r) {
     var tabState = host.__tab || "first";
     var headlineMap = {
@@ -339,6 +386,9 @@
       t3.appendChild(t3row);
       host.appendChild(t3);
     }
+
+    var pc = phaseChartEl(r);
+    if (pc) host.appendChild(pc);
 
     /* Sort by typical desc so the biggest cost drivers surface first */
     var sortedBreakdown = r.breakdown.slice().sort(function (a, b) {
