@@ -229,3 +229,87 @@ Server smoke (`node local-server.js` + `curl`):
 all 26 sample pages → 200 / non-empty body, all 17 CSVs → 200 / `text/csv`,
 `/_research/anything` → would redirect via `vercel.json` (locally
 not handled — `local-server.js` would 404).
+
+---
+
+# Part — June 2026 growth & distribution sprint
+
+Date: 2026-06-14
+Scope: off-page growth (content gaps, a linkable data asset, the embed
+widget as a real link-builder), a 404 fix, hosted brand/pin assets, and
+the domain-email authentication stack. No calculator-engine changes.
+
+## TL;DR
+
+- **3 new guide pages.** Two pillars on GSC head-term gaps —
+  `pet-sedation-anesthesia-cost` and `pet-surgery-cost` (links its 13
+  spoke guides) — plus `vet-costs-by-state`, a 50-state vet-cost **data
+  asset** (sortable table, `Dataset` + `FAQPage` + `Article` schema, a
+  "cite this" block, CC BY 4.0). All figures computed from the CSVs by
+  `scripts/gen-vet-costs-by-state.js`, so the page can't drift from data.
+- **Embed widget turned into a link-builder.** `/embed/` landing flipped
+  `noindex`→`index,follow` and added to `sitemap-core`; the widget page
+  `/embed/cost-calculator/` removed from `robots.txt` Disallow (kept
+  `noindex,follow`); the copy-paste snippet now bundles a visible
+  attribution `<a>` backlink (the old bare iframe earned zero links); an
+  "embed this free" CTA added to the 3 calculator pages
+  (`add-embed-cta-to-calculators.js`).
+- **404 fix.** Ahrefs flagged 6 cat-breed 404s with 19 inbound internal
+  links — `add-related-breeds.js` hardcoded `<slug>-cost/` for the 8
+  legacy cat breeds (they live at `<slug>-cat-cost/`). Added a
+  `breedDir()` helper, re-ran the generator (21 pages: 13 fixed + 8 cat
+  pages that had been silently skipped now get the module), and added 6
+  `vercel.json` 301 redirects for the dead URLs.
+- **Hosted off-page assets.** `/brand/` (avatar + cover) and `/pins/`
+  (6 Pinterest pins) committed so platform profile/pin setup can fetch by
+  URL instead of an undrivable OS file picker.
+- **Email authentication.** Domain email set up: ImprovMX forwarding
+  (MX), Gmail "Send mail as `martin@petplanwise.com`", SPF, ImprovMX DKIM
+  CNAMEs, and a DMARC record (fixed a `rua` that pointed at a different
+  portfolio domain). Fully documented in `docs/email-and-dns.md`.
+
+## Files added
+
+```
+guides/pet-sedation-anesthesia-cost/index.html
+guides/pet-surgery-cost/index.html
+guides/vet-costs-by-state/index.html
+brand/petplanwise-avatar-1000.png
+brand/petplanwise-cover-pets-1600x900.png
+pins/pin-*.png  (6)
+docs/email-and-dns.md
+scripts/gen-vet-costs-by-state.js
+scripts/add-embed-cta-to-calculators.js
+scripts/gen-pinterest-pins.js
+scripts/gen-brand-images.js
+scripts/gen-cover-pets.js
+```
+
+## Files changed (notable)
+
+```
+embed/index.html            (index,follow; snippet + attribution backlink)
+robots.txt                  (removed /embed/cost-calculator/ Disallow x8)
+vercel.json                 (+6 legacy-cat-breed 301 redirects)
+scripts/add-related-breeds.js (breedDir() helper; fixed 404 links)
+{dog,cat,vet-bill}-cost-calculator/index.html (embed CTA)
+21 breeds/*-cat-cost/ + cat breed pages (regenerated related-breeds)
+sitemap-core.xml / sitemap.xml (+/embed/, lastmod bumps)
+CLAUDE.md                   (inventory, assets, redirects, doc pointers)
+```
+
+## Off-repo (documented elsewhere, NOT committed)
+
+- `_research/outreach-playbook.md` (gitignored): prospect lists, pitch
+  templates, send logs, 15 verified shelter/rescue embed-pitch contacts.
+- Auto-memory `pinterest-save-from-url-flow.md`: the host-the-image →
+  "from URL" upload method (works on Pinterest and Qwoted).
+- Pinterest account (6 pins live), Qwoted source profile (live), and the
+  data-asset outreach batch (sent) — operational state, not code.
+
+## Verification
+
+`npm test` → 23 passed throughout. Every `/breeds/*/` href resolves to a
+real directory (0 broken). All new/changed pages preview- and
+live-verified (200s, correct meta/robots, redirects 308). Sitemaps
+well-formed. IndexNow re-submitted after each ship.
