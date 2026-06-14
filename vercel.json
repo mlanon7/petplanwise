@@ -81,6 +81,12 @@
       "source": "/.git/:rest*",
       "destination": "/",
       "permanent": false
-    }
+    },
+    { "source": "/breeds/persian-cost", "destination": "/breeds/persian-cat-cost/", "permanent": true },
+    { "source": "/breeds/british-shorthair-cost", "destination": "/breeds/british-shorthair-cat-cost/", "permanent": true },
+    { "source": "/breeds/ragdoll-cost", "destination": "/breeds/ragdoll-cat-cost/", "permanent": true },
+    { "source": "/breeds/siamese-cost", "destination": "/breeds/siamese-cat-cost/", "permanent": true },
+    { "source": "/breeds/maine-coon-cost", "destination": "/breeds/maine-coon-cat-cost/", "permanent": true },
+    { "source": "/breeds/bengal-cost", "destination": "/breeds/bengal-cat-cost/", "permanent": true }
   ]
 }

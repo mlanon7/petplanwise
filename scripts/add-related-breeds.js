@@ -42,6 +42,12 @@ function parseCSV(text) {
 const breeds = parseCSV(fs.readFileSync('assets/data/csv/breeds.csv', 'utf-8'));
 const sizeOrder = { toy: 0, small: 1, medium: 2, large: 3, giant: 4 };
 
+// The 8 legacy cat breeds live at /breeds/<slug>-cat-cost/, everything else at
+// /breeds/<slug>-cost/. Hardcoding "-cost" here was emitting 404 links (and
+// skipping these pages entirely on disk). See CLAUDE.md "legacy cat breeds".
+const CAT_LEGACY = new Set(['bengal', 'british-shorthair', 'maine-coon', 'persian', 'ragdoll', 'scottish-fold', 'siamese', 'sphynx']);
+const breedDir = slug => `breeds/${slug}-${CAT_LEGACY.has(slug) ? 'cat-cost' : 'cost'}`;
+
 function pickRelated(target, n = 4) {
   return breeds
     .filter(b => b.slug !== target.slug && b.species === target.species)
@@ -63,7 +69,7 @@ const END_MARK = '</section><!-- /related-breeds -->';
 let touched = 0, skipped = 0, missing = 0;
 
 for (const breed of breeds) {
-  const file = `breeds/${breed.slug}-cost/index.html`;
+  const file = `${breedDir(breed.slug)}/index.html`;
   if (!fs.existsSync(file)) { missing++; continue; }
 
   const related = pickRelated(breed, 4);
@@ -72,7 +78,7 @@ for (const breed of breeds) {
   const cards = related.map(r => {
     const name = (r.name || r.slug).replace(/&/g, '&amp;');
     const meta = (r.species === 'cat' ? 'Cat' : 'Dog') + ' · ' + (r.size || '');
-    return `        <a href="/breeds/${r.slug}-cost/" style="${CARD}">\n` +
+    return `        <a href="/${breedDir(r.slug)}/" style="${CARD}">\n` +
            `          <span style="${NAME}">${name}</span>\n` +
            `          <span style="${META}">${meta}</span>\n` +
            `        </a>`;
