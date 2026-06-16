@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>What Drives Your Pet's Cost — Interactive Map (Demo) | PetPlanWise</title>
+<meta name="description" content="An interactive concept map of everything that goes into the cost of owning a dog or cat — click to expand each driver." />
+<meta name="robots" content="noindex,follow" />
+<link rel="canonical" href="https://petplanwise.com/mind-map-demo/" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230F766E'/%3E%3Ctext x='50' y='66' font-family='system-ui,sans-serif' font-weight='700' font-size='58' fill='white' text-anchor='middle'%3E%24%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" data-ppw-inter>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin data-ppw-inter>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" data-ppw-inter>
+<link rel="stylesheet" href="/assets/css/site.css?v=20260614b" />
+<script src="/assets/data/csv-loader-20260614b.js" defer></script>
+<script src="/assets/js/layout-20260614b.js" defer></script>
+<style>
+  .mm-hero { padding: 22px 0 6px; }
+  .mm-hero h1 { margin: 4px 0 6px; }
+  .mm-hint { font-size: 13px; color: var(--muted); margin: 4px 0 0; }
+  .mm-hint strong { color: var(--ink-2); font-weight: 600; }
+
+  .mm-wrap {
+    position: relative;
+    height: 620px;
+    margin: 16px 0 8px;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    background:
+      radial-gradient(circle at 1px 1px, rgba(15,118,110,0.10) 1px, transparent 0) 0 0 / 22px 22px,
+      linear-gradient(180deg, #FFFFFF, #FBF7EC);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    user-select: none;
+  }
+  .mm-viewport { position: absolute; inset: 0; cursor: grab; }
+  .mm-viewport.is-panning { cursor: grabbing; }
+  .mm-stage { position: absolute; top: 0; left: 0; transform-origin: 0 0; }
+  .mm-links { position: absolute; top: 0; left: 0; overflow: visible; pointer-events: none; max-width: none !important; }
+  .mm-links path { fill: none; stroke-linecap: round; }
+
+  .mm-node { position: absolute; top: 0; left: 0; will-change: transform; }
+  .mm-card {
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 220px;
+    padding: 10px 16px;
+    border-radius: 13px;
+    cursor: pointer;
+    transition: transform 140ms cubic-bezier(.2,.8,.2,1), box-shadow 140ms ease, filter 140ms ease;
+    box-shadow: 0 2px 6px rgba(15,23,42,0.10);
+    white-space: nowrap;
+  }
+  .mm-card:hover { transform: translateY(-1px) scale(1.025); box-shadow: 0 8px 20px -6px rgba(15,23,42,0.28); }
+  .mm-label { font-size: 14px; font-weight: 600; line-height: 1.2; }
+  .mm-sub { font-size: 12px; font-weight: 600; margin-top: 3px; opacity: .92; }
+
+  /* root */
+  .mm-card--root { background: linear-gradient(135deg, #6366F1, #4F46E5); color: #fff; }
+  .mm-card--root .mm-label { font-size: 16px; font-weight: 700; }
+  /* branch */
+  .mm-card--branch { background: linear-gradient(135deg, #0F766E, #115E59); color: #fff; }
+  /* leaf */
+  .mm-card--leaf { background: #fff; border: 1px solid #E2E8F0; box-shadow: 0 1px 3px rgba(15,23,42,0.10); }
+  .mm-card--leaf .mm-label { color: #1F2937; }
+  .mm-card--leaf .mm-sub { color: #0F766E; }
+  .mm-card--leaf::before {
+    content: ""; position: absolute; left: 0; top: 10px; bottom: 10px; width: 3px;
+    border-radius: 3px; background: #5EEAD4;
+  }
+
+  .mm-badge {
+    position: absolute; right: -11px; top: 50%; transform: translateY(-50%);
+    width: 22px; height: 22px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    background: #fff; color: #0F766E; border: 1.5px solid #0F766E;
+    font-size: 15px; font-weight: 700; line-height: 1; box-shadow: 0 1px 3px rgba(15,23,42,.2);
+  }
+  .mm-card--root .mm-badge { color: #4F46E5; border-color: #4F46E5; }
+
+  .mm-controls {
+    position: absolute; right: 14px; bottom: 14px; display: flex; flex-direction: column; gap: 6px; z-index: 5;
+  }
+  .mm-controls button {
+    width: 40px; height: 40px; border-radius: 11px; border: 1px solid var(--border);
+    background: #fff; color: var(--ink); font-size: 19px; font-weight: 600; cursor: pointer;
+    box-shadow: var(--shadow-sm); display: flex; align-items: center; justify-content: center;
+    transition: background 120ms ease, transform 120ms ease;
+  }
+  .mm-controls button:hover { background: var(--surface-2); }
+  .mm-controls button:active { transform: scale(.94); }
+  .mm-reset { font-size: 13px !important; }
+
+  .mm-disclaimer { font-size: 12.5px; color: var(--muted); margin: 2px 0 0; }
+  .mm-disclaimer a { color: var(--accent); }
+
+  details.mm-outline { margin: 18px 0 0; }
+  details.mm-outline summary { cursor: pointer; font-weight: 600; color: var(--ink-2); }
+  details.mm-outline ul { margin: 10px 0; }
+  details.mm-outline > ul > li { margin-bottom: 8px; }
+
+  @media (max-width: 640px) {
+    .mm-wrap { height: 70vh; }
+    .mm-card { max-width: 180px; }
+  }
+</style>
+</head>
+<body>
+<div id="site-header"></div>
+<main>
+  <div class="container"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>›</span>Cost map (demo)</nav></div>
+
+  <section class="mm-hero"><div class="container">
+    <span class="eyebrow">Interactive · Demo</span>
+    <h1>What drives your pet's cost?</h1>
+    <p class="lede prose">Every dollar of pet ownership traces back to a handful of drivers. Tap any topic to open it up — the map re-balances as you explore.</p>
+    <p class="mm-hint"><strong>Click</strong> a topic to expand · <strong>drag</strong> to pan · <strong>+ / −</strong> to zoom</p>
+  </div></section>
+
+  <div class="container">
+    <div class="mm-wrap">
+      <div class="mm-viewport" id="mm-viewport">
+        <div class="mm-stage" id="mm-stage">
+          <svg class="mm-links" id="mm-links"></svg>
+        </div>
+      </div>
+      <div class="mm-controls">
+        <button type="button" id="mm-zin" aria-label="Zoom in">+</button>
+        <button type="button" id="mm-zout" aria-label="Zoom out">−</button>
+        <button type="button" id="mm-reset" class="mm-reset" aria-label="Reset view">⤢</button>
+      </div>
+    </div>
+    <p class="mm-disclaimer">Figures are typical U.S. planning ranges, not quotes. <a href="/dog-cost-calculator/">Run the calculator</a> for an estimate tuned to your pet.</p>
+
+    <details class="mm-outline">
+      <summary>Full breakdown (text version)</summary>
+      <ul id="mm-outline-list"></ul>
+    </details>
+  </div>
+</main>
+<div id="site-footer"></div>
+
+<script>
+(function () {
+  /* ---------------- data ---------------- */
+  var DATA = {
+    label: "Total pet cost",
+    children: [
+      { label: "Food & treats", children: [
+        { label: "Everyday food", sub: "$300–$900/yr" },
+        { label: "Treats & chews", sub: "$50–$200/yr" },
+        { label: "Prescription diet", sub: "$400–$1,200/yr" }
+      ]},
+      { label: "Routine vet care", children: [
+        { label: "Wellness exam", sub: "$50–$250/yr" },
+        { label: "Core vaccines", sub: "$80–$250/yr" },
+        { label: "Dental cleaning", sub: "$300–$1,200" },
+        { label: "Annual bloodwork", sub: "$80–$250" }
+      ]},
+      { label: "Preventives", children: [
+        { label: "Flea & tick", sub: "$120–$300/yr" },
+        { label: "Heartworm", sub: "$60–$180/yr" },
+        { label: "Dewormer", sub: "$20–$80/yr" }
+      ]},
+      { label: "Grooming", children: [
+        { label: "Nail trim", sub: "$10–$25" },
+        { label: "Bath & tidy", sub: "$30–$90" },
+        { label: "Full groom", sub: "$50–$120" }
+      ]},
+      { label: "Pet insurance", children: [
+        { label: "Accident & illness", sub: "$20–$60/mo" },
+        { label: "Wellness add-on", sub: "$10–$25/mo" },
+        { label: "Deductible", sub: "$100–$1,000" }
+      ]},
+      { label: "One-time setup", children: [
+        { label: "Spay / neuter", sub: "$50–$600" },
+        { label: "Microchip", sub: "$25–$60" },
+        { label: "Starter supplies", sub: "$150–$500" },
+        { label: "Crate & bed", sub: "$40–$200" }
+      ]},
+      { label: "Emergencies & illness", children: [
+        { label: "ER visit", sub: "$150–$5,000" },
+        { label: "Surgery", sub: "$800–$10,000" },
+        { label: "Chronic condition", sub: "$500–$3,000/yr" }
+      ]}
+    ]
+  };
+
+  /* ---------------- build node tree ---------------- */
+  var COL_W = 268, ROW_H = 58, OFF_X = 24, OFF_Y = 44, DUR = 440;
+  var nodes = [], idc = 0;
+  function build(raw, depth, parent) {
+    var n = {
+      id: idc++, label: raw.label, sub: raw.sub || null, depth: depth, parent: parent,
+      children: [], expanded: depth === 0 ? true : !!raw.open,
+      el: null, card: null, w: 0, h: 44, x: 0, cy: 0, _x: 0, _cy: 0, op: 1, alive: true
+    };
+    nodes.push(n);
+    (raw.children || []).forEach(function (c) { n.children.push(build(c, depth + 1, n)); });
+    return n;
+  }
+  var root = build(DATA, 0, null);
+
+  var stage = document.getElementById("mm-stage");
+  var svg = document.getElementById("mm-links");
+  var viewport = document.getElementById("mm-viewport");
+  var SVGNS = "http://www.w3.org/2000/svg";
+
+  /* ---------------- element creation ---------------- */
+  function makeEl(n) {
+    var el = document.createElement("div");
+    el.className = "mm-node";
+    var kind = n.depth === 0 ? "root" : (n.children.length ? "branch" : "leaf");
+    var card = document.createElement("div");
+    card.className = "mm-card mm-card--" + kind;
+    var lab = document.createElement("span"); lab.className = "mm-label"; lab.textContent = n.label;
+    card.appendChild(lab);
+    if (n.sub) { var s = document.createElement("span"); s.className = "mm-sub"; s.textContent = n.sub; card.appendChild(s); }
+    if (n.children.length) {
+      var b = document.createElement("span"); b.className = "mm-badge"; b.textContent = n.expanded ? "−" : "+";
+      card.appendChild(b); n.badge = b;
+    }
+    card.addEventListener("click", function (e) { e.stopPropagation(); toggle(n); });
+    el.appendChild(card);
+    n.el = el; n.card = card;
+    stage.appendChild(el);
+    n.w = el.offsetWidth; n.h = el.offsetHeight;
+    return el;
+  }
+
+  /* ---------------- visibility + layout ---------------- */
+  function visible() {
+    var out = [];
+    (function walk(n) { out.push(n); if (n.expanded) n.children.forEach(walk); })(root);
+    return out;
+  }
+  function layout() {
+    var cursor = 0;
+    (function assign(n) {
+      if (!n.expanded || !n.children.length) { n.cy = OFF_Y + cursor * ROW_H; cursor++; }
+      else { n.children.forEach(assign); n.cy = (n.children[0].cy + n.children[n.children.length - 1].cy) / 2; }
+      n.x = OFF_X + n.depth * COL_W;
+    })(root);
+  }
+
+  /* ---------------- link drawing ---------------- */
+  function drawLinks(vis) {
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+    var maxX = 0, maxY = 0;
+    var frag = document.createDocumentFragment();
+    vis.forEach(function (n) {
+      maxX = Math.max(maxX, n._x + n.w); maxY = Math.max(maxY, n._cy + n.h);
+      if (!n.parent || !n.parent.alive) return;
+      var p = n.parent;
+      var x1 = p._x + p.w, y1 = p._cy, x2 = n._x, y2 = n._cy;
+      var mx = (x1 + x2) / 2;
+      var path = document.createElementNS(SVGNS, "path");
+      path.setAttribute("d", "M" + x1 + "," + y1 + " C" + mx + "," + y1 + " " + mx + "," + y2 + " " + x2 + "," + y2);
+      path.setAttribute("stroke", n.depth === 1 ? "#6366F1" : "#14B8A6");
+      path.setAttribute("stroke-width", n.depth === 1 ? "3" : "2.4");
+      path.setAttribute("stroke-opacity", n.depth === 1 ? "0.85" : "0.8");
+      frag.appendChild(path);
+    });
+    svg.appendChild(frag);
+    var sw = maxX + 60, sh = maxY + 60;
+    svg.setAttribute("width", sw); svg.setAttribute("height", sh);
+    svg.style.width = sw + "px"; svg.style.height = sh + "px";
+  }
+
+  function place(n) { n.el.style.transform = "translate(" + n._x + "px," + (n._cy - n.h / 2) + "px)"; n.el.style.opacity = n.op; }
+
+  /* ---------------- animate to new layout ---------------- */
+  var animId = null, pendingExit = [];
+  function flushExit() {
+    pendingExit.forEach(function (n) { if (n.el && n.el.parentNode) n.el.parentNode.removeChild(n.el); n.el = null; n._x = null; });
+    pendingExit = [];
+  }
+  function update() {
+    // If a previous animation is mid-flight, cancel it and finalize its
+    // removals NOW so exiting nodes can never leak into the DOM.
+    if (animId) { cancelAnimationFrame(animId); animId = null; flushExit(); }
+
+    var vis = visible();
+    vis.forEach(function (n) { if (!n.el) { makeEl(n); n.alive = true; var pp = n.parent; n._x = pp ? pp._x : n.x; n._cy = pp ? pp._cy : n.cy; n.op = 0; } });
+    layout();
+
+    var exiting = nodes.filter(function (n) { return n.el && vis.indexOf(n) === -1; });
+    exiting.forEach(function (n) { n.tx = (n.parent ? n.parent.x : n.x); n.tcy = (n.parent ? n.parent.cy : n.cy); n.sx = n._x; n.scy = n._cy; n.sop = n.op; });
+    vis.forEach(function (n) { n.tx = n.x; n.tcy = n.cy; n.sx = n._x; n.scy = n._cy; n.sop = n.op; });
+    pendingExit = exiting;
+
+    var t0 = null;
+    function frame(ts) {
+      if (t0 === null) t0 = ts;
+      var p = Math.min(1, (ts - t0) / DUR);
+      var e = p < .5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2; // easeInOutCubic
+      vis.concat(exiting).forEach(function (n) {
+        n._x = n.sx + (n.tx - n.sx) * e;
+        n._cy = n.scy + (n.tcy - n.scy) * e;
+        var targetOp = (vis.indexOf(n) !== -1) ? 1 : 0;
+        n.op = n.sop + (targetOp - n.sop) * e;
+        place(n);
+      });
+      drawLinks(vis);
+      if (p < 1) { animId = requestAnimationFrame(frame); }
+      else { flushExit(); animId = null; }
+    }
+    animId = requestAnimationFrame(frame);
+  }
+
+  function toggle(n) {
+    if (!n.children.length) return;
+    n.expanded = !n.expanded;
+    if (n.badge) n.badge.textContent = n.expanded ? "−" : "+";
+    update(n);
+  }
+
+  /* ---------------- pan + zoom ---------------- */
+  var panX = 20, panY = 40, scale = 1;
+  function applyView() { stage.style.transform = "translate(" + panX + "px," + panY + "px) scale(" + scale + ")"; }
+  function fit() {
+    var vis = visible();
+    var minY = Infinity, maxY = -Infinity, maxX = 0;
+    vis.forEach(function (n) { minY = Math.min(minY, n._cy - n.h / 2); maxY = Math.max(maxY, n._cy + n.h / 2); maxX = Math.max(maxX, n._x + n.w); });
+    var vh = viewport.clientHeight, vw = viewport.clientWidth;
+    scale = Math.min(1, (vw - 40) / (maxX + 40));
+    panX = 24;
+    panY = Math.max(16, (vh - (maxY - minY) * scale) / 2 - minY * scale);
+    applyView();
+  }
+  document.getElementById("mm-zin").addEventListener("click", function () { scale = Math.min(1.8, scale * 1.18); applyView(); });
+  document.getElementById("mm-zout").addEventListener("click", function () { scale = Math.max(0.4, scale / 1.18); applyView(); });
+  document.getElementById("mm-reset").addEventListener("click", fit);
+
+  var dragging = false, sx = 0, sy = 0, spx = 0, spy = 0;
+  viewport.addEventListener("mousedown", function (e) {
+    if (e.target.closest(".mm-card")) return;
+    dragging = true; viewport.classList.add("is-panning"); sx = e.clientX; sy = e.clientY; spx = panX; spy = panY;
+  });
+  window.addEventListener("mousemove", function (e) { if (!dragging) return; panX = spx + (e.clientX - sx); panY = spy + (e.clientY - sy); applyView(); });
+  window.addEventListener("mouseup", function () { dragging = false; viewport.classList.remove("is-panning"); });
+  // touch
+  viewport.addEventListener("touchstart", function (e) { if (e.target.closest(".mm-card")) return; var t = e.touches[0]; dragging = true; sx = t.clientX; sy = t.clientY; spx = panX; spy = panY; }, { passive: true });
+  viewport.addEventListener("touchmove", function (e) { if (!dragging) return; var t = e.touches[0]; panX = spx + (t.clientX - sx); panY = spy + (t.clientY - sy); applyView(); }, { passive: true });
+  viewport.addEventListener("touchend", function () { dragging = false; });
+
+  /* ---------------- SEO / a11y outline ---------------- */
+  (function () {
+    var ul = document.getElementById("mm-outline-list");
+    root.children.forEach(function (b) {
+      var li = document.createElement("li");
+      var strong = document.createElement("strong"); strong.textContent = b.label; li.appendChild(strong);
+      if (b.children.length) {
+        var sub = document.createElement("ul");
+        b.children.forEach(function (c) { var cli = document.createElement("li"); cli.textContent = c.label + (c.sub ? " — " + c.sub : ""); sub.appendChild(cli); });
+        li.appendChild(sub);
+      }
+      ul.appendChild(li);
+    });
+  })();
+
+  /* ---------------- init ---------------- */
+  function init() {
+    root.children[1].expanded = true; // pre-open "Routine vet care" so the map shows depth on load
+    var vis = visible();
+    vis.forEach(function (n) { makeEl(n); n.alive = true; });
+    layout();
+    vis.forEach(function (n) { n._x = n.x; n._cy = n.cy; n.op = 1; place(n); });
+    drawLinks(vis);
+    fit();
+  }
+  init();
+  window.addEventListener("resize", fit);
+})();
+</script>
+</body>
+</html>
