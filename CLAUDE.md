@@ -181,9 +181,11 @@ The site is the product. Repo docs are working memory for contributors. Default 
 
 ## SEO + monetization posture
 
+> **Current growth/SEO status, strategy, metrics, and go-forward live in [`docs/GROWTH-STATUS.md`](docs/GROWTH-STATUS.md)** — read it first. It covers the indexing/authority game, the 2026-06 breed×state **prune** decision, the outreach state, and the dashboard runbook (the Ahrefs API returns "Insufficient plan" — read the dashboards via the Chrome extension instead).
+
 ### SEO
 
-- Sitemap **index** at `/sitemap.xml` → 6 child sitemaps (~294 URLs): core, calculators, breeds, states, guides, breed-state. Keep child `lastmod` and the index `lastmod` in sync when a section changes.
+- Sitemap **index** at `/sitemap.xml` → **5** child sitemaps: core, calculators, breeds, states, guides. (`sitemap-breed-state.xml` was removed 2026-06-20 when the 150 breed×state pages were pruned to `noindex,follow` — see [`docs/GROWTH-STATUS.md`](docs/GROWTH-STATUS.md) §4.) Keep child `lastmod` and the index `lastmod` in sync when a section changes.
 - Verified in Google Search Console as a **sc-domain** property.
 - JSON-LD on content pages: `BreadcrumbList` + `FAQPage` + `Article` (guides), `BreadcrumbList` + `FAQPage` (breed pages), `ItemList` + `CollectionPage` (hubs).
 - FAQ schema uses the **exact** "how much…" phrasings from GSC/autocomplete — that's how people search.
