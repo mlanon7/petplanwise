@@ -34,6 +34,7 @@ window.YPB_AHREFS_KEY = window.YPB_AHREFS_KEY || "wY6hk1lMVpXnaKH97NnNgg"; // Ah
     '            <svg class="chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>\n' +
     '          </button>\n' +
     '          <div class="nav-dropdown" role="menu">\n' +
+    '            <a href="/pet-cost-simulator/" role="menuitem"><span class="nav-dd-title">Pet Cost Simulator</span><span class="nav-dd-sub">The full range — 10,000 lifetimes</span></a>\n' +
     '            <a href="/dog-cost-calculator/" role="menuitem"><span class="nav-dd-title">Dog Cost</span><span class="nav-dd-sub">Monthly · annual · lifetime</span></a>\n' +
     '            <a href="/cat-cost-calculator/" role="menuitem"><span class="nav-dd-title">Cat Cost</span><span class="nav-dd-sub">Monthly · annual · lifetime</span></a>\n' +
     '            <a href="/vet-bill-calculator/" role="menuitem"><span class="nav-dd-title">Vet Bill Builder</span><span class="nav-dd-sub">Line-item procedure costs</span></a>\n' +

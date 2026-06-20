@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Pet Cost Simulator: How Much Could Your Dog or Cat Cost?</title>
+<meta name="description" content="Most cost guides give you one average. This simulator runs 10,000 possible lifetimes of your breed to show the full range — the typical cost, the unlucky year, and the rare catastrophe — built from AVMA, OFA, NAPHIA and published vet-cost data." />
+<meta name="robots" content="index,follow" />
+<link rel="canonical" href="https://petplanwise.com/pet-cost-simulator/" />
+<meta property="og:url" content="https://petplanwise.com/pet-cost-simulator/" />
+<meta property="og:title" content="How Much Could Your Pet Really Cost? — Pet Cost Simulator" />
+<meta property="og:description" content="Run 10,000 simulated lifetimes of your dog or cat and see the whole range of possible costs — including the rare catastrophe most cost guides skip." />
+<meta property="og:image" content="https://petplanwise.com/assets/og-image.png" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://petplanwise.com/assets/og-image.png" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230F766E'/%3E%3Ctext x='50' y='66' font-family='system-ui,sans-serif' font-weight='700' font-size='58' fill='white' text-anchor='middle'%3E%24%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" data-ppw-inter>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin data-ppw-inter>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" data-ppw-inter>
+<link rel="stylesheet" href="/assets/css/site.css?v=20260614c" />
+<script src="/assets/js/layout-20260614c.js" defer></script>
+<style>
+  .sim-hero { padding: 22px 0 6px; }
+  .sim-hero h1 { margin: 4px 0 6px; }
+  .sim-byline { font-size: 13px; color: var(--muted); margin: 0 0 2px; }
+
+  .sim-controls {
+    display: flex; flex-wrap: wrap; gap: 14px 18px; align-items: flex-end;
+    background: #fff; border: 1px solid var(--border); border-radius: 16px;
+    padding: 16px 18px; box-shadow: var(--shadow-sm); margin: 16px 0 20px;
+  }
+  .sim-field { display: flex; flex-direction: column; gap: 5px; }
+  .sim-field label { font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .03em; }
+  .sim-field select { padding: 9px 12px; border: 1px solid var(--border-2); border-radius: 10px; font-size: 14px; font-weight: 600; color: var(--ink); background: #fff; min-width: 210px; }
+  .sim-toggle { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: var(--ink-2); cursor: pointer; padding-bottom: 9px; }
+  .sim-toggle input { width: 17px; height: 17px; accent-color: var(--accent); }
+  .sim-run { margin-left: auto; background: var(--accent); color: #fff; border: 0; border-radius: 11px; padding: 11px 18px; font-size: 14px; font-weight: 700; cursor: pointer; box-shadow: var(--shadow-sm); }
+  .sim-run:hover { background: var(--accent-700); } .sim-run:active { transform: scale(.97); }
+
+  .sim-headline { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 14px; margin: 4px 0 2px; }
+  .sim-headline .lab { font-size: 14px; font-weight: 600; color: var(--muted); }
+  .sim-headline .amt { font-size: 42px; font-weight: 800; color: var(--accent); letter-spacing: -.02em; line-height: 1.05; font-variant-numeric: tabular-nums; }
+  .sim-narr { font-size: 15px; color: var(--ink-2); line-height: 1.55; margin: 2px 0 16px; max-width: 780px; }
+  .sim-narr b { color: var(--ink); } .sim-narr .hot { color: #B45309; font-weight: 700; }
+
+  .sim-chartwrap { position: relative; background: linear-gradient(180deg,#FFFFFF,#FBF7EC); border: 1px solid var(--border); border-radius: 16px; padding: 14px 14px 8px; box-shadow: var(--shadow-md); }
+  .sim-chartwrap svg { max-width: none !important; display: block; width: 100%; height: auto; }
+  .sim-legend { display: flex; flex-wrap: wrap; gap: 14px; font-size: 12.5px; color: var(--muted); margin: 8px 2px 0; }
+  .sim-legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .sim-sw { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+
+  .sim-cards { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin: 16px 0 6px; }
+  .sim-card { background: #fff; border: 1px solid var(--border); border-radius: 13px; padding: 12px 13px; }
+  .sim-card .k { font-size: 11.5px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .03em; }
+  .sim-card .v { font-size: 21px; font-weight: 800; color: var(--ink); margin-top: 3px; font-variant-numeric: tabular-nums; }
+  .sim-card.amber { border-color: #FCD9A4; background: #FFFaf0; } .sim-card.amber .v { color: #B45309; }
+  .sim-card.red   { border-color: #F3C0BC; background: #FEF5F4; } .sim-card.red .v { color: var(--danger); }
+
+  .sim-grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 18px 0 0; }
+  .sim-panel { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 16px 18px; }
+  .sim-panel h3 { font-size: 15px; margin: 0 0 10px; }
+  .sim-driver { display: flex; align-items: center; gap: 10px; margin: 8px 0; }
+  .sim-driver .name { font-size: 13.5px; color: var(--ink-2); width: 150px; flex: none; }
+  .sim-driver .bar { flex: 1; height: 12px; background: var(--surface-3); border-radius: 6px; overflow: hidden; }
+  .sim-driver .fill { height: 100%; background: #F59E0B; border-radius: 6px; transition: width .5s cubic-bezier(.2,.8,.2,1); }
+  .sim-driver .pct { font-size: 12.5px; font-weight: 700; color: #B45309; width: 38px; text-align: right; }
+  .sim-take { font-size: 14.5px; line-height: 1.6; color: var(--ink-2); }
+  .sim-take b { color: var(--ink); }
+
+  details.sim-meth { margin: 22px 0 0; background: var(--surface-2); border: 1px solid var(--border); border-radius: 14px; padding: 4px 18px; }
+  details.sim-meth > summary { cursor: pointer; font-weight: 700; color: var(--ink); padding: 12px 0; font-size: 15px; }
+  details.sim-meth .prose { padding-bottom: 8px; }
+  .sim-srctable { width: 100%; border-collapse: collapse; font-size: 13px; margin: 8px 0; }
+  .sim-srctable th, .sim-srctable td { text-align: left; padding: 7px 8px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  .sim-srctable th { color: var(--muted); font-weight: 600; }
+  .sim-srctable a { color: var(--accent); word-break: break-word; }
+
+  .sim-reviewer { display: flex; gap: 10px; align-items: flex-start; font-size: 13px; color: var(--muted); margin: 18px 0 0; background: var(--surface-3); border-radius: 12px; padding: 12px 16px; line-height: 1.5; }
+  .sim-disc { font-size: 12.5px; color: var(--muted); margin: 14px 0 0; line-height: 1.55; }
+
+  @media (max-width: 760px) {
+    .sim-cards { grid-template-columns: repeat(2, 1fr); }
+    .sim-grid2 { grid-template-columns: 1fr; }
+    .sim-run { margin-left: 0; width: 100%; }
+    .sim-field { flex: 1 1 150px; } .sim-field select { min-width: 0; width: 100%; }
+    .sim-headline .amt { font-size: 34px; }
+    .sim-driver .name { width: 116px; }
+  }
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://petplanwise.com/"},{"@type":"ListItem","position":2,"name":"Pet cost simulator","item":"https://petplanwise.com/pet-cost-simulator/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"PetPlanWise Pet Cost Simulator","url":"https://petplanwise.com/pet-cost-simulator/","applicationCategory":"FinanceApplication","operatingSystem":"Any (web)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"A Monte Carlo simulator that runs 10,000 possible lifetimes of a dog or cat to show the full distribution of likely lifetime costs, including the catastrophic tail, built from published incidence and cost data.","publisher":{"@type":"Organization","name":"PetPlanWise","url":"https://petplanwise.com/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much does a dog cost over its lifetime?","acceptedAnswer":{"@type":"Answer","text":"Most dogs cost roughly $22,000–$60,000 over a full lifetime (Synchrony Lifetime of Care, 2025), but the figure is highly variable. Routine care is predictable; the spread comes from rare, expensive health events. This simulator shows the whole range for your breed rather than a single average."}},{"@type":"Question","name":"Is pet insurance worth it?","acceptedAnswer":{"@type":"Answer","text":"Insurance rarely lowers your average lifetime cost — premiums (about $749/year for dogs, $386/year for cats per NAPHIA 2025) roughly offset reimbursements over a typical timeline. What it buys is a smaller worst case: it caps the catastrophic tail, trading a variable risk for a fixed cost. Whether that trade is worth it depends on your tolerance for a rare five-figure bill."}},{"@type":"Question","name":"How are these numbers calculated?","acceptedAnswer":{"@type":"Answer","text":"Each simulated lifetime sums predictable recurring costs (food, routine vet, preventives) across the pet's lifespan, then rolls a set of major health events using published incidence rates weighted by breed (from AVMA, OFA, the Glickman GDV studies, Morris Animal Foundation, Cornell, and others) and assigns each event a cost from published US ranges. Running 10,000 lifetimes produces the distribution. Figures are planning approximations, not predictions."}}]}</script>
+</head>
+<body>
+<div id="site-header"></div>
+<main>
+  <div class="container"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>›</span>Pet cost simulator</nav></div>
+
+  <section class="sim-hero"><div class="container">
+    <span class="eyebrow">Interactive tool · 10,000 simulated lifetimes</span>
+    <h1>How much could your pet <em>really</em> cost?</h1>
+    <p class="sim-byline">Martin Lashgari, Ph.D., P.E., PMP · Last reviewed June 2026 · <a href="#methodology">Methodology &amp; sources</a></p>
+    <p class="lede prose">Every other cost guide gives you one average number. But it's not the average that hurts a household — it's the unlucky year. This runs <strong>10,000 possible lifetimes of your dog or cat</strong>, rolling real health events at published rates, and shows the whole range: the typical cost, the 1-in-10 bad year, and the rare catastrophe nobody plans for.</p>
+  </div></section>
+
+  <div class="container">
+    <div class="sim-controls">
+      <div class="sim-field"><label for="sim-breed">Breed</label><select id="sim-breed"></select></div>
+      <div class="sim-field"><label for="sim-age">Current age</label><select id="sim-age"></select></div>
+      <label class="sim-toggle"><input type="checkbox" id="sim-ins"> Model with pet insurance</label>
+      <button class="sim-run" id="sim-run" type="button">↻ Re-roll 10,000 lifetimes</button>
+    </div>
+
+    <h2 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;">Your pet's possible lifetime costs</h2>
+    <div class="sim-headline"><span class="lab">Most likely lifetime cost</span><span class="amt" id="sim-amt">—</span></div>
+    <p class="sim-narr" id="sim-narr"></p>
+
+    <div class="sim-chartwrap">
+      <div id="sim-chart"></div>
+      <div class="sim-legend">
+        <span><i class="sim-sw" style="background:#0F766E"></i> Typical range</span>
+        <span><i class="sim-sw" style="background:#F59E0B"></i> Unlucky — worse than 1 in 10</span>
+        <span><i class="sim-sw" style="background:#B91C1C"></i> Catastrophic — worse than 1 in 100</span>
+      </div>
+    </div>
+
+    <div class="sim-cards" id="sim-cards"></div>
+
+    <div class="sim-grid2">
+      <div class="sim-panel">
+        <h3>What's driving the worst 10% of outcomes</h3>
+        <div id="sim-drivers"></div>
+      </div>
+      <div class="sim-panel">
+        <h3>What pet insurance actually changes</h3>
+        <p class="sim-take" id="sim-take"></p>
+        <p style="margin:10px 0 0;font-size:13px;"><a href="/pet-insurance-vs-savings/">Run the break-even math →</a></p>
+      </div>
+    </div>
+
+    <details class="sim-meth" id="methodology" open>
+      <summary>How this works · Methodology &amp; sources</summary>
+      <div class="prose">
+        <p>This is a <strong>Monte Carlo simulation</strong> — the same "frequency × severity" approach insurers use to price risk. Each of the 10,000 runs is one possible life for your pet:</p>
+        <ol>
+          <li><strong>Predictable recurring cost</strong> — a per-year baseline (food, routine vet, preventives, grooming) by size, multiplied across the pet's lifespan, plus one-time setup. Summing many small yearly costs produces the central bell.</li>
+          <li><strong>Random major health events</strong> — for each condition we flip a weighted coin using its published incidence rate × a breed-predisposition factor × the share of life remaining. When an event lands, its cost is drawn from a published US range. The rare, expensive events are what create the long right tail and the catastrophic outcomes.</li>
+        </ol>
+        <p><strong>Calibration.</strong> The overall distribution is calibrated against Synchrony's <em>Lifetime of Care</em> study, which puts total lifetime cost at <strong>$22,125–$60,602 for dogs</strong> and <strong>$20,073–$47,106 for cats</strong> — our medians and tails land inside that envelope.</p>
+        <p><strong>Honesty on the inputs.</strong> Costs and the headline incidence figures are sourced below. Where published data gives a breed-specific lifetime rate (bloat in Great Danes, hip dysplasia by breed) we <em>anchor</em> the model to it; otherwise the breed factor is <em>modeled</em> from documented predispositions (OFA screening rates, cancer-mortality studies, claims data) and is a transparent planning estimate, not a measured rate. For cats, kidney and heart disease dominate later-life costs, so we fold them into a breed-weighted chronic-illness event rather than modeling each separately. Several conditions are age-conditional, so probabilities scale with remaining lifespan. The insurance view is deliberately simple — a flat premium (real premiums rise with age) and roughly 80% reimbursement after a small per-event deductible, with no annual payout cap — enough to show the shape of the trade-off, not to price a specific policy. This is a planning model that shows a <em>range of possibilities</em> — not a prediction for any individual pet, and not veterinary or financial advice.</p>
+        <h3 style="margin-top:14px;">Key sources</h3>
+        <table class="sim-srctable">
+          <thead><tr><th>What it informs</th><th>Source</th></tr></thead>
+          <tbody id="sim-sources"></tbody>
+        </table>
+        <p style="font-size:12.5px;color:var(--muted);">Cost ranges reviewed June 2026. Incidence figures are drawn from the most authoritative public data available; pet epidemiology varies by population and study, so all probabilities are planning approximations.</p>
+      </div>
+    </details>
+
+    <div class="sim-reviewer">
+      <span>Modeled and fact-checked by PetPlanWise Editorial. Cost data traces to published US sources (below); no individual veterinarian endorsement. Built by Martin Lashgari, Ph.D., P.E., PMP — a licensed engineer, not a veterinarian or licensed insurance professional. For medical questions consult your veterinarian; for coverage decisions, read current provider terms.</span>
+    </div>
+
+    <p class="sim-disc"><strong>Planning estimates only — not veterinary medical advice.</strong> Consult your veterinarian for clinical decisions. These are cost ranges, not a vet quote or a prediction for any individual pet; verify pricing with your local clinic and any insurance terms with the current provider. <a href="/dog-cost-calculator/">Prefer a single estimate? Use the calculator →</a></p>
+  </div>
+</main>
+<div id="site-footer"></div>
+
+<script>
+(function () {
+  /* ============================================================
+     Pet Cost Simulator — sourced Monte Carlo model.
+     Incidence + cost parameters are planning approximations drawn
+     from the sources rendered in the methodology table below.
+     ============================================================ */
+
+  /* recurring annual baseline by size (food + routine vet + preventives + grooming) */
+  var RECUR = { catS: 1150, dogS: 1400, dogM: 1850, dogL: 2300 };
+  function recurFor(b) { return b.species === 'cat' ? RECUR.catS : b.size === 'small' ? RECUR.dogS : b.size === 'large' ? RECUR.dogL : RECUR.dogM; }
+
+  /* events: p = baseline lifetime probability for a full-lived generic dog; a/c/b = cost low/typical/high */
+  var EVENTS = [
+    { id: 'cancer',  label: 'Cancer treatment',        p: 0.25, a: 3000, c: 8000, b: 18000 },
+    { id: 'dental',  label: 'Major dental / extractions', p: 0.34, a: 700,  c: 1000, b: 1800 },
+    { id: 'er',      label: 'Serious emergency visit',  p: 0.28, a: 800,  c: 1800, b: 3500 },
+    { id: 'mass',    label: 'Lump / mass removal',      p: 0.18, a: 400,  c: 1200, b: 3500 },
+    { id: 'chronic', label: 'Chronic illness (diabetes, kidney, endocrine)', p: 0.15, a: 1500, c: 3500, b: 7000 },
+    { id: 'foreign', label: 'Swallowed-object surgery', p: 0.06, a: 2000, c: 3500, b: 9000 },
+    { id: 'acl',     label: 'Cruciate (ACL) surgery',   p: 0.045, a: 2800, c: 3525, b: 6400 },
+    { id: 'hip',     label: 'Hip-dysplasia surgery',    p: 0.022, a: 1800, c: 4000, b: 13000 },
+    { id: 'bloat',   label: 'Bloat (GDV) emergency',    p: 0.02, a: 3000, c: 5000, b: 10000 },
+    { id: 'urinary', label: 'Urinary obstruction',      p: 0.015, a: 1500, c: 3000, b: 5000 }
+  ];
+
+  /* breeds: risk = overall multiplier; boost = per-event multiplier (modeled from predisposition data) */
+  var BREEDS = [
+    { id: 'mixmed', label: 'Mixed-breed dog (medium)', species: 'dog', size: 'medium', life: 13, risk: 0.82, boost: {} },
+    { id: 'mixsm',  label: 'Mixed-breed dog (small)',  species: 'dog', size: 'small', life: 14, risk: 0.8, boost: { bloat: 0.3, hip: 0.6, acl: 0.6 } },
+    { id: 'lab',    label: 'Labrador Retriever',       species: 'dog', size: 'large', life: 12, risk: 1.0, boost: { acl: 2.0, hip: 1.0, bloat: 1.2, foreign: 1.5, mass: 1.2, cancer: 1.1 } },
+    { id: 'golden', label: 'Golden Retriever',         species: 'dog', size: 'large', life: 11, risk: 1.1, boost: { cancer: 2.4, hip: 1.7, acl: 1.5, mass: 1.4 } },
+    { id: 'gsd',    label: 'German Shepherd',          species: 'dog', size: 'large', life: 11, risk: 1.1, boost: { hip: 1.7, bloat: 1.8, foreign: 1.2, chronic: 1.3, acl: 1.2 } },
+    { id: 'frenchie', label: 'French Bulldog',         species: 'dog', size: 'small', life: 11, risk: 1.45, boost: { chronic: 1.8, dental: 1.3, er: 1.5, foreign: 1.2, acl: 0.5, hip: 1.4, bloat: 0.2, cancer: 0.8 } },
+    { id: 'bulldog', label: 'English Bulldog',         species: 'dog', size: 'medium', life: 9, risk: 1.7, boost: { hip: 3.5, chronic: 2.0, dental: 1.4, er: 1.6, cancer: 0.9, bloat: 0.3, acl: 0.6 } },
+    { id: 'dane',   label: 'Great Dane',               species: 'dog', size: 'large', life: 8, risk: 1.35, boost: { bloat: 13, cancer: 1.4, hip: 1.3, chronic: 1.5 } },
+    { id: 'rottie', label: 'Rottweiler',               species: 'dog', size: 'large', life: 10, risk: 1.2, boost: { acl: 3.3, bloat: 2.0, hip: 1.5, cancer: 1.4 } },
+    { id: 'dachs',  label: 'Dachshund',                species: 'dog', size: 'small', life: 14, risk: 1.05, boost: { chronic: 2.2, dental: 1.3, acl: 0.4, hip: 0.5, bloat: 0.2 } },
+    { id: 'poodle', label: 'Poodle (standard)',        species: 'dog', size: 'medium', life: 13, risk: 0.95, boost: { bloat: 1.5, cancer: 1.1, chronic: 1.2 } },
+    { id: 'dsh',    label: 'Domestic Shorthair cat',   species: 'cat', size: 'small', life: 15, risk: 0.9, boost: { bloat: 0, hip: 0, acl: 0.05, foreign: 0.5, cancer: 0.7, chronic: 2.4, urinary: 3.0, dental: 1.1, mass: 0.7, er: 0.9 } },
+    { id: 'maine',  label: 'Maine Coon cat',           species: 'cat', size: 'small', life: 13, risk: 1.05, boost: { bloat: 0, hip: 0.1, acl: 0.05, foreign: 0.5, cancer: 0.8, chronic: 2.7, urinary: 2.5, dental: 1.1, mass: 0.8, er: 1.0 } },
+    { id: 'persian', label: 'Persian cat',             species: 'cat', size: 'small', life: 13, risk: 1.1, boost: { bloat: 0, hip: 0, acl: 0.05, foreign: 0.4, cancer: 0.7, chronic: 3.0, urinary: 2.0, dental: 1.2, mass: 0.7, er: 1.0 } },
+    { id: 'siamese', label: 'Siamese cat',             species: 'cat', size: 'small', life: 15, risk: 1.0, boost: { bloat: 0, hip: 0, acl: 0.05, foreign: 0.6, cancer: 1.0, chronic: 2.2, urinary: 2.5, dental: 1.1, mass: 0.8 } }
+  ];
+  var AGES = [['0', 'Puppy / kitten'], ['2', 'Young adult (≈2)'], ['5', 'Adult (≈5)'], ['8', 'Senior (≈8)']];
+
+  var SOURCES = [
+    ['Lifetime cost calibration ($22k–$60k dog / $20k–$47k cat)', 'Synchrony / CareCredit Lifetime of Care, 2025', 'https://www.synchrony.com/contenthub/newsroom/new-synchrony-study-finds-nearly-8-out-of-10-pet-owners.html'],
+    ['Cancer incidence (~1 in 4 dogs; ~50% over age 10)', 'Veterinary Cancer Society / AVMA', 'https://vetcancersociety.org/resources/pet-owners/pet-owner-resources/'],
+    ['Golden Retriever cancer risk', 'Morris Animal Foundation — Golden Retriever Lifetime Study', 'https://www.morrisanimalfoundation.org/article/what-have-we-learned-golden-retriever-lifetime-study-after-10-years'],
+    ['Bloat (GDV) lifetime risk — all-breed ~6%, Great Dane ~37%; giant deep-chested breeds far higher', 'Glickman 2000 (JAVMA) · Ward 2003 (Prev Vet Med)', 'https://pubmed.ncbi.nlm.nih.gov/12941556/'],
+    ['Hip dysplasia rates by breed', 'Orthopedic Foundation for Animals (OFA) breed statistics', 'https://www.ofa.org/diseases/breed-statistics/'],
+    ['Cruciate (CCL/ACL) rupture incidence', 'Witsberger 2008 (JAVMA, VMDB)', 'https://pubmed.ncbi.nlm.nih.gov/18510438/'],
+    ['Diabetes prevalence (~0.2–0.4%, rising)', 'Banfield State of Pet Health · VetCompass', 'https://www.banfield.com/about-us/state-of-pet-health'],
+    ['Cat chronic-illness weighting — kidney disease affects up to ~40% of cats over 10', 'Cornell Feline Health Center', 'https://www.vet.cornell.edu/departments-centers-and-institutes/cornell-feline-health-center/health-information/feline-health-topics/chronic-kidney-disease'],
+    ['Cat chronic-illness weighting — heart disease (HCM) in ~1 in 7 cats', 'Payne 2015, “CatScan” (J Vet Cardiol)', 'https://pubmed.ncbi.nlm.nih.gov/26776583/'],
+    ['ACL (TPLO) surgery cost (~$2,800–$6,400)', 'CareCredit / Synchrony ASQ360°, 2025', 'https://www.carecredit.com/well-u/pet-care/dog-acl-surgery-cost/'],
+    ['Cancer, GDV, blockage, dental, ER cost ranges', 'PetMD · Embrace · MetLife · Great Pet Care · Cornell · VetReceipt', 'https://www.petmd.com/'],
+    ['Insurance premiums (dog $749/yr, cat $386/yr) & claims', 'NAPHIA State of the Industry, 2025', 'https://naphia.org/news/naphia-news/soi-report-2025/']
+  ];
+
+  function rnd() { return Math.random(); }
+  function tri(a, c, b) { if (b <= a) return a; var u = rnd(), f = (c - a) / (b - a); return u < f ? a + Math.sqrt(u * (b - a) * (c - a)) : b - Math.sqrt((1 - u) * (b - a) * (b - c)); }
+
+  function simOne(b, age, ins) {
+    var life = b.life + (rnd() + rnd() - 1) * 2.7;
+    var years = Math.max(1, Math.round(life - age));
+    var annual = recurFor(b), total = 0;
+    for (var y = 0; y < years; y++) total += annual * (0.85 + rnd() * 0.3);
+    total += tri(500, 900, 1600);
+    var evCost = 0, nEv = 0, maxEv = null, maxC = 0, fired = {};
+    for (var i = 0; i < EVENTS.length; i++) {
+      var ev = EVENTS[i], boost = ev.id in b.boost ? b.boost[ev.id] : 1;
+      var lf = years / b.life; if (lf > 1) lf = 1;   // a longer-than-average life doesn't push a lifetime baseline above itself
+      var p = ev.p * b.risk * boost * lf;
+      if (p > 0.92) p = 0.92;
+      if (rnd() < p) { var c = tri(ev.a, ev.c, ev.b); evCost += c; nEv++; fired[ev.id] = 1; if (c > maxC) { maxC = c; maxEv = ev.label; } }
+    }
+    if (ins) {
+      total += (b.species === 'cat' ? 386 : 749) * years;     // NAPHIA 2025 avg A&I premium
+      evCost = Math.min(evCost, evCost * 0.2 + 250 * nEv);     // ~80% reimbursed after $250/event
+    }
+    return { t: total + evCost, m: maxEv };
+  }
+
+  function run(b, age, ins, n) {
+    var arr = new Array(n), sims = new Array(n);
+    for (var i = 0; i < n; i++) { var s = simOne(b, age, ins); arr[i] = s.t; sims[i] = s; }
+    arr.sort(function (x, y) { return x - y; });
+    var pc = function (q) { return arr[Math.min(n - 1, Math.floor(q * n))]; };
+    var thr = pc(0.9), tally = {}, top = 0;
+    for (var j = 0; j < n; j++) if (sims[j].t >= thr && sims[j].m) { tally[sims[j].m] = (tally[sims[j].m] || 0) + 1; top++; }
+    var drivers = Object.keys(tally).map(function (k) { return { label: k, pct: tally[k] / top }; }).sort(function (a, c) { return c.pct - a.pct; }).slice(0, 4);
+    return { sorted: arr, pc: pc, drivers: drivers, n: n };
+  }
+
+  function fmt(n) { return '$' + Math.round(n).toLocaleString('en-US'); }
+  function fmtK(n) { return n >= 1000 ? '$' + (Math.round(n / 100) / 10) + 'k' : '$' + Math.round(n); }
+
+  /* ---------- histogram (animated) ---------- */
+  var TARGET = null, animId = null;
+  var TEAL = '#0F766E', AMBER = '#F59E0B', RED = '#B91C1C', GRID = '#E8DFC7', INK = '#1F2937', MUTED = '#6B7280';
+
+  function buildHist(cur, marks) {
+    var n = cur.n, bins = 34, dmax = cur.pc(0.995); if (dmax <= 0) dmax = 1;
+    var counts = new Array(bins), i; for (i = 0; i < bins; i++) counts[i] = 0;
+    var bw = dmax / bins;
+    for (var s = 0; s < n; s++) { var idx = Math.floor(cur.sorted[s] / bw); if (idx >= bins) idx = bins - 1; if (idx < 0) idx = 0; counts[idx]++; }
+    var maxc = 0; for (i = 0; i < bins; i++) if (counts[i] > maxc) maxc = counts[i];
+    TARGET = { counts: counts, maxc: maxc, bw: bw, dmax: dmax, bins: bins, marks: marks };
+    if (animId) cancelAnimationFrame(animId);
+    var t0 = null;
+    function frame(ts) {
+      if (t0 === null) t0 = ts;
+      var p = Math.min(1, (ts - t0) / 650), e = 1 - Math.pow(1 - p, 3);
+      document.getElementById('sim-chart').innerHTML = svgHist(e);
+      if (p < 1) animId = requestAnimationFrame(frame); else animId = null;
+    }
+    animId = requestAnimationFrame(frame);
+  }
+
+  function svgHist(prog) {
+    var T = TARGET, W = 720, H = 300, padL = 12, padR = 12, padT = 46, padB = 38;
+    var plotW = W - padL - padR, plotH = H - padT - padB, baseY = padT + plotH, P = [];
+    P.push('<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Distribution of simulated lifetime costs" style="font-family:Inter,system-ui,sans-serif;">');
+    for (var g = 0; g <= 4; g++) {
+      var gx = padL + plotW * g / 4, gv = T.dmax * g / 4;
+      P.push('<line x1="' + gx.toFixed(1) + '" y1="' + padT + '" x2="' + gx.toFixed(1) + '" y2="' + baseY + '" stroke="' + GRID + '" stroke-width="1"/>');
+      P.push('<text x="' + gx.toFixed(1) + '" y="' + (baseY + 18) + '" text-anchor="' + (g === 0 ? 'start' : g === 4 ? 'end' : 'middle') + '" font-size="11" fill="' + MUTED + '">' + fmtK(gv) + '</text>');
+    }
+    P.push('<text x="' + (padL + plotW / 2) + '" y="' + (baseY + 33) + '" text-anchor="middle" font-size="11" font-weight="600" fill="' + MUTED + '">Total lifetime cost  →</text>');
+    var bwpx = plotW / T.bins;
+    for (var i = 0; i < T.bins; i++) {
+      var h = (T.counts[i] / T.maxc) * plotH * prog, x = padL + i * bwpx, center = (i + 0.5) * T.bw;
+      var col = center > T.marks.p99 ? RED : center > T.marks.p90 ? AMBER : TEAL;
+      P.push('<rect x="' + (x + 0.6).toFixed(1) + '" y="' + (baseY - h).toFixed(1) + '" width="' + (bwpx - 1.2).toFixed(1) + '" height="' + h.toFixed(1) + '" rx="1.5" fill="' + col + '"/>');
+    }
+    function mark(val, label, anchor, row) {
+      if (val > T.dmax) val = T.dmax;
+      var mx = padL + (val / T.dmax) * plotW;
+      P.push('<line x1="' + mx.toFixed(1) + '" y1="' + (padT - 4) + '" x2="' + mx.toFixed(1) + '" y2="' + baseY + '" stroke="' + INK + '" stroke-width="1.4" stroke-dasharray="4 3" opacity="0.55"/>');
+      var tx = anchor === 'end' ? mx - 5 : anchor === 'start' ? mx + 5 : mx, ly = row === 1 ? padT - 9 : padT - 25;
+      P.push('<text x="' + tx.toFixed(1) + '" y="' + ly + '" text-anchor="' + anchor + '" font-size="11.5" font-weight="700" fill="' + INK + '">' + label + '</text>');
+    }
+    mark(T.marks.p50, 'Median ' + fmt(T.marks.p50), 'middle', 0);
+    mark(T.marks.p99, '1 in 100 ▸ ' + fmt(T.marks.p99), 'end', 1);
+    P.push('</svg>');
+    return P.join('');
+  }
+
+  /* ---------- count-up ---------- */
+  var cuId = null, cuFrom = 0;
+  function countUp(el, to) {
+    if (cuId) cancelAnimationFrame(cuId);
+    var from = cuFrom, t0 = null;
+    function fr(ts) { if (t0 === null) t0 = ts; var p = Math.min(1, (ts - t0) / 600), e = 1 - Math.pow(1 - p, 3); el.textContent = fmt(from + (to - from) * e); if (p < 1) cuId = requestAnimationFrame(fr); else { cuId = null; cuFrom = to; } }
+    cuId = requestAnimationFrame(fr);
+  }
+
+  /* ---------- orchestration ---------- */
+  var breedSel = document.getElementById('sim-breed'), ageSel = document.getElementById('sim-age'), insChk = document.getElementById('sim-ins');
+  BREEDS.forEach(function (b) { var o = document.createElement('option'); o.value = b.id; o.textContent = b.label; breedSel.appendChild(o); });
+  breedSel.value = 'lab';
+  AGES.forEach(function (a) { var o = document.createElement('option'); o.value = a[0]; o.textContent = a[1]; ageSel.appendChild(o); });
+  document.getElementById('sim-sources').innerHTML = SOURCES.map(function (s) {
+    return '<tr><td>' + s[0] + '</td><td><a href="' + s[2] + '" target="_blank" rel="noopener">' + s[1] + '</a></td></tr>';
+  }).join('');
+
+  function shortBreed(b) { return b.label.replace(/\s*\(.*\)/, '').replace(' cat', ''); }
+
+  function go() {
+    var b = BREEDS.filter(function (x) { return x.id === breedSel.value; })[0];
+    var age = +ageSel.value, ins = insChk.checked, N = 10000;
+    var off = run(b, age, false, N), on = run(b, age, true, N), cur = ins ? on : off;
+    var p50 = cur.pc(0.5), p25 = cur.pc(0.25), p75 = cur.pc(0.75), p90 = cur.pc(0.9), p99 = cur.pc(0.99), max = cur.sorted[N - 1];
+
+    countUp(document.getElementById('sim-amt'), p50);
+    var d0 = cur.drivers[0] ? cur.drivers[0].label.toLowerCase() : null;
+    document.getElementById('sim-narr').innerHTML =
+      'Half of ' + shortBreed(b) + 's like yours land <b>under ' + fmt(p50) + '</b> over a lifetime. '
+      + 'But <span class="hot">1 in 10 crosses ' + fmt(p90) + '</span>'
+      + (d0 ? ' — often a ' + d0 + ' year' : '')
+      + ', and <span class="hot">1 in 100 tops ' + fmt(p99) + '</span>. That tail is the part no average can show you.';
+
+    buildHist(cur, { p50: p50, p90: p90, p99: p99 });
+
+    var cards = [['Median (most likely)', fmt(p50), ''], ['Typical range', fmtK(p25) + '–' + fmtK(p75), ''], ['1 in 10 exceeds', fmt(p90), 'amber'], ['1 in 100 exceeds', fmt(p99), 'red'], ['Worst simulated', fmt(max), 'red']];
+    document.getElementById('sim-cards').innerHTML = cards.map(function (c) { return '<div class="sim-card ' + c[2] + '"><div class="k">' + c[0] + '</div><div class="v">' + c[1] + '</div></div>'; }).join('');
+
+    document.getElementById('sim-drivers').innerHTML = cur.drivers.map(function (d) {
+      return '<div class="sim-driver"><span class="name">' + d.label + '</span><span class="bar"><span class="fill" style="width:' + Math.round(d.pct * 100) + '%"></span></span><span class="pct">' + Math.round(d.pct * 100) + '%</span></div>';
+    }).join('') || '<p style="font-size:13px;color:var(--muted)">Run a breed with major event risk to see drivers.</p>';
+
+    var offP50 = off.pc(0.5), onP50 = on.pc(0.5), offP99 = off.pc(0.99), onP99 = on.pc(0.99), offMax = off.sorted[N - 1], onMax = on.sorted[N - 1];
+    document.getElementById('sim-take').innerHTML =
+      'Not a cheaper pet — a smaller disaster. On a typical timeline your cost <b>rises</b> from ' + fmt(offP50) + ' to ' + fmt(onP50) + ' (premiums). But the catastrophic end <b>shrinks</b>: the 1-in-100 outcome falls from ' + fmt(offP99) + ' to ' + fmt(onP99) + ', and the worst case from ' + fmt(offMax) + ' to ' + fmt(onMax) + '. You trade a rare five-figure shock for a flat monthly cost. '
+      + (ins ? 'Untick the box to watch the tail grow back.' : 'Tick the box to watch the spread tighten.');
+  }
+
+  document.getElementById('sim-run').addEventListener('click', go);
+  breedSel.addEventListener('change', function () { cuFrom = 0; go(); });
+  ageSel.addEventListener('change', go);
+  insChk.addEventListener('change', go);
+  go();
+})();
+</script>
+</body>
+</html>

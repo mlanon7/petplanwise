@@ -21,10 +21,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" data-ppw-inter>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin data-ppw-inter>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" data-ppw-inter>
-  <link rel="stylesheet" href="/assets/css/site.css?v=20260614b" />
-  <script src="/assets/data/csv-loader-20260614b.js" defer></script>
-  <script src="/assets/js/layout-20260614b.js" defer></script>
-  <script src="/assets/js/calculator-20260614b.js" defer></script>
+  <link rel="stylesheet" href="/assets/css/site.css?v=20260614c" />
+  <script src="/assets/data/csv-loader-20260614c.js" defer></script>
+  <script src="/assets/js/layout-20260614c.js" defer></script>
+  <script src="/assets/js/calculator-20260614c.js" defer></script>
 
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
@@ -524,11 +524,11 @@
   <section><div class="container">
     <div class="cmp-species-filter" role="tablist" aria-label="Compare by species">
       <button type="button" data-species="dog" class="is-active" role="tab" aria-selected="true">
-        <img class="species-ico" src="/logo/dog-svgrepo-com.svg?v=20260614b" alt="Dog icon" width="32" height="32" aria-hidden="true">
+        <img class="species-ico" src="/logo/dog-svgrepo-com.svg?v=20260614c" alt="Dog icon" width="32" height="32" aria-hidden="true">
         Dogs <span class="count" id="species-count-dog">—</span>
       </button>
       <button type="button" data-species="cat" role="tab" aria-selected="false">
-        <img class="species-ico" src="/logo/cat-svgrepo-com.svg?v=20260614b" alt="Cat icon" width="32" height="32" aria-hidden="true">
+        <img class="species-ico" src="/logo/cat-svgrepo-com.svg?v=20260614c" alt="Cat icon" width="32" height="32" aria-hidden="true">
         Cats <span class="count" id="species-count-cat">—</span>
       </button>
     </div>
@@ -842,7 +842,7 @@
     function heroCard(side, breed, traits) {
       /* Cache-bust appended so swapped hero photos refresh on the CDN.
          Bump when bump-cache-bust.js bumps the site version. */
-      var img = breedPagePath(breed) + "hero.jpg?v=20260614b";
+      var img = breedPagePath(breed) + "hero.jpg?v=20260614c";
       var purchase = (breed.purchase && breed.purchase.typical)
         ? "$" + parseInt(breed.purchase.low, 10).toLocaleString() + "–$" + parseInt(breed.purchase.high, 10).toLocaleString()
         : "—";
