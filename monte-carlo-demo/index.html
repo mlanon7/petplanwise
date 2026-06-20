@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>How Much Could Your Pet Really Cost? — 10,000 Lifetimes (Demo) | PetPlanWise</title>
+<meta name="description" content="A Monte Carlo simulator that runs 10,000 lifetimes of your pet to show the full range of possible lifetime costs — median, the unlucky tail, and what insurance changes." />
+<meta name="robots" content="noindex,follow" />
+<link rel="canonical" href="https://petplanwise.com/monte-carlo-demo/" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230F766E'/%3E%3Ctext x='50' y='66' font-family='system-ui,sans-serif' font-weight='700' font-size='58' fill='white' text-anchor='middle'%3E%24%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" data-ppw-inter>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin data-ppw-inter>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" data-ppw-inter>
+<link rel="stylesheet" href="/assets/css/site.css?v=20260614b" />
+<script src="/assets/js/layout-20260614b.js" defer></script>
+<style>
+  .mc-hero { padding: 22px 0 6px; }
+  .mc-hero h1 { margin: 4px 0 6px; }
+  .mc-controls {
+    display: flex; flex-wrap: wrap; gap: 14px 18px; align-items: flex-end;
+    background: #fff; border: 1px solid var(--border); border-radius: 16px;
+    padding: 16px 18px; box-shadow: var(--shadow-sm); margin: 14px 0 18px;
+  }
+  .mc-field { display: flex; flex-direction: column; gap: 5px; }
+  .mc-field label { font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .03em; }
+  .mc-field select { padding: 9px 12px; border: 1px solid var(--border-2); border-radius: 10px; font-size: 14px; font-weight: 600; color: var(--ink); background: #fff; min-width: 220px; }
+  .mc-toggle { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: var(--ink-2); cursor: pointer; padding-bottom: 8px; }
+  .mc-toggle input { width: 17px; height: 17px; accent-color: var(--accent); }
+  .mc-run { margin-left: auto; background: var(--accent); color: #fff; border: 0; border-radius: 11px; padding: 11px 18px; font-size: 14px; font-weight: 700; cursor: pointer; box-shadow: var(--shadow-sm); }
+  .mc-run:hover { background: var(--accent-700); }
+  .mc-run:active { transform: scale(.97); }
+
+  .mc-headline { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 14px; margin: 4px 0 2px; }
+  .mc-headline .lab { font-size: 14px; font-weight: 600; color: var(--muted); }
+  .mc-headline .amt { font-size: 40px; font-weight: 800; color: var(--accent); letter-spacing: -.02em; line-height: 1.05; }
+  .mc-narr { font-size: 15px; color: var(--ink-2); line-height: 1.5; margin: 2px 0 14px; max-width: 760px; }
+  .mc-narr b { color: var(--ink); }
+  .mc-narr .hot { color: #B45309; font-weight: 700; }
+
+  .mc-chartwrap { position: relative; background: linear-gradient(180deg,#FFFFFF,#FBF7EC); border: 1px solid var(--border); border-radius: 16px; padding: 14px 14px 8px; box-shadow: var(--shadow-md); }
+  .mc-chartwrap svg { max-width: none !important; display: block; width: 100%; height: auto; }
+  .mc-runcount { position: absolute; top: 12px; right: 16px; font-size: 12px; font-weight: 600; color: var(--muted); }
+
+  .mc-legend { display: flex; flex-wrap: wrap; gap: 14px; font-size: 12.5px; color: var(--muted); margin: 8px 2px 0; }
+  .mc-legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .mc-sw { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+
+  .mc-cards { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin: 16px 0 6px; }
+  .mc-card { background: #fff; border: 1px solid var(--border); border-radius: 13px; padding: 12px 13px; }
+  .mc-card .k { font-size: 11.5px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .03em; }
+  .mc-card .v { font-size: 21px; font-weight: 800; color: var(--ink); margin-top: 3px; letter-spacing: -.01em; }
+  .mc-card.amber { border-color: #FCD9A4; background: #FFFaf0; } .mc-card.amber .v { color: #B45309; }
+  .mc-card.red   { border-color: #F3C0BC; background: #FEF5F4; } .mc-card.red .v { color: var(--danger); }
+
+  .mc-takeaway { margin: 14px 0 0; font-size: 14.5px; line-height: 1.55; color: var(--ink-2); background: var(--surface-3); border-radius: 12px; padding: 13px 16px; }
+  .mc-takeaway b { color: var(--ink); }
+  .mc-disc { font-size: 12px; color: var(--muted); margin: 16px 0 0; line-height: 1.5; }
+
+  @media (max-width: 720px) {
+    .mc-cards { grid-template-columns: repeat(2, 1fr); }
+    .mc-run { margin-left: 0; width: 100%; }
+    .mc-field select { min-width: 0; width: 100%; }
+    .mc-field { flex: 1 1 140px; }
+    .mc-headline .amt { font-size: 32px; }
+  }
+</style>
+</head>
+<body>
+<div id="site-header"></div>
+<main>
+  <div class="container"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>›</span>Cost simulator (demo)</nav></div>
+
+  <section class="mc-hero"><div class="container">
+    <span class="eyebrow">Interactive · Demo · 10,000 simulated lifetimes</span>
+    <h1>How much could your pet <em>really</em> cost?</h1>
+    <p class="lede prose">Everyone else gives you one average number. But it's not the average that hurts — it's the unlucky year. This runs <strong>10,000 lifetimes of your pet</strong> and shows the whole range, including the tail nobody warns you about.</p>
+  </div></section>
+
+  <div class="container">
+    <div class="mc-controls">
+      <div class="mc-field"><label for="mc-breed">Breed</label><select id="mc-breed"></select></div>
+      <div class="mc-field"><label for="mc-age">Current age</label><select id="mc-age"></select></div>
+      <label class="mc-toggle"><input type="checkbox" id="mc-ins"> I have pet insurance</label>
+      <button class="mc-run" id="mc-run" type="button">🎲 Re-roll 10,000 lifetimes</button>
+    </div>
+
+    <div class="mc-headline"><span class="lab">Most likely lifetime cost</span><span class="amt" id="mc-amt">—</span></div>
+    <p class="mc-narr" id="mc-narr"></p>
+
+    <div class="mc-chartwrap">
+      <span class="mc-runcount" id="mc-count"></span>
+      <div id="mc-chart"></div>
+      <div class="mc-legend">
+        <span><i class="mc-sw" style="background:#0F766E"></i> Typical range</span>
+        <span><i class="mc-sw" style="background:#F59E0B"></i> Unlucky — worse than 1 in 10</span>
+        <span><i class="mc-sw" style="background:#B91C1C"></i> Catastrophic — worse than 1 in 100</span>
+      </div>
+    </div>
+
+    <div class="mc-cards" id="mc-cards"></div>
+    <div class="mc-takeaway" id="mc-take"></div>
+
+    <p class="mc-disc"><strong>Illustrative demo.</strong> The incidence rates and cost ranges here are representative placeholders chosen to show the concept. The production version would use sourced data (OFA breed statistics, NAPHIA / insurer claims reports, AAHA, AVMA). This is a planning tool that models a <em>range of possibilities</em> — not a prediction, and not veterinary or financial advice.</p>
+  </div>
+</main>
+<div id="site-footer"></div>
+
+<script>
+(function () {
+  /* ---------- model (illustrative placeholders) ---------- */
+  var RECUR = { catS: 1200, dogS: 1500, dogM: 1900, dogL: 2500 };
+  function recurFor(b) { return b.species === 'cat' ? RECUR.catS : b.size === 'small' ? RECUR.dogS : b.size === 'large' ? RECUR.dogL : RECUR.dogM; }
+
+  var EVENTS = [
+    { id: 'dental',  label: 'a major dental',          p: 0.45, a: 500,  c: 900,  b: 1800 },
+    { id: 'mass',    label: 'a lump removal',          p: 0.20, a: 400,  c: 1200, b: 3500 },
+    { id: 'foreign', label: 'a swallowed-object surgery', p: 0.07, a: 1500, c: 3500, b: 6000 },
+    { id: 'acl',     label: 'an orthopedic (ACL)',     p: 0.05, a: 3000, c: 5000, b: 7500 },
+    { id: 'hip',     label: 'a hip-dysplasia',         p: 0.03, a: 4000, c: 5500, b: 8000 },
+    { id: 'bloat',   label: 'a bloat (GDV) emergency', p: 0.02, a: 2500, c: 5000, b: 8000 },
+    { id: 'cancer',  label: 'a cancer-treatment',      p: 0.15, a: 4000, c: 8000, b: 18000 },
+    { id: 'chronic', label: 'a chronic-illness',       p: 0.22, a: 1200, c: 3000, b: 6000 },
+    { id: 'er',      label: 'an emergency-visit',      p: 0.30, a: 800,  c: 1800, b: 3500 }
+  ];
+
+  var BREEDS = [
+    { id: 'mixed',    label: 'Mixed-breed dog (medium)',  species: 'dog', size: 'medium', life: 13, risk: 0.82, boost: {} },
+    { id: 'lab',      label: 'Labrador Retriever (large)', species: 'dog', size: 'large', life: 12, risk: 1.05, boost: { acl: 1.8, cancer: 1.4, hip: 1.9, bloat: 1.2, mass: 1.3 } },
+    { id: 'frenchie', label: 'French Bulldog (small)',    species: 'dog', size: 'small', life: 11, risk: 1.6, boost: { dental: 1.3, chronic: 1.7, foreign: 1.3, er: 1.4, cancer: 0.9, acl: 0.6, hip: 0.7, bloat: 0.3 } },
+    { id: 'golden',   label: 'Golden Retriever (large)',  species: 'dog', size: 'large', life: 11, risk: 1.3, boost: { cancer: 2.4, hip: 1.5, acl: 1.4, mass: 1.4 } },
+    { id: 'gsd',      label: 'German Shepherd (large)',   species: 'dog', size: 'large', life: 11, risk: 1.2, boost: { hip: 2.2, bloat: 1.5, foreign: 1.2, chronic: 1.3 } },
+    { id: 'dane',     label: 'Great Dane (large)',        species: 'dog', size: 'large', life: 8, risk: 1.45, boost: { bloat: 3.2, cancer: 1.5, chronic: 1.6, hip: 1.4 } },
+    { id: 'dsh',      label: 'Domestic Shorthair cat',    species: 'cat', size: 'small', life: 15, risk: 0.85, boost: { bloat: 0, hip: 0, acl: 0.1, chronic: 1.5, dental: 1.2, cancer: 0.9 } },
+    { id: 'maine',    label: 'Maine Coon cat',            species: 'cat', size: 'small', life: 13, risk: 1.1, boost: { bloat: 0, hip: 0.2, acl: 0.1, chronic: 1.7, cancer: 1.1, dental: 1.2 } }
+  ];
+  var AGES = [['0', 'Puppy / kitten'], ['2', 'Young adult (≈2)'], ['5', 'Adult (≈5)'], ['8', 'Senior (≈8)']];
+
+  function rnd() { return Math.random(); }
+  function tri(a, c, b) { var u = rnd(), f = (c - a) / (b - a); return u < f ? a + Math.sqrt(u * (b - a) * (c - a)) : b - Math.sqrt((1 - u) * (b - a) * (b - c)); }
+
+  function simOne(b, age, ins) {
+    var life = b.life + (rnd() + rnd() - 1) * 3;          // mild spread around lifespan
+    var years = Math.max(1, Math.round(life - age));
+    var annual = recurFor(b), total = 0;
+    for (var y = 0; y < years; y++) total += annual * (0.85 + rnd() * 0.3);
+    total += tri(500, 900, 1600);                          // one-time setup
+    var evCost = 0, nEv = 0, maxEv = null, maxC = 0;
+    for (var i = 0; i < EVENTS.length; i++) {
+      var ev = EVENTS[i];
+      var boost = ev.id in b.boost ? b.boost[ev.id] : 1;
+      var p = ev.p * b.risk * boost * (years / b.life);
+      if (p > 0.95) p = 0.95;
+      if (rnd() < p) { var c = tri(ev.a, ev.c, ev.b); evCost += c; nEv++; if (c > maxC) { maxC = c; maxEv = ev.label; } }
+    }
+    if (ins) {
+      total += (b.species === 'cat' ? 360 : 660) * years;  // premiums
+      var owner = evCost * 0.2 + 250 * nEv;                 // 80% reimbursed after $250/event
+      evCost = Math.min(owner, evCost);
+    }
+    return { t: total + evCost, m: maxEv };
+  }
+
+  function run(b, age, ins, n) {
+    var arr = new Array(n), sims = new Array(n);
+    for (var i = 0; i < n; i++) { var s = simOne(b, age, ins); arr[i] = s.t; sims[i] = s; }
+    arr.sort(function (x, y) { return x - y; });
+    var pc = function (q) { return arr[Math.min(n - 1, Math.floor(q * n))]; };
+    var thr = pc(0.9), tally = {};
+    for (var j = 0; j < n; j++) if (sims[j].t >= thr && sims[j].m) tally[sims[j].m] = (tally[sims[j].m] || 0) + 1;
+    var driver = null, dc = 0; for (var k in tally) if (tally[k] > dc) { dc = tally[k]; driver = k; }
+    return { sorted: arr, pc: pc, driver: driver, n: n };
+  }
+
+  /* ---------- formatting ---------- */
+  function fmt(n) { return '$' + Math.round(n).toLocaleString('en-US'); }
+  function fmtK(n) { return n >= 1000 ? '$' + (Math.round(n / 100) / 10) + 'k' : '$' + Math.round(n); }
+
+  /* ---------- histogram ---------- */
+  var TARGET = null, animId = null;
+  var TEAL = '#0F766E', AMBER = '#F59E0B', RED = '#B91C1C', GRID = '#E8DFC7', INK = '#1F2937', MUTED = '#6B7280';
+
+  function buildHist(cur, marks) {
+    var n = cur.n, bins = 34, dmax = cur.pc(0.995); if (dmax <= 0) dmax = 1;
+    var counts = new Array(bins); for (var i = 0; i < bins; i++) counts[i] = 0;
+    var bw = dmax / bins;
+    for (var s = 0; s < n; s++) { var idx = Math.floor(cur.sorted[s] / bw); if (idx >= bins) idx = bins - 1; if (idx < 0) idx = 0; counts[idx]++; }
+    var maxc = 0; for (i = 0; i < bins; i++) if (counts[i] > maxc) maxc = counts[i];
+    TARGET = { counts: counts, maxc: maxc, bw: bw, dmax: dmax, bins: bins, marks: marks };
+    if (animId) cancelAnimationFrame(animId);
+    var t0 = null;
+    function frame(ts) {
+      if (t0 === null) t0 = ts;
+      var p = Math.min(1, (ts - t0) / 600), e = 1 - Math.pow(1 - p, 3);
+      document.getElementById('mc-chart').innerHTML = svgHist(e);
+      if (p < 1) animId = requestAnimationFrame(frame); else animId = null;
+    }
+    animId = requestAnimationFrame(frame);
+  }
+
+  function svgHist(prog) {
+    var T = TARGET, W = 720, H = 300, padL = 12, padR = 12, padT = 46, padB = 38;
+    var plotW = W - padL - padR, plotH = H - padT - padB, baseY = padT + plotH;
+    var P = [];
+    P.push('<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Distribution of simulated lifetime costs" style="font-family:Inter,system-ui,sans-serif;">');
+    // x gridlines + axis labels
+    for (var g = 0; g <= 4; g++) {
+      var gx = padL + plotW * g / 4, gv = T.dmax * g / 4;
+      P.push('<line x1="' + gx.toFixed(1) + '" y1="' + padT + '" x2="' + gx.toFixed(1) + '" y2="' + baseY + '" stroke="' + GRID + '" stroke-width="1"/>');
+      P.push('<text x="' + gx.toFixed(1) + '" y="' + (baseY + 18) + '" text-anchor="' + (g === 0 ? 'start' : g === 4 ? 'end' : 'middle') + '" font-size="11" fill="' + MUTED + '">' + fmtK(gv) + '</text>');
+    }
+    P.push('<text x="' + (padL + plotW / 2) + '" y="' + (baseY + 33) + '" text-anchor="middle" font-size="11" font-weight="600" fill="' + MUTED + '">Total lifetime cost  →</text>');
+    // bars
+    var bwpx = plotW / T.bins;
+    for (var i = 0; i < T.bins; i++) {
+      var h = (T.counts[i] / T.maxc) * plotH * prog;
+      var x = padL + i * bwpx, center = (i + 0.5) * T.bw;
+      var col = center > T.marks.p99 ? RED : center > T.marks.p90 ? AMBER : TEAL;
+      P.push('<rect x="' + (x + 0.6).toFixed(1) + '" y="' + (baseY - h).toFixed(1) + '" width="' + (bwpx - 1.2).toFixed(1) + '" height="' + h.toFixed(1) + '" rx="1.5" fill="' + col + '"/>');
+    }
+    // markers
+    function mark(val, label, anchor, row) {
+      if (val > T.dmax) val = T.dmax;
+      var mx = padL + (val / T.dmax) * plotW;
+      P.push('<line x1="' + mx.toFixed(1) + '" y1="' + (padT - 4) + '" x2="' + mx.toFixed(1) + '" y2="' + baseY + '" stroke="' + INK + '" stroke-width="1.4" stroke-dasharray="4 3" opacity="0.55"/>');
+      var tx = anchor === 'end' ? mx - 5 : anchor === 'start' ? mx + 5 : mx;
+      var ly = row === 1 ? padT - 9 : padT - 25;
+      P.push('<text x="' + tx.toFixed(1) + '" y="' + ly + '" text-anchor="' + anchor + '" font-size="11.5" font-weight="700" fill="' + INK + '">' + label + '</text>');
+    }
+    mark(T.marks.p50, 'Median ' + fmt(T.marks.p50), 'middle', 0);
+    mark(T.marks.p99, '1 in 100 ▸ ' + fmt(T.marks.p99), 'end', 1);
+    P.push('</svg>');
+    return P.join('');
+  }
+
+  /* ---------- orchestration ---------- */
+  var breedSel = document.getElementById('mc-breed'), ageSel = document.getElementById('mc-age'), insChk = document.getElementById('mc-ins');
+  BREEDS.forEach(function (b) { var o = document.createElement('option'); o.value = b.id; o.textContent = b.label; breedSel.appendChild(o); });
+  breedSel.value = 'lab';
+  AGES.forEach(function (a) { var o = document.createElement('option'); o.value = a[0]; o.textContent = a[1]; ageSel.appendChild(o); });
+
+  function shortBreed(b) { return b.label.replace(/\s*\(.*\)/, ''); }
+
+  function go() {
+    var b = BREEDS.filter(function (x) { return x.id === breedSel.value; })[0];
+    var age = +ageSel.value, ins = insChk.checked, N = 10000;
+    var off = run(b, age, false, N), on = run(b, age, true, N), cur = ins ? on : off;
+    var p50 = cur.pc(0.5), p25 = cur.pc(0.25), p75 = cur.pc(0.75), p90 = cur.pc(0.9), p99 = cur.pc(0.99), max = cur.sorted[N - 1];
+
+    document.getElementById('mc-amt').textContent = fmt(p50);
+    document.getElementById('mc-count').textContent = '';
+    document.getElementById('mc-narr').innerHTML =
+      'Half of ' + shortBreed(b) + 's like yours land <b>under ' + fmt(p50) + '</b> over a lifetime. '
+      + 'But <span class="hot">1 in 10 crosses ' + fmt(p90) + '</span>'
+      + (cur.driver ? ' — usually ' + cur.driver + ' year' : '')
+      + ', and <span class="hot">1 in 100 tops ' + fmt(p99) + '</span>. That tail is the whole story.';
+
+    buildHist(cur, { p50: p50, p90: p90, p99: p99 });
+
+    var cards = [
+      ['Median (most likely)', fmt(p50), ''],
+      ['Typical range', fmtK(p25) + '–' + fmtK(p75), ''],
+      ['1 in 10 exceeds', fmt(p90), 'amber'],
+      ['1 in 100 exceeds', fmt(p99), 'red'],
+      ['Worst simulated', fmt(max), 'red']
+    ];
+    document.getElementById('mc-cards').innerHTML = cards.map(function (c) {
+      return '<div class="mc-card ' + c[2] + '"><div class="k">' + c[0] + '</div><div class="v">' + c[1] + '</div></div>';
+    }).join('');
+
+    var offP50 = off.pc(0.5), onP50 = on.pc(0.5), offP99 = off.pc(0.99), onP99 = on.pc(0.99), offMax = off.sorted[N - 1], onMax = on.sorted[N - 1];
+    document.getElementById('mc-take').innerHTML =
+      '<b>What insurance actually buys — not a cheaper pet, a smaller disaster.</b> On a typical timeline your cost <b>rises</b> from ' + fmt(offP50) + ' to ' + fmt(onP50) + ' — that\'s the premiums. But the catastrophic end <b>shrinks</b>: the 1-in-100 outcome falls from ' + fmt(offP99) + ' to ' + fmt(onP99) + ', and the worst-case from ' + fmt(offMax) + ' to ' + fmt(onMax) + '. You pay a flat premium to chop off the random tail. '
+      + (ins ? 'Untick the box to watch the tail grow back.' : 'Tick "I have pet insurance" to watch the spread tighten.');
+  }
+
+  document.getElementById('mc-run').addEventListener('click', go);
+  breedSel.addEventListener('change', go);
+  ageSel.addEventListener('change', go);
+  insChk.addEventListener('change', go);
+  go();
+})();
+</script>
+</body>
+</html>
