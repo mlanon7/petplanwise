@@ -361,8 +361,13 @@
     }).join('') || '<p style="font-size:13px;color:var(--muted)">Run a breed with major event risk to see drivers.</p>';
 
     var offP50 = off.pc(0.5), onP50 = on.pc(0.5), offP99 = off.pc(0.99), onP99 = on.pc(0.99), offMax = off.sorted[N - 1], onMax = on.sorted[N - 1];
+    var medUp = onP50 >= offP50;
     document.getElementById('sim-take').innerHTML =
-      'Not a cheaper pet — a smaller disaster. On a typical timeline your cost <b>rises</b> from ' + fmt(offP50) + ' to ' + fmt(onP50) + ' (premiums). But the catastrophic end <b>shrinks</b>: the 1-in-100 outcome falls from ' + fmt(offP99) + ' to ' + fmt(onP99) + ', and the worst case from ' + fmt(offMax) + ' to ' + fmt(onMax) + '. You trade a rare five-figure shock for a flat monthly cost. '
+      (medUp
+        ? 'Not a cheaper pet — a smaller disaster. On a typical timeline your cost <b>rises</b> from ' + fmt(offP50) + ' to ' + fmt(onP50) + ' (the premiums). '
+        : 'This breed is risky enough that insurance lowers even your <em>typical</em> cost — from <b>' + fmt(offP50) + '</b> to <b>' + fmt(onP50) + '</b> — and chops the catastrophe far harder. ')
+      + 'The catastrophic end <b>shrinks</b>: the 1-in-100 outcome falls from ' + fmt(offP99) + ' to ' + fmt(onP99) + ', and the worst case from ' + fmt(offMax) + ' to ' + fmt(onMax) + '. '
+      + (medUp ? 'You trade a rare five-figure shock for a flat monthly cost. ' : '')
       + (ins ? 'Untick the box to watch the tail grow back.' : 'Tick the box to watch the spread tighten.');
   }
 
