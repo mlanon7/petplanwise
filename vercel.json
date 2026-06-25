@@ -93,6 +93,8 @@
     { "source": "/breeds/maine-coon-cost/", "destination": "/breeds/maine-coon-cat-cost/", "permanent": true },
     { "source": "/breeds/maine-coon-cost", "destination": "/breeds/maine-coon-cat-cost/", "permanent": true },
     { "source": "/breeds/bengal-cost/", "destination": "/breeds/bengal-cat-cost/", "permanent": true },
-    { "source": "/breeds/bengal-cost", "destination": "/breeds/bengal-cat-cost/", "permanent": true }
+    { "source": "/breeds/bengal-cost", "destination": "/breeds/bengal-cat-cost/", "permanent": true },
+    { "source": "/monte-carlo-demo/", "destination": "/pet-cost-simulator/", "permanent": true },
+    { "source": "/monte-carlo-demo", "destination": "/pet-cost-simulator/", "permanent": true }
   ]
 }
