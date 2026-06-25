@@ -56,9 +56,13 @@ for (const [rel, desc] of Object.entries(DESCS)) {
   if (!fs.existsSync(f)) { console.log('  !! missing file: ' + rel); continue; }
   let h = fs.readFileSync(f, 'utf8');
   const tag = '<meta name="description" content="' + desc + '" />';
+  // Match a meta description in EITHER attribute order (name-first OR content-first).
+  // A name-first-only check once missed reversed-order tags and inserted duplicates
+  // (Ahrefs "Multiple meta description tags"); see fix-duplicate-meta.js.
+  const EXISTING = /<meta(?=[^>]*\bname="description")(?=[^>]*\bcontent=)[^>]*>/i;
   let nh;
-  if (/<meta name="description"/i.test(h)) {
-    nh = h.replace(/<meta name="description"[^>]*>/i, tag); d++;
+  if (EXISTING.test(h)) {
+    nh = h.replace(EXISTING, tag); d++;
   } else {
     nh = h.replace(/(<\/title>)/i, '$1\n' + tag); miss++;
   }
