@@ -2432,8 +2432,11 @@ main .container.prose h2,
 [data-theme="dark"] .theme-toggle .ti-moon { display: none; }
 [data-theme="dark"] .theme-toggle .ti-sun { display: block; }
 
-/* translucent sticky header over a dark page */
-[data-theme="dark"] .site-header { background: rgba(26,23,18,0.82); }
+/* translucent sticky header over a dark page. !important so it also wins on
+   mobile, where a max-width:720px rule forces an opaque cream bg with
+   !important (which otherwise left the header light — and the light hamburger
+   invisible — in dark mode). */
+[data-theme="dark"] .site-header { background: rgba(26,23,18,0.92) !important; }
 
 /* footer bg is var(--ink) in light mode (a dark slate); pin it dark here */
 [data-theme="dark"] .site-footer { background: #141109; }

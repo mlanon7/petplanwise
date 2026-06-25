@@ -10,10 +10,13 @@ const path = require("path");
 const ROOT = path.resolve(__dirname, "..");
 const SKIP = new Set([".git", "node_modules", ".vercel", ".claude"]);
 
+/* Defaults to LIGHT (the original look). Dark only when the visitor has
+   explicitly chosen it via the header toggle — we no longer auto-switch to
+   dark from the OS preference, since the light theme is the brand default. */
 const SNIPPET =
-  '<script data-theme-init>(function(){try{var m=localStorage.getItem("ppw-theme");' +
-  'var d=m?m==="dark":(window.matchMedia&&window.matchMedia("(prefers-color-scheme:dark)").matches);' +
-  'document.documentElement.setAttribute("data-theme",d?"dark":"light");}catch(e){}})();</script>';
+  '<script data-theme-init>(function(){try{' +
+  'document.documentElement.setAttribute("data-theme",localStorage.getItem("ppw-theme")==="dark"?"dark":"light");' +
+  '}catch(e){}})();</script>';
 
 function walk(dir, out) {
   for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
@@ -23,15 +26,16 @@ function walk(dir, out) {
   return out;
 }
 
-let added = 0, skipped = 0, nohead = 0;
+let updated = 0, added = 0, nohead = 0;
 for (const f of walk(ROOT, [])) {
   let html = fs.readFileSync(f, "utf8");
-  if (html.indexOf("data-theme-init") !== -1) { skipped++; continue; }
+  const had = html.indexOf("data-theme-init") !== -1;
+  if (had) html = html.replace(/\n?<script data-theme-init>[\s\S]*?<\/script>/, "");
   const idx = html.indexOf("<head>");
   if (idx === -1) { nohead++; continue; }
   const at = idx + "<head>".length;
   html = html.slice(0, at) + "\n" + SNIPPET + html.slice(at);
   fs.writeFileSync(f, html, "utf8");
-  added++;
+  if (had) updated++; else added++;
 }
-console.log("theme-init added: " + added + ", already had it: " + skipped + ", no <head>: " + nohead);
+console.log("theme-init updated: " + updated + ", newly added: " + added + ", no <head>: " + nohead);
