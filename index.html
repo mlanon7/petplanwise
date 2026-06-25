@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
+<script data-theme-init>(function(){try{var m=localStorage.getItem("ppw-theme");var d=m?m==="dark":(window.matchMedia&&window.matchMedia("(prefers-color-scheme:dark)").matches);document.documentElement.setAttribute("data-theme",d?"dark":"light");}catch(e){}})();</script>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <!-- Pinterest domain verification (claim petplanwise.com) -->
@@ -23,7 +24,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" data-ppw-inter>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin data-ppw-inter>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" data-ppw-inter>
-  <link rel="stylesheet" href="/assets/css/site.css?v=20260625a" />
+  <link rel="stylesheet" href="/assets/css/site.css?v=20260625b" />
 
   <style id="home-page-styles">
   /* ============================================================
@@ -213,6 +214,41 @@
   .hp-cats-grid .hp-cat:nth-child(3n+1) .tile { background: #E6F4F2; color: #0F766E; }
   .hp-cats-grid .hp-cat:nth-child(3n+2) .tile { background: #FBEFD6; color: #B45309; }
   .hp-cats-grid .hp-cat:nth-child(3n+3) .tile { background: #E7F2E9; color: #15803D; }
+
+  /* ---- Dark mode: re-skin the inline-styled homepage to the token palette ---- */
+  [data-theme="dark"] .hp-h1, [data-theme="dark"] .hp-cats h2,
+  [data-theme="dark"] .hp-form h2, [data-theme="dark"] .hp-why-body h2,
+  [data-theme="dark"] .hp-cards .hp-card .v, [data-theme="dark"] .hp-drivers h3,
+  [data-theme="dark"] .hp-drivers li .val, [data-theme="dark"] .hp-trust-item h4,
+  [data-theme="dark"] .hp-ins-lbl, [data-theme="dark"] .hp-faq summary { color: var(--ink); }
+  [data-theme="dark"] .hp-lede, [data-theme="dark"] .hp-cat .desc,
+  [data-theme="dark"] .hp-why-body p, [data-theme="dark"] .hp-est-label,
+  [data-theme="dark"] .hp-est-per, [data-theme="dark"] .hp-est-range,
+  [data-theme="dark"] .hp-cards .hp-card .k, [data-theme="dark"] .hp-discl,
+  [data-theme="dark"] .hp-trust-item p { color: var(--muted); }
+  [data-theme="dark"] .hp-field label.hp-label, [data-theme="dark"] .hp-drivers li .name,
+  [data-theme="dark"] .hp-faq p { color: var(--ink-2); }
+  [data-theme="dark"] .hp-form, [data-theme="dark"] .hp-est,
+  [data-theme="dark"] .hp-cards .hp-card, [data-theme="dark"] .hp-drivers,
+  [data-theme="dark"] .hp-cat, [data-theme="dark"] .hp-why,
+  [data-theme="dark"] .hp-faq details { background: var(--surface); border-color: var(--border); color: var(--ink); }
+  [data-theme="dark"] .hp-form select, [data-theme="dark"] .hp-pet-btn {
+    background: var(--surface-2); border-color: var(--border-2); color: var(--ink); }
+  [data-theme="dark"] .hp-pet-btn.is-active { background: var(--primary-50); border-color: var(--primary); color: var(--ink); }
+  [data-theme="dark"] .hp-ins, [data-theme="dark"] .hp-discl,
+  [data-theme="dark"] .hp-trust { background: var(--surface-2); border-color: var(--border); }
+  [data-theme="dark"] .hp-cat h3 { color: var(--ink); }
+  [data-theme="dark"] .hp-est-ins { background: var(--surface-2); color: var(--ink-2); }
+  [data-theme="dark"] .hp-est-amount, [data-theme="dark"] .hp-cat .count { color: var(--primary-700); }
+  [data-theme="dark"] .hp-drivers li { border-bottom-color: var(--border); }
+  [data-theme="dark"] .hp-discl .ico { background: var(--surface-3); color: var(--muted); }
+  [data-theme="dark"] .hp-trust-ico { background: var(--surface-3); color: var(--primary-700); }
+  [data-theme="dark"] .hp-trust-links { border-top-color: var(--border); }
+  /* bare inline-teal links (popular guides, trust links, why-plan) → light teal */
+  [data-theme="dark"] .hp-container a:not(.hp-cat):not(.hp-featured) { color: var(--primary-700); }
+  /* range-bar marker stays crisp on dark */
+  [data-theme="dark"] .hp-range-marker { background: var(--ink); box-shadow: 0 0 0 2px var(--surface); }
+  [data-theme="dark"] .hp-range-marker::after { background: var(--surface); border-color: var(--border); color: var(--ink); }
   </style>
 
   <script type="application/ld+json">
@@ -232,9 +268,9 @@
     ] }
   </script>
 
-  <script src="/assets/data/csv-loader-20260625a.js" defer></script>
-  <script src="/assets/js/layout-20260625a.js" defer></script>
-  <script src="/assets/js/calculator-20260625a.js" defer></script>
+  <script src="/assets/data/csv-loader-20260625b.js" defer></script>
+  <script src="/assets/js/layout-20260625b.js" defer></script>
+  <script src="/assets/js/calculator-20260625b.js" defer></script>
 </head>
 
 <body class="hp-page">

@@ -74,6 +74,10 @@ window.YPB_AHREFS_KEY = window.YPB_AHREFS_KEY || "wY6hk1lMVpXnaKH97NnNgg"; // Ah
     '          <svg class="nav-ico" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>\n' +
     '          Insurance vs. savings\n' +
     '        </a>\n' +
+    '        <button type="button" class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark / light theme">\n' +
+    '          <svg class="ti-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>\n' +
+    '          <svg class="ti-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>\n' +
+    '        </button>\n' +
     '      </nav>\n' +
     '    </div>\n' +
     '  </header>';
@@ -150,6 +154,16 @@ window.YPB_AHREFS_KEY = window.YPB_AHREFS_KEY || "wY6hk1lMVpXnaKH97NnNgg"; // Ah
     if (f) f.outerHTML = FOOTER;
     var y = document.getElementById("yr");
     if (y) y.textContent = new Date().getFullYear();
+
+    /* Theme toggle — flips <html data-theme> and remembers the choice. The
+       effective theme is set pre-paint by an inline <head> script. */
+    var themeBtn = document.querySelector(".theme-toggle");
+    if (themeBtn) themeBtn.addEventListener("click", function () {
+      var cur = document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light";
+      var next = cur === "dark" ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", next);
+      try { localStorage.setItem("ppw-theme", next); } catch (e) {}
+    });
 
     /* Nav toggle (mobile hamburger) — slide-in panel with backdrop, scroll-lock */
     var tog = document.querySelector(".nav-toggle");

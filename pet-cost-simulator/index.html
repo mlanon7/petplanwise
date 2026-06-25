@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
+<script data-theme-init>(function(){try{var m=localStorage.getItem("ppw-theme");var d=m?m==="dark":(window.matchMedia&&window.matchMedia("(prefers-color-scheme:dark)").matches);document.documentElement.setAttribute("data-theme",d?"dark":"light");}catch(e){}})();</script>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Pet Cost Simulator: How Much Could Your Dog or Cat Cost?</title>
@@ -18,8 +19,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" data-ppw-inter>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin data-ppw-inter>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" data-ppw-inter>
-<link rel="stylesheet" href="/assets/css/site.css?v=20260625a" />
-<script src="/assets/js/layout-20260625a.js" defer></script>
+<link rel="stylesheet" href="/assets/css/site.css?v=20260625b" />
+<script src="/assets/js/layout-20260625b.js" defer></script>
 <style>
   .sim-hero { padding: 22px 0 6px; }
   .sim-hero h1 { margin: 4px 0 6px; }
@@ -87,6 +88,21 @@
     .sim-headline .amt { font-size: 34px; }
     .sim-driver .name { width: 116px; }
   }
+
+  /* ---- Dark mode: theme the chrome; keep the chart card a light "spotlight"
+     (its histogram uses fixed dark-on-light colors), legend forced readable ---- */
+  [data-theme="dark"] .sim-controls,
+  [data-theme="dark"] .sim-card,
+  [data-theme="dark"] .sim-card.amber,
+  [data-theme="dark"] .sim-card.red,
+  [data-theme="dark"] .sim-panel { background: var(--surface); border-color: var(--border); }
+  [data-theme="dark"] .sim-field select { background: var(--surface-2); color: var(--ink); border-color: var(--border-2); }
+  [data-theme="dark"] .sim-card .v { color: var(--ink); }
+  [data-theme="dark"] .sim-card.amber .v, [data-theme="dark"] .sim-narr .hot,
+  [data-theme="dark"] .sim-driver .pct { color: var(--warm); }
+  [data-theme="dark"] .sim-card.red .v { color: var(--danger); }
+  [data-theme="dark"] .sim-run { color: #08110F; }
+  [data-theme="dark"] .sim-legend { color: #5b5446; }
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://petplanwise.com/"},{"@type":"ListItem","position":2,"name":"Pet cost simulator","item":"https://petplanwise.com/pet-cost-simulator/"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"PetPlanWise Pet Cost Simulator","url":"https://petplanwise.com/pet-cost-simulator/","applicationCategory":"FinanceApplication","operatingSystem":"Any (web)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"A Monte Carlo simulator that runs 10,000 possible lifetimes of a dog or cat to show the full distribution of likely lifetime costs, including the catastrophic tail, built from published incidence and cost data.","publisher":{"@type":"Organization","name":"PetPlanWise","url":"https://petplanwise.com/"}}</script>
