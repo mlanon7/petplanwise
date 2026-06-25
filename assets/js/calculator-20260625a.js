@@ -297,42 +297,101 @@
       "City and state multipliers are planning adjustments based on cost-of-living and BLS CPI veterinary services data — not real-time clinic quotes.");
   }
 
-  /* Inline-SVG bar+whisker chart of annual cost across life stages.
-     Visualizes the phase-weighted projection: each stage estimated
-     separately, so "senior" doesn't bill senior prices for life. */
-  function phaseChartEl(r) {
+  /* Range visualization — Low ── Typical ── High as a gradient bar with a
+     marker at the typical value. Makes the planning RANGE (the whole point of
+     the site) visual instead of a line of grey text. Themed via CSS vars. */
+  function rangeBarEl(lo, typ, hi) {
+    var span = hi - lo;
+    var pct = span > 0 ? ((typ - lo) / span) * 100 : 50;
+    pct = Math.max(5, Math.min(95, pct));
+    var wrap = el("div", { class: "range-viz" });
+    var track = el("div", { class: "range-viz-track" });
+    track.appendChild(el("div", { class: "range-viz-fill", style: "width:" + pct.toFixed(1) + "%" }));
+    var mk = el("div", { class: "range-viz-marker", style: "left:" + pct.toFixed(1) + "%" });
+    mk.appendChild(el("span", { class: "range-viz-flag" }, fmt(typ)));
+    track.appendChild(mk);
+    wrap.appendChild(track);
+    wrap.appendChild(el("div", { class: "range-viz-ends" }, [
+      el("span", { class: "lo" }, "Low " + fmt(lo)),
+      el("span", { class: "hi" }, "High " + fmt(hi))
+    ]));
+    return wrap;
+  }
+
+  /* Cumulative cost-over-life timeline — an area chart of total spend as the
+     pet ages: the puppy-year setup spike, the steady adult plateau, and the
+     senior-care rise. Visualizes the phase-weighted projection (the engine's
+     defining feature). SVG colors reference CSS vars so dark mode re-themes. */
+  function lifetimeTimelineEl(r, species) {
     var phases = (r && r.phases) || [];
-    if (phases.length < 2) return null;
-    var W = 480, H = 232, padL = 12, padR = 12, padT = 34, padB = 46;
-    var plotH = H - padT - padB;
-    var maxVal = 0;
-    phases.forEach(function (p) { if (p.annual.typical > maxVal) maxVal = p.annual.typical; });
-    if (maxVal <= 0) maxVal = 1;
-    var innerW = W - padL - padR;
-    var slot = innerW / phases.length;
-    var barW = Math.min(96, slot * 0.52);
-    var baseY = padT + plotH;
-    var TEAL = "#0F766E", GRID = "#E8DFC7", INK = "#1F2937", MUTED = "#6B7280";
-    var P = [];
-    P.push('<svg viewBox="0 0 ' + W + ' ' + H + '" width="100%" role="img" aria-label="Typical annual cost by life stage" style="display:block;max-width:520px;margin:0 auto;font-family:Inter,system-ui,sans-serif;overflow:visible;">');
-    P.push('<title>Typical annual cost by life stage</title>');
-    P.push('<line x1="' + padL + '" y1="' + baseY + '" x2="' + (W - padR) + '" y2="' + baseY + '" stroke="' + GRID + '" stroke-width="1"/>');
-    phases.forEach(function (p, i) {
-      var cx = padL + slot * (i + 0.5);
-      var x = cx - barW / 2;
-      var hTyp = Math.max(2, (p.annual.typical / maxVal) * plotH);
-      var yTyp = baseY - hTyp;
-      P.push('<rect x="' + x.toFixed(1) + '" y="' + yTyp.toFixed(1) + '" width="' + barW.toFixed(1) + '" height="' + hTyp.toFixed(1) + '" rx="7" fill="' + TEAL + '"/>');
-      P.push('<text x="' + cx.toFixed(1) + '" y="' + (yTyp - 9).toFixed(1) + '" text-anchor="middle" font-size="14" font-weight="700" fill="' + INK + '">' + fmt(p.annual.typical) + '</text>');
-      P.push('<text x="' + cx.toFixed(1) + '" y="' + (baseY + 21).toFixed(1) + '" text-anchor="middle" font-size="13.5" font-weight="600" fill="' + INK + '">' + p.label + '</text>');
-      P.push('<text x="' + cx.toFixed(1) + '" y="' + (baseY + 38).toFixed(1) + '" text-anchor="middle" font-size="11" fill="' + MUTED + '">' + p.years + (p.years === 1 ? " yr" : " yrs") + '</text>');
+    if (phases.length < 2 || !r.years) return null;
+
+    /* Per-year cumulative typical spend; the first year carries the one-time
+       setup cost (matches how lifetime adds oneTime exactly once). */
+    var pts = [{ x: 0, cum: 0 }];
+    var cum = 0, yr = 0;
+    phases.forEach(function (p, pi) {
+      for (var i = 0; i < p.years; i++) {
+        var add = p.annual.typical + ((pi === 0 && i === 0 && r.oneTime) ? r.oneTime.typical : 0);
+        cum += add; yr += 1;
+        pts.push({ x: yr, cum: cum });
+      }
     });
-    P.push('</svg>');
-    var box = el("div", { class: "phase-chart", style: "margin:22px 0 4px;background:#FFFFFF;border:1px solid #E8DFC7;border-radius:16px;padding:18px 16px 14px;box-shadow:0 1px 2px rgba(15,23,42,0.06),0 1px 3px rgba(15,23,42,0.05);" });
-    box.appendChild(el("div", { style: "font-size:15px;font-weight:700;color:#1F2937;margin:0 0 2px;" }, "Cost by life stage (per year)"));
-    box.appendChild(el("p", { style: "font-size:13px;color:#6B7280;line-height:1.5;margin:0 0 10px;" },
-      "Why a senior pet doesn't cost senior prices for life: we estimate each stage on its own, then add the years up. Bars show the typical annual cost in each stage."));
-    box.appendChild(el("div", { html: P.join("") }));
+    var totalYears = yr, total = cum;
+    if (totalYears < 2 || total <= 0) return null;
+
+    var W = 520, H = 268, padL = 52, padR = 16, padT = 28, padB = 42;
+    var plotW = W - padL - padR, plotH = H - padT - padB, baseY = padT + plotH;
+    var sx = function (x) { return padL + (x / totalYears) * plotW; };
+    var sy = function (v) { return baseY - (v / total) * plotH; };
+
+    var S = [];
+    S.push('<svg viewBox="0 0 ' + W + ' ' + H + '" width="100%" role="img" aria-label="Cumulative cost over your pet\'s life" style="display:block;width:100%;max-width:560px;margin:0 auto;font-family:Inter,system-ui,sans-serif;overflow:visible;">');
+    S.push('<defs><linearGradient id="ltl-grad" x1="0" y1="0" x2="0" y2="1">'
+      + '<stop offset="0" style="stop-color:var(--primary);stop-opacity:0.30"/>'
+      + '<stop offset="1" style="stop-color:var(--primary);stop-opacity:0.02"/>'
+      + '</linearGradient></defs>');
+
+    /* phase background bands + top labels */
+    var startYr = 0;
+    phases.forEach(function (p, pi) {
+      var x0 = sx(startYr), x1 = sx(startYr + p.years), midx = (x0 + x1) / 2;
+      if (pi !== 1) S.push('<rect x="' + x0.toFixed(1) + '" y="' + padT + '" width="' + (x1 - x0).toFixed(1) + '" height="' + plotH + '" fill="' + (pi === 0 ? 'var(--surface-3)' : 'var(--surface-2)') + '" opacity="0.55"/>');
+      S.push('<text x="' + midx.toFixed(1) + '" y="' + (padT - 10) + '" text-anchor="middle" font-size="10.5" font-weight="700" letter-spacing="0.05em" style="fill:var(--muted)">' + p.label.toUpperCase() + '</text>');
+      startYr += p.years;
+    });
+
+    /* horizontal gridlines + $ axis labels (0, half, total) */
+    [0, 0.5, 1].forEach(function (f) {
+      var v = total * f, y = sy(v);
+      S.push('<line x1="' + padL + '" y1="' + y.toFixed(1) + '" x2="' + (W - padR) + '" y2="' + y.toFixed(1) + '" stroke="var(--border)" stroke-width="1"/>');
+      S.push('<text x="' + (padL - 8) + '" y="' + (y + 4).toFixed(1) + '" text-anchor="end" font-size="10.5" style="fill:var(--muted)">' + fmt(v) + '</text>');
+    });
+
+    /* area + cumulative line */
+    var lineD = pts.map(function (pt, i) { return (i ? 'L' : 'M') + sx(pt.x).toFixed(1) + ' ' + sy(pt.cum).toFixed(1); }).join(' ');
+    var areaD = 'M' + sx(0).toFixed(1) + ' ' + baseY + ' ' + pts.map(function (pt) { return 'L' + sx(pt.x).toFixed(1) + ' ' + sy(pt.cum).toFixed(1); }).join(' ') + ' L' + sx(totalYears).toFixed(1) + ' ' + baseY + ' Z';
+    S.push('<path d="' + areaD + '" fill="url(#ltl-grad)"/>');
+    S.push('<path d="' + lineD + '" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>');
+
+    /* phase-boundary dots */
+    var b = 0;
+    phases.forEach(function (p) { b += p.years; var pt = pts[b]; if (pt) S.push('<circle cx="' + sx(pt.x).toFixed(1) + '" cy="' + sy(pt.cum).toFixed(1) + '" r="3.6" style="fill:var(--surface);stroke:var(--primary)" stroke-width="2"/>'); });
+
+    /* x-axis age ticks */
+    [1, Math.round(totalYears / 2), totalYears].filter(function (v, i, a) { return a.indexOf(v) === i; }).forEach(function (t) {
+      S.push('<text x="' + sx(t).toFixed(1) + '" y="' + (baseY + 18) + '" text-anchor="middle" font-size="10.5" style="fill:var(--muted)">Age ' + t + '</text>');
+    });
+
+    /* end-of-life total callout */
+    S.push('<text x="' + (W - padR).toFixed(1) + '" y="' + (sy(total) - 9).toFixed(1) + '" text-anchor="end" font-size="14" font-weight="800" style="fill:var(--ink)">' + fmt(total) + '</text>');
+    S.push('</svg>');
+
+    var box = el("div", { class: "timeline-chart" });
+    box.appendChild(el("div", { class: "timeline-chart-title" }, "What you'll spend over " + r.years + " years"));
+    box.appendChild(el("p", { class: "timeline-chart-sub" },
+      "Cumulative typical cost as your " + species + " ages — the puppy-year setup spike, the steady adult years, and the senior-care rise. Each stage is estimated on its own, then summed."));
+    box.appendChild(el("div", { html: S.join("") }));
     return box;
   }
 
@@ -350,9 +409,9 @@
     host.innerHTML = "";
     host.appendChild(el("h2", null, "Your estimate"));
     host.appendChild(el("div", { class: "result-headline" }, [
-      el("span", { class: "amount" }, fmt(head.val.typical)),
-      el("span", { class: "range" }, "Range: " + fmtRange(head.val.low, head.val.high))
+      el("span", { class: "amount" }, fmt(head.val.typical))
     ]));
+    host.appendChild(rangeBarEl(head.val.low, head.val.typical, head.val.high));
 
     var tabs = el("div", { class: "result-tabs", role: "tablist" });
     [["first","First year"],["annual","Annual"],["monthly","Monthly"],["lifetime","Lifetime"],["emergency","Emergency fund"]].forEach(function (t) {
@@ -387,7 +446,7 @@
       host.appendChild(t3);
     }
 
-    var pc = phaseChartEl(r);
+    var pc = lifetimeTimelineEl(r, species);
     if (pc) host.appendChild(pc);
 
     /* Sort by typical desc so the biggest cost drivers surface first */
@@ -570,9 +629,9 @@
       results.innerHTML = "";
       results.appendChild(el("h2", null, "Estimated bill"));
       results.appendChild(el("div", { class: "result-headline" }, [
-        el("span", { class: "amount" }, fmt(total.typical)),
-        el("span", { class: "range" }, "Range: " + fmtRange(total.low, total.high))
+        el("span", { class: "amount" }, fmt(total.typical))
       ]));
+      results.appendChild(rangeBarEl(total.low, total.typical, total.high));
       if (rows.length) {
         var wrap = el("div", { class: "breakdown" });
         var tbl = el("table");
@@ -637,9 +696,9 @@
         results.appendChild(w);
       }
       results.appendChild(el("div", { class: "result-headline" }, [
-        el("span", { class: "amount" }, fmt(cost.typical)),
-        el("span", { class: "range" }, "Likely range: " + fmtRange(cost.low, cost.high))
+        el("span", { class: "amount" }, fmt(cost.typical))
       ]));
+      results.appendChild(rangeBarEl(cost.low, cost.typical, cost.high));
       if (state.insurance === "yes") {
         results.appendChild(el("div", { class: "result-summary mt-2" }, [
           stat("Out-of-pocket (typical)", fmt(oop.typical)),

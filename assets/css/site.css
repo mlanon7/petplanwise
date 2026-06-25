@@ -588,6 +588,41 @@ section { padding: 48px 0; }
 .result-headline { display: flex; flex-direction: column; gap: 6px; }
 .result-headline .amount { font-size: 2.4rem; font-weight: 700; color: var(--primary-700); letter-spacing: -.02em; }
 .result-headline .range { font-size: .9rem; color: var(--muted); }
+
+/* Visual planning range — Low ── Typical ── High. Makes the range (the whole
+   point of the site) visual instead of grey text. Themed via CSS vars. */
+.range-viz { margin: 6px 0 2px; max-width: 460px; }
+.range-viz-track {
+  position: relative; height: 10px; border-radius: 999px; margin: 26px 0 9px;
+  background: linear-gradient(90deg, var(--good) 0%, var(--primary) 52%, var(--warm) 100%);
+}
+.range-viz-fill { display: none; }
+.range-viz-marker {
+  position: absolute; top: 50%; width: 3px; height: 22px; border-radius: 3px;
+  background: var(--ink); transform: translate(-50%, -50%); box-shadow: 0 0 0 2px var(--surface);
+}
+.range-viz-flag {
+  position: absolute; bottom: 17px; left: 50%; transform: translateX(-50%);
+  white-space: nowrap; font-size: 12px; font-weight: 700; color: var(--ink);
+  background: var(--surface); border: 1px solid var(--border); border-radius: 999px;
+  padding: 2px 9px; box-shadow: var(--shadow-sm);
+}
+.range-viz-flag::after {
+  content: ""; position: absolute; left: 50%; bottom: -4px; transform: translateX(-50%) rotate(45deg);
+  width: 7px; height: 7px; background: var(--surface);
+  border-right: 1px solid var(--border); border-bottom: 1px solid var(--border);
+}
+.range-viz-ends { display: flex; justify-content: space-between; font-size: 12px; font-weight: 600; }
+.range-viz-ends .lo { color: var(--good); }
+.range-viz-ends .hi { color: var(--warm); }
+
+/* Cumulative cost-over-life timeline card */
+.timeline-chart {
+  margin: 22px 0 4px; background: var(--surface); border: 1px solid var(--border);
+  border-radius: 16px; padding: 18px 16px 14px; box-shadow: var(--shadow-sm);
+}
+.timeline-chart-title { font-size: 15px; font-weight: 700; color: var(--ink); margin: 0 0 2px; }
+.timeline-chart-sub { font-size: 13px; color: var(--muted); line-height: 1.5; margin: 0 0 10px; }
 .result-tabs { display: flex; gap: 6px; margin: 14px 0 12px; flex-wrap: wrap; }
 .result-tab {
   padding: 8px 12px; border-radius: 999px; font-size: 13px; cursor: pointer;

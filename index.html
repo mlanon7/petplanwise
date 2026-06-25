@@ -23,14 +23,20 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" data-ppw-inter>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin data-ppw-inter>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" data-ppw-inter>
-  <link rel="stylesheet" href="/assets/css/site.css?v=20260614c" />
+  <link rel="stylesheet" href="/assets/css/site.css?v=20260625a" />
 
   <style id="home-page-styles">
   /* ============================================================
      Self-contained homepage styles. Inline so they ship with the
      HTML and never fight a stale cached site.css.
      ============================================================ */
-  .hp-page { background: #F7F1E1; min-height: 100vh; padding: 24px 0; }
+  .hp-page {
+    background:
+      radial-gradient(920px 400px at 84% -10%, rgba(15,118,110,0.11), transparent 60%),
+      radial-gradient(720px 320px at 6% 2%, rgba(245,158,11,0.08), transparent 55%),
+      var(--bg, #F7F1E1);
+    min-height: 100vh; padding: 24px 0;
+  }
   .hp-container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
   .hp-h1 { font-size: clamp(1.85rem, 4vw, 2.4rem); font-weight: 700;
     letter-spacing: -0.02em; line-height: 1.15; margin: 0 0 12px; color: #1F2937; }
@@ -169,6 +175,44 @@
     padding: 14px 18px; margin-bottom: 10px; }
   .hp-faq summary { cursor: pointer; font-weight: 600; color: #1F2937; }
   .hp-faq p { color: #374151; margin: 8px 0 0; line-height: 1.55; }
+
+  /* ---- Visual planning range on the monthly estimate ---- */
+  .hp-range { margin: 18px 0 4px; }
+  .hp-range-track { position: relative; height: 9px; border-radius: 999px; margin-top: 22px;
+    background: linear-gradient(90deg, #15803D 0%, #0F766E 52%, #F59E0B 100%); }
+  .hp-range-marker { position: absolute; top: 50%; width: 3px; height: 20px; border-radius: 3px;
+    background: #1F2937; transform: translate(-50%, -50%); box-shadow: 0 0 0 2px #fff; transition: left .35s cubic-bezier(.2,.8,.2,1); }
+  .hp-range-marker::after { content: attr(data-v); position: absolute; bottom: 16px; left: 50%;
+    transform: translateX(-50%); white-space: nowrap; font-size: 11px; font-weight: 700; color: #1F2937;
+    background: #fff; border: 1px solid #E8DFC7; border-radius: 999px; padding: 1px 8px;
+    box-shadow: 0 1px 2px rgba(15,23,42,.08); }
+
+  /* ---- Featured simulator card (flagship — set apart from routine calcs) ---- */
+  .hp-featured { grid-column: 1 / -1; display: grid; grid-template-columns: auto 1fr auto;
+    align-items: center; gap: 22px; background: linear-gradient(120deg, #115E59 0%, #0F766E 100%);
+    border: 1px solid #115E59; border-radius: 18px; padding: 22px 26px; text-decoration: none;
+    color: #fff; box-shadow: 0 10px 30px -12px rgba(15,118,110,.45);
+    transition: transform .18s, box-shadow .18s; }
+  .hp-featured:hover { transform: translateY(-3px); box-shadow: 0 20px 44px -14px rgba(15,118,110,.6); }
+  .hp-featured .ft-spark { flex: 0 0 auto; display: block; }
+  .hp-featured .ft-body { min-width: 0; }
+  .hp-featured .ft-badge { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .06em;
+    text-transform: uppercase; background: rgba(255,255,255,.18); color: #fff; border-radius: 999px;
+    padding: 3px 10px; margin: 0 0 8px; }
+  .hp-featured h3 { color: #fff; font-size: 1.35rem; font-weight: 800; margin: 0 0 5px; letter-spacing: -.01em; }
+  .hp-featured .ft-desc { color: rgba(255,255,255,.86); font-size: 14px; margin: 0; line-height: 1.5; max-width: 52ch; }
+  .hp-featured .ft-cta { flex: 0 0 auto; font-weight: 700; font-size: 14px; color: #fff;
+    border: 1.5px solid rgba(255,255,255,.55); border-radius: 999px; padding: 9px 18px; white-space: nowrap; }
+  .hp-featured:hover .ft-cta { background: #fff; color: #0F766E; border-color: #fff; }
+  @media (max-width: 680px) { .hp-featured { grid-template-columns: 1fr; gap: 14px; padding: 20px; }
+    .hp-featured .ft-spark { display: none; } .hp-featured .ft-cta { justify-self: start; } }
+
+  /* ---- Card polish: hover lift + rotating on-brand tile accents ---- */
+  .hp-cat { box-shadow: 0 1px 2px rgba(15,23,42,.04); }
+  .hp-cat:hover { box-shadow: 0 16px 32px -16px rgba(15,23,42,.22); }
+  .hp-cats-grid .hp-cat:nth-child(3n+1) .tile { background: #E6F4F2; color: #0F766E; }
+  .hp-cats-grid .hp-cat:nth-child(3n+2) .tile { background: #FBEFD6; color: #B45309; }
+  .hp-cats-grid .hp-cat:nth-child(3n+3) .tile { background: #E7F2E9; color: #15803D; }
   </style>
 
   <script type="application/ld+json">
@@ -188,9 +232,9 @@
     ] }
   </script>
 
-  <script src="/assets/data/csv-loader-20260614c.js" defer></script>
-  <script src="/assets/js/layout-20260614c.js" defer></script>
-  <script src="/assets/js/calculator-20260614c.js" defer></script>
+  <script src="/assets/data/csv-loader-20260625a.js" defer></script>
+  <script src="/assets/js/layout-20260625a.js" defer></script>
+  <script src="/assets/js/calculator-20260625a.js" defer></script>
 </head>
 
 <body class="hp-page">
@@ -262,6 +306,9 @@
               Monthly Cost Estimate
             </div>
             <span class="hp-est-amount" id="hp-monthly">$185</span><span class="hp-est-per">/month</span>
+            <div class="hp-range" aria-hidden="true">
+              <div class="hp-range-track"><span class="hp-range-marker" id="hp-range-marker" data-v="$185"></span></div>
+            </div>
             <div class="hp-est-range">
               <span>Low: <strong id="hp-low">$130</strong></span>
               <span>High: <strong id="hp-high">$295</strong></span>
@@ -339,13 +386,26 @@
     <div class="hp-container">
       <h2>Specialized Calculators</h2>
       <div class="hp-cats-grid">
-        <a class="hp-cat" href="/pet-cost-simulator/">
-          <span class="tile" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="20" x2="4" y2="14"/><line x1="9" y1="20" x2="9" y2="8"/><line x1="14" y1="20" x2="14" y2="4"/><line x1="19" y1="20" x2="19" y2="11"/></svg>
-          </span>
-          <h3>Pet Cost Simulator</h3>
-          <span class="desc">Not one average — the full range. 10,000 simulated lifetimes show the typical cost and the rare catastrophe.</span>
-          <span class="count">Run the simulator →</span>
+        <a class="hp-featured" href="/pet-cost-simulator/">
+          <svg class="ft-spark" width="124" height="60" viewBox="0 0 124 60" fill="none" aria-hidden="true">
+            <rect x="5"   y="47" width="8" height="7"  rx="2" fill="#ffffff" opacity=".5"/>
+            <rect x="15"  y="40" width="8" height="14" rx="2" fill="#ffffff" opacity=".68"/>
+            <rect x="25"  y="30" width="8" height="24" rx="2" fill="#ffffff" opacity=".84"/>
+            <rect x="35"  y="20" width="8" height="34" rx="2" fill="#ffffff" opacity=".95"/>
+            <rect x="45"  y="12" width="8" height="42" rx="2" fill="#ffffff"/>
+            <rect x="55"  y="8"  width="8" height="46" rx="2" fill="#ffffff"/>
+            <rect x="65"  y="14" width="8" height="40" rx="2" fill="#ffffff" opacity=".95"/>
+            <rect x="75"  y="22" width="8" height="32" rx="2" fill="#ffffff" opacity=".8"/>
+            <rect x="85"  y="30" width="8" height="24" rx="2" fill="#FBBF24"/>
+            <rect x="95"  y="38" width="8" height="16" rx="2" fill="#FBBF24" opacity=".9"/>
+            <rect x="105" y="44" width="8" height="10" rx="2" fill="#F87171"/>
+          </svg>
+          <div class="ft-body">
+            <span class="ft-badge">New · 10,000 simulated lifetimes</span>
+            <h3>Pet Cost Simulator</h3>
+            <p class="ft-desc">Not one average — the full range. We roll 10,000 possible lifetimes of your breed to show the typical cost, the unlucky year, and the rare catastrophe nobody plans for.</p>
+          </div>
+          <span class="ft-cta">Run the simulator →</span>
         </a>
         <a class="hp-cat" href="/dog-cost-calculator/">
           <span class="tile" aria-hidden="true">
@@ -499,6 +559,21 @@
   function $(id) { return document.getElementById(id); }
   function fmt(n) { return "$" + Math.round(n).toLocaleString("en-US"); }
 
+  /* Count-up the headline number once, on first paint (matches the simulator).
+     A flag keeps redundant load-time recalcs from fighting the animation. */
+  var firstPaint = true, animating = false;
+  function countUp(node, target, dur) {
+    if (!node) return; animating = true; var t0 = null;
+    function step(ts) {
+      if (t0 === null) t0 = ts;
+      var p = Math.min(1, (ts - t0) / dur), eased = 1 - Math.pow(1 - p, 3);
+      node.textContent = fmt(target * eased);
+      if (p < 1) requestAnimationFrame(step);
+      else { node.textContent = fmt(target); animating = false; }
+    }
+    requestAnimationFrame(step);
+  }
+
   var state = { species: "dog", size: "medium", stage: "adult", state: "TX",
     lifestyle: "standard", insurance: "no", indoor: "indoor" };
 
@@ -518,12 +593,23 @@
     var premium = rYes.monthly.typical - rNo.monthly.typical;
     var r = (state.insurance === "yes") ? rYes : rNo;
 
-    $("hp-monthly").textContent  = fmt(r.monthly.typical);
+    if (firstPaint) { firstPaint = false; countUp($("hp-monthly"), r.monthly.typical, 850); }
+    else if (!animating) { $("hp-monthly").textContent = fmt(r.monthly.typical); }
     $("hp-low").textContent      = fmt(r.monthly.low);
     $("hp-high").textContent     = fmt(r.monthly.high);
     $("hp-annual").textContent   = fmt(r.annual.typical);
     $("hp-lifetime").textContent = fmt(r.lifetime.typical);
     $("hp-life-k").textContent   = "Lifetime (" + r.years + " yr)";
+
+    /* position the planning-range marker at the typical value */
+    var mk = $("hp-range-marker");
+    if (mk) {
+      var span = r.monthly.high - r.monthly.low;
+      var pct = span > 0 ? ((r.monthly.typical - r.monthly.low) / span) * 100 : 50;
+      pct = Math.max(5, Math.min(95, pct));
+      mk.style.left = pct.toFixed(1) + "%";
+      mk.setAttribute("data-v", fmt(r.monthly.typical));
+    }
 
     /* Insurance sub-line — only visible when checkbox is on. */
     var insLine = $("hp-ins-line");
