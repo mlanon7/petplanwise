@@ -10,7 +10,7 @@ This file is the working context for any AI assistant editing the repo. Read it 
 
 - **Live:** https://petplanwise.com
 - **Repo:** https://github.com/mlanon7/petplanwise
-- **Owner:** Martin Lashgari (also runs ElectrifyCost and a family of cost-calculator sites)
+- **Owner:** the PetPlanWise operator (also runs ElectrifyCost and a family of cost-calculator sites). Do not put the owner's personal name on the public site — the site's author identity is "PetPlanWise Editorial".
 - **Launched:** May 2026 (days-old domain — cold-start SEO posture)
 
 ### The deliberate market position
