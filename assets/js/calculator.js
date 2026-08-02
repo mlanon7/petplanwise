@@ -230,9 +230,25 @@
     ].join("\n");
   }
 
+  var _ffSeq = 0;
   function formField(label, control, hint) {
     var w = el("div", { class: "field" });
-    w.appendChild(el("label", null, label));
+    var lblId = "ff-lbl-" + (++_ffSeq);
+    var lbl = el("label", { id: lblId }, label);
+    w.appendChild(lbl);
+    /* Associate the label with its control so screen readers + voice control
+       announce a name (WCAG 1.3.1/4.1.2). A bare form control gets for/id; the
+       numInput wrapper gets its inner <input> linked; a radiogroup (chips) or
+       other container is named via aria-labelledby. */
+    var ctl = (control.matches && control.matches("input,select,textarea"))
+      ? control
+      : (control.querySelector ? control.querySelector("input,select,textarea") : null);
+    if (ctl) {
+      if (!ctl.id) ctl.id = "ff-ctl-" + _ffSeq;
+      lbl.setAttribute("for", ctl.id);
+    } else if (control.setAttribute) {
+      control.setAttribute("aria-labelledby", lblId);
+    }
     w.appendChild(control);
     if (hint) w.appendChild(el("div", { class: "hint" }, hint));
     return w;

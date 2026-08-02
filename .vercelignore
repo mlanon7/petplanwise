@@ -1,0 +1,5 @@
+# Deploy-exclude source images that are kept in git for the local image
+# pipeline but are never referenced by any page (optimize-breed-heroes.js
+# re-encodes hero.jpg FROM these locally). NOTE: do NOT add breeds/*/gallery
+# here — those ARE loaded at runtime by layout.js on 54 breed pages.
+breeds/*/hero-original.jpg

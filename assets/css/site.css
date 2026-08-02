@@ -13,7 +13,7 @@
   --border-2: #D9CFB5;       /* darker beige for emphasis */
   --ink: #1F2937;
   --ink-2: #374151;
-  --muted: #6B7280;
+  --muted: #5C636E;         /* darkened from #6B7280 to pass 4.5:1 on cream surfaces (WCAG AA) */
   --primary: #0F766E;
   --primary-700: #115E59;
   --primary-50: #E6F4F2;
@@ -67,6 +67,20 @@ hr { border: 0; border-top: 1px solid var(--border); margin: 2.5rem 0; }
 .prose { max-width: var(--readw); }
 .prose p, .prose ul, .prose ol { color: var(--ink-2); }
 .prose ul li, .prose ol li { margin-bottom: .35em; }
+
+/* Skip link — visually hidden until focused (injected by layout.js; previously
+   had no CSS, so it rendered as raw text at the top of every page). */
+.skip-link {
+  position: absolute; left: -9999px; top: 0; z-index: 200;
+  background: var(--surface); color: var(--primary-700);
+  padding: 10px 16px; font-weight: 600; text-decoration: none;
+  border-radius: 0 0 8px 0; box-shadow: var(--shadow-md);
+}
+.skip-link:focus { left: 0; }
+
+/* Reserve header height so the deferred layout.js header injection (which
+   replaces an empty #site-header placeholder) doesn't shift content down. */
+#site-header { min-height: 64px; }
 
 /* ---------- Header ---------- */
 .site-header {
@@ -614,7 +628,8 @@ section { padding: 48px 0; }
 }
 .range-viz-ends { display: flex; justify-content: space-between; font-size: 12px; font-weight: 600; }
 .range-viz-ends .lo { color: var(--good); }
-.range-viz-ends .hi { color: var(--warm); }
+.range-viz-ends .hi { color: #B45309; } /* darker amber: #F59E0B fails 4.5:1 on white */
+[data-theme="dark"] .range-viz-ends .hi { color: var(--warm); }
 
 /* Cumulative cost-over-life timeline card */
 .timeline-chart {
@@ -717,7 +732,7 @@ section { padding: 48px 0; }
   background: var(--ink);
   color: #CBD5E1; padding: 44px 0 28px; margin-top: 64px;
 }
-.site-footer h4 { color: #fff; font-size: 14px; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 12px; }
+.site-footer h2 { color: #fff; font-size: 14px; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 12px; }
 .site-footer a { color: #CBD5E1; text-decoration: none; display: block; padding: 4px 0; font-size: 14px; }
 .site-footer a:hover { color: #fff; text-decoration: underline; }
 .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 28px; }
@@ -1596,7 +1611,7 @@ section { padding: 48px 0; }
   padding: 38px 0 22px;
 }
 @media (max-width: 720px) { .site-footer .footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-.site-footer h4 {
+.site-footer h2 {
   font-size: 0.9rem;
   font-weight: 700;
   color: var(--ink);

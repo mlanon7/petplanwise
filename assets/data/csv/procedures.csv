@@ -1,9 +1,9 @@
 key,name,low,typical,high,species,emergency_note,source_url,last_reviewed
-physical_exam,Wellness physical (annual),80,150,300,any,,https://www.aaha.org/aaha-guidelines/2019-aaha-canine-life-stage-guidelines/,2026-05
+physical_exam,Wellness physical (annual),80,150,300,any,,https://www.aaha.org/resources/,2026-05
 vaccines,Core vaccines (annual),80,200,400,any,,https://www.carecredit.com/vetmed/costs/,2026-05
 dental_cleaning,Dental cleaning,200,600,1200,any,,https://avdc.org/,2026-05
 microchip,Microchip insertion,25,60,150,any,,https://www.carecredit.com/vetmed/costs/,2026-05
-spay_neuter,Spay / neuter,200,600,1500,any,,https://www.aaha.org/your-pet/pet-owner-education/ask-aaha/spay-neuter/,2026-05
+spay_neuter,Spay / neuter,200,600,1500,any,,https://www.aaha.org/resources/,2026-05
 xray,X-ray (single view),80,200,500,any,,https://www.acvr.org/,2026-05
 ultrasound,Ultrasound,200,500,1000,any,,https://www.acvr.org/,2026-05
 blood_work,Blood work / panel,80,250,600,any,,https://www.carecredit.com/vetmed/costs/,2026-05

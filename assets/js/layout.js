@@ -86,14 +86,14 @@ window.YPB_AHREFS_KEY = window.YPB_AHREFS_KEY || "wY6hk1lMVpXnaKH97NnNgg"; // Ah
     '    <div class="container">\n' +
     '      <div class="footer-grid">\n' +
     '        <div>\n' +
-    '          <h4>Calculators</h4>\n' +
+    '          <h2>Calculators</h2>\n' +
     '          <a href="/dog-cost-calculator/">Dog Cost</a>\n' +
     '          <a href="/cat-cost-calculator/">Cat Cost</a>\n' +
     '          <a href="/vet-bill-calculator/">Vet Bills</a>\n' +
     '          <a href="/emergency-vet-cost-calculator/">Emergency Vet</a>\n' +
     '        </div>\n' +
     '        <div>\n' +
-    '          <h4>Browse</h4>\n' +
+    '          <h2>Browse</h2>\n' +
     '          <a href="/breeds/">All Breeds</a>\n' +
     '          <a href="/find-my-breed/">Find My Breed</a>\n' +
     '          <a href="/compare/">Compare Breeds</a>\n' +
@@ -102,7 +102,7 @@ window.YPB_AHREFS_KEY = window.YPB_AHREFS_KEY || "wY6hk1lMVpXnaKH97NnNgg"; // Ah
     '          <a href="/guides/">Guides</a>\n' +
     '        </div>\n' +
     '        <div>\n' +
-    '          <h4>Resources</h4>\n' +
+    '          <h2>Resources</h2>\n' +
     '          <a href="/about/">About</a>\n' +
     '          <a href="/sources/">Sources</a>\n' +
     '          <a href="/editorial-standards/">Editorial standards</a>\n' +
@@ -110,7 +110,7 @@ window.YPB_AHREFS_KEY = window.YPB_AHREFS_KEY || "wY6hk1lMVpXnaKH97NnNgg"; // Ah
     '          <a href="/contact/">Contact</a>\n' +
     '        </div>\n' +
     '        <div>\n' +
-    '          <h4>Legal</h4>\n' +
+    '          <h2>Legal</h2>\n' +
     '          <a href="/privacy/">Privacy</a>\n' +
     '          <a href="/terms/">Terms</a>\n' +
     '          <a href="/affiliate-disclosure/">Affiliates</a>\n' +
@@ -133,7 +133,7 @@ window.YPB_AHREFS_KEY = window.YPB_AHREFS_KEY || "wY6hk1lMVpXnaKH97NnNgg"; // Ah
     s.textContent = JSON.stringify({
       "@context": "https://schema.org",
       "@type": "Organization",
-      "name": "PetPlanWise.com",
+      "name": "PetPlanWise",
       "url": "https://petplanwise.com/",
       "logo": "https://petplanwise.com/assets/og-image.png",
       "sameAs": [],
